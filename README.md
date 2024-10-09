@@ -350,7 +350,7 @@ taotao-cloud-project -- 父项目
 +--- Project ':taotao-boot-starter-common'
 +--- Project ':taotao-boot-starter-core'
 +--- Project ':taotao-boot-starter-data'
-+--- Project ':taotao-boot-starter-ddd'
++--- Project ':taotao-boot-starter-order'
 +--- Project ':taotao-boot-starter-dingtalk'
 +--- Project ':taotao-boot-starter-dubbo'
 +--- Project ':taotao-boot-starter-eventbus'

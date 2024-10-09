@@ -1,7 +1,7 @@
 # aliyun serverless 配置
 
 edition: 2024.11
-name: taotao-cloud-ddd
+name: taotao-cloud-order
 access: default
 vars:
   region: cn-hangzhou
@@ -9,20 +9,20 @@ vars:
 
 # Define the Serverless-Devs services. Each service is a FC function.
 services:
-  taotao-cloud-ddd:
+  taotao-cloud-order:
     component: devsapp/fc
     props:
       region: ${vars.region}
       # Define the AlibabaCloud FunctionCompute Service.
       service:
-        name: taotao-cloud-ddd
+        name: taotao-cloud-order
         internetAccess: true
         # Let the serverless-devs create a shared logstore automatically.
         # All FC services share the same logstore.
         logConfig: auto
       # Define the AlibabaCloud FunctionCompute Function.
       function:
-        name: taotao-cloud-ddd
+        name: taotao-cloud-order
         description: The mall project based on SpringBoot+MyBatis.
         caPort: 8080
         memorySize: 3072

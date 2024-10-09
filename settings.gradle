@@ -88,7 +88,7 @@ develocity {
 }
 
 
-rootProject.name = 'taotao-cloud-ddd'
+rootProject.name = 'taotao-cloud-order'
 
 dependencyResolutionManagement {
     //repositories {
@@ -106,14 +106,14 @@ dependencyResolutionManagement {
     }
 }
 
-include "taotao-cloud-ddd-api"
-include "taotao-cloud-ddd-application"
-include "taotao-cloud-ddd-assembly"
-include "taotao-cloud-ddd-common"
-include "taotao-cloud-ddd-domain"
-include "taotao-cloud-ddd-facade"
-include "taotao-cloud-ddd-infrastructure"
-include "taotao-cloud-ddd-integration"
+include "taotao-cloud-order-api"
+include "taotao-cloud-order-application"
+include "taotao-cloud-order-assembly"
+include "taotao-cloud-order-common"
+include "taotao-cloud-order-domain"
+include "taotao-cloud-order-facade"
+include "taotao-cloud-order-infrastructure"
+include "taotao-cloud-order-integration"
 
 
 gradle.settingsEvaluated {
