@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.ddd;
+package com.taotao.cloud.order;
 
 import com.taotao.boot.core.startup.StartupSpringApplication;
 import com.taotao.boot.web.annotation.TaoTaoBootApplication;
@@ -67,7 +67,6 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 public class TaoTaoCloudOrderApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("arthas.outputPath", "${user.home}/logs/taotao-cloud-order/arthas-output");
 
 		new StartupSpringApplication(TaoTaoCloudOrderApplication.class)
 			.setTtcBanner()

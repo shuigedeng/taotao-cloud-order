@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.ddd;
+package com.taotao.cloud.order;
 
+import com.taotao.boot.common.constant.CommonConstant;
+import com.taotao.boot.common.utils.common.PropertyUtils;
 import com.taotao.boot.test.TtcBootTestBase;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public abstract class TaoTaoCloudDDDApplicationTestBase extends TtcBootTestBase {
+public abstract class TaoTaoCloudOrderApplicationTestBase extends TtcBootTestBase {
 
 	static {
 		System.setProperty("spring.banner.location", "ttc-banner.txt");
-		System.setProperty("spring.profiles.active", "dev");
 		System.setProperty("spring.output.ansi.enabled", "ALWAYS");
-		System.setProperty("arthas.outputPath", "${user.home}/logs/taotao-cloud-order/arthas-output");
+
+		System.setProperty(CommonConstant.ACTIVE_PROFILES_PROPERTY, "dev");
+		PropertyUtils.setDefaultProperty("taotao-cloud-order");
 	}
 }

@@ -5,10 +5,9 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.taotao.boot.data.datasource.dynamic.spring.TestService;
 import com.taotao.boot.test.junitperf.core.annotation.TtcTest;
 import com.taotao.boot.test.junitperf.core.report.impl.HtmlReporter;
-import com.taotao.cloud.order.TaoTaoCloudDDDApplicationTestBase;
+import com.taotao.cloud.order.TaoTaoCloudOrderApplicationTestBase;
 import com.taotao.cloud.order.application.service.DeptsService;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,9 +16,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-public class TestApp extends TaoTaoCloudDDDApplicationTestBase {
+public class TestApp extends TaoTaoCloudOrderApplicationTestBase {
 
 	@Autowired
 	private DeptsService deptsService;
