@@ -2,7 +2,7 @@ package com.taotao.cloud.order.biz;
 
 import com.taotao.boot.oss.common.model.OssInfo;
 import com.taotao.boot.oss.common.service.StandardOssClient;
-import com.taotao.cloud.order.TaoTaoCloudDDDApplication;
+import com.taotao.cloud.order.TaoTaoCloudOrderApplication;
 import java.time.LocalDateTime;
 import org.dromara.hutool.core.io.file.FileUtil;
 import org.junit.jupiter.api.Test;
@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
-@SpringBootTest(classes = TaoTaoCloudDDDApplication.class, properties = "spring.main.allow-bean-definition-overriding=true")
+@SpringBootTest(classes = TaoTaoCloudOrderApplication.class, properties = "spring.main.allow-bean-definition-overriding=true")
 @ActiveProfiles("test")
 @TestPropertySource({"classpath:application-test.yml"})
 public class TaoTaoBootDemoApplicationTests {

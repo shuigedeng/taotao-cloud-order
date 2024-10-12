@@ -1,6 +1,6 @@
 package com.taotao.cloud.order.biz;
 
-import com.taotao.cloud.order.TaoTaoCloudDDDApplication;
+import com.taotao.cloud.order.TaoTaoCloudOrderApplication;
 import com.taotao.cloud.order.application.service.DeptsService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 //@ActiveProfiles("test")
 //@TestPropertySource({"classpath:application-test.yml"})
-@SpringBootTest(classes = TaoTaoCloudDDDApplication.class)
+@SpringBootTest(classes = TaoTaoCloudOrderApplication.class)
 public class SpringDemoMockBeanTest {
     @MockBean
 	DeptsService mockBeanService;

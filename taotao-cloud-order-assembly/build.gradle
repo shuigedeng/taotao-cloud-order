@@ -21,7 +21,7 @@ dependencies {
     implementation project(":taotao-cloud-order-infrastructure")
     implementation project(":taotao-cloud-order-common")
 
-    developmentOnly "org.springframework.boot:spring-boot-devtools"
+//    developmentOnly "org.springframework.boot:spring-boot-devtools"
 //    developmentOnly "org.springframework.boot:spring-boot-docker-compose"
 
 //    testImplementation 'org.springframework.boot:spring-boot-starter-test'
