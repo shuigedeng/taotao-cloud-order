@@ -58,10 +58,10 @@ dependencies {
     api project(":taotao-cloud-order-integration")
     api project(":taotao-cloud-order-common")
 
-    api "io.github.shuigedeng:taotao-cloud-starter-seata"
+    api "io.github.shuigedeng:taotao-boot-starter-seata"
+    api "io.github.shuigedeng:taotao-boot-starter-sentinel"
     api "io.github.shuigedeng:taotao-cloud-starter-stream"
-    api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
-    api "io.github.shuigedeng:taotao-cloud-starter-facility-alibaba"
+    api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
 
     api "io.github.shuigedeng:taotao-boot-starter-apollo"
     api "io.github.shuigedeng:taotao-boot-starter-dubbo"
@@ -79,7 +79,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-office"
     api "io.github.shuigedeng:taotao-boot-starter-third-client"
     //api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
-   // api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
+	//api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
     api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
     api "io.github.shuigedeng:taotao-boot-starter-laytpl"
     api "io.github.shuigedeng:taotao-boot-starter-elk"
@@ -124,7 +124,7 @@ dependencies {
     //https://search.maven.org/artifact/com.github.gavlyukovskiy/datasource-proxy-spring-boot-starter
     api 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.9.2'
 
-    api 'com.github.oshi:oshi-core:6.6.4'
+    api 'com.github.oshi:oshi-core:6.6.5'
 
     api 'org.zalando:logbook-spring-boot-starter:3.9.0'
     api 'org.zalando:logbook-httpclient5:3.9.0'
