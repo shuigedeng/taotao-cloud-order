@@ -16,9 +16,6 @@
 
 package com.taotao.cloud.order.application.converter;
 
-import com.taotao.cloud.order.application.command.dict.dto.DictListQry;
-import com.taotao.cloud.order.application.command.dict.dto.clientobject.DictCO;
-import com.taotao.cloud.order.domain.dict.entity.DictEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -35,7 +32,4 @@ public interface DeptConvert {
 
     /** 实例 */
     DeptConvert INSTANCE = Mappers.getMapper(DeptConvert.class);
-
-
-
 }

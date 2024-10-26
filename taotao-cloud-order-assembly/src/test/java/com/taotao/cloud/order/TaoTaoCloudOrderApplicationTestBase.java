@@ -24,11 +24,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public abstract class TaoTaoCloudOrderApplicationTestBase extends TtcBootTestBase {
 
-	static {
-		System.setProperty("spring.banner.location", "ttc-banner.txt");
-		System.setProperty("spring.output.ansi.enabled", "ALWAYS");
+    static {
+        System.setProperty("spring.banner.location", "ttc-banner.txt");
+        System.setProperty("spring.output.ansi.enabled", "ALWAYS");
 
-		System.setProperty(CommonConstant.ACTIVE_PROFILES_PROPERTY, "dev");
-		PropertyUtils.setDefaultProperty("taotao-cloud-order");
-	}
+        System.setProperty(CommonConstant.ACTIVE_PROFILES_PROPERTY, "dev");
+        PropertyUtils.setDefaultProperty("taotao-cloud-order");
+    }
 }

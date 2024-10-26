@@ -23,17 +23,17 @@ public class GoodsVO {
 
     private String cityCode;
     private String addressDetail;
-	private Long goodsNum;
-	private String tenantId;
+    private Long goodsNum;
+    private String tenantId;
 
-	/*
-	  租户密钥
-	 */
-	private String tenantSecret;
+    /*
+     租户密钥
+    */
+    private String tenantSecret;
 
-	/** 公司名称 */
-	private String name;
+    /** 公司名称 */
+    private String name;
 
-	/** 公司类型 */
-	private Integer type;
+    /** 公司类型 */
+    private Integer type;
 }

@@ -1,8 +1,22 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.taotao.cloud.order.application.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.order.application.command.dict.dto.DictDeleteCmd;
 import com.taotao.cloud.order.application.command.dict.dto.DictGetQry;
 import com.taotao.cloud.order.application.command.dict.dto.DictInsertCmd;
@@ -29,83 +43,81 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DictsServiceImpl implements DictsService {
 
-	private final DictInsertCmdExe dictInsertCmdExe;
+    private final DictInsertCmdExe dictInsertCmdExe;
 
-	private final DictUpdateCmdExe dictUpdateCmdExe;
+    private final DictUpdateCmdExe dictUpdateCmdExe;
 
-	private final DictDeleteCmdExe dictDeleteCmdExe;
+    private final DictDeleteCmdExe dictDeleteCmdExe;
 
-	private final DictOptionListQryExe dictOptionListQryExe;
+    private final DictOptionListQryExe dictOptionListQryExe;
 
-	private final DictGetQryExe dictGetQryExe;
+    private final DictGetQryExe dictGetQryExe;
 
-	private final DictListQryExe dictListQryExe;
+    private final DictListQryExe dictListQryExe;
 
-	/**
-	 * 新增字典.
-	 *
-	 * @param cmd 新增字典参数
-	 * @return 新增结果
-	 */
-	@Override
-	public Boolean insert(DictInsertCmd cmd) {
-		return dictInsertCmdExe.execute(cmd);
-	}
+    /**
+     * 新增字典.
+     *
+     * @param cmd 新增字典参数
+     * @return 新增结果
+     */
+    @Override
+    public Boolean insert(DictInsertCmd cmd) {
+        return dictInsertCmdExe.execute(cmd);
+    }
 
-	/**
-	 * 修改字典.
-	 *
-	 * @param cmd 修改字典参数
-	 * @return 修改结果
-	 */
-	@Override
-	public Boolean update(DictUpdateCmd cmd) {
-		return dictUpdateCmdExe.execute(cmd);
-	}
+    /**
+     * 修改字典.
+     *
+     * @param cmd 修改字典参数
+     * @return 修改结果
+     */
+    @Override
+    public Boolean update(DictUpdateCmd cmd) {
+        return dictUpdateCmdExe.execute(cmd);
+    }
 
-	/**
-	 * 根据ID删除字典.
-	 *
-	 * @param cmd 根据ID删除字典参数
-	 * @return 删除字典
-	 */
-	@Override
-	public Boolean deleteById(DictDeleteCmd cmd) {
-		return dictDeleteCmdExe.execute(cmd);
-	}
+    /**
+     * 根据ID删除字典.
+     *
+     * @param cmd 根据ID删除字典参数
+     * @return 删除字典
+     */
+    @Override
+    public Boolean deleteById(DictDeleteCmd cmd) {
+        return dictDeleteCmdExe.execute(cmd);
+    }
 
-	/**
-	 * 根据ID查看字典.
-	 *
-	 * @param qry 根据ID查看字典参数
-	 * @return 字典
-	 */
-	@Override
-	public DictCO getById(DictGetQry qry) {
-		return dictGetQryExe.execute(qry);
-	}
+    /**
+     * 根据ID查看字典.
+     *
+     * @param qry 根据ID查看字典参数
+     * @return 字典
+     */
+    @Override
+    public DictCO getById(DictGetQry qry) {
+        return dictGetQryExe.execute(qry);
+    }
 
-	/**
-	 * 查询字典下拉框选择项列表.
-	 *
-	 * @param qry 查询字典下拉框选择项列表参数
-	 * @return 字典下拉框选择项列表
-	 */
-	@Override
-	public List<OptionCO> optionList(DictOptionListQry qry) {
-		return dictOptionListQryExe.execute(qry);
-	}
+    /**
+     * 查询字典下拉框选择项列表.
+     *
+     * @param qry 查询字典下拉框选择项列表参数
+     * @return 字典下拉框选择项列表
+     */
+    @Override
+    public List<OptionCO> optionList(DictOptionListQry qry) {
+        return dictOptionListQryExe.execute(qry);
+    }
 
-	/**
-	 * 查询字典列表.
-	 *
-	 * @param qry 查询字典列表参数
-	 * @return 字典列表
-	 */
-	@Override
-	public IPage<DictCO> list(DictListQry qry) {
-		return dictListQryExe.execute(qry);
-	}
-
-
+    /**
+     * 查询字典列表.
+     *
+     * @param qry 查询字典列表参数
+     * @return 字典列表
+     */
+    @Override
+    public IPage<DictCO> list(DictListQry qry) {
+        return dictListQryExe.execute(qry);
+    }
 }

@@ -22,7 +22,6 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 import com.taotao.boot.common.support.info.Caller;
 import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.GrpcInfo;
-import com.taotao.boot.common.support.info.RpcInfo;
 import com.taotao.boot.common.support.info.Update;
 import com.taotao.cloud.order.api.grpc.DictGrpcRequest;
 import com.taotao.cloud.order.api.grpc.DictGrpcResponse;
@@ -36,34 +35,32 @@ import net.devh.boot.grpc.server.service.GrpcService;
 @GrpcService
 public class DictGrpcServiceImpl extends DictGrpcServiceImplBase {
 
-	// @Autowired
-	// private IDevicesFixService deviceService;
+    // @Autowired
+    // private IDevicesFixService deviceService;
 
-	@GrpcInfo(
-		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
-		update = {
-			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
-			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-08 15:12:55")
-		},
-		caller = {
-			@Caller(contacts = "张三", desc = "支付系统", sys = "支付系统", use = "调用字典查询获取详情"),
-			@Caller(contacts = "李四", desc = "后台管理-字典管理-添加页面", sys = "后台管理", use = "查询字典")
-		})
-	@Override
-	public void findByCode(DictGrpcRequest request,
-		StreamObserver<DictGrpcResponse> responseObserver) {
-		//super.findByCode(request, responseObserver);
+    @GrpcInfo(
+            create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
+            update = {
+                @Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
+                @Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-08 15:12:55")
+            },
+            caller = {
+                @Caller(contacts = "张三", desc = "支付系统", sys = "支付系统", use = "调用字典查询获取详情"),
+                @Caller(contacts = "李四", desc = "后台管理-字典管理-添加页面", sys = "后台管理", use = "查询字典")
+            })
+    @Override
+    public void findByCode(DictGrpcRequest request, StreamObserver<DictGrpcResponse> responseObserver) {
+        // super.findByCode(request, responseObserver);
 
-		log.info("findByCode:{}", request.toString());
-		boolean replyTag = false;
-		DictGrpcResponse reply = DictGrpcResponse.newBuilder().setId(1).build();
-		responseObserver.onNext(reply);
-		responseObserver.onCompleted();
-	}
+        log.info("findByCode:{}", request.toString());
+        boolean replyTag = false;
+        DictGrpcResponse reply = DictGrpcResponse.newBuilder().setId(1).build();
+        responseObserver.onNext(reply);
+        responseObserver.onCompleted();
+    }
 
-	@Override
-	public void test(DictTestGrpcRequest request,
-		StreamObserver<DictGrpcResponse> responseObserver) {
-		super.test(request, responseObserver);
-	}
+    @Override
+    public void test(DictTestGrpcRequest request, StreamObserver<DictGrpcResponse> responseObserver) {
+        super.test(request, responseObserver);
+    }
 }

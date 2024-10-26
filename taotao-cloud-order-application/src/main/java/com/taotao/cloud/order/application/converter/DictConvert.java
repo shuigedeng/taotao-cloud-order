@@ -31,17 +31,18 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.04
  * @since 2022-04-28 13:39:18
  */
-@Mapper(componentModel = "spring", unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(
+        componentModel = "spring",
+        unmappedSourcePolicy = ReportingPolicy.IGNORE,
+        unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DictConvert {
 
     /** 实例 */
     DictConvert INSTANCE = Mappers.getMapper(DictConvert.class);
 
-	DictEntity convert(DictListQry dict);
+    DictEntity convert(DictListQry dict);
 
-	DictCO convert(DictEntity dictEntity);
+    DictCO convert(DictEntity dictEntity);
 
-	DictCO convert(DictPO dictEntity);
-
-
+    DictCO convert(DictPO dictEntity);
 }

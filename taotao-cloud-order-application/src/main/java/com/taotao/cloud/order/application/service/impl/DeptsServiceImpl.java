@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package com.taotao.cloud.order.application.service.impl;
 
@@ -26,80 +41,78 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DeptsServiceImpl implements DeptsService {
 
+    private final DeptListQryExe deptListQryExe;
 
-	private final DeptListQryExe deptListQryExe;
+    private final DeptCreateCmdExe deptCreateCmdExe;
 
-	private final DeptCreateCmdExe deptCreateCmdExe;
+    private final DeptModifyCmdExe deptModifyCmdExe;
 
-	private final DeptModifyCmdExe deptModifyCmdExe;
+    private final DeptRemoveCmdExe deptRemoveCmdExe;
 
-	private final DeptRemoveCmdExe deptRemoveCmdExe;
+    private final DeptGetQryExe deptGetQryExe;
 
-	private final DeptGetQryExe deptGetQryExe;
+    private final DeptIdsGetQryExe deptIDSGetQryExe;
 
-	private final DeptIdsGetQryExe deptIDSGetQryExe;
+    /**
+     * 查询部门列表.
+     *
+     * @param qry 查询部门列表参数
+     * @return 部门列表
+     */
+    @Override
+    public List<DeptCO> findList(DeptListQry qry) {
+        return deptListQryExe.execute(qry);
+    }
 
-	/**
-	 * 查询部门列表.
-	 *
-	 * @param qry 查询部门列表参数
-	 * @return 部门列表
-	 */
-	@Override
-	public List<DeptCO> findList(DeptListQry qry) {
-		return deptListQryExe.execute(qry);
-	}
+    /**
+     * 新增部门.
+     *
+     * @param cmd 新增部门参数
+     */
+    @Override
+    public void create(DeptCreateCmd cmd) {
+        deptCreateCmdExe.executeVoid(cmd);
+    }
 
-	/**
-	 * 新增部门.
-	 *
-	 * @param cmd 新增部门参数
-	 */
-	@Override
-	public void create(DeptCreateCmd cmd) {
-		deptCreateCmdExe.executeVoid(cmd);
-	}
+    /**
+     * 修改部门.
+     *
+     * @param cmd 修改部门参数
+     */
+    @Override
+    public void modify(DeptModifyCmd cmd) {
+        deptModifyCmdExe.executeVoid(cmd);
+    }
 
-	/**
-	 * 修改部门.
-	 *
-	 * @param cmd 修改部门参数
-	 */
-	@Override
-	public void modify(DeptModifyCmd cmd) {
-		deptModifyCmdExe.executeVoid(cmd);
-	}
+    /**
+     * 根据ID删除部门.
+     *
+     * @param cmd 根据ID删除部门参数
+     */
+    @Override
+    public void remove(DeptRemoveCmd cmd) {
+        deptRemoveCmdExe.executeVoid(cmd);
+    }
 
-	/**
-	 * 根据ID删除部门.
-	 *
-	 * @param cmd 根据ID删除部门参数
-	 */
-	@Override
-	public void remove(DeptRemoveCmd cmd) {
-		deptRemoveCmdExe.executeVoid(cmd);
-	}
+    /**
+     * 根据ID查看部门.
+     *
+     * @param qry 根据ID查看部门参数
+     * @return 部门
+     */
+    @Override
+    public DeptCO findById(DeptGetQry qry) {
+        return deptGetQryExe.execute(qry);
+    }
 
-	/**
-	 * 根据ID查看部门.
-	 *
-	 * @param qry 根据ID查看部门参数
-	 * @return 部门
-	 */
-	@Override
-	public DeptCO findById(DeptGetQry qry) {
-		return deptGetQryExe.execute(qry);
-	}
-
-	/**
-	 * 根据角色ID查看部门IDS.
-	 *
-	 * @param qry 根据角色ID查看部门IDS参数
-	 * @return 部门IDS
-	 */
-	@Override
-	public List<Long> findIds(DeptIdsGetQry qry) {
-		return deptIDSGetQryExe.execute(qry);
-	}
-
+    /**
+     * 根据角色ID查看部门IDS.
+     *
+     * @param qry 根据角色ID查看部门IDS参数
+     * @return 部门IDS
+     */
+    @Override
+    public List<Long> findIds(DeptIdsGetQry qry) {
+        return deptIDSGetQryExe.execute(qry);
+    }
 }

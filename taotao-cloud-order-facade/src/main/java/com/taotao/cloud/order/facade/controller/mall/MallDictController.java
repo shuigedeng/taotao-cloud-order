@@ -32,6 +32,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/sys/mall/dict")
 @Tag(name = "移动端-字典API", description = "移动端-字典API")
-public class MallDictController {
-
-}
+public class MallDictController {}
