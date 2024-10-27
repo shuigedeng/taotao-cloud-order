@@ -33,6 +33,9 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+mainClassName = "com.taotao.cloud.order.TaoTaoCloudOrderApplication"
+description = "order中心"
+archivesBaseName = 'taotao-cloud-order'
 
 def getProperty(String key, String defaultValue) {
     def keyValue = findProperty(key) ?: System.getenv(key)
