@@ -1,6 +1,6 @@
 # aliyun serverless 配置
 
-edition: 2024.11
+edition: 2024.12
 name: taotao-cloud-order
 access: default
 vars:
