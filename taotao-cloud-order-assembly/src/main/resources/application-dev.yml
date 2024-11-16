@@ -809,7 +809,7 @@ spring:
   rabbitmq:
     host: 192.168.218.2
     port: 5672
-    #注意：guest用户只能链接本地服务器 比如localhost  不可以连接远程服务器
+    #注意：guest用户只能链接本地服务器 比如192.168.218.2  不可以连接远程服务器
     username: root
     password: 123456
     #虚拟主机 一台机器可能有很多虚拟主机 这里选择默认配置 / 即可 # 虚拟host 可以不设置  需要再server端搭建自己的虚拟host
@@ -1431,7 +1431,7 @@ management:
     tracing:
       connect-timeout: 1
       read-timeout: 10
-      endpoint: http://localhost:9411/api/v2/spans
+      endpoint: http://192.168.218.2:9411/api/v2/spans
   tracing:
     enabled: true
     sampling:
@@ -1659,7 +1659,7 @@ knife4j:
     enableSwaggerModels: true
     enableDocumentManage: true
     enableHost: false
-    enableHostText: http://localhost:18568
+    enableHostText: http://192.168.218.2:18568
     enableRequestCache: true
     enableFilterMultipartApis: false
     enableFilterMultipartApiMethodType: POST
