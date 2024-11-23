@@ -21,13 +21,13 @@ dependencies {
     implementation project(":taotao-cloud-order-infrastructure")
     implementation project(":taotao-cloud-order-common")
 
-//    developmentOnly "org.springframework.boot:spring-boot-devtools"
-//    developmentOnly "org.springframework.boot:spring-boot-docker-compose"
+    //developmentOnly "org.springframework.boot:spring-boot-devtools"
+    //developmentOnly "org.springframework.boot:spring-boot-docker-compose"
 
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
-//    testImplementation 'org.testcontainers:junit-jupiter'
-//    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    //testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    //testImplementation 'org.testcontainers:junit-jupiter'
+    //testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     testImplementation "io.github.shuigedeng:taotao-boot-starter-test"
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -132,7 +132,7 @@ configurations {
             //force 'org.antlr:antlr4:4.13.2'
             //force 'net.minidev:json-smart:2.5.1'
             //todo 临时使用
-            force "io.opentelemetry:opentelemetry-api-incubator:1.40.0-alpha"
+            force "io.opentelemetry:opentelemetry-api-incubator:1.44.1-alpha"
             force "com.google.protobuf:protobuf-java:3.25.1"
             force "com.google.protobuf:protobuf-java-util:3.25.1"
         }
