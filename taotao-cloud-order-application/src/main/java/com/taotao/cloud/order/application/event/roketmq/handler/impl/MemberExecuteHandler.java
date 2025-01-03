@@ -16,18 +16,18 @@
 
 package com.taotao.cloud.order.application.event.roketmq.handler.impl;
 
-import com.taotao.cloud.order.application.event.roketmq.handler.MemberLoginEventHandler;
+import com.taotao.cloud.sys.application.event.roketmq.handler.MemberLoginEventHandler;
 import org.springframework.stereotype.Service;
 
 /** 会员自身业务 */
 @Service
 public class MemberExecuteHandler implements MemberLoginEventHandler {
 
-    //    @Autowired
-    //    private IMemberService memberService;
-    //
-    //    @Override
-    //    public void memberLogin(Member member) {
-    //        memberService.updateMemberLoginTime(member.getId());
-    //    }
+//    @Autowired
+//    private IMemberService memberService;
+//
+//    @Override
+//    public void memberLogin(Member member) {
+//        memberService.updateMemberLoginTime(member.getId());
+//    }
 }

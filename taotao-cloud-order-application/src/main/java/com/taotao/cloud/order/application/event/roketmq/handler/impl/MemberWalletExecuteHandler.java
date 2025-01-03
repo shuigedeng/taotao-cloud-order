@@ -16,19 +16,19 @@
 
 package com.taotao.cloud.order.application.event.roketmq.handler.impl;
 
-import com.taotao.cloud.order.application.event.roketmq.handler.MemberRegisterEventHandler;
+import com.taotao.cloud.sys.application.event.roketmq.handler.MemberRegisterEventHandler;
 import org.springframework.stereotype.Service;
 
 /** 会员钱包创建 */
 @Service
 public class MemberWalletExecuteHandler implements MemberRegisterEventHandler {
 
-    //    @Autowired
-    //    private IFeignMemberWalletApi memberWalletApi;
-    //
-    //    @Override
-    //    public void memberRegister(Member member) {
-    //        // 有些情况下，会同时创建一个member_id的两条数据
-    //        memberWalletApi.save(member.getId(), member.getUsername());
-    //    }
+//    @Autowired
+//    private IFeignMemberWalletApi memberWalletApi;
+//
+//    @Override
+//    public void memberRegister(Member member) {
+//        // 有些情况下，会同时创建一个member_id的两条数据
+//        memberWalletApi.save(member.getId(), member.getUsername());
+//    }
 }
