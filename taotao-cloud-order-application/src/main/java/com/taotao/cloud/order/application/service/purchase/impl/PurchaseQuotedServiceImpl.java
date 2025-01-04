@@ -20,9 +20,9 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.cloud.order.application.service.purchase.IPurchaseQuotedItemService;
-import com.taotao.cloud.order.application.service.purchase.IPurchaseQuotedService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseQuotedMapper;
+import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedItemService;
+import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.PurchaseQuotedMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +37,11 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2022-04-28 08:55:44
  */
 @Service
-public class PurchaseQuotedServiceImpl extends ServiceImpl<IPurchaseQuotedMapper, PurchaseQuotedPO>
-	implements IPurchaseQuotedService {
+public class PurchaseQuotedServiceImpl extends ServiceImpl<PurchaseQuotedMapper, PurchaseQuotedPO>
+	implements PurchaseQuotedService {
 
 	@Autowired
-	private IPurchaseQuotedItemService purchaseQuotedItemService;
+	private PurchaseQuotedItemService purchaseQuotedItemService;
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)

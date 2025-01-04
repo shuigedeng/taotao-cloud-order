@@ -17,8 +17,8 @@
 package com.taotao.cloud.order.application.service.purchase.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.application.service.purchase.IPurchaseOrderItemService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseOrderItemMapper;
+import com.taotao.cloud.order.application.service.purchase.PurchaseOrderItemService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.PurchaseOrderItemMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderItemPO;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -33,8 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class PurchaseOrderItemServiceImpl extends
-	ServiceImpl<IPurchaseOrderItemMapper, PurchaseOrderItemPO>
-	implements IPurchaseOrderItemService {
+	ServiceImpl<PurchaseOrderItemMapper, PurchaseOrderItemPO>
+	implements PurchaseOrderItemService {
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.application.converter;
 
-import com.taotao.cloud.order.application.command.aftersale.dto.AfterSaleReasonUpdateCmd;
-import com.taotao.cloud.order.application.command.aftersale.dto.clientobject.AfterSaleReasonCO;
+import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleReasonUpdateCmd;
+import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleReasonCO;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import java.util.List;
 import org.mapstruct.Mapper;

@@ -21,8 +21,8 @@ import com.taotao.boot.cache.redis.repository.RedisRepository;
 import com.taotao.boot.common.enums.PromotionTypeEnum;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.command.cart.dto.clientobject.CartSkuCO;
-import com.taotao.cloud.order.application.service.cart.ICartService;
+import com.taotao.cloud.order.application.dto.cart.clientobject.CartSkuCO;
+import com.taotao.cloud.order.application.service.cart.CartService;
 import com.taotao.boot.security.spring.model.SecurityUser;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
@@ -48,7 +48,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-public class CartServiceImpl implements ICartService {
+public class CartServiceImpl implements CartService {
 
     static String errorMessage = "购物车异常，请稍后重试";
 

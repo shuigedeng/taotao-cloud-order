@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.task;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.cloud.order.application.service.order.IOrderService;
+import com.taotao.cloud.order.application.service.order.OrderService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -34,7 +34,7 @@ public class CancelOrderTaskExecute implements EveryMinuteExecute {
 
     /** 订单 */
     @Autowired
-    private IOrderService orderService;
+    private OrderService orderService;
     /** 设置 */
     @Autowired
     private IFeignSettingApi settingApi;

@@ -21,7 +21,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.IAfterSaleReasonMapper;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.AfterSaleReasonMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -38,7 +38,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class AfterSaleReasonServiceImpl extends ServiceImpl<IAfterSaleReasonMapper, AfterSaleReasonPO>
+public class AfterSaleReasonServiceImpl extends ServiceImpl<AfterSaleReasonMapper, AfterSaleReasonPO>
         implements IAfterSaleReasonService {
 
     @Override

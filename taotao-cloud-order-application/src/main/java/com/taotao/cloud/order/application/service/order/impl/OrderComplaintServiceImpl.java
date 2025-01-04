@@ -24,10 +24,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintService;
-import com.taotao.cloud.order.application.service.order.IOrderItemService;
-import com.taotao.cloud.order.application.service.order.IOrderService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IOrderComplaintMapper;
+import com.taotao.cloud.order.application.service.order.OrderComplaintService;
+import com.taotao.cloud.order.application.service.order.OrderItemService;
+import com.taotao.cloud.order.application.service.order.OrderService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderComplaintMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.web.utils.OperationalJudgment;
@@ -46,13 +46,13 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class OrderComplaintServiceImpl extends ServiceImpl<IOrderComplaintMapper, OrderComplaintPO>
-        implements IOrderComplaintService {
+public class OrderComplaintServiceImpl extends ServiceImpl<OrderComplaintMapper, OrderComplaintPO>
+        implements OrderComplaintService {
 
     /** 订单 */
-    private final IOrderService orderService;
+    private final OrderService orderService;
     /** 订单货物 */
-    private final IOrderItemService orderItemService;
+    private final OrderItemService orderItemService;
     /** 商品规格 */
     private final IFeignGoodsSkuApi goodsSkuApi;
     /** 交易投诉沟通 */

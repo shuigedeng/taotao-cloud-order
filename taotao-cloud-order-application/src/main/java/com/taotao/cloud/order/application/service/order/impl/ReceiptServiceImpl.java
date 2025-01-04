@@ -22,8 +22,8 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.service.order.IReceiptService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IReceiptMapper;
+import com.taotao.cloud.order.application.service.order.ReceiptService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.order.ReceiptMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -37,8 +37,8 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class ReceiptServiceImpl extends ServiceImpl<IReceiptMapper, ReceiptPO> implements
-	IReceiptService {
+public class ReceiptServiceImpl extends ServiceImpl<ReceiptMapper, ReceiptPO> implements
+    ReceiptService {
 
     @Override
     public IPage<OrderReceiptDTO> pageQuery(ReceiptPageQuery receiptPageQuery) {

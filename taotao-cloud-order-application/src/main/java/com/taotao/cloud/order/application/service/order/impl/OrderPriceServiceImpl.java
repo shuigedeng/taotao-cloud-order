@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.service.order.impl;
 
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.service.order.IOrderPriceService;
+import com.taotao.cloud.order.application.service.order.OrderPriceService;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.common.utils.number.CurrencyUtils;
 import java.math.BigDecimal;
@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class OrderPriceServiceImpl implements IOrderPriceService {
+public class OrderPriceServiceImpl implements OrderPriceService {
 
     /** 线下收款 */
     private final BankTransferPlugin bankTransferPlugin;

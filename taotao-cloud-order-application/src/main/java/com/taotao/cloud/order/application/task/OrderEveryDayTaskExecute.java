@@ -21,10 +21,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.service.order.IOrderItemService;
-import com.taotao.cloud.order.application.service.order.IOrderService;
+import com.taotao.cloud.order.application.service.order.OrderItemService;
+import com.taotao.cloud.order.application.service.order.OrderService;
 import java.util.List;
-import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,10 +40,10 @@ public class OrderEveryDayTaskExecute implements EveryDayExecute {
 
     /** 订单 */
     @Autowired
-    private IOrderService orderService;
+    private OrderService orderService;
     /** 订单货物 */
     @Autowired
-    private IOrderItemService orderItemService;
+    private OrderItemService orderItemService;
     /** 设置 */
     @Autowired
     private IFeignSettingApi settingApi;

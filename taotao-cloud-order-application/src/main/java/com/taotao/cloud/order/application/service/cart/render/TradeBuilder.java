@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.cart.render;
 
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.cloud.order.application.service.order.ITradeService;
+import com.taotao.cloud.order.application.service.order.TradeService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class TradeBuilder {
     private List<ICartRenderStep> cartRenderSteps;
     /** 交易 */
     @Autowired
-    private ITradeService tradeService;
+    private TradeService tradeService;
     /** 购物车业务 */
     @Autowired
     private ICartService cartService;

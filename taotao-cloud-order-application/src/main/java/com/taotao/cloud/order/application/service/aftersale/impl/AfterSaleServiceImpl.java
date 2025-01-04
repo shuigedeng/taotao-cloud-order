@@ -24,14 +24,14 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.command.aftersale.dto.clientobject.AfterSaleApplyCO;
-import com.taotao.cloud.order.application.command.aftersale.dto.AfterSaleAddCmd;
-import com.taotao.cloud.order.application.command.aftersale.dto.AfterSalePageQry;
+import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleApplyCO;
+import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleAddCmd;
+import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQry;
 import com.taotao.cloud.order.application.config.aop.aftersale.AfterSaleLogPoint;
-import com.taotao.cloud.order.application.service.aftersale.IAfterSaleService;
-import com.taotao.cloud.order.application.service.order.IOrderItemService;
-import com.taotao.cloud.order.application.service.order.IOrderService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.IAfterSaleMapper;
+import com.taotao.cloud.order.application.service.aftersale.AfterSaleService;
+import com.taotao.cloud.order.application.service.order.OrderItemService;
+import com.taotao.cloud.order.application.service.order.OrderService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.AfterSaleMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import com.taotao.boot.security.spring.model.SecurityUser;
 import com.taotao.boot.common.utils.bean.BeanUtils;
@@ -64,18 +64,18 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class AfterSaleServiceImpl extends ServiceImpl<IAfterSaleMapper, AfterSalePO> implements
-	IAfterSaleService {
+public class AfterSaleServiceImpl extends ServiceImpl<AfterSaleMapper, AfterSalePO> implements
+	AfterSaleService {
 	private final AfterSaleManager afterSaleManager;
 
 	/**
 	 * 订单
 	 */
-	private final IOrderService orderService;
+	private final OrderService orderService;
 	/**
 	 * 订单货物
 	 */
-	private final IOrderItemService orderItemService;
+	private final OrderItemService orderItemService;
 	/**
 	 * 物流公司
 	 */

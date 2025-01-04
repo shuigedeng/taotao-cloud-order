@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.application.converter;
 
-import com.taotao.cloud.order.application.command.dict.dto.DictListQry;
-import com.taotao.cloud.order.application.command.dict.dto.clientobject.DictCO;
+import com.taotao.cloud.order.application.dto.dict.dto.DictListQry;
+import com.taotao.cloud.order.application.dto.dict.dto.clientobject.DictCO;
 import com.taotao.cloud.order.domain.dict.entity.DictEntity;
 import com.taotao.cloud.order.infrastructure.persistent.dict.po.DictPO;
 import org.mapstruct.Mapper;

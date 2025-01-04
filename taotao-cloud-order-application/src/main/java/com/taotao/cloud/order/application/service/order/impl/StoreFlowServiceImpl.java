@@ -26,10 +26,10 @@ import com.taotao.boot.common.utils.common.IdGeneratorUtils;
 import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.common.utils.number.CurrencyUtils;
-import com.taotao.cloud.order.application.service.order.IOrderItemService;
-import com.taotao.cloud.order.application.service.order.IOrderService;
-import com.taotao.cloud.order.application.service.order.IStoreFlowService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IStoreFlowMapper;
+import com.taotao.cloud.order.application.service.order.OrderItemService;
+import com.taotao.cloud.order.application.service.order.OrderService;
+import com.taotao.cloud.order.application.service.order.StoreFlowService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.order.StoreFlowMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -46,13 +46,13 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class StoreFlowServiceImpl extends ServiceImpl<IStoreFlowMapper, StoreFlowPO> implements
-	IStoreFlowService {
+public class StoreFlowServiceImpl extends ServiceImpl<StoreFlowMapper, StoreFlowPO> implements
+	StoreFlowService {
 
     /** 订单 */
-    private final IOrderService orderService;
+    private final OrderService orderService;
     /** 订单货物 */
-    private final IOrderItemService orderItemService;
+    private final OrderItemService orderItemService;
     /** 退款日志 */
     private final IFeignRefundLogApi feignRefundLogApi;
 

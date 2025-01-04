@@ -40,24 +40,24 @@ import com.taotao.cloud.stream.framework.trigger.model.TimeExecuteConstant;
 import com.taotao.cloud.stream.framework.trigger.model.TimeTriggerMsg;
 import com.taotao.cloud.stream.framework.trigger.util.DelayQueueTools;
 import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import com.taotao.cloud.order.application.command.cart.dto.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.command.cart.dto.TradeAddCmd.MemberAddressDTO;
-import com.taotao.cloud.order.application.command.order.dto.OrderBatchDeliverAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderDetailCO;
-import com.taotao.cloud.order.application.command.order.dto.OrderPageQry;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderSimpleCO;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderCO;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.PaymentLogCO;
+import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
+import com.taotao.cloud.order.application.dto.cart.cmmond.TradeAddCmd.MemberAddressDTO;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderBatchDeliverAddCmd;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
+import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderCO;
+import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
 import com.taotao.cloud.order.application.config.aop.order.OrderLogPoint;
-import com.taotao.cloud.order.application.service.order.IOrderItemService;
-import com.taotao.cloud.order.application.service.order.IOrderService;
-import com.taotao.cloud.order.application.service.order.IReceiptService;
-import com.taotao.cloud.order.application.service.order.IStoreFlowService;
-import com.taotao.cloud.order.application.service.order.ITradeService;
+import com.taotao.cloud.order.application.service.order.OrderItemService;
+import com.taotao.cloud.order.application.service.order.OrderService;
+import com.taotao.cloud.order.application.service.order.ReceiptService;
+import com.taotao.cloud.order.application.service.order.StoreFlowService;
+import com.taotao.cloud.order.application.service.order.TradeService;
 import com.taotao.cloud.order.application.service.order.check.CheckService;
 import com.taotao.cloud.order.application.service.order.check.ProductVO;
-import com.taotao.cloud.order.application.service.trade.IOrderLogService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IOrderMapper;
+import com.taotao.cloud.order.application.service.trade.OrderLogService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderPO;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
@@ -92,7 +92,7 @@ import zipkin2.storage.Traces;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class OrderServiceImpl extends ServiceImpl<IOrderMapper, OrderPO> implements IOrderService {
+public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderPO> implements OrderService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
 
@@ -103,11 +103,11 @@ public class OrderServiceImpl extends ServiceImpl<IOrderMapper, OrderPO> impleme
 	/**
 	 * 发票
 	 */
-	private final IReceiptService receiptService;
+	private final ReceiptService receiptService;
 	/**
 	 * 订单货物 订单货物数据层
 	 */
-	private final IOrderItemService orderItemService;
+	private final OrderItemService orderItemService;
 	/**
 	 * 物流公司
 	 */
@@ -115,7 +115,7 @@ public class OrderServiceImpl extends ServiceImpl<IOrderMapper, OrderPO> impleme
 	/**
 	 * 订单日志
 	 */
-	private final IOrderLogService orderLogService;
+	private final OrderLogService orderLogService;
 	/**
 	 * RocketMQ
 	 */
@@ -127,7 +127,7 @@ public class OrderServiceImpl extends ServiceImpl<IOrderMapper, OrderPO> impleme
 	/**
 	 * 订单流水
 	 */
-	private final IStoreFlowService storeFlowService;
+	private final StoreFlowService storeFlowService;
 	/**
 	 * 拼团
 	 */
@@ -135,7 +135,7 @@ public class OrderServiceImpl extends ServiceImpl<IOrderMapper, OrderPO> impleme
 	/**
 	 * 交易服务
 	 */
-	private final ITradeService tradeService;
+	private final TradeService tradeService;
 
 	private final CheckService checkService;
 

@@ -19,9 +19,9 @@ package com.taotao.cloud.order.application.service.order.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintCommunicationPageQry;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintCommunicationService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IOrderComplainCommunicationMapper;
+import com.taotao.cloud.order.application.dto.order.query.OrderComplaintCommunicationPageQry;
+import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationService;
+import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderComplainCommunicationMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 import lombok.AllArgsConstructor;
 import org.dromara.hutool.core.text.StrUtil;
@@ -37,8 +37,8 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class OrderComplaintCommunicationServiceImpl
-        extends ServiceImpl<IOrderComplainCommunicationMapper, OrderComplaintCommunicationPO>
-        implements IOrderComplaintCommunicationService {
+        extends ServiceImpl<OrderComplainCommunicationMapper, OrderComplaintCommunicationPO>
+        implements OrderComplaintCommunicationService {
 
     @Override
     public Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO) {
