@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseQuotedItemService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseQuotedItemMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.purchase.PurchaseQuotedItemPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedItemPO;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.service.aftersale;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.aftersale.dto.AfterSaleReasonPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSaleReasonPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import java.util.List;
 
 /**

@@ -30,7 +30,7 @@ import com.taotao.cloud.order.application.service.order.IOrderItemService;
 import com.taotao.cloud.order.application.service.order.IOrderService;
 import com.taotao.cloud.order.application.service.order.IStoreFlowService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IStoreFlowMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.StoreFlowPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

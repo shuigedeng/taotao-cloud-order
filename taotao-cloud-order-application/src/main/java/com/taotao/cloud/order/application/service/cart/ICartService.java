@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.cart;
 
 import com.taotao.cloud.order.application.command.order.dto.clientobject.ReceiptCO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.TradePO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 
 /**
  * 购物车业务层

@@ -21,8 +21,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.distribution.dto.DistributionPageQry;
 import com.taotao.cloud.order.application.command.order.dto.StoreFlowPageQry;
 import com.taotao.cloud.order.application.command.store.dto.StorePageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSalePO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.StoreFlowPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import java.util.List;
 
 /**

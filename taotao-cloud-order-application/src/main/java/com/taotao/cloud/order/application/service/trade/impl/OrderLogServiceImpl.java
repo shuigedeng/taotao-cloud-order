@@ -23,7 +23,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.command.order.dto.OrderLogPageQry;
 import com.taotao.cloud.order.application.service.trade.IOrderLogService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.trade.IOrderLogMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderLogPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

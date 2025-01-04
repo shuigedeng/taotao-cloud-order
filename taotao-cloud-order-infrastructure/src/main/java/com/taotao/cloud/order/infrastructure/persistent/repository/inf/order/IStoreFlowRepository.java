@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.inf.order;
 
-import com.taotao.cloud.order.infrastructure.persistent.po.order.StoreFlowPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /** 商家订单流水数据处理层 */

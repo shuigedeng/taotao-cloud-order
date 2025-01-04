@@ -24,7 +24,7 @@ import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
 import com.taotao.cloud.stream.framework.rocketmq.tags.OrderTagsEnum;
 import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
 import com.taotao.cloud.order.domain.cart.valueobject.CartVO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderLogPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import com.taotao.cloud.order.infrastructure.roketmq.event.OrderStatusChangeEvent;
 import com.taotao.cloud.order.infrastructure.roketmq.event.TradeEvent;
 import java.util.ArrayList;

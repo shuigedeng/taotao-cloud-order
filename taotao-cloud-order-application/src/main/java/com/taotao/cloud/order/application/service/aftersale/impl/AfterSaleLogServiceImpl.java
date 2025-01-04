@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.service.aftersale.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.IAfterSaleLogMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSaleLogPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

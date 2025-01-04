@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.inf.order;
 
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /** 订单投诉数据处理层 */

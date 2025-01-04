@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.service.trade;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.order.dto.OrderLogPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderLogPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import java.util.List;
 
 /**

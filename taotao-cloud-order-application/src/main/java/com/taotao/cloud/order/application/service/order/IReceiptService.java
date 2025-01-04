@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.order.dto.OrderReceiptAddCmd;
 import com.taotao.cloud.order.application.command.order.dto.ReceiptPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.ReceiptPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 
 /**
  * 发票业务层

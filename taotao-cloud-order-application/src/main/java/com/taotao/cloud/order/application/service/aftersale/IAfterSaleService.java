@@ -21,7 +21,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.aftersale.dto.clientobject.AfterSaleApplyCO;
 import com.taotao.cloud.order.application.command.aftersale.dto.AfterSaleAddCmd;
 import com.taotao.cloud.order.application.command.aftersale.dto.AfterSalePageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSalePO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;

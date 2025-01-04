@@ -23,7 +23,7 @@ import com.taotao.cloud.order.application.command.order.dto.OrderComplaintOperat
 import com.taotao.cloud.order.application.command.order.dto.OrderComplaintPageQry;
 import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderComplaintCO;
 import com.taotao.cloud.order.application.command.order.dto.StoreAppealCmd;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 
 /**
  * 交易投诉业务层

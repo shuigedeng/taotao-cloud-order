@@ -22,7 +22,7 @@ import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.taotao.cloud.order.sys.model.dto.order.OrderReceiptDTO;
 import com.taotao.cloud.order.sys.model.page.order.ReceiptPageQuery;
 import com.taotao.cloud.order.sys.model.vo.order.OrderSimpleVO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.ReceiptPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

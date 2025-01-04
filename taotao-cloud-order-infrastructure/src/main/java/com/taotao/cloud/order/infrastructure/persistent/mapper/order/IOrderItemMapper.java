@@ -18,7 +18,7 @@ package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderItemPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 import com.taotao.cloud.order.sys.model.vo.order.OrderSimpleVO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 import java.util.List;

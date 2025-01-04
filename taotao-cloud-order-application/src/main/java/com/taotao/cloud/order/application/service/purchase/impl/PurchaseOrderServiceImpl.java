@@ -24,7 +24,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseOrderItemService;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseOrderService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseOrderMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.purchase.PurchaseOrderPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

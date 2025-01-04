@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderItemPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 import java.util.List;
 
 /**

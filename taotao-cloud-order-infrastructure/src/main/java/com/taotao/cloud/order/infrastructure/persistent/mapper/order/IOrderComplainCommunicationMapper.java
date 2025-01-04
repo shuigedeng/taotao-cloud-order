@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintCommunicationPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
 
 /** 交易投诉通信数据处理层 */

@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.service.order;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.command.order.dto.OrderComplaintCommunicationPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintCommunicationPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 
 /**
  * 订单投诉通信业务层

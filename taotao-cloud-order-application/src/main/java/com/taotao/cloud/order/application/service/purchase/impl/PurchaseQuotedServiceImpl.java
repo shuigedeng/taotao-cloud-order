@@ -23,7 +23,7 @@ import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseQuotedItemService;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseQuotedService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseQuotedMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.purchase.PurchaseQuotedPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

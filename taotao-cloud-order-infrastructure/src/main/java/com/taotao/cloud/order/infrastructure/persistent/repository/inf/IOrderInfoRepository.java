@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.inf;
 
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderInfoPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderInfoPO;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -25,7 +25,7 @@ import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderDe
 import com.taotao.cloud.order.application.command.order.dto.OrderPageQry;
 import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderSimpleCO;
 import com.taotao.cloud.order.application.command.order.dto.clientobject.PaymentLogCO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderPO;
 import jakarta.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.List;

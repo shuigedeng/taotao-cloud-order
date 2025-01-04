@@ -32,7 +32,7 @@ import com.taotao.cloud.order.application.service.aftersale.IAfterSaleService;
 import com.taotao.cloud.order.application.service.order.IOrderItemService;
 import com.taotao.cloud.order.application.service.order.IOrderService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.IAfterSaleMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSalePO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import com.taotao.boot.security.spring.model.SecurityUser;
 import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.boot.common.utils.common.IdGeneratorUtils;

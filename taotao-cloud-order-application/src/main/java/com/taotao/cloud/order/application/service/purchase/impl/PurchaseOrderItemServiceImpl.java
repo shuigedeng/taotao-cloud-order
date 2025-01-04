@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.service.purchase.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.purchase.IPurchaseOrderItemService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.IPurchaseOrderItemMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.purchase.PurchaseOrderItemPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderItemPO;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

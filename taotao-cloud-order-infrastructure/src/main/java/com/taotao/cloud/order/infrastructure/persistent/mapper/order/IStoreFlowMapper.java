@@ -18,7 +18,7 @@ package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.StoreFlowPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import com.taotao.cloud.store.api.model.vo.StoreFlowPayDownloadVO;
 import com.taotao.cloud.store.api.model.vo.StoreFlowRefundDownloadVO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;

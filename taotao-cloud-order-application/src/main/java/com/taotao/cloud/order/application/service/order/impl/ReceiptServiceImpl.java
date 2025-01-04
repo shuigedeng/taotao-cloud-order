@@ -24,7 +24,7 @@ import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.cloud.order.application.service.order.IReceiptService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.order.IReceiptMapper;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.ReceiptPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
