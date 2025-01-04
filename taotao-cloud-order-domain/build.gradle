@@ -59,6 +59,7 @@ dependencies {
     api project(":taotao-cloud-order-common")
     api project(":taotao-cloud-order-integration")
 
+
     //cloud
     api "io.github.shuigedeng:taotao-cloud-starter-seata"
     api "io.github.shuigedeng:taotao-cloud-starter-sentinel"
@@ -75,15 +76,15 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-mq-rocketmq"
     //api "io.github.shuigedeng:taotao-boot-starter-mq-rabbitmq"
     api "io.github.shuigedeng:taotao-boot-starter-mq-kafka"
-    api "io.github.shuigedeng:taotao-boot-starter-grpc"
+    api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-lock"
     api "io.github.shuigedeng:taotao-boot-starter-dingtalk"
     api "io.github.shuigedeng:taotao-boot-starter-elk"
     api "io.github.shuigedeng:taotao-boot-starter-captcha"
     api "io.github.shuigedeng:taotao-boot-starter-office"
     api "io.github.shuigedeng:taotao-boot-starter-third-client"
-    //api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
-	//api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
+    api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
+    // api "io.github.shuigedeng:taotao-boot-starter-data-mongodb"
     api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
     api "io.github.shuigedeng:taotao-boot-starter-elk"
     //api "io.github.shuigedeng:taotao-boot-starter-job-elastic"
@@ -131,14 +132,6 @@ dependencies {
     api 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.10.0'
 
     api 'com.github.oshi:oshi-core:6.6.5'
-
-    api 'org.zalando:logbook-spring-boot-starter:3.10.0'
-    api 'org.zalando:logbook-httpclient5:3.10.0'
-    api 'org.zalando:logbook-netty:3.10.0'
-    api 'org.zalando:logbook-okhttp:3.10.0'
-    api 'org.zalando:logbook-okhttp2:3.10.0'
-    api 'org.zalando:logbook-openfeign:3.10.0'
-    api 'org.zalando:logbook-spring-webflux:3.10.0'
 
     //api "io.github.shuigedeng:taotao-boot-starter-apt")
     //annotationProcessor "io.github.shuigedeng:taotao-boot-starter-apt")
