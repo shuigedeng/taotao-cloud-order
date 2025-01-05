@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 远程调用订单模块
@@ -69,7 +70,7 @@ public interface OrderApi {
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
 	@GetMapping(value = "/order/feign/queryDetail")
-	OrderDetailApiResponse queryDetail(String sn);
+	OrderDetailApiResponse queryDetail(@RequestParam(value = "sn")String sn);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -78,7 +79,9 @@ public interface OrderApi {
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
 	@PostMapping(value = "/order/feign/payOrder")
-	Boolean payOrder(String sn, String paymentMethod, String receivableNo);
+	Boolean payOrder(@RequestParam(value = "sn")String sn,
+					 @RequestParam(value = "paymentMethod")String paymentMethod,
+					 @RequestParam(value = "receivableNo")String receivableNo);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -87,7 +90,7 @@ public interface OrderApi {
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
 	@GetMapping(value = "/order/feign/getBySn")
-	OrderApiResponse getBySn(String sn);
+	OrderApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -96,5 +99,5 @@ public interface OrderApi {
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
 	@GetMapping(value = "/order/feign/getByTradeSn")
-	List<OrderApiResponse> getByTradeSn(String sn);
+	List<OrderApiResponse> getByTradeSn(@RequestParam(value = "sn")String sn);
 }

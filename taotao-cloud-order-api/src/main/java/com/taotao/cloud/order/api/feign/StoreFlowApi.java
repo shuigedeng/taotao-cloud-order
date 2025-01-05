@@ -24,6 +24,7 @@ import com.taotao.cloud.order.api.feign.response.TradeApiResponse;
 import com.taotao.cloud.order.api.feign.response.StoreFlowApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 远程调用订单模块
@@ -35,11 +36,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface StoreFlowApi {
 
     @GetMapping(value = "/trade")
-	TradeApiResponse getBySn(String sn);
+	TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
     @GetMapping(value = "/getStoreFlow")
-    PageResult<StoreFlowApiResponse> getStoreFlow(String id, String flowType, PageQuery PageQuery);
+    PageResult<StoreFlowApiResponse> getStoreFlow(@RequestParam(value = "id")String id,
+												  @RequestParam(value = "flowType")String flowType,
+												  @RequestParam(value = "PageQuery")PageQuery PageQuery);
 
     @GetMapping(value = "/getDistributionFlow")
-    PageResult<StoreFlowApiResponse> getDistributionFlow(String id, PageQuery PageQuery);
+    PageResult<StoreFlowApiResponse> getDistributionFlow(@RequestParam(value = "id")String id,
+														 @RequestParam(value = "PageQuery")PageQuery PageQuery);
 }

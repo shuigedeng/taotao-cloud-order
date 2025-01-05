@@ -1,0 +1,4 @@
+com.taotao.cloud.order.api.feign.fallback.FeignOrderApiFallback
+com.taotao.cloud.order.api.feign.fallback.FeignOrderItemApiFallback
+com.taotao.cloud.order.api.feign.fallback.FeignStoreFlowFallback
+com.taotao.cloud.order.api.feign.fallback.FeignTradeApiFallback

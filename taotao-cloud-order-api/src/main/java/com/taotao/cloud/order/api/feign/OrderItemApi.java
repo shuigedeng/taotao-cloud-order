@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 远程调用订单项模块
@@ -43,11 +44,13 @@ public interface OrderItemApi {
     Boolean updateById(@RequestBody OrderItemSaveApiRequest orderItem);
 
     @GetMapping(value = "/order/item")
-	OrderItemApiResponse getByOrderSnAndSkuId(String orderSn, String skuId);
+	OrderItemApiResponse getByOrderSnAndSkuId(@RequestParam(value = "orderSn")String orderSn,
+											  @RequestParam(value = "skuId")String skuId);
 
     @GetMapping(value = "/order/item")
-	OrderItemApiResponse getBySn(String orderItemSn);
+	OrderItemApiResponse getBySn(@RequestParam(value = "orderItemSn")String orderItemSn);
 
     @PutMapping(value = "/order/item")
-    Boolean updateCommentStatus(String sn, CommentStatusEnum finished);
+    Boolean updateCommentStatus(@RequestParam(value = "sn")String sn,
+								@RequestParam(value = "finished")CommentStatusEnum finished);
 }

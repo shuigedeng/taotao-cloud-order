@@ -22,6 +22,7 @@ import com.taotao.cloud.order.api.feign.response.TradeApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 远程调用订单模块
@@ -33,8 +34,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface TradeApi {
 
 	@GetMapping(value = "/trade")
-	TradeApiResponse getBySn(String sn);
+	TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
 	@PostMapping(value = "/payTrade")
-	boolean payTrade(String sn, String paymentMethod, String receivableNo);
+	boolean payTrade(@RequestParam(value = "sn")String sn,
+					 @RequestParam(value = "paymentMethod")String paymentMethod,
+					 @RequestParam(value = "receivableNo")String receivableNo);
 }
