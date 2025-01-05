@@ -17,10 +17,14 @@
 package com.taotao.cloud.order.application.service.cart.render;
 
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.cloud.order.application.service.order.TradeService;
-import java.util.List;
+import com.taotao.cloud.order.api.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.api.enums.cart.RenderStepEnum;
+import com.taotao.cloud.order.application.service.cart.CartCommandService;
+import com.taotao.cloud.order.application.service.order.TradeQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 交易构造&&创建
@@ -32,15 +36,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class TradeBuilder {
 
-    /** 购物车渲染步骤 */
+    /**
+     * 购物车渲染步骤
+     */
     @Autowired
     private List<ICartRenderStep> cartRenderSteps;
-    /** 交易 */
+    /**
+     * 交易
+     */
     @Autowired
-    private TradeService tradeService;
-    /** 购物车业务 */
+    private TradeQueryService tradeQueryService;
+    /**
+     * 购物车业务
+     */
     @Autowired
-    private ICartService cartService;
+    private CartCommandService cartCommandService;
 
     /**
      * 构造购物车 购物车与结算信息不一致的地方主要是优惠券计算和运费计算，其他规则都是一致都
@@ -50,7 +60,7 @@ public class TradeBuilder {
      */
     public TradeDTO buildCart(CartTypeEnum checkedWay) {
         // 读取对应购物车的商品信息
-        TradeDTO tradeDTO = cartService.readDTO(checkedWay);
+        TradeDTO tradeDTO = cartCommandService.readDTO(checkedWay);
 
         // 购物车需要将交易中的优惠券取消掉
         if (checkedWay.equals(CartTypeEnum.CART)) {
@@ -63,10 +73,12 @@ public class TradeBuilder {
         return tradeDTO;
     }
 
-    /** 构造结算页面 */
+    /**
+     * 构造结算页面
+     */
     public TradeDTO buildChecked(CartTypeEnum checkedWay) {
         // 读取对应购物车的商品信息
-        TradeDTO tradeDTO = cartService.readDTO(checkedWay);
+        TradeDTO tradeDTO = cartCommandService.readDTO(checkedWay);
         // 需要对购物车渲染
         if (isSingle(checkedWay)) {
             renderCartBySteps(tradeDTO, RenderStepStatement.checkedSingleRender);
@@ -85,7 +97,7 @@ public class TradeBuilder {
      */
     public Trade createTrade(CartTypeEnum checkedWay) {
         // 读取对应购物车的商品信息
-        TradeDTO tradeDTO = cartService.readDTO(checkedWay);
+        TradeDTO tradeDTO = cartCommandService.readDTO(checkedWay);
 
         // 需要对购物车渲染
         if (isSingle(checkedWay)) {
@@ -95,7 +107,7 @@ public class TradeBuilder {
         }
 
         // 添加order订单及order_item子订单并返回
-        return tradeService.createTrade(tradeDTO);
+        return tradeQueryService.createTrade(tradeDTO);
     }
 
     /**
@@ -115,7 +127,7 @@ public class TradeBuilder {
     /**
      * 根据渲染步骤，渲染购物车信息
      *
-     * @param tradeDTO 交易DTO
+     * @param tradeDTO      交易DTO
      * @param defaultRender 渲染枚举
      */
     private void renderCartBySteps(TradeDTO tradeDTO, RenderStepEnum[] defaultRender) {

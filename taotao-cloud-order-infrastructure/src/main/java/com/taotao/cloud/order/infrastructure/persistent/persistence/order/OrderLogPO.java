@@ -47,7 +47,7 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(name = OrderLogPO.TABLE_NAME)
 @TableName(OrderLogPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = OrderLogPO.TABLE_NAME, comment = "订单日志")
+@org.springframework.data.relational.core.mapping.Table(name = OrderLogPO.TABLE_NAME)
 public class OrderLogPO extends BaseSuperEntity<OrderLogPO, Long> {
 
     public static final String TABLE_NAME = "tt_order_log";

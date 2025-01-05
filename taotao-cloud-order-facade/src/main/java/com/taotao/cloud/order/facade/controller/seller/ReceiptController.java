@@ -19,14 +19,15 @@ package com.taotao.cloud.order.facade.controller.seller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.order.application.command.order.dto.OrderReceiptAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.ReceiptPageQry;
-import com.taotao.cloud.order.application.service.order.IOrderService;
-import com.taotao.cloud.order.application.service.order.IReceiptService;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.ReceiptPO;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
+import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
+import com.taotao.cloud.order.application.service.order.OrderCommandService;
+import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -52,9 +53,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/seller/receipt")
 public class ReceiptController {
 
-	private final IReceiptService receiptService;
+	private final ReceiptCommandService receiptCommandService;
 
-	private final IOrderService orderService;
+	private final OrderCommandService orderCommandService;
 
 	@Operation(summary = "分页获取", description = "分页获取")
 	@RequestLogger
@@ -62,7 +63,7 @@ public class ReceiptController {
 	@GetMapping("/page")
 	public Result<PageResult<OrderReceiptAddCmd>> getByPage(ReceiptPageQry receiptPageQry) {
 		receiptPageQry.setStoreId(SecurityUtils.getCurrentUser().getStoreId());
-		IPage<OrderReceiptAddCmd> page = receiptService.pageQuery(receiptPageQry);
+		IPage<OrderReceiptAddCmd> page = receiptCommandService.pageQuery(receiptPageQry);
 		return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
 	}
 
@@ -71,7 +72,7 @@ public class ReceiptController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/{id}")
 	public Result<ReceiptPO> get(@PathVariable String id) {
-		return Result.success(OperationalJudgment.judgment(receiptService.getById(id)));
+		return Result.success(OperationalJudgment.judgment(receiptCommandService.getById(id)));
 	}
 
 	@Operation(summary = "开发票", description = "开发票")
@@ -79,8 +80,8 @@ public class ReceiptController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping(value = "/{id}/invoicing")
 	public Result<ReceiptPO> invoicing(@PathVariable Long id) {
-		OperationalJudgment.judgment(receiptService.getById(id));
-		return Result.success(receiptService.invoicing(id));
+		OperationalJudgment.judgment(receiptCommandService.getById(id));
+		return Result.success(receiptCommandService.invoicing(id));
 	}
 
 	@Operation(summary = "通过订单编号获取", description = "通过订单编号获取")
@@ -88,7 +89,7 @@ public class ReceiptController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/orderSn/{orderSn}")
 	public Result<ReceiptPO> getByOrderSn(@PathVariable String orderSn) {
-		OperationalJudgment.judgment(orderService.getBySn(orderSn));
-		return Result.success(receiptService.getByOrderSn(orderSn));
+		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
+		return Result.success(receiptCommandService.getByOrderSn(orderSn));
 	}
 }

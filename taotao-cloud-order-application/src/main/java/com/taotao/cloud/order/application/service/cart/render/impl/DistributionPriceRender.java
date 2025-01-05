@@ -17,13 +17,13 @@
 package com.taotao.cloud.order.application.service.cart.render.impl;
 
 import com.taotao.boot.cache.redis.repository.RedisRepository;
-
 import com.taotao.boot.common.utils.number.CurrencyUtils;
+import com.taotao.cloud.order.api.enums.cart.RenderStepEnum;
 import com.taotao.cloud.order.application.service.cart.render.ICartRenderStep;
-import java.util.List;
-import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * 分销佣金计算
@@ -36,7 +36,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class DistributionPriceRender implements ICartRenderStep {
 
-    /** 缓存 */
+    /**
+     * 缓存
+     */
     private final RedisRepository redisRepository;
 
     private final DistributionGoodsService distributionGoodsService;

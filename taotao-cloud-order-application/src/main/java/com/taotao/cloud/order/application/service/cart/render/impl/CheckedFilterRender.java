@@ -16,10 +16,13 @@
 
 package com.taotao.cloud.order.application.service.cart.render.impl;
 
+import com.taotao.cloud.order.api.enums.cart.RenderStepEnum;
+import com.taotao.cloud.order.application.service.cart.render.ICartRenderStep;
+import com.taotao.cloud.order.domain.cart.valueobject.CartVO;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import org.springframework.stereotype.Service;
 
 /**
  * 佣金计算
@@ -31,27 +34,27 @@ import org.springframework.stereotype.Service;
 @Service
 public class CheckedFilterRender implements ICartRenderStep {
 
-    @Override
-    public RenderStepEnum step() {
-        return RenderStepEnum.CHECKED_FILTER;
-    }
+	@Override
+	public RenderStepEnum step() {
+		return RenderStepEnum.CHECKED_FILTER;
+	}
 
-    @Override
-    public void render(TradeDTO tradeDTO) {
-        // 将购物车到sku未选择信息过滤
-        List<CartSkuVO> collect = tradeDTO.getSkuList().parallelStream()
-                .filter(i -> Boolean.TRUE.equals(i.getChecked()))
-                .toList();
-        tradeDTO.setSkuList(collect);
+	@Override
+	public void render(TradeDTO tradeDTO) {
+		// 将购物车到sku未选择信息过滤
+		List<CartSkuVO> collect = tradeDTO.getSkuList().parallelStream()
+			.filter(i -> Boolean.TRUE.equals(i.getChecked()))
+			.toList();
+		tradeDTO.setSkuList(collect);
 
-        // 购物车信息过滤
-        List<CartVO> cartVOList = new ArrayList<>();
-        // 循环购物车信息
-        for (CartVO cartVO : tradeDTO.getCartList()) {
-            // 如果商品选中，则加入到对应购物车
-            cartVO.setSkuList(cartVO.getCheckedSkuList());
-            cartVOList.add(cartVO);
-        }
-        tradeDTO.setCartList(cartVOList);
-    }
+		// 购物车信息过滤
+		List<CartVO> cartVOList = new ArrayList<>();
+		// 循环购物车信息
+		for (CartVO cartVO : tradeDTO.getCartList()) {
+			// 如果商品选中，则加入到对应购物车
+			cartVO.setSkuList(cartVO.getCheckedSkuList());
+			cartVOList.add(cartVO);
+		}
+		tradeDTO.setCartList(cartVOList);
+	}
 }

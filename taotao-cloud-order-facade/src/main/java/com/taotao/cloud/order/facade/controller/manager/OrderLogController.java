@@ -20,11 +20,11 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.utils.MpUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.cloud.order.application.command.order.dto.OrderLogPageQry;
 import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderLogCO;
-import com.taotao.cloud.order.application.service.trade.IOrderLogService;
+import com.taotao.cloud.order.application.service.trade.OrderLogService;
 import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderLogPO;
-import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -49,7 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/order/log")
 public class OrderLogController {
 
-	private final IOrderLogService orderLogService;
+	private final OrderLogService orderLogService;
 
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@RequestLogger

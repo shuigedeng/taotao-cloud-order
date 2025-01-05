@@ -16,14 +16,11 @@
 
 package com.taotao.cloud.order.application.stream.kafka;
 
-import com.taotao.cloud.rocketmq.channel.TaoTaoCloudSink;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.config.MeterFilter;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.binder.kafka.KafkaBinderMetrics;
 import org.springframework.cloud.stream.binder.kafka.utils.DlqDestinationResolver;
 import org.springframework.cloud.stream.binder.kafka.utils.DlqPartitionFunction;
-import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.kafka.event.ListenerContainerIdleEvent;

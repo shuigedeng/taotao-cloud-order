@@ -19,11 +19,8 @@ package com.taotao.cloud.order.facade.controller.manager;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.utils.MpUtils;
-import com.taotao.cloud.order.application.command.order.dto.OrderReceiptAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.ReceiptPageQry;
-import com.taotao.cloud.order.application.service.order.IReceiptService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -47,14 +44,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/receipt")
 public class ReceiptController {
 
-	private final IReceiptService receiptService;
+	private final ReceiptCommandService receiptCommandService;
 
 	@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/tree")
 	public Result<PageResult<OrderReceiptAddCmd>> getPage(ReceiptPageQry receiptPageQry) {
-		IPage<OrderReceiptAddCmd> page = this.receiptService.pageQuery(receiptPageQry);
+		IPage<OrderReceiptAddCmd> page = this.receiptCommandService.pageQuery(receiptPageQry);
 		return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
 	}
 }

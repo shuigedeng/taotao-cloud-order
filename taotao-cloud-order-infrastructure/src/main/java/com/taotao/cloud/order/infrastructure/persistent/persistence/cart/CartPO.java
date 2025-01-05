@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.persistence.cart;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.data.jpa.base.entity.JpaSuperEntity;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -45,10 +47,11 @@ import org.hibernate.Hibernate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tt_cart")
-@org.springframework.data.relational.core.mapping.Table(name = "tt_cart", comment = "购物车表")
+@Table(name = CartPO.TABLE_NAME)
+@TableName(CartPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(CartPO.TABLE_NAME)
 public class CartPO extends JpaSuperEntity<Long> {
-
+	public static final String TABLE_NAME = "tt_cart";
     @Serial
     private static final long serialVersionUID = 6887296988458221221L;
 

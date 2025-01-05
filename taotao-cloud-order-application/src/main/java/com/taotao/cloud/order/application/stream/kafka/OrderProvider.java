@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.stream.kafka;
 
-import com.taotao.cloud.rocketmq.channel.TaoTaoCloudSource;
 import jakarta.annotation.Resource;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;

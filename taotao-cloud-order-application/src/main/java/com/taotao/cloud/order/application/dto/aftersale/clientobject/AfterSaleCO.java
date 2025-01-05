@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.dto.aftersale.clientobject;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleRefundWayEnum;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleStatusEnum;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleTypeEnum;
-import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleAllowOperation;
+import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleAllowOperationCmd;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -96,8 +96,8 @@ public record AfterSaleCO(
     private static final long serialVersionUID = 8808470688518188146L;
 
     /** 初始化自身状态 */
-    public AfterSaleAllowOperation getAfterSaleAllowOperationVO() {
+    public AfterSaleAllowOperationCmd getAfterSaleAllowOperationVO() {
         // 设置订单的可操作状态
-        return new AfterSaleAllowOperation(this);
+        return new AfterSaleAllowOperationCmd(this);
     }
 }

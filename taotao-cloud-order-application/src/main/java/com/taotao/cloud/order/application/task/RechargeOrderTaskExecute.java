@@ -17,6 +17,8 @@
 package com.taotao.cloud.order.application.task;
 
 import java.util.List;
+
+import com.taotao.boot.job.xxl.timetask.EveryMinuteExecute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

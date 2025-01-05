@@ -17,8 +17,11 @@
 package com.taotao.cloud.order.application.task;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.taotao.cloud.order.application.service.order.OrderService;
+
 import java.util.List;
+
+import com.taotao.boot.job.xxl.timetask.EveryMinuteExecute;
+import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,7 +37,7 @@ public class CancelOrderTaskExecute implements EveryMinuteExecute {
 
     /** 订单 */
     @Autowired
-    private OrderService orderService;
+    private OrderCommandService orderCommandService;
     /** 设置 */
     @Autowired
     private IFeignSettingApi settingApi;
@@ -52,10 +55,10 @@ public class CancelOrderTaskExecute implements EveryMinuteExecute {
             queryWrapper.eq(Order::getOrderStatus, OrderStatusEnum.UNPAID.name());
             // 订单创建时间 <= 订单自动取消时间
             queryWrapper.le(Order::getCreateTime, cancelTime);
-            List<Order> list = orderService.list(queryWrapper);
+            List<Order> list = orderCommandService.list(queryWrapper);
             List<String> cancelSnList = list.stream().map(Order::getSn).toList();
             for (String sn : cancelSnList) {
-                orderService.systemCancel(sn, "超时未支付自动取消");
+                orderCommandService.systemCancel(sn, "超时未支付自动取消");
             }
         }
     }

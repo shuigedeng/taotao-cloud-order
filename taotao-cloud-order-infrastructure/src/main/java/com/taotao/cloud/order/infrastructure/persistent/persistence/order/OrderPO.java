@@ -28,9 +28,6 @@ import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
 import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderTypeEnum;
 import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
-import com.taotao.cloud.order.sys.model.dto.cart.TradeDTO;
-import com.taotao.cloud.order.sys.model.dto.order.PriceDetailDTO;
-import com.taotao.cloud.order.sys.model.vo.cart.CartVO;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -63,7 +60,7 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(name = OrderPO.TABLE_NAME)
 @TableName(OrderPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = OrderPO.TABLE_NAME, comment = "订单表")
+@org.springframework.data.relational.core.mapping.Table(name = OrderPO.TABLE_NAME)
 public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
 
     public static final String TABLE_NAME = "tt_order";

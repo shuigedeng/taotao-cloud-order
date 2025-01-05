@@ -20,7 +20,6 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.common.utils.bean.BeanUtils;
 import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
 import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
-import com.taotao.cloud.order.sys.model.dto.cart.TradeDTO;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -52,7 +51,7 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(name = TradePO.TABLE_NAME)
 @TableName(TradePO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = TradePO.TABLE_NAME, comment = "交易表")
+@org.springframework.data.relational.core.mapping.Table(name = TradePO.TABLE_NAME)
 public class TradePO extends BaseSuperEntity<TradePO, Long> {
 
     public static final String TABLE_NAME = "tt_trade";

@@ -21,10 +21,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.cloud.order.application.service.order.OrderItemService;
-import com.taotao.cloud.order.application.service.order.OrderService;
+import com.taotao.boot.job.xxl.timetask.EveryDayExecute;
+import com.taotao.cloud.order.application.service.order.OrderItemCommandService;
+
 import java.util.List;
 
+import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,10 +42,10 @@ public class OrderEveryDayTaskExecute implements EveryDayExecute {
 
     /** 订单 */
     @Autowired
-    private OrderService orderService;
+    private OrderCommandService orderCommandService;
     /** 订单货物 */
     @Autowired
-    private OrderItemService orderItemService;
+    private OrderItemCommandService orderItemCommandService;
     /** 设置 */
     @Autowired
     private IFeignSettingApi settingApi;
@@ -86,13 +88,13 @@ public class OrderEveryDayTaskExecute implements EveryDayExecute {
 
         // 订单发货时间 >= 订单自动收货时间
         queryWrapper.le(Order::getLogisticsTime, receiveTime);
-        List<Order> list = orderService.list(queryWrapper);
+        List<Order> list = orderCommandService.list(queryWrapper);
 
         // 判断是否有符合条件的订单，进行订单完成处理
         if (!list.isEmpty()) {
             List<String> receiveSnList = list.stream().map(Order::getSn).toList();
             for (String orderSn : receiveSnList) {
-                orderService.systemComplete(orderSn);
+                orderCommandService.systemComplete(orderSn);
             }
         }
     }
@@ -155,7 +157,7 @@ public class OrderEveryDayTaskExecute implements EveryDayExecute {
             LambdaUpdateWrapper<OrderItem> lambdaUpdateWrapper = new LambdaUpdateWrapper<OrderItem>()
                     .set(OrderItem::getAfterSaleStatus, OrderItemAfterSaleStatusEnum.EXPIRED.name())
                     .in(OrderItem::getId, orderItemIdList);
-            orderItemService.update(lambdaUpdateWrapper);
+            orderItemCommandService.update(lambdaUpdateWrapper);
         }
     }
 
@@ -184,7 +186,7 @@ public class OrderEveryDayTaskExecute implements EveryDayExecute {
             LambdaUpdateWrapper<OrderItem> lambdaUpdateWrapper = new LambdaUpdateWrapper<OrderItem>()
                     .set(OrderItem::getComplainStatus, OrderItemAfterSaleStatusEnum.EXPIRED.name())
                     .in(OrderItem::getId, orderItemIdList);
-            orderItemService.update(lambdaUpdateWrapper);
+            orderItemCommandService.update(lambdaUpdateWrapper);
         }
     }
 }

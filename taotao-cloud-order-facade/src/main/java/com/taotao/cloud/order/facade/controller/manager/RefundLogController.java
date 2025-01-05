@@ -43,21 +43,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/refund/log")
 public class RefundLogController {
 
-    private final RefundLogService refundLogService;
+	private final RefundLogService refundLogService;
 
-    @Operation(summary = "查看退款日志详情", description = "查看退款日志详情")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/{id}")
-    public Result<RefundLog> get(@PathVariable String id) {
-        return Result.success(refundLogService.getById(id));
-    }
+	@Operation(summary = "查看退款日志详情", description = "查看退款日志详情")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/{id}")
+	public Result<RefundLog> get(@PathVariable String id) {
+		return Result.success(refundLogService.getById(id));
+	}
 
-    @Operation(summary = "分页获取退款日志", description = "分页获取退款日志")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/tree")
-    public Result<IPage<RefundLog>> getByPage(RefundLog entity, SearchVO searchVo, PageVO page) {
-        return Result.success(refundLogService.page(PageUtil.initPage(page), PageUtil.initWrapper(entity, searchVo)));
-    }
+	@Operation(summary = "分页获取退款日志", description = "分页获取退款日志")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/tree")
+	public Result<IPage<RefundLog>> getByPage(RefundLog entity, SearchVO searchVo, PageVO page) {
+		return Result.success(refundLogService.page(PageUtil.initPage(page), PageUtil.initWrapper(entity, searchVo)));
+	}
 }

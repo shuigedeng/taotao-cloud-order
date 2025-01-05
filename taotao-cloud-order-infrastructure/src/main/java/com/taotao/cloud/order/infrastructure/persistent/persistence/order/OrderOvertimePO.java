@@ -46,7 +46,7 @@ import org.hibernate.Hibernate;
 @Entity
 @TableName(OrderOvertimePO.TABLE_NAME)
 @Table(name = OrderOvertimePO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = OrderOvertimePO.TABLE_NAME, comment = "订单超时信息表")
+@org.springframework.data.relational.core.mapping.Table(name = OrderOvertimePO.TABLE_NAME)
 public class OrderOvertimePO extends BaseSuperEntity<OrderOvertimePO, Long> {
 
     public static final String TABLE_NAME = "order_overtime";

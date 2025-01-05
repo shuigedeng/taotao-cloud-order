@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.stream.producer.service.impl;
 
-import com.taotao.cloud.order.application.model.entity.order.Order;
 import com.taotao.cloud.order.application.stream.producer.service.ITransactionOrderService;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -24,9 +23,7 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.apache.rocketmq.spring.support.RocketMQHeaders;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 

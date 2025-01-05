@@ -20,22 +20,22 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.cloud.order.api.enums.order.CommunicationOwnerEnum;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderComplaintBaseCO;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintCommunicationAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintOperationAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintPageQry;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.command.order.dto.StoreAppealCmd;
-import com.taotao.cloud.order.application.converter.OrderComplainConvert;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintCommunicationService;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintService;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintPO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintCommunicationPO;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
+import com.taotao.cloud.order.api.enums.order.CommunicationOwnerEnum;
+import com.taotao.cloud.order.application.assembler.OrderComplainAssembler;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintBaseCO;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintAddCmd;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintCommunicationAddCmd;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintOperationAddCmd;
+import com.taotao.cloud.order.application.dto.order.cmmond.StoreAppealCmd;
+import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
+import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationCommandService;
+import com.taotao.cloud.order.application.service.order.OrderComplaintCommandService;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -66,12 +66,12 @@ public class OrderComplaintController {
 	/**
 	 * 交易投诉
 	 */
-	private final IOrderComplaintService orderComplaintService;
+	private final OrderComplaintCommandService orderComplaintCommandService;
 
 	/**
 	 * 投诉沟通
 	 */
-	private final IOrderComplaintCommunicationService orderComplaintCommunicationService;
+	private final OrderComplaintCommunicationCommandService orderComplaintCommunicationCommandService;
 
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@RequestLogger
@@ -79,7 +79,7 @@ public class OrderComplaintController {
 	@GetMapping(value = "/{id}")
 	public Result<OrderComplaintCO> getOrderComplainById(@PathVariable Long id) {
 		return Result.success(
-			OperationalJudgment.judgment(orderComplaintService.getOrderComplainById(id)));
+			OperationalJudgment.judgment(orderComplaintCommandService.getOrderComplainById(id)));
 	}
 
 	@Operation(summary = "分页获取", description = "分页获取")
@@ -90,7 +90,7 @@ public class OrderComplaintController {
 		OrderComplaintPageQry orderComplaintPageQry) {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 		orderComplaintPageQry.setStoreId(storeId);
-		IPage<OrderComplaintPO> page = orderComplaintService.pageQuery(orderComplaintPageQry);
+		IPage<OrderComplaintPO> page = orderComplaintCommandService.pageQuery(orderComplaintPageQry);
 		return Result.success(MpUtils.convertMybatisPage(page, OrderComplaintBaseCO.class));
 	}
 
@@ -110,7 +110,7 @@ public class OrderComplaintController {
 			.ownerId(user.getStoreId())
 			.build();
 		return Result.success(
-			orderComplaintCommunicationService.addCommunication(orderComplaintCommunicationPO));
+			orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
 	}
 
 	@Operation(summary = "修改申诉信息", description = "修改申诉信息")
@@ -118,12 +118,12 @@ public class OrderComplaintController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PutMapping("/{id}")
 	public Result<Boolean> update(@PathVariable Long id,
-		@Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
+								  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-		OrderComplaintPO orderComplaintPO = OrderComplainConvert.INSTANCE.convert(
+		OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
 			orderComplaintAddCmd);
 		orderComplaintPO.setStoreId(storeId);
-		return Result.success(orderComplaintService.updateOrderComplain(orderComplaintPO));
+		return Result.success(orderComplaintCommandService.updateOrderComplain(orderComplaintPO));
 	}
 
 	@Operation(summary = "申诉", description = "申诉")
@@ -131,9 +131,9 @@ public class OrderComplaintController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping("/appeal")
 	public Result<OrderComplaintCO> appeal(@Validated @RequestBody StoreAppealCmd storeAppealDTO) {
-		orderComplaintService.appeal(storeAppealDTO);
+		orderComplaintCommandService.appeal(storeAppealDTO);
 		return Result.success(
-			orderComplaintService.getOrderComplainById(storeAppealDTO.orderComplaintId()));
+			orderComplaintCommandService.getOrderComplainById(storeAppealDTO.orderComplaintId()));
 	}
 
 	@Operation(summary = "修改状态", description = "修改状态")
@@ -143,6 +143,6 @@ public class OrderComplaintController {
 	public Result<Boolean> updateStatus(
 		@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
 		return Result.success(
-			orderComplaintService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
+			orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
 	}
 }

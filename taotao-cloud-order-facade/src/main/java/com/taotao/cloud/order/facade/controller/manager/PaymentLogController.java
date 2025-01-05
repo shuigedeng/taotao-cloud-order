@@ -18,9 +18,9 @@ package com.taotao.cloud.order.facade.controller.manager;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.PaymentLogCO;
-import com.taotao.cloud.order.application.service.order.IOrderService;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
+import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/payment/log")
 public class PaymentLogController {
 
-	private final IOrderService orderService;
+	private final OrderCommandService orderCommandService;
 
 	@Operation(summary = "分页获取支付日志", description = "分页获取支付日志")
 	@RequestLogger
@@ -52,7 +52,7 @@ public class PaymentLogController {
 	@GetMapping("/tree")
 	public Result<IPage<PaymentLogCO>> getByPage(Order order, SearchVO searchVo) {
 		return Result.success(
-			orderService.queryPaymentLogs(PageUtil.initPage(page),
+			orderCommandService.queryPaymentLogs(PageUtil.initPage(page),
 				PageUtil.initWrapper(order, searchVo)));
 	}
 }

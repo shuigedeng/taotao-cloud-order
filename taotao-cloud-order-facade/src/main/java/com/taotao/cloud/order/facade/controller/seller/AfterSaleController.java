@@ -19,19 +19,18 @@ package com.taotao.cloud.order.facade.controller.seller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.order.application.command.aftersale.dto.AfterSalePageQry;
-import com.taotao.cloud.order.application.command.aftersale.dto.clientobject.AfterSaleCO;
-import com.taotao.cloud.order.application.converter.AfterSaleConvert;
-import com.taotao.cloud.order.application.service.aftersale.IAfterSaleService;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSalePO;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
+import com.taotao.cloud.order.application.assembler.AfterSaleAssembler;
+import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleCO;
+import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQry;
+import com.taotao.cloud.order.application.service.aftersale.AfterSaleCommandService;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -41,6 +40,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 店铺端,售后管理API
@@ -56,15 +58,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/seller/aftersale")
 public class AfterSaleController {
 
-	private final IAfterSaleService afterSaleService;
+	private final AfterSaleCommandService afterSaleCommandService;
 
 	@Operation(summary = "查看售后服务详情", description = "查看售后服务详情")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/{sn}")
 	public Result<AfterSaleCO> getAfterSaleBySn(@PathVariable String sn) {
-		AfterSalePO afterSale = OperationalJudgment.judgment(afterSaleService.getAfterSaleBySn(sn));
-		return Result.success(AfterSaleConvert.INSTANCE.convert(afterSale));
+		AfterSalePO afterSale = OperationalJudgment.judgment(afterSaleCommandService.getAfterSaleBySn(sn));
+		return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSale));
 	}
 
 	@Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
@@ -74,7 +76,7 @@ public class AfterSaleController {
 	public Result<PageResult<AfterSaleCO>> getByPage(AfterSalePageQry searchParams) {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 		searchParams.setStoreId(storeId);
-		IPage<AfterSalePO> page = afterSaleService.pageQuery(searchParams);
+		IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);
 		return Result.success(MpUtils.convertMybatisPage(page, AfterSaleCO.class));
 	}
 
@@ -85,8 +87,8 @@ public class AfterSaleController {
 	public Result<List<AfterSaleCO>> exportAfterSaleOrder(AfterSalePageQry searchParams) {
 		Long storeId = SecurityUtils.getCurrentUser().getStoreId();
 		searchParams.setStoreId(storeId);
-		List<AfterSalePO> afterSales = afterSaleService.exportAfterSaleOrder(searchParams);
-		return Result.success(AfterSaleConvert.INSTANCE.convert(afterSales));
+		List<AfterSalePO> afterSales = afterSaleCommandService.exportAfterSaleOrder(searchParams);
+		return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSales));
 	}
 
 	@Operation(summary = "审核售后申请", description = "审核售后申请")
@@ -100,7 +102,7 @@ public class AfterSaleController {
 		BigDecimal actualRefundPrice) {
 
 		return Result.success(
-			afterSaleService.review(afterSaleSn, serviceStatus, remark, actualRefundPrice));
+			afterSaleCommandService.review(afterSaleSn, serviceStatus, remark, actualRefundPrice));
 	}
 
 	@Operation(summary = "卖家确认收货", description = "卖家确认收货")
@@ -112,7 +114,7 @@ public class AfterSaleController {
 		@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
 		@NotNull(message = "请审核") String serviceStatus,
 		String remark) {
-		return Result.success(afterSaleService.storeConfirm(afterSaleSn, serviceStatus, remark));
+		return Result.success(afterSaleCommandService.storeConfirm(afterSaleSn, serviceStatus, remark));
 	}
 
 	@Operation(summary = "查看买家退货物流踪迹", description = "查看买家退货物流踪迹")
@@ -120,7 +122,7 @@ public class AfterSaleController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/getDeliveryTraces/{sn}")
 	public Result<TracesVO> getDeliveryTraces(@PathVariable String sn) {
-		return Result.success(afterSaleService.deliveryTraces(sn));
+		return Result.success(afterSaleCommandService.deliveryTraces(sn));
 	}
 
 	@Operation(summary = "获取商家售后收件地址", description = "获取商家售后收件地址")
@@ -129,6 +131,6 @@ public class AfterSaleController {
 	@GetMapping(value = "/getStoreAfterSaleAddress/{sn}")
 	public Result<StoreAfterSaleAddressVO> getStoreAfterSaleAddress(
 		@NotNull(message = "售后单号") @PathVariable("sn") String sn) {
-		return Result.success(afterSaleService.getStoreAfterSaleAddressVO(sn));
+		return Result.success(afterSaleCommandService.getStoreAfterSaleAddressVO(sn));
 	}
 }

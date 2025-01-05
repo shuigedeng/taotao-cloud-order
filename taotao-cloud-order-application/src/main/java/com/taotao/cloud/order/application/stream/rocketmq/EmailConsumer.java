@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.stream.rocketmq;
 
-import com.taotao.cloud.rocketmq.channel.TaoTaoCloudSink;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 

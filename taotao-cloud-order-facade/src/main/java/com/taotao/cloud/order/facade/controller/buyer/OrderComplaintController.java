@@ -19,19 +19,20 @@ package com.taotao.cloud.order.facade.controller.buyer;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.cloud.order.api.enums.order.CommunicationOwnerEnum;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderComplaintBaseCO;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintCommunicationAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintAddCmd;
-import com.taotao.cloud.order.application.command.order.dto.OrderComplaintPageQry;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintCommunicationService;
-import com.taotao.cloud.order.application.service.order.IOrderComplaintService;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintPO;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderComplaintCommunicationPO;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
+import com.taotao.cloud.order.api.enums.order.CommunicationOwnerEnum;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintBaseCO;
+import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintAddCmd;
+import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintCommunicationAddCmd;
+import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
+import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationCommandService;
+import com.taotao.cloud.order.application.service.order.OrderComplaintCommandService;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -63,12 +64,12 @@ public class OrderComplaintController {
 	/**
 	 * 交易投诉
 	 */
-	private final IOrderComplaintService orderComplaintService;
+	private final OrderComplaintCommandService orderComplaintCommandService;
 
 	/**
 	 * 交易投诉沟通
 	 */
-	private final IOrderComplaintCommunicationService orderComplaintCommunicationService;
+	private final OrderComplaintCommunicationCommandService orderComplaintCommunicationCommandService;
 
 	@Operation(summary = "通过id获取", description = "通过id获取")
 	@RequestLogger
@@ -76,7 +77,7 @@ public class OrderComplaintController {
 	@GetMapping(value = "/{id}")
 	public Result<OrderComplaintCO> get(@PathVariable Long id) {
 		OrderComplaintCO orderComplaintCO =
-			OperationalJudgment.judgment(orderComplaintService.getOrderComplainById(id));
+			OperationalJudgment.judgment(orderComplaintCommandService.getOrderComplainById(id));
 		return Result.success(orderComplaintCO);
 	}
 
@@ -86,7 +87,7 @@ public class OrderComplaintController {
 	@GetMapping("/page")
 	public Result<PageResult<OrderComplaintBaseCO>> get(
 		@Validated OrderComplaintPageQry orderComplaintPageQry) {
-		IPage<OrderComplaintPO> orderComplainByPage = orderComplaintService.pageQuery(
+		IPage<OrderComplaintPO> orderComplainByPage = orderComplaintCommandService.pageQuery(
 			orderComplaintPageQry);
 		return Result.success(
 			MpUtils.convertMybatisPage(orderComplainByPage, OrderComplaintBaseCO.class));
@@ -97,7 +98,7 @@ public class OrderComplaintController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping
 	public Result<OrderComplaintPO> add(@Valid OrderComplaintAddCmd orderComplaintAddCmd) {
-		return Result.success(orderComplaintService.addOrderComplain(orderComplaintAddCmd));
+		return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCmd));
 	}
 
 	@Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
@@ -117,7 +118,7 @@ public class OrderComplaintController {
 			.build();
 
 		return Result.success(
-			orderComplaintCommunicationService.addCommunication(orderComplaintCommunicationPO));
+			orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
 	}
 
 	@Operation(summary = "取消售后", description = "取消售后")
@@ -125,6 +126,6 @@ public class OrderComplaintController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PutMapping(value = "/status/{id}")
 	public Result<Boolean> cancel(@PathVariable Long id) {
-		return Result.success(orderComplaintService.cancel(id));
+		return Result.success(orderComplaintCommandService.cancel(id));
 	}
 }
