@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.order;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 商家订单流水数据处理层 */
+@Repository
 public class StoreFlowRepository extends BaseClassSuperRepository<StoreFlowPO, Long> {
 
     public StoreFlowRepository(EntityManager em) {

@@ -85,10 +85,6 @@ public class OrderRefundReqRecordPO extends BaseSuperEntity<OrderRefundReqRecord
     @Column(name = "req_record_type", columnDefinition = "int not null default 0 comment '记录类型'")
     private Integer reqRecordType;
 
-    /** 创建时间 */
-    @Column(name = "create_Date", columnDefinition = "TIMESTAMP comment '创建时间'")
-    private LocalDateTime createDate;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

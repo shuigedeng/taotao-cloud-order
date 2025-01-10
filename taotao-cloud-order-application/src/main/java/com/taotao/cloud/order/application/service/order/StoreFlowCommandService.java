@@ -68,25 +68,25 @@ public interface StoreFlowCommandService extends IService<StoreFlowPO> {
 	 * @since 2022-04-28 08:54:53
 	 */
 	StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO);
-
-	/**
-	 * 获取结算单地入账流水
-	 *
-	 * @param storeFlowQueryDTO 查询条件
-	 * @return {@link List }<{@link StoreFlowPayDownloadVO }>
-	 * @since 2022-04-28 08:54:53
-	 */
-	List<StoreFlowPayDownloadVO> getStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
-
-	/**
-	 * 获取结算单的退款流水
-	 *
-	 * @param storeFlowQueryDTO 查询条件
-	 * @return {@link List }<{@link StoreFlowRefundDownloadVO }>
-	 * @since 2022-04-28 08:54:53
-	 */
-	List<StoreFlowRefundDownloadVO> getStoreFlowRefundDownloadVO(
-		StoreFlowPageQry storeFlowQueryDTO);
+	//
+	///**
+	// * 获取结算单地入账流水
+	// *
+	// * @param storeFlowQueryDTO 查询条件
+	// * @return {@link List }<{@link StoreFlowPayDownloadVO }>
+	// * @since 2022-04-28 08:54:53
+	// */
+	//List<StoreFlowPayDownloadVO> getStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
+	//
+	///**
+	// * 获取结算单的退款流水
+	// *
+	// * @param storeFlowQueryDTO 查询条件
+	// * @return {@link List }<{@link StoreFlowRefundDownloadVO }>
+	// * @since 2022-04-28 08:54:53
+	// */
+	//List<StoreFlowRefundDownloadVO> getStoreFlowRefundDownloadVO(
+	//	StoreFlowPageQry storeFlowQueryDTO);
 
 	/**
 	 * 根据结算单ID获取商家流水

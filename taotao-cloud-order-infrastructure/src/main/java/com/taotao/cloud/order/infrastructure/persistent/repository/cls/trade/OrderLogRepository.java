@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.trade;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 订单日志数据处理层 */
+@Repository
 public class OrderLogRepository extends BaseClassSuperRepository<OrderLogPO, Long> {
 
     public OrderLogRepository(EntityManager em) {

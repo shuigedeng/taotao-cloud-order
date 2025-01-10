@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.assembler;
 
-import com.taotao.cloud.order.sys.model.dto.order.OrderComplaintDTO;
-import com.taotao.cloud.order.application.model.entity.order.OrderComplaint;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
@@ -32,5 +30,5 @@ public interface OrderComplainCommunicationAssembler {
 
     OrderComplainCommunicationAssembler INSTANCE = Mappers.getMapper(OrderComplainCommunicationAssembler.class);
 
-    OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
+    //OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

@@ -36,16 +36,20 @@ import java.util.List;
 public class PurchaseOrderItemCommandServiceImpl extends
 	ServiceImpl<PurchaseOrderItemMapper, PurchaseOrderItemPO>
 	implements PurchaseOrderItemCommandService {
-
 	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean addPurchaseOrderItem(String purchaseOrderId,
-										List<PurchaseOrderItemPO> purchaseOrderItemPOList) {
-		// 添加采购单子内容
-		for (PurchaseOrderItemPO purchaseOrderItemPO : purchaseOrderItemPOList) {
-			purchaseOrderItemPO.setPurchaseOrderId(purchaseOrderId);
-			this.save(purchaseOrderItemPO);
-		}
-		return true;
+	public boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList) {
+		return false;
 	}
+
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public boolean addPurchaseOrderItem(String purchaseOrderId,
+	//									List<PurchaseOrderItemPO> purchaseOrderItemPOList) {
+	//	// 添加采购单子内容
+	//	for (PurchaseOrderItemPO purchaseOrderItemPO : purchaseOrderItemPOList) {
+	//		purchaseOrderItemPO.setPurchaseOrderId(purchaseOrderId);
+	//		this.save(purchaseOrderItemPO);
+	//	}
+	//	return true;
+	//}
 }

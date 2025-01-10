@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.aftersal
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 售后原因数据处理层 */
+@Repository
 public class AfterSaleReasonRepository extends BaseClassSuperRepository<AfterSaleReasonPO, Long> {
 
     public AfterSaleReasonRepository(EntityManager em) {

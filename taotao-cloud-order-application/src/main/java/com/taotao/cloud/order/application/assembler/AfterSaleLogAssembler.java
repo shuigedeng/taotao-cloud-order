@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.assembler;
 
-import com.taotao.cloud.order.sys.model.vo.aftersale.AfterSaleLogVO;
-import com.taotao.cloud.order.application.model.entity.aftersale.AfterSaleLog;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -35,5 +33,5 @@ public interface AfterSaleLogAssembler {
 
     AfterSaleLogAssembler INSTANCE = Mappers.getMapper(AfterSaleLogAssembler.class);
 
-    List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
+    //List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
 }

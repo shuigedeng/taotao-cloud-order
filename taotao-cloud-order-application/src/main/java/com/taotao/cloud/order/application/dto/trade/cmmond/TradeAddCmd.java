@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.dto.trade.cmmond;
 
 import com.taotao.boot.common.enums.ClientTypeEnum;
-import com.taotao.cloud.order.application.model.dto.cart.StoreRemarkDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -47,8 +46,8 @@ public class TradeAddCmd implements Serializable {
     @Schema(description = "客户端：H5/移动端 PC/PC端,WECHAT_MP/小程序端,APP/移动应用端")
     private String client;
 
-    @Schema(description = "店铺备注")
-    private List<StoreRemarkDTO> remark;
+    //@Schema(description = "店铺备注")
+    //private List<StoreRemarkDTO> remark;
 
     @Schema(description = "是否为其他订单下的订单，如果是则为依赖订单的sn，否则为空")
     private String parentOrderSn;

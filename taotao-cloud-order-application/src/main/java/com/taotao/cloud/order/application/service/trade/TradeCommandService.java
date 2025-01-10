@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.dto.order.query.OrderLogPageQry;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 
 import java.util.List;
 
@@ -30,6 +31,6 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface TradeCommandService extends IService<OrderLogPO> {
+public interface TradeCommandService extends IService<TradePO> {
 
 }

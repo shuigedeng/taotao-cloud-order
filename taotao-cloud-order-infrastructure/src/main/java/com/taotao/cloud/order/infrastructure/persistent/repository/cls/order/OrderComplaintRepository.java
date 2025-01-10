@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.order;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 订单投诉数据处理层 */
+@Repository
 public class OrderComplaintRepository extends BaseClassSuperRepository<OrderComplaintPO, Long> {
 
     public OrderComplaintRepository(EntityManager em) {

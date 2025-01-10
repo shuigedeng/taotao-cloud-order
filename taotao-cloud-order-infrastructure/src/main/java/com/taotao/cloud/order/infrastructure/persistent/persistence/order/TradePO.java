@@ -112,17 +112,7 @@ public class TradePO extends BaseSuperEntity<TradePO, Long> {
     @Column(name = "consignee_address_id_path", columnDefinition = "varchar(64) not null comment '地址id逗号分割'")
     private String consigneeAddressIdPath;
 
-    public TradePO(TradeDTO tradeDTO) {
-        Long originId = this.getId();
-        if (tradeDTO.getMemberAddress() != null) {
-            BeanUtils.copyProperties(tradeDTO.getMemberAddress(), this);
-            this.setConsigneeMobile(tradeDTO.getMemberAddress().getMobile());
-            this.setConsigneeName(tradeDTO.getMemberAddress().getName());
-        }
-        BeanUtils.copyProperties(tradeDTO, this);
-        BeanUtils.copyProperties(tradeDTO.getPriceDetailDTO(), this);
-        this.setId(originId);
-    }
+
 
     @Override
     public boolean equals(Object o) {

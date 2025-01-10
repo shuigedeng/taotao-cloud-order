@@ -8,7 +8,7 @@ dependencies {
     compileOnly "org.apache.seata:seata-all:2.2.0"
     compileOnly 'com.github.oshi:oshi-core:6.6.5'
     compileOnly "io.github.shuigedeng:taotao-boot-starter-office"
-    //compileOnly "io.github.shuigedeng:taotao-boot-starter-grpc"
+    compileOnly "io.github.shuigedeng:taotao-boot-starter-dubbo"
 
     //https://search.maven.org/artifact/com.google.protobuf/protobuf-java
     api "com.google.protobuf:protobuf-java:3.25.1"

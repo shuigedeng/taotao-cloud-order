@@ -19,6 +19,7 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.aftersal
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /**
  * 售后日志数据处理层
@@ -27,6 +28,7 @@ import jakarta.persistence.EntityManager;
  * @version 2022.04
  * @since 2022-04-28 08:49:21
  */
+@Repository
 public class AfterSaleLogRepository extends BaseClassSuperRepository<AfterSaleLogPO, Long> {
 
     public AfterSaleLogRepository(EntityManager em) {

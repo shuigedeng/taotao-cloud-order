@@ -45,11 +45,16 @@ public class OrderLogServiceImpl extends ServiceImpl<OrderLogMapper, OrderLogPO>
         return this.list(lambdaQueryWrapper);
     }
 
-    @Override
-    public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
-        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        // todo 需要设置条件
+	@Override
+	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
+		return null;
+	}
 
-        return this.page(orderLogPageQry.buildMpPage(), lambdaQueryWrapper);
-    }
+	//@Override
+    //public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
+    //    LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+    //    // todo 需要设置条件
+	//
+    //    return this.page(orderLogPageQry.buildMpPage(), lambdaQueryWrapper);
+    //}
 }

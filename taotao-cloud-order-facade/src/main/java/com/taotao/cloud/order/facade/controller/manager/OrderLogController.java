@@ -19,12 +19,7 @@ package com.taotao.cloud.order.facade.controller.manager;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.utils.MpUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.order.application.command.order.dto.OrderLogPageQry;
-import com.taotao.cloud.order.application.command.order.dto.clientobject.OrderLogCO;
 import com.taotao.cloud.order.application.service.trade.OrderLogService;
-import com.taotao.cloud.order.infrastructure.persistent.po.order.OrderLogPO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -51,20 +46,20 @@ public class OrderLogController {
 
 	private final OrderLogService orderLogService;
 
-	@Operation(summary = "通过id获取", description = "通过id获取")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{id}")
-	public Result<OrderLogPO> get(@PathVariable String id) {
-		return Result.success(orderLogService.getById(id));
-	}
-
-	@Operation(summary = "分页获取", description = "分页获取")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/page")
-	public Result<PageResult<OrderLogCO>> getByPage(OrderLogPageQry orderLogPageQry) {
-		IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
-		return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
-	}
+	//@Operation(summary = "通过id获取", description = "通过id获取")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/{id}")
+	//public Result<OrderLogPO> get(@PathVariable String id) {
+	//	return Result.success(orderLogService.getById(id));
+	//}
+	//
+	//@Operation(summary = "分页获取", description = "分页获取")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/page")
+	//public Result<PageResult<OrderLogCO>> getByPage(OrderLogPageQry orderLogPageQry) {
+	//	IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
+	//	return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
+	//}
 }

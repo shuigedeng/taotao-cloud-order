@@ -20,12 +20,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.common.model.PageResult;
 import com.taotao.boot.common.model.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.cloud.order.application.command.aftersale.dto.AfterSalePageQry;
-import com.taotao.cloud.order.application.command.aftersale.dto.clientobject.AfterSaleCO;
 import com.taotao.cloud.order.application.assembler.AfterSaleAssembler;
 import com.taotao.cloud.order.application.service.aftersale.AfterSaleCommandService;
-import com.taotao.cloud.order.application.service.aftersale.IAfterSaleService;
-import com.taotao.cloud.order.infrastructure.persistent.po.aftersale.AfterSalePO;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -60,71 +56,71 @@ public class AfterSaleController {
 	 * 售后
 	 */
 	private final AfterSaleCommandService afterSaleCommandService;
-
-	@Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/page")
-	public Result<PageResult<AfterSaleCO>> pageQuery(AfterSalePageQry searchParams) {
-		IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);
-		return Result.success(MpUtils.convertMybatisPage(page, AfterSaleCO.class));
-	}
-
-	@Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/exportAfterSaleOrder")
-	public Result<List<AfterSaleCO>> exportAfterSaleOrder(AfterSalePageQry afterSalePageQry) {
-		List<AfterSalePO> afterSales = afterSaleCommandService.exportAfterSaleOrder(afterSalePageQry);
-		return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSales));
-	}
-
-	@Operation(summary = "查看售后服务详情", description = "查看售后服务详情")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{sn}")
-	public Result<AfterSaleCO> get(@NotNull(message = "售后单号") @PathVariable("sn") String sn) {
-		AfterSalePO afterSale = afterSaleCommandService.getAfterSaleBySn(sn);
-		return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSale));
-	}
-
-	@Operation(summary = "查看买家退货物流踪迹", description = "查看买家退货物流踪迹")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/delivery/traces/{sn}")
-	public Result<TracesVO> getDeliveryTraces(@PathVariable String sn) {
-		return Result.success(afterSaleCommandService.deliveryTraces(sn));
-	}
-
-	@Operation(summary = "售后线下退款", description = "售后线下退款")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/refund/{afterSaleSn}")
-	public Result<Boolean> refund(
-		@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
-		@RequestParam String remark) {
-		return Result.success(afterSaleCommandService.refund(afterSaleSn, remark));
-	}
-
-	@Operation(summary = "审核售后申请", description = "审核售后申请")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PutMapping(value = "/review/{afterSaleSn}")
-	public Result<Boolean> review(
-		@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
-		@NotNull(message = "请审核") String serviceStatus,
-		String remark,
-		BigDecimal actualRefundPrice) {
-		return Result.success(
-			afterSaleCommandService.review(afterSaleSn, serviceStatus, remark, actualRefundPrice));
-	}
-
-	@Operation(summary = "获取商家售后收件地址", description = "获取商家售后收件地址")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/getStoreAfterSaleAddress/{sn}")
-	public Result<StoreAfterSaleAddressVO> getStoreAfterSaleAddress(
-		@NotNull(message = "售后单号不能为空") @PathVariable("sn") String sn) {
-		return Result.success(afterSaleCommandService.getStoreAfterSaleAddressVO(sn));
-	}
+	//
+	//@Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/page")
+	//public Result<PageResult<AfterSaleCO>> pageQuery(AfterSalePageQry searchParams) {
+	//	IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);
+	//	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleCO.class));
+	//}
+	//
+	//@Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/exportAfterSaleOrder")
+	//public Result<List<AfterSaleCO>> exportAfterSaleOrder(AfterSalePageQry afterSalePageQry) {
+	//	List<AfterSalePO> afterSales = afterSaleCommandService.exportAfterSaleOrder(afterSalePageQry);
+	//	return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSales));
+	//}
+	//
+	//@Operation(summary = "查看售后服务详情", description = "查看售后服务详情")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/{sn}")
+	//public Result<AfterSaleCO> get(@NotNull(message = "售后单号") @PathVariable("sn") String sn) {
+	//	AfterSalePO afterSale = afterSaleCommandService.getAfterSaleBySn(sn);
+	//	return Result.success(AfterSaleAssembler.INSTANCE.convert(afterSale));
+	//}
+	//
+	//@Operation(summary = "查看买家退货物流踪迹", description = "查看买家退货物流踪迹")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/delivery/traces/{sn}")
+	//public Result<TracesVO> getDeliveryTraces(@PathVariable String sn) {
+	//	return Result.success(afterSaleCommandService.deliveryTraces(sn));
+	//}
+	//
+	//@Operation(summary = "售后线下退款", description = "售后线下退款")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@PutMapping(value = "/refund/{afterSaleSn}")
+	//public Result<Boolean> refund(
+	//	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
+	//	@RequestParam String remark) {
+	//	return Result.success(afterSaleCommandService.refund(afterSaleSn, remark));
+	//}
+	//
+	//@Operation(summary = "审核售后申请", description = "审核售后申请")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@PutMapping(value = "/review/{afterSaleSn}")
+	//public Result<Boolean> review(
+	//	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
+	//	@NotNull(message = "请审核") String serviceStatus,
+	//	String remark,
+	//	BigDecimal actualRefundPrice) {
+	//	return Result.success(
+	//		afterSaleCommandService.review(afterSaleSn, serviceStatus, remark, actualRefundPrice));
+	//}
+	//
+	//@Operation(summary = "获取商家售后收件地址", description = "获取商家售后收件地址")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping(value = "/getStoreAfterSaleAddress/{sn}")
+	//public Result<StoreAfterSaleAddressVO> getStoreAfterSaleAddress(
+	//	@NotNull(message = "售后单号不能为空") @PathVariable("sn") String sn) {
+	//	return Result.success(afterSaleCommandService.getStoreAfterSaleAddressVO(sn));
+	//}
 }

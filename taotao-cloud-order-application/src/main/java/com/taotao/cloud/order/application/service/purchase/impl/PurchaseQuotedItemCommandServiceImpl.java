@@ -35,20 +35,29 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PurchaseQuotedItemCommandServiceImpl extends ServiceImpl<PurchaseQuotedItemMapper, PurchaseQuotedItemPO>
         implements PurchaseQuotedItemCommandService {
+	@Override
+	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
+		return false;
+	}
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
-        for (PurchaseQuotedItemPO purchaseQuotedItemPO : purchaseQuotedItemPOList) {
-            purchaseQuotedItemPO.setPurchaseQuotedId(purchaseQuotedId);
-        }
+	@Override
+	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
+		return List.of();
+	}
 
-        return this.saveBatch(purchaseQuotedItemPOList);
-    }
-
-    @Override
-    public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
-        return this.list(new LambdaQueryWrapper<PurchaseQuotedItemPO>()
-                .eq(PurchaseQuotedItemPO::getPurchaseQuotedId, purchaseQuotedId));
-    }
+	//@Override
+    //@Transactional(rollbackFor = Exception.class)
+    //public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
+    //    for (PurchaseQuotedItemPO purchaseQuotedItemPO : purchaseQuotedItemPOList) {
+    //        purchaseQuotedItemPO.setPurchaseQuotedId(purchaseQuotedId);
+    //    }
+	//
+    //    return this.saveBatch(purchaseQuotedItemPOList);
+    //}
+	//
+    //@Override
+    //public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
+    //    return this.list(new LambdaQueryWrapper<PurchaseQuotedItemPO>()
+    //            .eq(PurchaseQuotedItemPO::getPurchaseQuotedId, purchaseQuotedId));
+    //}
 }

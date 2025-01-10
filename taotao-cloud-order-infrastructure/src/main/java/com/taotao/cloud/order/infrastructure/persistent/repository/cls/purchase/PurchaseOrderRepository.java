@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.purchase
 import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 采购单数据处理层 */
+@Repository
 public class PurchaseOrderRepository extends BaseClassSuperRepository<PurchaseOrderPO, Long> {
 
     public PurchaseOrderRepository(EntityManager em) {

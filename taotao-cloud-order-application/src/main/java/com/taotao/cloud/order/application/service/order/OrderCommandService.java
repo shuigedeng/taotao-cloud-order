@@ -20,7 +20,6 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.dto.cart.cmmond.TradeAddCmd.MemberAddressDTO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
 import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
@@ -135,7 +134,7 @@ public interface OrderCommandService extends IService<OrderPO> {
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:47
      */
-    Boolean intoDB(TradeDTO tradeDTO);
+    //Boolean intoDB(TradeDTO tradeDTO);
 
     /**
      * 订单付款 修改订单付款信息 记录订单流水
@@ -170,7 +169,7 @@ public interface OrderCommandService extends IService<OrderPO> {
      * @param memberAddressDTO 收货地址信息
      * @return 订单
      */
-    OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
+    //OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
 
     /**
      * 订单发货
@@ -234,7 +233,7 @@ public interface OrderCommandService extends IService<OrderPO> {
      *
      * @param orderMessage 订单传输信息
      */
-    void sendUpdateStatusMessage(OrderMessage orderMessage);
+    //void sendUpdateStatusMessage(OrderMessage orderMessage);
 
     /**
      * 根据订单sn逻辑删除订单

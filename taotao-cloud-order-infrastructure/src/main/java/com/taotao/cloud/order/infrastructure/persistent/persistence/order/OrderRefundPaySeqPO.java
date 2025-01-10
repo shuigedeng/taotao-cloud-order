@@ -89,10 +89,6 @@ public class OrderRefundPaySeqPO extends BaseSuperEntity<OrderRefundPaySeqPO, Lo
     @Column(name = "refund_date", columnDefinition = "datetime comment '退款时间'")
     private LocalDateTime refundDate;
 
-    /** 创建日期 */
-    @Column(name = "create_date", columnDefinition = "datetime comment '创建日期'")
-    private LocalDateTime createDate;
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

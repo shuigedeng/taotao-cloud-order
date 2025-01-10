@@ -19,8 +19,10 @@ package com.taotao.cloud.order.infrastructure.persistent.repository.cls.order;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
 import jakarta.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 
 /** 发票数据处理层 */
+@Repository
 public class ReceiptRepository extends BaseClassSuperRepository<ReceiptPO, Long> {
 
     public ReceiptRepository(EntityManager em) {

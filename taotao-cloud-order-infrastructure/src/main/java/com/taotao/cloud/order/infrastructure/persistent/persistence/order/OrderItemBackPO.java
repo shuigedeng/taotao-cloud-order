@@ -47,10 +47,10 @@ import org.hibernate.Hibernate;
 @Entity
 @TableName(OrderItemBackPO.TABLE_NAME)
 @Table(name = OrderItemBackPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = OrderItemBackPO.TABLE_NAME,)
+@org.springframework.data.relational.core.mapping.Table(name = OrderItemBackPO.TABLE_NAME)
 public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
 
-    public static final String TABLE_NAME = "order_item";
+    public static final String TABLE_NAME = "tt_order_item_back";
 
     /** 订单子编码 */
     @Column(name = "item_code", unique = true, columnDefinition = "varchar(32) not null comment '订单子编码'")

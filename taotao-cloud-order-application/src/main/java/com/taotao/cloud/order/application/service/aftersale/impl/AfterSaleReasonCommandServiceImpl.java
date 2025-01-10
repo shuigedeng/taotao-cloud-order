@@ -21,6 +21,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.taotao.cloud.order.application.dto.aftersale.query.AfterSaleReasonPageQry;
 import com.taotao.cloud.order.application.service.aftersale.AfterSaleReasonCommandService;
 import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.AfterSaleReasonMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
@@ -42,28 +43,42 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleReasonCommandServiceImpl extends ServiceImpl<AfterSaleReasonMapper, AfterSaleReasonPO>
 	implements AfterSaleReasonCommandService {
-
 	@Override
 	public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
-		LambdaQueryWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-		lambdaQueryWrapper.eq(AfterSaleReasonPO::getServiceType, serviceType);
-		return this.list(lambdaQueryWrapper);
+		return List.of();
 	}
 
 	@Override
 	public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
-		LambdaUpdateWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaUpdate();
-		lambdaQueryWrapper.eq(AfterSaleReasonPO::getId, afterSaleReasonPO.getId());
-		lambdaQueryWrapper.set(AfterSaleReasonPO::getReason, afterSaleReasonPO.getReason());
-		lambdaQueryWrapper.set(AfterSaleReasonPO::getServiceType, afterSaleReasonPO.getServiceType());
-		this.update(lambdaQueryWrapper);
-		return true;
+		return null;
 	}
 
 	@Override
-	public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQuery afterSaleReasonPageQuery) {
-		LambdaQueryWrapper<AfterSaleReasonPO> queryWrapper = Wrappers.lambdaQuery();
-		queryWrapper.eq(AfterSaleReasonPO::getServiceType, afterSaleReasonPageQuery.getServiceType());
-		return this.page(afterSaleReasonPageQuery.buildMpPage(), queryWrapper);
+	public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry) {
+		return null;
 	}
+
+	//@Override
+	//public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
+	//	LambdaQueryWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+	//	lambdaQueryWrapper.eq(AfterSaleReasonPO::getServiceType, serviceType);
+	//	return this.list(lambdaQueryWrapper);
+	//}
+	//
+	//@Override
+	//public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
+	//	LambdaUpdateWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaUpdate();
+	//	lambdaQueryWrapper.eq(AfterSaleReasonPO::getId, afterSaleReasonPO.getId());
+	//	lambdaQueryWrapper.set(AfterSaleReasonPO::getReason, afterSaleReasonPO.getReason());
+	//	lambdaQueryWrapper.set(AfterSaleReasonPO::getServiceType, afterSaleReasonPO.getServiceType());
+	//	this.update(lambdaQueryWrapper);
+	//	return true;
+	//}
+	//
+	//@Override
+	//public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQuery afterSaleReasonPageQuery) {
+	//	LambdaQueryWrapper<AfterSaleReasonPO> queryWrapper = Wrappers.lambdaQuery();
+	//	queryWrapper.eq(AfterSaleReasonPO::getServiceType, afterSaleReasonPageQuery.getServiceType());
+	//	return this.page(afterSaleReasonPageQuery.buildMpPage(), queryWrapper);
+	//}
 }

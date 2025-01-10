@@ -28,33 +28,33 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.Pur
  * @since 2022-04-28 08:55:29
  */
 public interface PurchaseOrderQueryService extends IService<PurchaseOrderPO> {
-
-	/**
-	 * 添加采购单
-	 *
-	 * @param purchaseOrderVO 采购单
-	 * @return {@link PurchaseOrderVO }
-	 * @since 2022-04-28 08:55:29
-	 */
-	PurchaseOrderVO addPurchaseOrder(PurchaseOrderVO purchaseOrderVO);
-
-	/**
-	 * 根据ID获取采购单
-	 *
-	 * @param id 采购单ID
-	 * @return {@link PurchaseOrderVO }
-	 * @since 2022-04-28 08:55:29
-	 */
-	PurchaseOrderVO getPurchaseOrder(String id);
-
-	/**
-	 * 获取采购单分页列表
-	 *
-	 * @param purchaseOrderSearchParams 查询参数
-	 * @return {@link IPage }<{@link PurchaseOrderPO }>
-	 * @since 2022-04-28 08:55:29
-	 */
-	IPage<PurchaseOrderPO> page(PurchaseOrderSearchParams purchaseOrderSearchParams);
+	//
+	///**
+	// * 添加采购单
+	// *
+	// * @param purchaseOrderVO 采购单
+	// * @return {@link PurchaseOrderVO }
+	// * @since 2022-04-28 08:55:29
+	// */
+	//PurchaseOrderVO addPurchaseOrder(PurchaseOrderVO purchaseOrderVO);
+	//
+	///**
+	// * 根据ID获取采购单
+	// *
+	// * @param id 采购单ID
+	// * @return {@link PurchaseOrderVO }
+	// * @since 2022-04-28 08:55:29
+	// */
+	//PurchaseOrderVO getPurchaseOrder(String id);
+	//
+	///**
+	// * 获取采购单分页列表
+	// *
+	// * @param purchaseOrderSearchParams 查询参数
+	// * @return {@link IPage }<{@link PurchaseOrderPO }>
+	// * @since 2022-04-28 08:55:29
+	// */
+	//IPage<PurchaseOrderPO> page(PurchaseOrderSearchParams purchaseOrderSearchParams);
 
 	/**
 	 * 关闭供求单

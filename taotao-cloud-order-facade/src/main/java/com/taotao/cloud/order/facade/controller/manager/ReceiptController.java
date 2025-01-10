@@ -45,13 +45,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReceiptController {
 
 	private final ReceiptCommandService receiptCommandService;
-
-	@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/tree")
-	public Result<PageResult<OrderReceiptAddCmd>> getPage(ReceiptPageQry receiptPageQry) {
-		IPage<OrderReceiptAddCmd> page = this.receiptCommandService.pageQuery(receiptPageQry);
-		return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
-	}
+	//
+	//@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping("/tree")
+	//public Result<PageResult<OrderReceiptAddCmd>> getPage(ReceiptPageQry receiptPageQry) {
+	//	IPage<OrderReceiptAddCmd> page = this.receiptCommandService.pageQuery(receiptPageQry);
+	//	return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
+	//}
 }

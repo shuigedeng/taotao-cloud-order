@@ -163,52 +163,6 @@ public class OrderItemPO extends BaseSuperEntity<OrderItemPO, Long> {
     @Column(name = "return_goods_number", columnDefinition = "varchar(64) not null comment '退货商品数量'")
     private Integer returnGoodsNumber;
 
-    public OrderItemPO(CartSkuVO cartSkuVO, CartVO cartVO, TradeDTO tradeDTO) {
-        Long oldId = this.getId();
-        BeanUtils.copyProperties(cartSkuVO.getGoodsSku(), this);
-        BeanUtils.copyProperties(cartSkuVO.getPriceDetailDTO(), this);
-        BeanUtils.copyProperties(cartSkuVO, this);
-        this.setId(oldId);
-        if (cartSkuVO.getPriceDetailDTO().getJoinPromotion() != null
-                && !cartSkuVO.getPriceDetailDTO().getJoinPromotion().isEmpty()) {
-            this.setPromotionType(CollUtil.join(
-                    cartSkuVO.getPriceDetailDTO().getJoinPromotion().stream()
-                            .map(PromotionSkuVO::getPromotionType)
-                            .toList(),
-                    ","));
-            this.setPromotionId(CollUtil.join(
-                    cartSkuVO.getPriceDetailDTO().getJoinPromotion().stream()
-                            .map(PromotionSkuVO::getActivityId)
-                            .toList(),
-                    ","));
-        }
-        this.setAfterSaleStatus(OrderItemAfterSaleStatusEnum.NEW.name());
-        this.setCommentStatus(CommentStatusEnum.NEW.name());
-        this.setComplainStatus(OrderComplaintStatusEnum.NEW.name());
-        this.setPriceDetailDTO(cartSkuVO.getPriceDetailDTO());
-        this.setOrderSn(cartVO.getSn());
-        this.setTradeSn(tradeDTO.getSn());
-        this.setImage(cartSkuVO.getGoodsSku().getThumbnail());
-        this.setGoodsName(cartSkuVO.getGoodsSku().getGoodsName());
-        this.setSkuId(cartSkuVO.getGoodsSku().getId());
-        this.setCategoryId(cartSkuVO
-                .getGoodsSku()
-                .getCategoryPath()
-                .substring(cartSkuVO.getGoodsSku().getCategoryPath().lastIndexOf(",") + 1));
-        this.setGoodsPrice(cartSkuVO.getGoodsSku().getPrice());
-        this.setUnitPrice(cartSkuVO.getPurchasePrice());
-        this.setSubTotal(cartSkuVO.getSubTotal());
-        this.setSn(SnowFlake.createStr("OI"));
-    }
-
-    public PriceDetailDTO getPriceDetailDTO() {
-        return JSONUtil.toBean(priceDetail, PriceDetailDTO.class);
-    }
-
-    public void setPriceDetailDTO(PriceDetailDTO priceDetail) {
-        this.priceDetail = JSONUtil.toJsonStr(priceDetail);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

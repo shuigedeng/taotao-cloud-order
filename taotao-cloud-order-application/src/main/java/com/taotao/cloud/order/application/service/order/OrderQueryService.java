@@ -20,7 +20,6 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.dto.cart.cmmond.TradeAddCmd.MemberAddressDTO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
@@ -136,7 +135,7 @@ public interface OrderQueryService extends IService<OrderPO> {
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:47
      */
-    Boolean intoDB(TradeDTO tradeDTO);
+    //Boolean intoDB(TradeDTO tradeDTO);
 
     /**
      * 订单付款 修改订单付款信息 记录订单流水
@@ -164,14 +163,14 @@ public interface OrderQueryService extends IService<OrderPO> {
      */
     OrderPO cancel(String orderSn, String reason);
 
-    /**
-     * 发货信息修改 日志功能内部实现
-     *
-     * @param orderSn 订单编号
-     * @param memberAddressDTO 收货地址信息
-     * @return 订单
-     */
-    OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
+    ///**
+    // * 发货信息修改 日志功能内部实现
+    // *
+    // * @param orderSn 订单编号
+    // * @param memberAddressDTO 收货地址信息
+    // * @return 订单
+    // */
+    //OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
 
     /**
      * 订单发货
@@ -230,12 +229,12 @@ public interface OrderQueryService extends IService<OrderPO> {
      */
     List<OrderPO> getByTradeSn(String tradeSn);
 
-    /**
-     * 发送更新订单状态的信息
-     *
-     * @param orderMessage 订单传输信息
-     */
-    void sendUpdateStatusMessage(OrderMessage orderMessage);
+    ///**
+    // * 发送更新订单状态的信息
+    // *
+    // * @param orderMessage 订单传输信息
+    // */
+    //void sendUpdateStatusMessage(OrderMessage orderMessage);
 
     /**
      * 根据订单sn逻辑删除订单

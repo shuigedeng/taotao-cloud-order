@@ -45,25 +45,30 @@ public class OrderComplaintCommunicationCommandServiceImpl
         return this.save(orderComplaintCommunicationPO);
     }
 
-    @Override
-    public IPage<OrderComplaintCommunicationPO> getCommunication(
-		OrderComplaintCommunicationPageQry pageQuery) {
-        LambdaQueryWrapper<OrderComplaintCommunicationPO> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(
-                StrUtil.isNotEmpty(pageQuery.getComplainId()),
-                OrderComplaintCommunicationPO::getComplainId,
-                pageQuery.getComplainId());
-        queryWrapper.eq(
-                StrUtil.isNotEmpty(pageQuery.getOwner()), OrderComplaintCommunicationPO::getOwner, pageQuery.getOwner());
-        queryWrapper.eq(
-                StrUtil.isNotEmpty(pageQuery.getOwnerName()),
-                OrderComplaintCommunicationPO::getOwnerName,
-                pageQuery.getOwnerName());
-        queryWrapper.eq(
-                StrUtil.isNotEmpty(pageQuery.getOwnerId()),
-                OrderComplaintCommunicationPO::getOwnerId,
-                pageQuery.getOwnerId());
+	@Override
+	public IPage<OrderComplaintCommunicationPO> getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
+		return null;
+	}
 
-        return this.page(pageQuery.buildMpPage(), queryWrapper);
-    }
+	//@Override
+    //public IPage<OrderComplaintCommunicationPO> getCommunication(
+	//	OrderComplaintCommunicationPageQry pageQuery) {
+    //    LambdaQueryWrapper<OrderComplaintCommunicationPO> queryWrapper = new LambdaQueryWrapper<>();
+    //    queryWrapper.eq(
+    //            StrUtil.isNotEmpty(pageQuery.getComplainId()),
+    //            OrderComplaintCommunicationPO::getComplainId,
+    //            pageQuery.getComplainId());
+    //    queryWrapper.eq(
+    //            StrUtil.isNotEmpty(pageQuery.getOwner()), OrderComplaintCommunicationPO::getOwner, pageQuery.getOwner());
+    //    queryWrapper.eq(
+    //            StrUtil.isNotEmpty(pageQuery.getOwnerName()),
+    //            OrderComplaintCommunicationPO::getOwnerName,
+    //            pageQuery.getOwnerName());
+    //    queryWrapper.eq(
+    //            StrUtil.isNotEmpty(pageQuery.getOwnerId()),
+    //            OrderComplaintCommunicationPO::getOwnerId,
+    //            pageQuery.getOwnerId());
+	//
+    //    return this.page(pageQuery.buildMpPage(), queryWrapper);
+    //}
 }

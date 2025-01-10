@@ -44,35 +44,40 @@ public class PurchaseQuotedCommandServiceImpl extends ServiceImpl<PurchaseQuoted
 	private PurchaseQuotedItemCommandService purchaseQuotedItemService;
 
 	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public PurchaseQuotedVO addPurchaseQuoted(PurchaseQuotedVO purchaseQuotedVO) {
-		PurchaseQuotedPO purchaseQuotedPO = new PurchaseQuotedPO();
-		BeanUtils.copyProperties(purchaseQuotedVO, purchaseQuotedPO);
-		// 添加报价单
-		this.save(purchaseQuotedPO);
-		// 添加采购单子内容
-		purchaseQuotedItemService.addPurchaseQuotedItem(
-			purchaseQuotedPO.getId(), purchaseQuotedVO.getPurchaseQuotedItems());
-		return purchaseQuotedVO;
-	}
-
-	@Override
 	public List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId) {
-		LambdaQueryWrapper<PurchaseQuotedPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-		lambdaQueryWrapper.eq(PurchaseQuotedPO::getPurchaseOrderId, purchaseOrderId);
-		lambdaQueryWrapper.orderByDesc(PurchaseQuotedPO::getCreateTime);
-		return this.list(lambdaQueryWrapper);
+		return List.of();
 	}
 
-	@Override
-	public PurchaseQuotedVO getById(String id) {
-		// 获取报价单
-		PurchaseQuotedVO purchaseQuotedVO = new PurchaseQuotedVO();
-		PurchaseQuotedPO purchaseQuotedPO = this.baseMapper.selectById(id);
-		BeanUtils.copyProperties(purchaseQuotedPO, purchaseQuotedVO);
-		// 获取报价单子内容
-		purchaseQuotedVO.setPurchaseQuotedItems(
-			purchaseQuotedItemService.purchaseQuotedItemList(id));
-		return purchaseQuotedVO;
-	}
+	//@Override
+	//@Transactional(rollbackFor = Exception.class)
+	//public PurchaseQuotedVO addPurchaseQuoted(PurchaseQuotedVO purchaseQuotedVO) {
+	//	PurchaseQuotedPO purchaseQuotedPO = new PurchaseQuotedPO();
+	//	BeanUtils.copyProperties(purchaseQuotedVO, purchaseQuotedPO);
+	//	// 添加报价单
+	//	this.save(purchaseQuotedPO);
+	//	// 添加采购单子内容
+	//	purchaseQuotedItemService.addPurchaseQuotedItem(
+	//		purchaseQuotedPO.getId(), purchaseQuotedVO.getPurchaseQuotedItems());
+	//	return purchaseQuotedVO;
+	//}
+	//
+	//@Override
+	//public List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId) {
+	//	LambdaQueryWrapper<PurchaseQuotedPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+	//	lambdaQueryWrapper.eq(PurchaseQuotedPO::getPurchaseOrderId, purchaseOrderId);
+	//	lambdaQueryWrapper.orderByDesc(PurchaseQuotedPO::getCreateTime);
+	//	return this.list(lambdaQueryWrapper);
+	//}
+	//
+	//@Override
+	//public PurchaseQuotedVO getById(String id) {
+	//	// 获取报价单
+	//	PurchaseQuotedVO purchaseQuotedVO = new PurchaseQuotedVO();
+	//	PurchaseQuotedPO purchaseQuotedPO = this.baseMapper.selectById(id);
+	//	BeanUtils.copyProperties(purchaseQuotedPO, purchaseQuotedVO);
+	//	// 获取报价单子内容
+	//	purchaseQuotedVO.setPurchaseQuotedItems(
+	//		purchaseQuotedItemService.purchaseQuotedItemList(id));
+	//	return purchaseQuotedVO;
+	//}
 }
