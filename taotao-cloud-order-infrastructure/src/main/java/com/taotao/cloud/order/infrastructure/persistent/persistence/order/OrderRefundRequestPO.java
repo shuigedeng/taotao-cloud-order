@@ -124,7 +124,7 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     private String receiverAddress;
 
     /** 申请时间 */
-    @Column(name = "create_Date", columnDefinition = "TIMESTAMP comment '创建时间'")
+    @Column(name = "sub_date", columnDefinition = "TIMESTAMP comment '创建时间'")
     private LocalDateTime subDate;
 
     /** 结束关闭时间 */

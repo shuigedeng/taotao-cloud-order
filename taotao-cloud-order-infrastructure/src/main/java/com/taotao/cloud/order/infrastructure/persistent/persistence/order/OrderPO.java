@@ -122,7 +122,7 @@ public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
     private String paymentMethod;
 
     /** 支付时间 */
-    @Column(name = "member_id", columnDefinition = "datetime null comment '支付时间'")
+    @Column(name = "payment_time", columnDefinition = "datetime null comment '支付时间'")
     private LocalDateTime paymentTime;
 
     /** 收件人姓名 */
