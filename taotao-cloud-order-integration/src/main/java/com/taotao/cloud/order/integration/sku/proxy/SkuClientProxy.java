@@ -24,6 +24,7 @@ import com.taotao.cloud.order.integration.sku.adapter.SkuClientAdapter;
 import com.taotao.cloud.order.integration.sku.grpc.SkuGrpcClient;
 import com.taotao.cloud.order.integration.sku.vo.SkuVO;
 import jakarta.annotation.Resource;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.openjdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.stereotype.Component;
 
@@ -38,7 +39,7 @@ public class SkuClientProxy {
     @Resource
     private SkuGrpcClient skuGrpcClient;
 
-    @Reference
+    @DubboReference
     private GoodsRpcService goodsRpcService;
 
     // 查询用户
