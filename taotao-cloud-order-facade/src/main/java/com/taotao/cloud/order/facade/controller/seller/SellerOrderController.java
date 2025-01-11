@@ -16,42 +16,11 @@
 
 package com.taotao.cloud.order.facade.controller.seller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.common.utils.servlet.RequestUtils;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
-import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
-import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
-import com.taotao.cloud.order.application.service.order.OrderPriceCommandService;
-import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import org.springframework.http.MediaType;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import zipkin2.storage.Traces;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * 店铺端,订单API
@@ -65,7 +34,7 @@ import java.util.List;
 @RestController
 @Tag(name = "店铺端-订单API", description = "店铺端-订单API")
 @RequestMapping("/order/seller/order")
-public class OrderController {
+public class SellerOrderController {
 	//
 	///**
 	// * 订单

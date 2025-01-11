@@ -16,42 +16,41 @@
 
 package com.taotao.cloud.order.facade.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 管理端,发票记录API
+ * 管理端,退款日志API
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 08:57:24
+ * @since 2022-04-28 08:57:27
  */
 @AllArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-发票记录管理API", description = "管理端-发票记录管理API")
-@RequestMapping("/order/manager/receipt")
-public class ReceiptController {
-
-	private final ReceiptCommandService receiptCommandService;
+@Tag(name = "管理端-退款日志管理API", description = "管理端-退款日志管理API")
+@RequestMapping("/order/manager/refund/log")
+public class ManagerRefundLogController {
 	//
-	//@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
+	//private final RefundLogService refundLogService;
+	//
+	//@Operation(summary = "查看退款日志详情", description = "查看退款日志详情")
+	//@RequestLogger
+	//@PreAuthorize("hasAuthority('dept:tree:data')")
+	//@GetMapping("/{id}")
+	//public Result<RefundLog> get(@PathVariable String id) {
+	//	return Result.success(refundLogService.getById(id));
+	//}
+	//
+	//@Operation(summary = "分页获取退款日志", description = "分页获取退款日志")
 	//@RequestLogger
 	//@PreAuthorize("hasAuthority('dept:tree:data')")
 	//@GetMapping("/tree")
-	//public Result<PageResult<OrderReceiptAddCmd>> getPage(ReceiptPageQry receiptPageQry) {
-	//	IPage<OrderReceiptAddCmd> page = this.receiptCommandService.pageQuery(receiptPageQry);
-	//	return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
+	//public Result<IPage<RefundLog>> getByPage(RefundLog entity, SearchVO searchVo, PageVO page) {
+	//	return Result.success(refundLogService.page(PageUtil.initPage(page), PageUtil.initWrapper(entity, searchVo)));
 	//}
 }

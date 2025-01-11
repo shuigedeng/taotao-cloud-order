@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class TradeAddCmdExe {
+public class TradeQueryCmdExe {
 
 //	private final DeptDomainService deptDomainService;
 //

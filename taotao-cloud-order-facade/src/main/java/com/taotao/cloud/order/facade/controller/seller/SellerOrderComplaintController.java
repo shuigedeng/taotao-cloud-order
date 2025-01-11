@@ -16,36 +16,9 @@
 
 package com.taotao.cloud.order.facade.controller.seller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
-import com.taotao.cloud.order.api.enums.order.CommunicationOwnerEnum;
-import com.taotao.cloud.order.application.assembler.OrderComplainAssembler;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintBaseCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintAddCmd;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintCommunicationAddCmd;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintOperationAddCmd;
-import com.taotao.cloud.order.application.dto.order.cmmond.StoreAppealCmd;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
-import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationCommandService;
-import com.taotao.cloud.order.application.service.order.OrderComplaintCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-交易投诉API", description = "店铺端-交易投诉API")
 @RequestMapping("/order/seller/order/complain")
-public class OrderComplaintController {
+public class SellerOrderComplaintController {
 
 	///**
 	// * 交易投诉

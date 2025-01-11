@@ -16,45 +16,11 @@
 
 package com.taotao.cloud.order.facade.controller.buyer;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
-import com.taotao.cloud.order.application.assembler.AfterSaleAssembler;
-import com.taotao.cloud.order.application.assembler.AfterSaleLogAssembler;
-import com.taotao.cloud.order.application.assembler.AfterSaleReasonAssembler;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleApplyCO;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleCO;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleLogCO;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleReasonCO;
-import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleAddCmd;
-import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQry;
-import com.taotao.cloud.order.application.service.aftersale.AfterSaleLogCommandService;
-import com.taotao.cloud.order.application.service.aftersale.AfterSaleReasonCommandService;
-import com.taotao.cloud.order.application.service.aftersale.AfterSaleCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * 买家端,售后管理API
@@ -68,7 +34,7 @@ import java.util.List;
 @RestController
 @Tag(name = "买家端-售后API", description = "买家端-售后API")
 @RequestMapping("/order/buyer/aftersale")
-public class AfterSaleController {
+public class BuyerAfterSaleController {
 
     ///**
     // * 售后

@@ -16,17 +16,10 @@
 
 package com.taotao.cloud.order.facade.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
 import com.taotao.cloud.order.application.service.trade.OrderLogService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-订单日志管理API", description = "管理端-订单日志管理API")
 @RequestMapping("/order/manager/order/log")
-public class OrderLogController {
+public class ManagerOrderLogController {
 
 	private final OrderLogService orderLogService;
 

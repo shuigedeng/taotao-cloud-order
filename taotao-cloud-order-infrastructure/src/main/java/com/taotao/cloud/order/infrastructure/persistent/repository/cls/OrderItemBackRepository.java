@@ -27,9 +27,9 @@ import org.springframework.stereotype.Repository;
  * @since 2020/10/22 12:46
  */
 @Repository
-public class OrderItemRepository extends BaseClassSuperRepository<OrderItemBackPO, Long> {
+public class OrderItemBackRepository extends BaseClassSuperRepository<OrderItemBackPO, Long> {
 
-    public OrderItemRepository(EntityManager em) {
+    public OrderItemBackRepository(EntityManager em) {
         super(OrderItemBackPO.class, em);
     }
 }

@@ -16,26 +16,11 @@
 
 package com.taotao.cloud.order.facade.controller.manager;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.cloud.order.application.assembler.AfterSaleAssembler;
 import com.taotao.cloud.order.application.service.aftersale.AfterSaleCommandService;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.util.List;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -50,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-售后管理API", description = "管理端-售后管理API")
 @RequestMapping("/order/manager/aftersale")
-public class AfterSaleController {
+public class ManagerAfterSaleController {
 
 	/**
 	 * 售后

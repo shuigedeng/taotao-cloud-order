@@ -16,35 +16,11 @@
 
 package com.taotao.cloud.order.facade.controller.buyer;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.PageResult;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
-import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
-import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
-import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import zipkin2.storage.Traces;
 
 /**
  * 买家端,订单API
@@ -58,7 +34,7 @@ import zipkin2.storage.Traces;
 @RestController
 @Tag(name = "买家端-订单API", description = "买家端-订单API")
 @RequestMapping("/order/buyer/order")
-public class OrderController {
+public class BuyerOrderController {
 
 	//private final OrderCommandService orderCommandService;
 	//
