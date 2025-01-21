@@ -27,7 +27,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "售后搜索参数")

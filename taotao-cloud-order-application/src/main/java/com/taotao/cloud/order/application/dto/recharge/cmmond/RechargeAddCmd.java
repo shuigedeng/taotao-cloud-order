@@ -30,7 +30,7 @@ import java.io.Serializable;
 /** 预存款充值记录查询条件 */
 @Setter
 @Getter
-@Builder
+@Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "预存款充值记录查询条件")

@@ -29,7 +29,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Accessors(fluent = true)
 public class OrderLogCO {
 
     /** 订单编号 */
