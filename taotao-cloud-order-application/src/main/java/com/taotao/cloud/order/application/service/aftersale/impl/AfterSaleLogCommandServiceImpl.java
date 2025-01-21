@@ -43,7 +43,7 @@ public class AfterSaleLogCommandServiceImpl extends ServiceImpl<AfterSaleLogMapp
     @Override
     public List<AfterSaleLogPO> getAfterSaleLog(String sn) {
         LambdaQueryWrapper<AfterSaleLogPO> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.eq(AfterSaleLogPO::getSn, sn);
+        queryWrapper.eq(AfterSaleLogPO::sn, sn);
         return this.list(queryWrapper);
     }
 }

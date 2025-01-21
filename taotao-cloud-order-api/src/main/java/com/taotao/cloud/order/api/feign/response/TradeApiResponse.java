@@ -10,5 +10,5 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TradeApiResponse {
-
+	private String orderSn;
 }

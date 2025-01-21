@@ -10,5 +10,5 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemSaveApiRequest {
-
+	private String orderSn;
 }

@@ -41,7 +41,7 @@ public class OrderLogServiceImpl extends ServiceImpl<OrderLogMapper, OrderLogPO>
     @Override
     public List<OrderLogPO> getOrderLog(String orderSn) {
         LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.eq(OrderLogPO::getOrderSn, orderSn);
+        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
         return this.list(lambdaQueryWrapper);
     }
 
