@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
 @TableName(CartPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(CartPO.TABLE_NAME)
 public class CartPO extends JpaSuperEntity<Long> {
-	public static final String TABLE_NAME = "tt_cart";
+	public static final String TABLE_NAME = "ttc_cart";
     @Serial
     private static final long serialVersionUID = 6887296988458221221L;
 

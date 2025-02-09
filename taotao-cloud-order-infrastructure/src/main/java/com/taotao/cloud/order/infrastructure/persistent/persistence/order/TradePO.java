@@ -56,7 +56,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = TradePO.TABLE_NAME)
 public class TradePO extends BaseSuperEntity<TradePO, Long> {
 
-    public static final String TABLE_NAME = "tt_trade";
+    public static final String TABLE_NAME = "ttc_trade";
 
     @Serial
     private static final long serialVersionUID = 5177608752643561827L;

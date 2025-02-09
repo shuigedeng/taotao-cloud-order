@@ -55,7 +55,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = OrderComplaintPO.TABLE_NAME)
 public class OrderComplaintPO extends BaseSuperEntity<OrderComplaintPO, Long> {
 
-    public static final String TABLE_NAME = "tt_order_complaint";
+    public static final String TABLE_NAME = "ttc_order_complaint";
 
     @Serial
     private static final long serialVersionUID = 7185050229757228184L;

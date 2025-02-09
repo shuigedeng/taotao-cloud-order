@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = ReceiptPO.TABLE_NAME)
 public class ReceiptPO extends BaseSuperEntity<ReceiptPO, Long> {
 
-    public static final String TABLE_NAME = "tt_receipt";
+    public static final String TABLE_NAME = "ttc_receipt";
 
     @Serial
     private static final long serialVersionUID = -8210927482915675995L;

@@ -55,7 +55,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = StoreFlowPO.TABLE_NAME)
 public class StoreFlowPO extends BaseSuperEntity<StoreFlowPO, Long> {
 
-    public static final String TABLE_NAME = "tt_store_flow";
+    public static final String TABLE_NAME = "ttc_store_flow";
 
     @Serial
     private static final long serialVersionUID = -5998757398902747939L;

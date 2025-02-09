@@ -52,7 +52,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = PurchaseQuotedItemPO.TABLE_NAME)
 public class PurchaseQuotedItemPO extends BaseSuperEntity<PurchaseQuotedItemPO, Long> {
 
-    public static final String TABLE_NAME = "tt_purchase_quoted_item";
+    public static final String TABLE_NAME = "ttc_purchase_quoted_item";
 
     /** 报价单ID */
     @Column(name = "purchase_quoted_id", columnDefinition = "bigint not null comment '报价单ID'")

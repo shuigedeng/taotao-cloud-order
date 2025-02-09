@@ -65,7 +65,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = OrderPO.TABLE_NAME)
 public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
 
-    public static final String TABLE_NAME = "tt_order";
+    public static final String TABLE_NAME = "ttc_order";
 
     /** 订单编号 */
     @Column(name = "sn", columnDefinition = "varchar(64) not null comment '订单编号'")

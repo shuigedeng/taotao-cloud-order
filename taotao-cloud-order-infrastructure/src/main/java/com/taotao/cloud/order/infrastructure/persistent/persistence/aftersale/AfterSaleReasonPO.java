@@ -52,7 +52,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(name = AfterSaleReasonPO.TABLE_NAME)
 public class AfterSaleReasonPO extends BaseSuperEntity<AfterSaleReasonPO, Long> {
 
-    public static final String TABLE_NAME = "tt_after_sale_reason";
+    public static final String TABLE_NAME = "ttc_after_sale_reason";
 
     /** 售后原因 */
     @Column(name = "reason", columnDefinition = "varchar(1024) not null comment '售后原因'")
