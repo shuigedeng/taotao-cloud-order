@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,退款日志API
@@ -34,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-退款日志管理API", description = "管理端-退款日志管理API")
 @RequestMapping("/order/manager/refund/log")
-public class ManagerRefundLogController {
+public class ManagerRefundLogController extends BusinessController {
 	//
 	//private final RefundLogService refundLogService;
 	//

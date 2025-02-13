@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 import java.util.List;
 
@@ -46,7 +47,7 @@ import java.util.List;
 @RestController
 @Tag(name = "店铺端-订单日志API", description = "店铺端-订单日志API")
 @RequestMapping("/order/seller/order/log")
-public class SellerOrderLogController {
+public class SellerOrderLogController extends BusinessController {
 
 	private final OrderLogService orderLogService;
 

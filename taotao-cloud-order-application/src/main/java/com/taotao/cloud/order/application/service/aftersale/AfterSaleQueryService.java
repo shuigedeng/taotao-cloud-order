@@ -34,7 +34,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:49:10
  */
-public interface AfterSaleQueryService extends IService<AfterSalePO> {
+public interface AfterSaleQueryService extends CommandService<AfterSalePO> {
 
     ///**
     // * 分页查询售后信息

@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 买家端，购物车API
@@ -34,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "买家端-购物车API", description = "买家端-购物车API")
 @RequestMapping("/order/buyer/cart")
-public class BuyerCartController {
+public class BuyerCartController extends BusinessController {
 	//
     ///**
     // * 购物车

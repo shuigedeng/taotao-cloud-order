@@ -31,6 +31,6 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface TradeCommandService extends IService<TradePO> {
+public interface TradeCommandService extends CommandService<TradePO> {
 
 }

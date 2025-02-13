@@ -28,7 +28,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderC
  * @version 2022.04
  * @since 2022-04-28 08:54:33
  */
-public interface OrderComplaintCommunicationQueryService extends IService<OrderComplaintCommunicationPO> {
+public interface OrderComplaintCommunicationQueryService extends CommandService<OrderComplaintCommunicationPO> {
 
 	/**
 	 * 添加订单投诉通信

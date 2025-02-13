@@ -39,7 +39,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:54:47
  */
-public interface OrderQueryService extends IService<OrderPO> {
+public interface OrderQueryService extends CommandService<OrderPO> {
 
     /**
      * 系统取消订单

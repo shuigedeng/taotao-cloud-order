@@ -28,7 +28,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:27
  */
-public interface PurchaseOrderItemCommandService extends IService<PurchaseOrderItemPO> {
+public interface PurchaseOrderItemCommandService extends CommandService<PurchaseOrderItemPO> {
 
 	/**
 	 * 添加采购单子内容

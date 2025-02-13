@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,售后原因API
@@ -34,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-售后原因管理API", description = "管理端-售后原因管理API")
 @RequestMapping("/order/manager/aftersale/reason")
-public class ManagerAfterSaleReasonController {
+public class ManagerAfterSaleReasonController extends BusinessController {
 
 	///**
 	// * 售后原因

@@ -38,6 +38,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 店铺端,发票API
@@ -51,7 +52,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-发票API", description = "店铺端-发票API")
 @RequestMapping("/order/seller/receipt")
-public class SellerReceiptController {
+public class SellerReceiptController extends BusinessController {
 
 	private final ReceiptCommandService receiptCommandService;
 

@@ -22,6 +22,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.taotao.boot.webagg.controller.BusinessController;
 
 /**
  * 管理端,发票记录API
@@ -35,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "管理端-发票记录管理API", description = "管理端-发票记录管理API")
 @RequestMapping("/order/manager/receipt")
-public class ManagerReceiptController {
+public class ManagerReceiptController extends BusinessController {
 
 	private final ReceiptCommandService receiptCommandService;
 	//

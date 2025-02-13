@@ -16,15 +16,7 @@
 
 package com.taotao.cloud.order.application.service.aftersale;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleApplyCO;
-import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleAddCmd;
-import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQry;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
  * 售后业务层
@@ -33,7 +25,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:49:10
  */
-public interface AfterSaleCommandService extends IService<AfterSalePO> {
+public interface AfterSaleCommandService extends CommandService {
 	//
     ///**
     // * 分页查询售后信息
