@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.service.order;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
@@ -57,7 +57,7 @@ public interface OrderQueryService extends CommandService {
      * @return {@link OrderPO }
      * @since 2022-04-28 08:54:47
      */
-    OrderPO getBySn(String orderSn);
+//    OrderPO getBySn(String orderSn);
 
     /**
      * 订单查询
@@ -75,7 +75,7 @@ public interface OrderQueryService extends CommandService {
      * @return {@link List }<{@link OrderPO }>
      * @since 2022-04-28 08:54:47
      */
-    List<OrderPO> queryListByParams(OrderPageQry orderPageQry);
+//    List<OrderPO> queryListByParams(OrderPageQry orderPageQry);
 
     /**
      * 根据促销查询订单

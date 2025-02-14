@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
@@ -56,7 +56,7 @@ public interface ReceiptCommandService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-    ReceiptPO getDetail(String id);
+//    ReceiptPO getDetail(String id);
 
     /**
      * 保存发票
@@ -65,7 +65,7 @@ public interface ReceiptCommandService extends CommandService {
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:50
      */
-    Boolean saveReceipt(ReceiptPO receiptPO);
+//    Boolean saveReceipt(ReceiptPO receiptPO);
 
     /**
      * 开具发票
@@ -74,5 +74,5 @@ public interface ReceiptCommandService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-    ReceiptPO invoicing(Long receiptId);
+//    ReceiptPO invoicing(Long receiptId);
 }

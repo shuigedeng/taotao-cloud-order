@@ -16,14 +16,9 @@
 
 package com.taotao.cloud.order.application.service.order;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintAddCmd;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintOperationAddCmd;
 import com.taotao.cloud.order.application.dto.order.cmmond.StoreAppealCmd;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 
 /**
  * 交易投诉业务层
@@ -34,50 +29,50 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderC
  */
 public interface OrderComplaintQueryService extends CommandService {
 
-    /**
-     * 分页获取交易投诉信息
-     *
-     * @param orderComplaintPageQry 订单投诉页面查询
-     * @return {@link IPage }<{@link OrderComplaintPO }>
-     * @since 2022-04-28 08:54:36
-     */
-    IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry);
-
-    /**
-     * 获取交易投诉详情
-     *
-     * @param id 交易投诉ID
-     * @return {@link OrderComplaintCO }
-     * @since 2022-04-28 08:54:36
-     */
-    OrderComplaintCO getOrderComplainById(Long id);
-
-    /**
-     * 获取交易投诉详情
-     *
-     * @param storeId 店铺id
-     * @return {@link OrderComplaintPO }
-     * @since 2022-04-28 08:54:36
-     */
-    OrderComplaintPO getOrderComplainByStoreId(Long storeId);
-
-    /**
-     * 添加交易投诉
-     *
-     * @param orderComplaintAddCmd 交易投诉信息
-     * @return {@link OrderComplaintPO }
-     * @since 2022-04-28 08:54:36
-     */
-    OrderComplaintPO addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
-
-    /**
-     * 更新交易投诉
-     *
-     * @param orderComplaintPO 交易投诉信息
-     * @return {@link Boolean }
-     * @since 2022-04-28 08:54:36
-     */
-    Boolean updateOrderComplain(OrderComplaintPO orderComplaintPO);
+//    /**
+//     * 分页获取交易投诉信息
+//     *
+//     * @param orderComplaintPageQry 订单投诉页面查询
+//     * @return {@link IPage }<{@link OrderComplaintPO }>
+//     * @since 2022-04-28 08:54:36
+//     */
+//    IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry);
+//
+//    /**
+//     * 获取交易投诉详情
+//     *
+//     * @param id 交易投诉ID
+//     * @return {@link OrderComplaintCO }
+//     * @since 2022-04-28 08:54:36
+//     */
+//    OrderComplaintCO getOrderComplainById(Long id);
+//
+//    /**
+//     * 获取交易投诉详情
+//     *
+//     * @param storeId 店铺id
+//     * @return {@link OrderComplaintPO }
+//     * @since 2022-04-28 08:54:36
+//     */
+//    OrderComplaintPO getOrderComplainByStoreId(Long storeId);
+//
+//    /**
+//     * 添加交易投诉
+//     *
+//     * @param orderComplaintAddCmd 交易投诉信息
+//     * @return {@link OrderComplaintPO }
+//     * @since 2022-04-28 08:54:36
+//     */
+//    OrderComplaintPO addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
+//
+//    /**
+//     * 更新交易投诉
+//     *
+//     * @param orderComplaintPO 交易投诉信息
+//     * @return {@link Boolean }
+//     * @since 2022-04-28 08:54:36
+//     */
+//    Boolean updateOrderComplain(OrderComplaintPO orderComplaintPO);
 
     /**
      * 修改交易投诉状态

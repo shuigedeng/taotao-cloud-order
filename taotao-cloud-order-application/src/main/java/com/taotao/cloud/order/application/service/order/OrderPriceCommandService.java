@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.order.application.service.order;
 
+import com.taotao.boot.ddd.model.application.service.CommandService;
+
 import java.math.BigDecimal;
 
 /**
@@ -25,7 +27,7 @@ import java.math.BigDecimal;
  * @version 2022.04
  * @since 2022-04-28 08:54:44
  */
-public interface OrderPriceCommandService {
+public interface OrderPriceCommandService extends CommandService {
 
     /**
      * 价格修改 日志功能内部实现

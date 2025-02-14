@@ -16,8 +16,9 @@
 
 package com.taotao.cloud.order.application.service.purchase;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
+
 import java.util.List;
 
 /**
@@ -44,7 +45,7 @@ public interface PurchaseQuotedCommandService extends CommandService {
      * @return {@link List }<{@link PurchaseQuotedPO }>
      * @since 2022-04-28 08:55:34
      */
-    List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId);
+//    List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId);
 	//
     ///**
     // * 获取采购单VO

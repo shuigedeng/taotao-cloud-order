@@ -16,18 +16,10 @@
 
 package com.taotao.cloud.order.application.service.purchase.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedItemCommandService;
 import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.PurchaseQuotedMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
-import java.util.List;
+import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedItemCommandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 采购单报价业务层实现
@@ -43,10 +35,10 @@ public class PurchaseQuotedCommandServiceImpl
 	@Autowired
 	private PurchaseQuotedItemCommandService purchaseQuotedItemService;
 
-	@Override
-	public List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId) {
-		return List.of();
-	}
+//	@Override
+//	public List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId) {
+//		return List.of();
+//	}
 
 	//@Override
 	//@Transactional(rollbackFor = Exception.class)

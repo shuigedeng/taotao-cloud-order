@@ -16,15 +16,7 @@
 
 package com.taotao.cloud.order.application.service.trade.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.application.dto.order.query.OrderLogPageQry;
 import com.taotao.cloud.order.application.service.trade.OrderLogService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.trade.OrderLogMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
-import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -38,17 +30,17 @@ import org.springframework.stereotype.Service;
 public class OrderLogServiceImpl  implements
     OrderLogService {
 
-    @Override
-    public List<OrderLogPO> getOrderLog(String orderSn) {
-        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
-        return this.list(lambdaQueryWrapper);
-    }
-
-	@Override
-	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
-		return null;
-	}
+//    @Override
+//    public List<OrderLogPO> getOrderLog(String orderSn) {
+//        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+//        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
+//        return this.list(lambdaQueryWrapper);
+//    }
+//
+//	@Override
+//	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
+//		return null;
+//	}
 
 	//@Override
     //public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {

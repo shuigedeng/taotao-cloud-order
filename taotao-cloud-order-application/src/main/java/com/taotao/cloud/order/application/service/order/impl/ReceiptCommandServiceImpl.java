@@ -46,25 +46,25 @@ public class ReceiptCommandServiceImpl  implements
 		return null;
 	}
 
-	@Override
-	public ReceiptPO getByOrderSn(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public ReceiptPO getDetail(String id) {
-		return null;
-	}
-
-	@Override
-	public Boolean saveReceipt(ReceiptPO receiptPO) {
-		return null;
-	}
-
-	@Override
-	public ReceiptPO invoicing(Long receiptId) {
-		return null;
-	}
+//	@Override
+//	public ReceiptPO getByOrderSn(String orderSn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public ReceiptPO getDetail(String id) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Boolean saveReceipt(ReceiptPO receiptPO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public ReceiptPO invoicing(Long receiptId) {
+//		return null;
+//	}
 
 	//@Override
 	//public IPage<OrderReceiptDTO> pageQuery(ReceiptPageQuery receiptPageQuery) {

@@ -16,34 +16,10 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.boot.common.utils.common.IdGeneratorUtils;
-import com.taotao.boot.common.utils.lang.StringUtils;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.common.utils.number.CurrencyUtils;
-import com.taotao.cloud.order.api.enums.order.FlowTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
-import com.taotao.cloud.order.application.dto.distribution.query.DistributionPageQry;
-import com.taotao.cloud.order.application.dto.order.query.StoreFlowPageQry;
-import com.taotao.cloud.order.application.dto.store.query.StorePageQry;
-import com.taotao.cloud.order.application.service.order.OrderItemCommandService;
-import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import com.taotao.cloud.order.application.service.order.StoreFlowQueryService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.StoreFlowMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 商家订单流水业务层实现
@@ -61,36 +37,36 @@ public class StoreFlowQueryServiceImpl  implements
 	public void payOrder(String orderSn) {
 
 	}
-
-	@Override
-	public void refundOrder(AfterSalePO afterSale) {
-
-	}
-
-	@Override
-	public IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
-		return null;
-	}
-
-	@Override
-	public StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO) {
-		return null;
-	}
-
-	@Override
-	public IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry) {
-		return null;
-	}
-
-	@Override
-	public IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry) {
-		return null;
-	}
-
-	@Override
-	public List<StoreFlowPO> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
-		return List.of();
-	}
+//
+//	@Override
+//	public void refundOrder(AfterSalePO afterSale) {
+//
+//	}
+//
+//	@Override
+//	public IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry) {
+//		return null;
+//	}
+//
+//	@Override
+//	public List<StoreFlowPO> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
+//		return List.of();
+//	}
 
 	///**
 	// * 订单

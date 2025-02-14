@@ -39,15 +39,15 @@ import org.springframework.stereotype.Service;
 public class OrderComplaintCommunicationCommandServiceImpl
         implements OrderComplaintCommunicationCommandService {
 
-    @Override
-    public Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO) {
-        return this.save(orderComplaintCommunicationPO);
-    }
-
-	@Override
-	public IPage<OrderComplaintCommunicationPO> getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
-		return null;
-	}
+//    @Override
+//    public Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO) {
+//        return this.save(orderComplaintCommunicationPO);
+//    }
+//
+//	@Override
+//	public IPage<OrderComplaintCommunicationPO> getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
+//		return null;
+//	}
 
 	//@Override
     //public IPage<OrderComplaintCommunicationPO> getCommunication(

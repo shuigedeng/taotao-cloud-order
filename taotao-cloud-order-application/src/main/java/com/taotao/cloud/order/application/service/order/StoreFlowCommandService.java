@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.distribution.query.DistributionPageQry;
 import com.taotao.cloud.order.application.dto.order.query.StoreFlowPageQry;
 import com.taotao.cloud.order.application.dto.store.query.StorePageQry;
@@ -49,7 +49,7 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @param afterSale 售后单
 	 * @since 2022-04-28 08:54:53
 	 */
-	void refundOrder(AfterSalePO afterSale);
+//	void refundOrder(AfterSalePO afterSale);
 
 	/**
 	 * 获取商家流水
@@ -58,7 +58,7 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @return {@link IPage }<{@link StoreFlowPO }>
 	 * @since 2022-04-28 08:54:53
 	 */
-	IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+//	IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
 
 	/**
 	 * 根据参数查询一条数据
@@ -67,7 +67,7 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @return {@link StoreFlowPO }
 	 * @since 2022-04-28 08:54:53
 	 */
-	StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO);
+//	StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO);
 	//
 	///**
 	// * 获取结算单地入账流水
@@ -95,7 +95,7 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @return {@link IPage }<{@link StoreFlowPO }>
 	 * @since 2022-05-19 15:47:59
 	 */
-	IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry);
+//	IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry);
 
 	/**
 	 * 根据结算单ID获取商家流水
@@ -104,7 +104,7 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @return {@link IPage }<{@link StoreFlowPO }>
 	 * @since 2022-05-19 15:48:02
 	 */
-	IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry);
+//	IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry);
 
 	/**
 	 * 获取店铺流水
@@ -113,5 +113,5 @@ public interface StoreFlowCommandService extends CommandService {
 	 * @return {@link List }<{@link StoreFlowPO }>
 	 * @since 2022-04-28 08:54:53
 	 */
-	List<StoreFlowPO> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+//	List<StoreFlowPO> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
 }

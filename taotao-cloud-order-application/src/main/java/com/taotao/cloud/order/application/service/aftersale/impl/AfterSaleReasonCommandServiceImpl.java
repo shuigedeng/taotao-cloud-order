@@ -16,20 +16,10 @@
 
 package com.taotao.cloud.order.application.service.aftersale.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.application.dto.aftersale.query.AfterSaleReasonPageQry;
 import com.taotao.cloud.order.application.service.aftersale.AfterSaleReasonCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.AfterSaleReasonMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 售后原因业务层实现
@@ -43,20 +33,20 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleReasonCommandServiceImpl
 	implements AfterSaleReasonCommandService {
-	@Override
-	public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
-		return List.of();
-	}
-
-	@Override
-	public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
-		return null;
-	}
-
-	@Override
-	public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry) {
-		return null;
-	}
+//	@Override
+//	public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry) {
+//		return null;
+//	}
 
 	//@Override
 	//public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {

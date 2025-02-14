@@ -16,14 +16,8 @@
 
 package com.taotao.cloud.order.application.service.purchase.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.purchase.PurchaseQuotedItemCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.purchase.PurchaseQuotedItemMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedItemPO;
-import java.util.List;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 采购单子内容业务层实现
@@ -35,15 +29,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class PurchaseQuotedItemCommandServiceImpl
         implements PurchaseQuotedItemCommandService {
-	@Override
-	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
-		return false;
-	}
-
-	@Override
-	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
-		return List.of();
-	}
+//	@Override
+//	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
+//		return false;
+//	}
+//
+//	@Override
+//	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
+//		return List.of();
+//	}
 
 	//@Override
     //@Transactional(rollbackFor = Exception.class)

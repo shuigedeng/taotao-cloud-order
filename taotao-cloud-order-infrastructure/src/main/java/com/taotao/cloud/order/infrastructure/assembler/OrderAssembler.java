@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.assembler;
+package com.taotao.cloud.order.infrastructure.assembler;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

@@ -14,29 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.service.trade;
+package com.taotao.cloud.order.infrastructure.assembler;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-
-import java.util.List;
+import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
+import org.mapstruct.factory.Mappers;
 
 /**
- * 订单日志业务层
- *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:55:50
+ * @version 2022.03
+ * @since 2020/11/11 14:42
  */
-public interface OrderLogService extends CommandService {
+@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface OrderComplainCommunicationAssembler {
 
-    /**
-     * 根据订单编号获取订单日志列表
-     *
-     * @param orderSn 订单编号
-     * @return {@link List }<{@link OrderLogPO }>
-     * @since 2022-04-28 08:55:50
-     */
-//    List<OrderLogPO> getOrderLog(String orderSn);
-//
-//    IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry);
+    OrderComplainCommunicationAssembler INSTANCE = Mappers.getMapper(OrderComplainCommunicationAssembler.class);
+
+    //OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

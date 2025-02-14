@@ -16,8 +16,9 @@
 
 package com.taotao.cloud.order.application.service.aftersale;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
+
 import java.util.List;
 
 /**
@@ -36,5 +37,5 @@ public interface AfterSaleLogCommandService extends CommandService {
      * @return {@link List }<{@link AfterSaleLogPO }>
      * @since 2022-04-28 08:49:07
      */
-    List<AfterSaleLogPO> getAfterSaleLog(String sn);
+//    List<AfterSaleLogPO> getAfterSaleLog(String sn);
 }

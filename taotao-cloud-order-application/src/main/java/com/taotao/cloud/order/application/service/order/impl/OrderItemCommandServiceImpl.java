@@ -47,55 +47,55 @@ import java.util.List;
 public class OrderItemCommandServiceImpl  implements
 	OrderItemCommandService {
 
-	@Override
-	public Boolean updateCommentStatus(String orderItemSn, CommentStatusEnum commentStatusEnum) {
-		LambdaUpdateWrapper<OrderItemPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
-		lambdaUpdateWrapper.set(OrderItemPO::commentStatus, commentStatusEnum.name());
-		lambdaUpdateWrapper.eq(OrderItemPO::sn, orderItemSn);
-		return this.update(lambdaUpdateWrapper);
-	}
-
-	@Override
-	public Boolean updateAfterSaleStatus(
-		String orderItemSn, OrderItemAfterSaleStatusEnum orderItemAfterSaleStatusEnum) {
-		LambdaUpdateWrapper<OrderItemPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
-		lambdaUpdateWrapper.set(OrderItemPO::afterSaleStatus, orderItemAfterSaleStatusEnum.name());
-		lambdaUpdateWrapper.eq(OrderItemPO::sn, orderItemSn);
-		return this.update(lambdaUpdateWrapper);
-	}
-
-	@Override
-	public Boolean updateOrderItemsComplainStatus(
-		String orderSn, Long skuId, Long complainId, OrderComplaintStatusEnum complainStatusEnum) {
-		LambdaQueryWrapper<OrderItemPO> queryWrapper = new LambdaQueryWrapper<>();
-		queryWrapper.eq(OrderItemPO::orderSn, orderSn).eq(OrderItemPO::skuId, skuId);
-		OrderItemPO orderItemPO = getOne(queryWrapper);
-		if (orderItemPO == null) {
-			throw new BusinessException(ResultEnum.ORDER_ITEM_NOT_EXIST);
-		}
-		orderItemPO.complainId(complainId);
-		orderItemPO.commentStatus(complainStatusEnum.name());
-		return updateById(orderItemPO);
-	}
-
-	@Override
-	public OrderItemPO getBySn(String sn) {
-		LambdaQueryWrapper<OrderItemPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-		lambdaQueryWrapper.eq(OrderItemPO::sn, sn);
-		return this.getOne(lambdaQueryWrapper);
-	}
-
-	@Override
-	public List<OrderItemPO> getByOrderSn(String orderSn) {
-		LambdaQueryWrapper<OrderItemPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-		lambdaQueryWrapper.eq(OrderItemPO::orderSn, orderSn);
-		return this.list(lambdaQueryWrapper);
-	}
-
-	@Override
-	public OrderItemPO getByOrderSnAndSkuId(String orderSn, Long skuId) {
-		return this.getOne(new LambdaQueryWrapper<OrderItemPO>()
-			.eq(OrderItemPO::orderSn, orderSn)
-			.eq(OrderItemPO::skuId, skuId));
-	}
+//	@Override
+//	public Boolean updateCommentStatus(String orderItemSn, CommentStatusEnum commentStatusEnum) {
+//		LambdaUpdateWrapper<OrderItemPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
+//		lambdaUpdateWrapper.set(OrderItemPO::commentStatus, commentStatusEnum.name());
+//		lambdaUpdateWrapper.eq(OrderItemPO::sn, orderItemSn);
+//		return this.update(lambdaUpdateWrapper);
+//	}
+//
+//	@Override
+//	public Boolean updateAfterSaleStatus(
+//		String orderItemSn, OrderItemAfterSaleStatusEnum orderItemAfterSaleStatusEnum) {
+//		LambdaUpdateWrapper<OrderItemPO> lambdaUpdateWrapper = Wrappers.lambdaUpdate();
+//		lambdaUpdateWrapper.set(OrderItemPO::afterSaleStatus, orderItemAfterSaleStatusEnum.name());
+//		lambdaUpdateWrapper.eq(OrderItemPO::sn, orderItemSn);
+//		return this.update(lambdaUpdateWrapper);
+//	}
+//
+//	@Override
+//	public Boolean updateOrderItemsComplainStatus(
+//		String orderSn, Long skuId, Long complainId, OrderComplaintStatusEnum complainStatusEnum) {
+//		LambdaQueryWrapper<OrderItemPO> queryWrapper = new LambdaQueryWrapper<>();
+//		queryWrapper.eq(OrderItemPO::orderSn, orderSn).eq(OrderItemPO::skuId, skuId);
+//		OrderItemPO orderItemPO = getOne(queryWrapper);
+//		if (orderItemPO == null) {
+//			throw new BusinessException(ResultEnum.ORDER_ITEM_NOT_EXIST);
+//		}
+//		orderItemPO.complainId(complainId);
+//		orderItemPO.commentStatus(complainStatusEnum.name());
+//		return updateById(orderItemPO);
+//	}
+//
+//	@Override
+//	public OrderItemPO getBySn(String sn) {
+//		LambdaQueryWrapper<OrderItemPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+//		lambdaQueryWrapper.eq(OrderItemPO::sn, sn);
+//		return this.getOne(lambdaQueryWrapper);
+//	}
+//
+//	@Override
+//	public List<OrderItemPO> getByOrderSn(String orderSn) {
+//		LambdaQueryWrapper<OrderItemPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+//		lambdaQueryWrapper.eq(OrderItemPO::orderSn, orderSn);
+//		return this.list(lambdaQueryWrapper);
+//	}
+//
+//	@Override
+//	public OrderItemPO getByOrderSnAndSkuId(String orderSn, Long skuId) {
+//		return this.getOne(new LambdaQueryWrapper<OrderItemPO>()
+//			.eq(OrderItemPO::orderSn, orderSn)
+//			.eq(OrderItemPO::skuId, skuId));
+//	}
 }

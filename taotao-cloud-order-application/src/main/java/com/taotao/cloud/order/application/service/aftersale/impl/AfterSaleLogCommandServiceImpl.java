@@ -16,13 +16,7 @@
 
 package com.taotao.cloud.order.application.service.aftersale.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.aftersale.AfterSaleLogCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale.AfterSaleLogMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,10 +34,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class AfterSaleLogCommandServiceImpl
         implements AfterSaleLogCommandService {
 
-    @Override
-    public List<AfterSaleLogPO> getAfterSaleLog(String sn) {
-        LambdaQueryWrapper<AfterSaleLogPO> queryWrapper = Wrappers.lambdaQuery();
-        queryWrapper.eq(AfterSaleLogPO::sn, sn);
-        return this.list(queryWrapper);
-    }
+//    @Override
+//    public List<AfterSaleLogPO> getAfterSaleLog(String sn) {
+//        LambdaQueryWrapper<AfterSaleLogPO> queryWrapper = Wrappers.lambdaQuery();
+//        queryWrapper.eq(AfterSaleLogPO::sn, sn);
+//        return this.list(queryWrapper);
+//    }
 }

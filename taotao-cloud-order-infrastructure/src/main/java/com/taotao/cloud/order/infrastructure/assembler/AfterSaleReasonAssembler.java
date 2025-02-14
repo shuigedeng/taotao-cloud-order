@@ -14,21 +14,32 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.assembler;
+package com.taotao.cloud.order.infrastructure.assembler;
 
+import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleReasonCO;
+import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleReasonUpdateCmd;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 /**
+ * IAfterSaleMapStruct
+ *
  * @author shuigedeng
- * @version 2022.03
- * @since 2020/11/11 14:42
+ * @version 2022.04
+ * @since 2022-04-07 20:55:46
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface OrderComplainAssembler {
+public interface AfterSaleReasonAssembler {
 
-    OrderComplainAssembler INSTANCE = Mappers.getMapper(OrderComplainAssembler.class);
+    AfterSaleReasonAssembler INSTANCE = Mappers.getMapper(AfterSaleReasonAssembler.class);
 
-    //OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
+    List<AfterSaleReasonCO> convert(List<AfterSaleReasonPO> afterSaleReasonPOList);
+
+    AfterSaleReasonCO convert(AfterSaleReasonPO afterSaleReasonPO);
+
+    AfterSaleReasonPO convert(AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd);
 }

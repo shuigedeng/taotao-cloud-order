@@ -16,10 +16,7 @@
 
 package com.taotao.cloud.order.application.service.purchase;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderItemPO;
-
-import java.util.List;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
  * 采购单子内容业务层
@@ -38,5 +35,5 @@ public interface PurchaseOrderItemCommandService extends CommandService {
 	 * @return boolean
 	 * @since 2022-04-28 08:55:27
 	 */
-	boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList);
+//	boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList);
 }

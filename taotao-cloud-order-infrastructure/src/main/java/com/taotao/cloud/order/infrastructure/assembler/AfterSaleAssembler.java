@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.assembler;
+package com.taotao.cloud.order.infrastructure.assembler;
 
-import com.taotao.cloud.order.application.dto.aftersale.cmmond.AfterSaleReasonUpdateCmd;
-import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleReasonCO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
-import java.util.List;
+import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleCO;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
+
+import java.util.List;
 
 /**
  * IAfterSaleMapStruct
@@ -32,13 +32,11 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-07 20:55:46
  */
 @Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface AfterSaleReasonAssembler {
+public interface AfterSaleAssembler {
 
-    AfterSaleReasonAssembler INSTANCE = Mappers.getMapper(AfterSaleReasonAssembler.class);
+    AfterSaleAssembler INSTANCE = Mappers.getMapper(AfterSaleAssembler.class);
 
-    List<AfterSaleReasonCO> convert(List<AfterSaleReasonPO> afterSaleReasonPOList);
+    AfterSaleCO convert(AfterSalePO afterSale);
 
-    AfterSaleReasonCO convert(AfterSaleReasonPO afterSaleReasonPO);
-
-    AfterSaleReasonPO convert(AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd);
+    List<AfterSaleCO> convert(List<AfterSalePO> afterSales);
 }

@@ -16,10 +16,7 @@
 
 package com.taotao.cloud.order.application.service.purchase;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
-
-import java.util.List;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
  * 采购单报价业务层

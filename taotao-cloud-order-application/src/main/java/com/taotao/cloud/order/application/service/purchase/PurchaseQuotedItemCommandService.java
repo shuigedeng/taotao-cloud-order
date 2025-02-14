@@ -16,8 +16,9 @@
 
 package com.taotao.cloud.order.application.service.purchase;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedItemPO;
+
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public interface PurchaseQuotedItemCommandService extends CommandService {
      * @return boolean
      * @since 2022-04-28 08:55:32
      */
-    boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList);
+//    boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList);
 
     /**
      * 获取报价单子内容列表
@@ -46,5 +47,5 @@ public interface PurchaseQuotedItemCommandService extends CommandService {
      * @return {@link List }<{@link PurchaseQuotedItemPO }>
      * @since 2022-04-28 08:55:32
      */
-    List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId);
+//    List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId);
 }

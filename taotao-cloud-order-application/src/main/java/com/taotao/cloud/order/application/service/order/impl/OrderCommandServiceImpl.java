@@ -16,76 +16,24 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import cn.hutool.core.io.IoUtil;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.enums.UserEnum;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.common.utils.lang.StringUtils;
-import com.taotao.boot.security.spring.utils.SecurityUtils;
-import com.taotao.boot.web.utils.OperationalJudgment;
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.DeliverStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderTypeEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
 import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderBatchDeliverAddCmd;
 import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
-import com.taotao.cloud.order.application.service.order.OrderItemCommandService;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
-import com.taotao.cloud.order.application.service.order.StoreFlowQueryService;
-import com.taotao.cloud.order.application.service.trade.OrderLogService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderPO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
-import com.taotao.cloud.stream.framework.rocketmq.RocketmqSendCallbackBuilder;
-import com.taotao.cloud.stream.framework.rocketmq.tags.GoodsTagsEnum;
-import com.taotao.cloud.stream.framework.rocketmq.tags.OrderTagsEnum;
-import com.taotao.cloud.stream.framework.trigger.enums.DelayTypeEnums;
-import com.taotao.cloud.stream.framework.trigger.interfaces.TimeTrigger;
-import com.taotao.cloud.stream.framework.trigger.message.PintuanOrderMessage;
-import com.taotao.cloud.stream.framework.trigger.model.TimeExecuteConstant;
-import com.taotao.cloud.stream.framework.trigger.model.TimeTriggerMsg;
-import com.taotao.cloud.stream.framework.trigger.util.DelayQueueTools;
-import com.taotao.cloud.stream.properties.RocketmqCustomProperties;
-import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import org.apache.poi.ss.util.CellRangeAddressList;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import zipkin2.storage.Traces;
 
-import java.io.InputStream;
 import java.math.BigDecimal;
-import java.net.URLEncoder;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * 子订单业务层实现
@@ -101,140 +49,140 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
 
-	@Override
-	public void systemCancel(String orderSn, String reason) {
-
-	}
-
-	@Override
-	public OrderPO getBySn(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public IPage<OrderSimpleCO> pageQuery(OrderPageQry orderPageQry) {
-		return null;
-	}
-
-	@Override
-	public List<OrderPO> queryListByParams(OrderPageQry orderPageQry) {
-		return List.of();
-	}
-
-	@Override
-	public List<OrderPO> queryListByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
-		return List.of();
-	}
-
-	@Override
-	public long queryCountByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
-		return 0;
-	}
-
-	@Override
-	public List<OrderPO> queryListByPromotion(Long pintuanId) {
-		return List.of();
-	}
-
-	@Override
-	public List<OrderExportCO> queryExportOrder(OrderPageQry orderPageQry) {
-		return List.of();
-	}
-
-	@Override
-	public OrderDetailCO queryDetail(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public void payOrder(String orderSn, String paymentMethod, String receivableNo) {
-
-	}
-
-	@Override
-	public void afterOrderConfirm(String orderSn) {
-
-	}
-
-	@Override
-	public OrderPO cancel(String orderSn, String reason) {
-		return null;
-	}
-
-	//@Override
-	//public OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO) {
-	//	return null;
-	//}
-
-	@Override
-	public OrderPO delivery(String orderSn, String invoiceNumber, Long logisticsId) {
-		return null;
-	}
-
-	@Override
-	public Traces getTraces(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public OrderPO take(String orderSn, String verificationCode) {
-		return null;
-	}
-
-	@Override
-	public OrderPO getOrderByVerificationCode(String verificationCode) {
-		return null;
-	}
-
-	@Override
-	public void complete(String orderSn) {
-
-	}
-
-	@Override
-	public void systemComplete(String orderSn) {
-
-	}
-
-	@Override
-	public List<OrderPO> getByTradeSn(String tradeSn) {
-		return List.of();
-	}
-
-	@Override
-	public void deleteOrder(String sn) {
-
-	}
-
-	@Override
-	public Boolean invoice(String sn) {
-		return null;
-	}
-
-	@Override
-	public void agglomeratePintuanOrder(Long pintuanId, String parentOrderSn) {
-
-	}
-
-	@Override
-	public void downLoadDeliver(HttpServletResponse response, List<String> logisticsName) {
-
-	}
-
-	@Override
-	public Boolean batchDeliver(MultipartFile files) {
-		return null;
-	}
-
-	@Override
-	public BigDecimal getPaymentTotal(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public IPage<PaymentLogCO> queryPaymentLogs(IPage<PaymentLogCO> page, Wrapper<PaymentLogCO> queryWrapper) {
-		return null;
-	}
+//	@Override
+//	public void systemCancel(String orderSn, String reason) {
+//
+//	}
+//
+//	@Override
+//	public OrderPO getBySn(String orderSn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<OrderSimpleCO> pageQuery(OrderPageQry orderPageQry) {
+//		return null;
+//	}
+//
+//	@Override
+//	public List<OrderPO> queryListByParams(OrderPageQry orderPageQry) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<OrderPO> queryListByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public long queryCountByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
+//		return 0;
+//	}
+//
+//	@Override
+//	public List<OrderPO> queryListByPromotion(Long pintuanId) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public List<OrderExportCO> queryExportOrder(OrderPageQry orderPageQry) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public OrderDetailCO queryDetail(String orderSn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public void payOrder(String orderSn, String paymentMethod, String receivableNo) {
+//
+//	}
+//
+//	@Override
+//	public void afterOrderConfirm(String orderSn) {
+//
+//	}
+//
+//	@Override
+//	public OrderPO cancel(String orderSn, String reason) {
+//		return null;
+//	}
+//
+//	//@Override
+//	//public OrderPO updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO) {
+//	//	return null;
+//	//}
+//
+//	@Override
+//	public OrderPO delivery(String orderSn, String invoiceNumber, Long logisticsId) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Traces getTraces(String orderSn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public OrderPO take(String orderSn, String verificationCode) {
+//		return null;
+//	}
+//
+//	@Override
+//	public OrderPO getOrderByVerificationCode(String verificationCode) {
+//		return null;
+//	}
+//
+//	@Override
+//	public void complete(String orderSn) {
+//
+//	}
+//
+//	@Override
+//	public void systemComplete(String orderSn) {
+//
+//	}
+//
+//	@Override
+//	public List<OrderPO> getByTradeSn(String tradeSn) {
+//		return List.of();
+//	}
+//
+//	@Override
+//	public void deleteOrder(String sn) {
+//
+//	}
+//
+//	@Override
+//	public Boolean invoice(String sn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public void agglomeratePintuanOrder(Long pintuanId, String parentOrderSn) {
+//
+//	}
+//
+//	@Override
+//	public void downLoadDeliver(HttpServletResponse response, List<String> logisticsName) {
+//
+//	}
+//
+//	@Override
+//	public Boolean batchDeliver(MultipartFile files) {
+//		return null;
+//	}
+//
+//	@Override
+//	public BigDecimal getPaymentTotal(String orderSn) {
+//		return null;
+//	}
+//
+//	@Override
+//	public IPage<PaymentLogCO> queryPaymentLogs(IPage<PaymentLogCO> page, Wrapper<PaymentLogCO> queryWrapper) {
+//		return null;
+//	}
 
 	///**
 	// * 延时任务

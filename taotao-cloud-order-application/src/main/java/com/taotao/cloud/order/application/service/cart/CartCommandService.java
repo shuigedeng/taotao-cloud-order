@@ -16,9 +16,7 @@
 
 package com.taotao.cloud.order.application.service.cart;
 
-import com.taotao.cloud.order.api.enums.cart.CartTypeEnum;
-import com.taotao.cloud.order.application.dto.order.clientobject.ReceiptCO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
+import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
  * 购物车业务层
@@ -27,7 +25,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradeP
  * @version 2022.04
  * @since 2022-04-28 08:49:41
  */
-public interface CartCommandService {
+public interface CartCommandService extends CommandService {
 	//
 	///**
 	// * 获取整笔交易

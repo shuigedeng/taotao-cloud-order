@@ -56,50 +56,50 @@ import java.util.List;
 @Service
 public class OrderComplaintCommandServiceImpl
 	implements OrderComplaintCommandService {
-	@Override
-	public IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {
-		return null;
-	}
-
-	@Override
-	public OrderComplaintCO getOrderComplainById(Long id) {
-		return null;
-	}
-
-	@Override
-	public OrderComplaintPO getOrderComplainByStoreId(Long storeId) {
-		return null;
-	}
-
-	@Override
-	public OrderComplaintPO addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd) {
-		return null;
-	}
-
-	@Override
-	public Boolean updateOrderComplain(OrderComplaintPO orderComplaintPO) {
-		return null;
-	}
-
-	@Override
-	public Boolean updateOrderComplainByStatus(OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
-		return null;
-	}
-
-	@Override
-	public long waitComplainNum() {
-		return 0;
-	}
-
-	@Override
-	public Boolean cancel(Long id) {
-		return null;
-	}
-
-	@Override
-	public Boolean appeal(StoreAppealCmd storeAppealDTO) {
-		return null;
-	}
+//	@Override
+//	public IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {
+//		return null;
+//	}
+//
+//	@Override
+//	public OrderComplaintCO getOrderComplainById(Long id) {
+//		return null;
+//	}
+//
+//	@Override
+//	public OrderComplaintPO getOrderComplainByStoreId(Long storeId) {
+//		return null;
+//	}
+//
+//	@Override
+//	public OrderComplaintPO addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Boolean updateOrderComplain(OrderComplaintPO orderComplaintPO) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Boolean updateOrderComplainByStatus(OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
+//		return null;
+//	}
+//
+//	@Override
+//	public long waitComplainNum() {
+//		return 0;
+//	}
+//
+//	@Override
+//	public Boolean cancel(Long id) {
+//		return null;
+//	}
+//
+//	@Override
+//	public Boolean appeal(StoreAppealCmd storeAppealDTO) {
+//		return null;
+//	}
 
 //	/**
 //	 * 订单
