@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2022-04-28 08:55:44
  */
 @Service
-public class PurchaseQuotedCommandServiceImpl extends ServiceImpl<PurchaseQuotedMapper, PurchaseQuotedPO>
+public class PurchaseQuotedCommandServiceImpl
 	implements PurchaseQuotedCommandService {
 
 	@Autowired

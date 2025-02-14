@@ -31,7 +31,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:54:41
  */
-public interface OrderItemCommandService extends CommandService<OrderItemPO> {
+public interface OrderItemCommandService extends CommandService {
 
 	/**
 	 * 更新评论状态

@@ -38,7 +38,7 @@ import zipkin2.storage.Traces;
  * @version 2022.04
  * @since 2022-04-28 08:54:47
  */
-public interface OrderCommandService extends CommandService<OrderPO> {
+public interface OrderCommandService extends CommandService {
 
     /**
      * 系统取消订单

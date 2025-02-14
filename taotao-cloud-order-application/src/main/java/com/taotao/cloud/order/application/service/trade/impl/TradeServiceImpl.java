@@ -16,10 +16,7 @@
 
 package com.taotao.cloud.order.application.service.trade.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.service.trade.TradeCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.TradeMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class TradeServiceImpl extends ServiceImpl<TradeMapper, TradePO> implements TradeCommandService {
+public class TradeServiceImpl implements TradeCommandService {
 
 	///**
 	// * 缓存

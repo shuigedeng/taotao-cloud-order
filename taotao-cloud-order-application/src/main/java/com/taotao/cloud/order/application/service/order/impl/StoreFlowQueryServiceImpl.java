@@ -55,7 +55,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class StoreFlowQueryServiceImpl extends ServiceImpl<StoreFlowMapper, StoreFlowPO> implements
+public class StoreFlowQueryServiceImpl  implements
 		StoreFlowQueryService {
 	@Override
 	public void payOrder(String orderSn) {

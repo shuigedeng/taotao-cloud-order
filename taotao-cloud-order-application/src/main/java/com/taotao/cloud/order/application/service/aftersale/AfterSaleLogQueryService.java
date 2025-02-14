@@ -28,7 +28,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:49:07
  */
-public interface AfterSaleLogQueryService extends CommandService<AfterSaleLogPO> {
+public interface AfterSaleLogQueryService extends CommandService {
 
     /**
      * 获取售后日志

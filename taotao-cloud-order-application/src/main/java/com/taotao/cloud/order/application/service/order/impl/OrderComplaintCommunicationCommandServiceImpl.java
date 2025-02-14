@@ -37,7 +37,6 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class OrderComplaintCommunicationCommandServiceImpl
-        extends ServiceImpl<OrderComplainCommunicationMapper, OrderComplaintCommunicationPO>
         implements OrderComplaintCommunicationCommandService {
 
     @Override

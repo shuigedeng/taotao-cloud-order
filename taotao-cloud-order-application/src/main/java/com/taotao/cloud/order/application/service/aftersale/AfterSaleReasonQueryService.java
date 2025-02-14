@@ -30,7 +30,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:49:03
  */
-public interface AfterSaleReasonQueryService extends CommandService<AfterSaleReasonPO> {
+public interface AfterSaleReasonQueryService extends CommandService {
 
     /**
      * 获取售后原因列表

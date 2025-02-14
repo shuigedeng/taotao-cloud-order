@@ -27,7 +27,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:34
  */
-public interface PurchaseQuotedCommandService extends CommandService<PurchaseQuotedPO> {
+public interface PurchaseQuotedCommandService extends CommandService {
     ///**
     // * 添加报价单
     // *

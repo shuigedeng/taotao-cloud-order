@@ -29,7 +29,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.Receip
  * @version 2022.04
  * @since 2022-04-28 08:54:50
  */
-public interface ReceiptCommandService extends CommandService<ReceiptPO> {
+public interface ReceiptCommandService extends CommandService {
 
     /**
      * 根据条件获取发票信息列表

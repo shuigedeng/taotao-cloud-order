@@ -44,7 +44,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class OrderItemCommandServiceImpl extends ServiceImpl<OrderItemMapper, OrderItemPO> implements
+public class OrderItemCommandServiceImpl  implements
 	OrderItemCommandService {
 
 	@Override

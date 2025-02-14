@@ -29,7 +29,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface OrderLogService extends CommandService<OrderLogPO> {
+public interface OrderLogService extends CommandService {
 
     /**
      * 根据订单编号获取订单日志列表

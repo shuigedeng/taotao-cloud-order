@@ -33,8 +33,7 @@ import java.util.List;
  * @since 2022-04-28 08:55:37
  */
 @Service
-public class PurchaseOrderItemCommandServiceImpl extends
-	ServiceImpl<PurchaseOrderItemMapper, PurchaseOrderItemPO>
+public class PurchaseOrderItemCommandServiceImpl
 	implements PurchaseOrderItemCommandService {
 	@Override
 	public boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList) {

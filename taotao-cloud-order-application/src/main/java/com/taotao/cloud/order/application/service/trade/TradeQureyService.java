@@ -26,6 +26,6 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderL
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface TradeQureyService extends CommandService<OrderLogPO> {
+public interface TradeQureyService extends CommandService {
 
 }

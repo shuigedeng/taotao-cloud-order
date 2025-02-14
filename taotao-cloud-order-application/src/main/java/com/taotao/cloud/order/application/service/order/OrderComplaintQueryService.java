@@ -32,7 +32,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderC
  * @version 2022.04
  * @since 2022-04-28 08:54:36
  */
-public interface OrderComplaintQueryService extends CommandService<OrderComplaintPO> {
+public interface OrderComplaintQueryService extends CommandService {
 
     /**
      * 分页获取交易投诉信息

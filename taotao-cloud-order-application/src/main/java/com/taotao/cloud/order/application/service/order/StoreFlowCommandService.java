@@ -33,7 +33,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:54:53
  */
-public interface StoreFlowCommandService extends CommandService<StoreFlowPO> {
+public interface StoreFlowCommandService extends CommandService {
 
 	/**
 	 * 支付订单

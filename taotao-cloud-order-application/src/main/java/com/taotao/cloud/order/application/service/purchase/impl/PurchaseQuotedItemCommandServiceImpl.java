@@ -33,7 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2022-04-28 08:55:42
  */
 @Service
-public class PurchaseQuotedItemCommandServiceImpl extends ServiceImpl<PurchaseQuotedItemMapper, PurchaseQuotedItemPO>
+public class PurchaseQuotedItemCommandServiceImpl
         implements PurchaseQuotedItemCommandService {
 	@Override
 	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {

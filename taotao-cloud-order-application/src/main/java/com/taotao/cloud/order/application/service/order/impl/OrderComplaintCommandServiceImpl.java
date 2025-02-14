@@ -54,7 +54,7 @@ import java.util.List;
  */
 @AllArgsConstructor
 @Service
-public class OrderComplaintCommandServiceImpl extends ServiceImpl<OrderComplaintMapper, OrderComplaintPO>
+public class OrderComplaintCommandServiceImpl
 	implements OrderComplaintCommandService {
 	@Override
 	public IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {

@@ -27,7 +27,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.Pur
  * @version 2022.04
  * @since 2022-04-28 08:55:29
  */
-public interface PurchaseOrderCommandService extends CommandService<PurchaseOrderPO> {
+public interface PurchaseOrderCommandService extends CommandService {
 
 	///**
 	// * 添加采购单

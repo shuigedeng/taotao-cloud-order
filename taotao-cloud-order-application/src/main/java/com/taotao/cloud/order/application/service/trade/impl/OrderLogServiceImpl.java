@@ -35,7 +35,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:53
  */
 @Service
-public class OrderLogServiceImpl extends ServiceImpl<OrderLogMapper, OrderLogPO> implements
+public class OrderLogServiceImpl  implements
     OrderLogService {
 
     @Override

@@ -97,7 +97,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class OrderCommandServiceImpl extends ServiceImpl<OrderMapper, OrderPO> implements OrderCommandService {
+public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
 

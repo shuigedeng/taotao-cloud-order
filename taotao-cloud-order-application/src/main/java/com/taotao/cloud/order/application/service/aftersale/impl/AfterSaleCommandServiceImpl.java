@@ -70,7 +70,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class AfterSaleCommandServiceImpl extends ServiceImpl<AfterSaleMapper, AfterSalePO> implements
+public class AfterSaleCommandServiceImpl  implements
 	AfterSaleCommandService {
 	//private final AfterSaleManager afterSaleManager;
 	//

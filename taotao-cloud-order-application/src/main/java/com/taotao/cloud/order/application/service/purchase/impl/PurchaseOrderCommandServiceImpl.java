@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2022-04-28 08:55:40
  */
 @Service
-public class PurchaseOrderCommandServiceImpl extends ServiceImpl<PurchaseOrderMapper, PurchaseOrderPO>
+public class PurchaseOrderCommandServiceImpl
         implements PurchaseOrderCommandService {
 	@Override
 	public boolean close(String id) {

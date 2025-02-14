@@ -37,7 +37,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class AfterSaleLogCommandServiceImpl extends ServiceImpl<AfterSaleLogMapper, AfterSaleLogPO>
+public class AfterSaleLogCommandServiceImpl
         implements AfterSaleLogCommandService {
 
     @Override

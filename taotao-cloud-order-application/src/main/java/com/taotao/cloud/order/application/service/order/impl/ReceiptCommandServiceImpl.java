@@ -39,7 +39,7 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class ReceiptCommandServiceImpl extends ServiceImpl<ReceiptMapper, ReceiptPO> implements
+public class ReceiptCommandServiceImpl  implements
 	ReceiptCommandService {
 	@Override
 	public IPage<OrderReceiptAddCmd> pageQuery(ReceiptPageQry receiptPageQry) {

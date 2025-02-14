@@ -41,7 +41,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Transactional(rollbackFor = Exception.class)
-public class AfterSaleReasonCommandServiceImpl extends ServiceImpl<AfterSaleReasonMapper, AfterSaleReasonPO>
+public class AfterSaleReasonCommandServiceImpl
 	implements AfterSaleReasonCommandService {
 	@Override
 	public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
