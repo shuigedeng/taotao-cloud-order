@@ -16,24 +16,14 @@
 
 package com.taotao.cloud.order.facade.controller.seller;
 
-import com.taotao.boot.common.model.Result;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import com.taotao.cloud.order.application.service.trade.OrderLogService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.taotao.boot.webagg.controller.BusinessController;
-
-import java.util.List;
 
 /**
  * 店铺端,订单日志API
@@ -53,12 +43,12 @@ public class SellerOrderLogController extends BusinessController {
 
 	private final OrderCommandService orderCommandService;
 
-	@Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/{orderSn}")
-	public Result<List<OrderLogPO>> get(@PathVariable String orderSn) {
-		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
-		return Result.success(orderLogService.getOrderLog(orderSn));
-	}
+//	@Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping(value = "/{orderSn}")
+//	public Result<List<OrderLogPO>> get(@PathVariable String orderSn) {
+//		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
+//		return Result.success(orderLogService.getOrderLog(orderSn));
+//	}
 }

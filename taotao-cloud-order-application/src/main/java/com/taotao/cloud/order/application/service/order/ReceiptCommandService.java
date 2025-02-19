@@ -20,7 +20,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 
 /**
  * 发票业务层
@@ -47,7 +46,7 @@ public interface ReceiptCommandService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-    ReceiptPO getByOrderSn(String orderSn);
+//    ReceiptPO getByOrderSn(String orderSn);
 
     /**
      * 获取发票详情

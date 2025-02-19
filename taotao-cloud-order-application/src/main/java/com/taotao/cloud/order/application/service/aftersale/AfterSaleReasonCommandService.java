@@ -18,7 +18,6 @@ package com.taotao.cloud.order.application.service.aftersale;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 
 import java.util.List;
 

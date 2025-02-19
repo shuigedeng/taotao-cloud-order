@@ -16,23 +16,13 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
 import com.taotao.cloud.order.application.service.order.OrderItemCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderItemMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * 子订单业务层实现
@@ -46,6 +36,20 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class OrderItemCommandServiceImpl  implements
 	OrderItemCommandService {
+	@Override
+	public Boolean updateCommentStatus(String orderItemSn, CommentStatusEnum commentStatusEnum) {
+		return null;
+	}
+
+	@Override
+	public Boolean updateAfterSaleStatus(String orderItemSn, OrderItemAfterSaleStatusEnum orderItemAfterSaleStatusEnum) {
+		return null;
+	}
+
+	@Override
+	public Boolean updateOrderItemsComplainStatus(String orderSn, Long skuId, Long complainId, OrderComplaintStatusEnum complainStatusEnum) {
+		return null;
+	}
 
 //	@Override
 //	public Boolean updateCommentStatus(String orderItemSn, CommentStatusEnum commentStatusEnum) {

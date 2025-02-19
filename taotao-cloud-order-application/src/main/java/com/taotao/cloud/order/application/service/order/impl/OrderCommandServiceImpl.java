@@ -24,7 +24,6 @@ import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
 import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderPO;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -48,6 +47,91 @@ import java.util.List;
 public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
+
+	@Override
+	public void systemCancel(String orderSn, String reason) {
+
+	}
+
+	@Override
+	public IPage<OrderSimpleCO> pageQuery(OrderPageQry orderPageQry) {
+		return null;
+	}
+
+	@Override
+	public long queryCountByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
+		return 0;
+	}
+
+	@Override
+	public List<OrderExportCO> queryExportOrder(OrderPageQry orderPageQry) {
+		return List.of();
+	}
+
+	@Override
+	public OrderDetailCO queryDetail(String orderSn) {
+		return null;
+	}
+
+	@Override
+	public void payOrder(String orderSn, String paymentMethod, String receivableNo) {
+
+	}
+
+	@Override
+	public void afterOrderConfirm(String orderSn) {
+
+	}
+
+	@Override
+	public Traces getTraces(String orderSn) {
+		return null;
+	}
+
+	@Override
+	public void complete(String orderSn) {
+
+	}
+
+	@Override
+	public void systemComplete(String orderSn) {
+
+	}
+
+	@Override
+	public void deleteOrder(String sn) {
+
+	}
+
+	@Override
+	public Boolean invoice(String sn) {
+		return null;
+	}
+
+	@Override
+	public void agglomeratePintuanOrder(Long pintuanId, String parentOrderSn) {
+
+	}
+
+	@Override
+	public void downLoadDeliver(HttpServletResponse response, List<String> logisticsName) {
+
+	}
+
+	@Override
+	public Boolean batchDeliver(MultipartFile files) {
+		return null;
+	}
+
+	@Override
+	public BigDecimal getPaymentTotal(String orderSn) {
+		return null;
+	}
+
+	@Override
+	public IPage<PaymentLogCO> queryPaymentLogs(IPage<PaymentLogCO> page, Wrapper<PaymentLogCO> queryWrapper) {
+		return null;
+	}
 
 //	@Override
 //	public void systemCancel(String orderSn, String reason) {

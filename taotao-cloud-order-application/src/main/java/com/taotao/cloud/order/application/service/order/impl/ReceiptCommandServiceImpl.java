@@ -25,8 +25,6 @@ import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
 import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.ReceiptMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

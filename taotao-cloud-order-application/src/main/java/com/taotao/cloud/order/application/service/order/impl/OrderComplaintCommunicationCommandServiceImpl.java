@@ -21,8 +21,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.taotao.cloud.order.application.dto.order.query.OrderComplaintCommunicationPageQry;
 import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderComplainCommunicationMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 import lombok.AllArgsConstructor;
 import org.dromara.hutool.core.text.StrUtil;
 import org.springframework.stereotype.Service;

@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.aftersale;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
 
 import java.util.List;
 

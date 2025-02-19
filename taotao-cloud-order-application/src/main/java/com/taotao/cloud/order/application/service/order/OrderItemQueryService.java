@@ -20,9 +20,6 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
-
-import java.util.List;
 
 /**
  * 子订单业务层
@@ -65,7 +62,8 @@ public interface OrderItemQueryService extends CommandService {
 	 * @since 2022-05-16 17:23:36
 	 */
 	Boolean updateOrderItemsComplainStatus(
-		String orderSn, Long skuId, Long complainId, OrderComplaintStatusEnum complainStatusEnum);
+		String orderSn, Long skuId, Long complainId,
+		OrderComplaintStatusEnum complainStatusEnum);
 
 //	/**
 //	 * 根据子订单编号获取子订单信息
@@ -95,3 +93,4 @@ public interface OrderItemQueryService extends CommandService {
 //	 */
 //	OrderItemPO getByOrderSnAndSkuId(String orderSn, Long skuId);
 //}
+}

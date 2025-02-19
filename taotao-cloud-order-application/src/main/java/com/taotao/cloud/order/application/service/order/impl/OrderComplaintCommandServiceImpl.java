@@ -37,8 +37,6 @@ import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
 import com.taotao.cloud.order.application.service.order.OrderComplaintCommandService;
 import com.taotao.cloud.order.application.service.order.OrderItemCommandService;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import com.taotao.cloud.order.infrastructure.persistent.mapper.order.OrderComplaintMapper;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -56,6 +54,30 @@ import java.util.List;
 @Service
 public class OrderComplaintCommandServiceImpl
 	implements OrderComplaintCommandService {
+	@Override
+	public OrderComplaintCO getOrderComplainById(Long id) {
+		return null;
+	}
+
+	@Override
+	public Boolean updateOrderComplainByStatus(OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
+		return null;
+	}
+
+	@Override
+	public long waitComplainNum() {
+		return 0;
+	}
+
+	@Override
+	public Boolean cancel(Long id) {
+		return null;
+	}
+
+	@Override
+	public Boolean appeal(StoreAppealCmd storeAppealDTO) {
+		return null;
+	}
 //	@Override
 //	public IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {
 //		return null;

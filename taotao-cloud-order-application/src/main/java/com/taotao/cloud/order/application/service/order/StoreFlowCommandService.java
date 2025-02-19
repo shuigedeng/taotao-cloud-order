@@ -21,8 +21,6 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.distribution.query.DistributionPageQry;
 import com.taotao.cloud.order.application.dto.order.query.StoreFlowPageQry;
 import com.taotao.cloud.order.application.dto.store.query.StorePageQry;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 
 import java.util.List;
 

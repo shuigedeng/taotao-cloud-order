@@ -24,7 +24,6 @@ import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
 import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
 import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderPO;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 import zipkin2.storage.Traces;
@@ -87,7 +86,7 @@ public interface OrderQueryService extends CommandService {
      * @return {@link List }<{@link OrderPO }>
      * @since 2022-04-28 08:54:47
      */
-    List<OrderPO> queryListByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn);
+//    List<OrderPO> queryListByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn);
 
     /**
      * 根据促销查询订单
@@ -108,7 +107,7 @@ public interface OrderQueryService extends CommandService {
      * @return {@link List }<{@link OrderPO }>
      * @since 2022-04-28 08:54:47
      */
-    List<OrderPO> queryListByPromotion(Long pintuanId);
+//    List<OrderPO> queryListByPromotion(Long pintuanId);
 
     /**
      * 查询导出订单列表
@@ -161,7 +160,7 @@ public interface OrderQueryService extends CommandService {
      * @param reason 取消理由
      * @return 订单
      */
-    OrderPO cancel(String orderSn, String reason);
+//    OrderPO cancel(String orderSn, String reason);
 
     ///**
     // * 发货信息修改 日志功能内部实现
@@ -180,7 +179,7 @@ public interface OrderQueryService extends CommandService {
      * @param logisticsId 物流公司
      * @return 订单
      */
-    OrderPO delivery(String orderSn, String invoiceNumber, Long logisticsId);
+//    OrderPO delivery(String orderSn, String invoiceNumber, Long logisticsId);
 
     /**
      * 获取物流踪迹
@@ -197,7 +196,7 @@ public interface OrderQueryService extends CommandService {
      * @param orderSn 订单编号
      * @return 订单
      */
-    OrderPO take(String orderSn, String verificationCode);
+//    OrderPO take(String orderSn, String verificationCode);
 
     /**
      * 根据核验码获取订单信息
@@ -205,7 +204,7 @@ public interface OrderQueryService extends CommandService {
      * @param verificationCode 验证码
      * @return 订单
      */
-    OrderPO getOrderByVerificationCode(String verificationCode);
+//    OrderPO getOrderByVerificationCode(String verificationCode);
 
     /**
      * 订单完成
@@ -227,7 +226,7 @@ public interface OrderQueryService extends CommandService {
      * @param tradeSn 交易编号
      * @return 订单列表
      */
-    List<OrderPO> getByTradeSn(String tradeSn);
+//    List<OrderPO> getByTradeSn(String tradeSn);
 
     ///**
     // * 发送更新订单状态的信息
