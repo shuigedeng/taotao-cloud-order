@@ -16,23 +16,10 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.cart.clientobject.OrderExportCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderDetailCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderSimpleCO;
-import com.taotao.cloud.order.application.dto.order.clientobject.PaymentLogCO;
-import com.taotao.cloud.order.application.dto.order.query.OrderPageQry;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
-import zipkin2.storage.Traces;
-
-import java.math.BigDecimal;
-import java.util.List;
 
 /**
  * 子订单业务层实现
@@ -48,91 +35,143 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
 
-	@Override
-	public void systemCancel(String orderSn, String reason) {
+	private final OrderFactory orderFactory;
+	private final OrderRepository orderRepository;
+	private final MryRateLimiter mryRateLimiter;
+	private final TenantRepository tenantRepository;
 
+	@Transactional
+	public CreateOrderResponse createOrder(CreateOrderCommand command, User user) {
+		user.checkIsTenantAdmin();
+		mryRateLimiter.applyFor(user.getTenantId(), "Order:Create", 5);
+
+		Tenant tenant = tenantRepository.byId(user.getTenantId());
+		Order order = orderFactory.createOrder(command.getDetail(), command.getPaymentType(), tenant, user);
+		orderRepository.save(order);
+		log.info("Created online order[{}] of type[{}].", order.getId(), order.getPaymentType());
+
+		return CreateOrderResponse.builder()
+				.id(order.getId())
+				.paymentType(order.getPaymentType())
+				.wxPayQrUrl(order.getWxPayQrUrl())
+				.bankTransferCode(order.getBankTransferCode())
+				.price(order.getPrice())
+				.payDescription(order.description())
+				.createdAt(order.getCreatedAt())
+				.build();
 	}
 
-	@Override
-	public IPage<OrderSimpleCO> pageQuery(OrderPageQry orderPageQry) {
-		return null;
+	@Transactional
+	public void requestInvoice(String orderId, RequestInvoiceCommand command, User user) {
+		user.checkIsTenantAdmin();
+		mryRateLimiter.applyFor(user.getTenantId(), "Order:RequestInvoice", 5);
+
+		Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
+		Tenant tenant = tenantRepository.cachedById(user.getTenantId());
+		order.requestInvoice(command.getType(), tenant.getInvoiceTitle(), command.getEmail(), user);
+		orderRepository.save(order);
+		log.info("Requested invoice for order[{}].", orderId);
 	}
 
-	@Override
-	public long queryCountByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
-		return 0;
+	@Transactional
+	public void wxPay(String orderId, String wxTxnId, Instant paidAt, User user) {
+		mryRateLimiter.applyFor("Order:UpdateWxPay", 20);
+
+		orderRepository.byIdOptional(orderId).ifPresent(order -> {
+			if (order.atCreated()) {
+				order.wxPay(wxTxnId, paidAt, user);
+				Tenant tenant = tenantRepository.byId(order.getTenantId());
+				tenant.applyOrder(order, user);
+				orderRepository.save(order);
+				tenantRepository.save(tenant);
+				log.info("Order[{}] paid by WxPay with txn[{}].", orderId, wxTxnId);
+			} else {
+				order.wxPay(wxTxnId, paidAt, user);
+				orderRepository.save(order);
+				log.info("Order[{}] WxPay info updated with txn[{}].", orderId, wxTxnId);
+			}
+		});
 	}
 
-	@Override
-	public List<OrderExportCO> queryExportOrder(OrderPageQry orderPageQry) {
-		return List.of();
+
+	@Transactional
+	public void wxTransferPay(String orderId, List<UploadedFile> screenShots, Instant paidAt, User user) {
+		mryRateLimiter.applyFor("Order:UpdateWxTransfer", 5);
+
+		Order order = orderRepository.byId(orderId);
+
+		if (order.atCreated()) {
+			order.wxTransferPay(screenShots, paidAt, user);
+			Tenant tenant = tenantRepository.byId(order.getTenantId());
+			tenant.applyOrder(order, user);
+			orderRepository.save(order);
+			tenantRepository.save(tenant);
+			log.info("Order[{}] paid by WxTransfer.", orderId);
+		} else {
+			order.wxTransferPay(screenShots, paidAt, user);
+			orderRepository.save(order);
+		}
+		log.info("Order[{}] WxTransfer info updated.", orderId);
 	}
 
-	@Override
-	public OrderDetailCO queryDetail(String orderSn) {
-		return null;
+	@Transactional
+	public void bankTransferPay(String orderId, String accountId, String bankName, Instant paidAt, User user) {
+		mryRateLimiter.applyFor("Order:UpdateBankTransfer", 5);
+
+		Order order = orderRepository.byId(orderId);
+
+		if (order.atCreated()) {
+			order.bankTransferPay(accountId, bankName, paidAt, user);
+			Tenant tenant = tenantRepository.byId(order.getTenantId());
+			tenant.applyOrder(order, user);
+			orderRepository.save(order);
+			tenantRepository.save(tenant);
+			log.info("Order[{}] paid by bank transfer with account[{}].", orderId, accountId);
+		} else {
+			order.bankTransferPay(accountId, bankName, paidAt, user);
+			orderRepository.save(order);
+		}
+		log.info("Order[{}] Bank transfer updated with account[{}].", orderId, accountId);
 	}
 
-	@Override
-	public void payOrder(String orderSn, String paymentMethod, String receivableNo) {
+	@Transactional
+	public void updateDelivery(String orderId, Delivery delivery, User user) {
+		mryRateLimiter.applyFor("Order:UpdateDelivery", 5);
 
+		Order order = orderRepository.byId(orderId);
+		order.updateDelivery(delivery, user);
+		orderRepository.save(order);
+		log.info("Order[{}] delivery info updated.", orderId);
 	}
 
-	@Override
-	public void afterOrderConfirm(String orderSn) {
+	@Transactional
+	public void issueInvoice(String orderId, List<UploadedFile> files, User user) {
+		mryRateLimiter.applyFor("Order:IssueInvoice", 5);
 
+		Order order = orderRepository.byId(orderId);
+		order.issueInvoice(files, user);
+		orderRepository.save(order);
+		log.info("Order[{}] invoice issued.", orderId);
 	}
 
-	@Override
-	public Traces getTraces(String orderSn) {
-		return null;
+	@Transactional
+	public void refund(String orderId, String reason, User user) {
+		mryRateLimiter.applyFor("Order:Refund", 5);
+
+		Order order = orderRepository.byId(orderId);
+		order.refund(reason, user);
+		orderRepository.save(order);
+		log.info("Order[{}] refunded.", orderId);
 	}
 
-	@Override
-	public void complete(String orderSn) {
+	@Transactional
+	public void delete(String orderId) {
+		mryRateLimiter.applyFor("Order:Delete", 5);
 
+		Order order = orderRepository.byId(orderId);
+		orderRepository.delete(order);
+		log.info("Order[{}] deleted.", orderId);
 	}
-
-	@Override
-	public void systemComplete(String orderSn) {
-
-	}
-
-	@Override
-	public void deleteOrder(String sn) {
-
-	}
-
-	@Override
-	public Boolean invoice(String sn) {
-		return null;
-	}
-
-	@Override
-	public void agglomeratePintuanOrder(Long pintuanId, String parentOrderSn) {
-
-	}
-
-	@Override
-	public void downLoadDeliver(HttpServletResponse response, List<String> logisticsName) {
-
-	}
-
-	@Override
-	public Boolean batchDeliver(MultipartFile files) {
-		return null;
-	}
-
-	@Override
-	public BigDecimal getPaymentTotal(String orderSn) {
-		return null;
-	}
-
-	@Override
-	public IPage<PaymentLogCO> queryPaymentLogs(IPage<PaymentLogCO> page, Wrapper<PaymentLogCO> queryWrapper) {
-		return null;
-	}
-
 //	@Override
 //	public void systemCancel(String orderSn, String reason) {
 //
