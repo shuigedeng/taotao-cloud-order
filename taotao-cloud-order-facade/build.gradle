@@ -33,9 +33,9 @@
  */
 
 dependencies {
-    api project(":taotao-cloud-order-api")
     api project(":taotao-cloud-order-application")
     api project(":taotao-cloud-order-infrastructure")
+    api project(":taotao-cloud-order-integration")
 }
 
 
