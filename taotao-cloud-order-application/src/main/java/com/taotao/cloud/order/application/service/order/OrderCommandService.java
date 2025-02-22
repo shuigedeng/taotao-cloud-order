@@ -23,8 +23,9 @@ import com.taotao.cloud.order.application.dto.order.cmmond.RequestInvoiceCommand
 import com.taotao.cloud.order.domain.order.factory.OrderFactory;
 import com.taotao.cloud.order.domain.order.repository.OrderRepository;
 import com.taotao.cloud.order.domain.order.valueobject.delivery.Delivery;
-import com.taotao.cloud.order.domain.order.valueobject.detail.Tenant;
 import com.taotao.cloud.order.domain.order.valueobject.invoice.UploadedFile;
+
+import java.time.Instant;
 
 /**
  * 子订单业务层
@@ -40,23 +41,23 @@ public interface OrderCommandService extends CommandService {
 	private final MryRateLimiter mryRateLimiter;
 	private final TenantRepository tenantRepository;
 
-	public CreateOrderResponse createOrder(CreateOrderCommand command, User user)
+	public CreateOrderResponse createOrder(CreateOrderCommand command, User user);
 
-	public void requestInvoice(String orderId, RequestInvoiceCommand command, User user)
-	public void wxPay(String orderId, String wxTxnId, Instant paidAt, User user)
+	public void requestInvoice(String orderId, RequestInvoiceCommand command, User user);
 
+	public void wxPay(String orderId, String wxTxnId, Instant paidAt, User user);
 
-	public void wxTransferPay(String orderId, List<UploadedFile> screenShots, Instant paidAt, User user)
+	public void wxTransferPay(String orderId, List<UploadedFile> screenShots, Instant paidAt, User user);
 
-	public void bankTransferPay(String orderId, String accountId, String bankName, Instant paidAt, User user)
+	public void bankTransferPay(String orderId, String accountId, String bankName, Instant paidAt, User user);
 
-	public void updateDelivery(String orderId, Delivery delivery, User user)
+	public void updateDelivery(String orderId, Delivery delivery, User user);
 
-	public void issueInvoice(String orderId, List<UploadedFile> files, User user)
+	public void issueInvoice(String orderId, List<UploadedFile> files, User user);
 
-	public void refund(String orderId, String reason, User user)
+	public void refund(String orderId, String reason, User user);
 
-	public void delete(String orderId)
+	public void delete(String orderId);
 //
 //    /**
 //     * 系统取消订单

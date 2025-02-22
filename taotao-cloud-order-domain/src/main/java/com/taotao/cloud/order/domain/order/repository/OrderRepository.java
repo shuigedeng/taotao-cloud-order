@@ -1,6 +1,7 @@
 package com.taotao.cloud.order.domain.order.repository;
 
-import com.mryqr.common.domain.user.User;
+
+import com.taotao.cloud.order.domain.order.aggregate.Order;
 
 import java.util.Optional;
 

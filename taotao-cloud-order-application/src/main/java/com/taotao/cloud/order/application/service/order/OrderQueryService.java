@@ -17,6 +17,8 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.order.query.*;
+import com.taotao.cloud.order.domain.order.valueobject.OrderStatus;
 
 /**
  * 子订单业务层
@@ -26,6 +28,19 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @since 2022-04-28 08:54:47
  */
 public interface OrderQueryService extends CommandService {
+
+	public QPriceQuotation quoteOrderPrice(QuotePriceQuery queryCommand, User user)
+
+	public OrderStatus fetchOrderStatus(String orderId, User user);
+
+	public PagedList<QListOrder> listOrders(ListOrdersQuery queryCommand, User user);
+
+	public PagedList<QListOrder> pagedList(Pagination pagination, int count, List<QListOrder> apps);
+
+	public QDetailedOrder fetchDetailedOrder(String orderId, User user);
+
+	public QOrderShipment fetchOrderShipment(String orderId, User user);
+
 //
 //    /**
 //     * 系统取消订单
