@@ -113,7 +113,7 @@ include "taotao-cloud-order-common"
 include "taotao-cloud-order-domain"
 include "taotao-cloud-order-facade"
 include "taotao-cloud-order-infrastructure"
-include "taotao-cloud-order-integration"
+include "taotao-cloud-order-interfaces"
 
 
 gradle.settingsEvaluated {
