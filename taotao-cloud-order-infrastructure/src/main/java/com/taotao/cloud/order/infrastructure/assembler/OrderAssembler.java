@@ -25,7 +25,7 @@ import org.mapstruct.factory.Mappers;
  * @version 2022.03
  * @since 2020/11/11 14:42
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper
 public interface OrderAssembler {
 
     OrderAssembler INSTANCE = Mappers.getMapper(OrderAssembler.class);

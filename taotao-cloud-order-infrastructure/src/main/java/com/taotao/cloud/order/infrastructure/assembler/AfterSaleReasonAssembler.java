@@ -32,7 +32,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-07 20:55:46
  */
-@Mapper(unmappedSourcePolicy = ReportingPolicy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper
 public interface AfterSaleReasonAssembler {
 
     AfterSaleReasonAssembler INSTANCE = Mappers.getMapper(AfterSaleReasonAssembler.class);

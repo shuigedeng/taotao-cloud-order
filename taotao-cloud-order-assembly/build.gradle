@@ -33,7 +33,7 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.4'
     testImplementation "org.assertj:assertj-core:3.27.3"
 
-testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.projectlombok:lombok"
     testAnnotationProcessor  "org.projectlombok:lombok:${lombokVersion}"
 
     testCompileOnly "io.soabase.record-builder:record-builder-core"
