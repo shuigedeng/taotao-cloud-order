@@ -1,8 +1,10 @@
 package com.taotao.cloud.order.infrastructure.dataobject;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class OrderDO {
 	private String name;
 	private String id;

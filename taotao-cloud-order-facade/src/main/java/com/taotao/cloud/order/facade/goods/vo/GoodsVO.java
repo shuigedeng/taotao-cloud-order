@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.order.facade.goods.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class GoodsVO {
 
     private String cityCode;

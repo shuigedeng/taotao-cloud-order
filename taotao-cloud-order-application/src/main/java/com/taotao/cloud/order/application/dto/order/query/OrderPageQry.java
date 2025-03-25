@@ -26,7 +26,7 @@ import java.io.Serial;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -39,7 +39,9 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @version 2022.04
  * @since 2022-04-21 16:59:38
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Accessors(fluent = true)
 @AllArgsConstructor

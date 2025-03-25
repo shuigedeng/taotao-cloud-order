@@ -22,7 +22,7 @@ import java.io.Serial;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -34,7 +34,9 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-28 09:19:50
  */
-@Data
+@Setter
+@Getter
+@ToString
 @EqualsAndHashCode(callSuper = true)
 @Accessors(fluent = true)
 @AllArgsConstructor
@@ -60,7 +62,9 @@ public class StoreFlowPageQry extends PageQuery {
     @Schema(description = "结算单")
     private BillDTO bill;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     public static class BillDTO {
         private LocalDateTime startTime;
 

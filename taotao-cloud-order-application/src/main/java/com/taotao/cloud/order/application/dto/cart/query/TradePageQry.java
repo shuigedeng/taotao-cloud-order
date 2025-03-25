@@ -36,7 +36,7 @@
 //import java.util.Map;
 //import lombok.AllArgsConstructor;
 //import lombok.Builder;
-//import lombok.Data;
+//import lombok.*;
 //
 ///**
 // * 购物车视图
@@ -45,7 +45,9 @@
 // * @version 2022.04
 // * @since 2022-04-28 09:17:07
 // */
-//@Data
+//@Setter
+@Getter
+@ToString
 //@Accessors(fluent = true)
 //@AllArgsConstructor
 //@Schema(description = "购物车视图")

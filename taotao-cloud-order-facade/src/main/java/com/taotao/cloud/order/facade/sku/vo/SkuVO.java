@@ -16,9 +16,11 @@
 
 package com.taotao.cloud.order.facade.sku.vo;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Setter
+@Getter
+@ToString
 public class SkuVO {
 
     private String cityCode;

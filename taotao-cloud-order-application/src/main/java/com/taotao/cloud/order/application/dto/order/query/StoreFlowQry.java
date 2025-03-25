@@ -20,7 +20,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
@@ -31,7 +31,9 @@ import lombok.experimental.Accessors;
  * @version 2022.04
  * @since 2022-04-28 09:19:50
  */
-@Data
+@Setter
+@Getter
+@ToString
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -53,7 +55,9 @@ public class StoreFlowQry {
     @Schema(description = "结算单")
     private BillDTO bill;
 
-    @Data
+    @Setter
+@Getter
+@ToString
     public static class BillDTO {
         private LocalDateTime startTime;
 
