@@ -10,6 +10,7 @@ import java.util.Set;
 
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
 import static com.taotao.cloud.order.domain.order.valueobject.plan.ControlType.*;
+import static com.taotao.cloud.order.domain.order.valueobject.plan.PlanType.*;
 import static lombok.AccessLevel.PRIVATE;
 
 @With

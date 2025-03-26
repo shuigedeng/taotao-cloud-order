@@ -20,14 +20,20 @@ import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.order.cmmond.RequestInvoiceCommand;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
+import com.taotao.cloud.order.domain.order.aggregate.Order;
 import com.taotao.cloud.order.domain.order.factory.OrderFactory;
 import com.taotao.cloud.order.domain.order.repository.OrderRepository;
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import com.taotao.cloud.order.domain.order.valueobject.delivery.Delivery;
 import com.taotao.cloud.order.domain.order.valueobject.detail.Tenant;
 import com.taotao.cloud.order.domain.order.valueobject.invoice.UploadedFile;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.time.Instant;
+import java.util.List;
 
 /**
  * 子订单业务层实现
@@ -39,43 +45,46 @@ import org.springframework.transaction.annotation.Transactional;
 @AllArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class OrderCommandServiceImpl  implements OrderCommandService {
+@Slf4j
+public class OrderCommandServiceImpl implements OrderCommandService {
 
 	private static final String ORDER_SN_COLUMN = "order_sn";
 
 	private final OrderFactory orderFactory;
 	private final OrderRepository orderRepository;
-	private final MryRateLimiter mryRateLimiter;
-	private final TenantRepository tenantRepository;
+//	private final MryRateLimiter mryRateLimiter;
+//	private final TenantRepository tenantRepository;
 
 	@Transactional
 	public CreateOrderResponse createOrder(CreateOrderCommand command, User user) {
 		user.checkIsTenantAdmin();
-		mryRateLimiter.applyFor(user.getTenantId(), "Order:Create", 5);
+//		mryRateLimiter.applyFor(user.getTenantId(), "Order:Create", 5);
 
-		Tenant tenant = tenantRepository.byId(user.getTenantId());
+//		Tenant tenant = tenantRepository.byId(user.getTenantId());
+		Tenant tenant = null;
 		Order order = orderFactory.createOrder(command.getDetail(), command.getPaymentType(), tenant, user);
 		orderRepository.save(order);
 		log.info("Created online order[{}] of type[{}].", order.getId(), order.getPaymentType());
 
 		return CreateOrderResponse.builder()
-				.id(order.getId())
-				.paymentType(order.getPaymentType())
-				.wxPayQrUrl(order.getWxPayQrUrl())
-				.bankTransferCode(order.getBankTransferCode())
-				.price(order.getPrice())
-				.payDescription(order.description())
-				.createdAt(order.getCreatedAt())
-				.build();
+			.id(order.getId())
+			.paymentType(order.getPaymentType())
+			.wxPayQrUrl(order.getWxPayQrUrl())
+			.bankTransferCode(order.getBankTransferCode())
+			.price(order.getPrice())
+			.payDescription(order.description())
+//			.createdAt(order.getCreatedAt())
+			.build();
 	}
 
 	@Transactional
 	public void requestInvoice(String orderId, RequestInvoiceCommand command, User user) {
 		user.checkIsTenantAdmin();
-		mryRateLimiter.applyFor(user.getTenantId(), "Order:RequestInvoice", 5);
+//		mryRateLimiter.applyFor(user.getTenantId(), "Order:RequestInvoice", 5);
 
 		Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
-		Tenant tenant = tenantRepository.cachedById(user.getTenantId());
+		//		Tenant tenant = tenantRepository.byId(user.getTenantId());
+		Tenant tenant = null;
 		order.requestInvoice(command.getType(), tenant.getInvoiceTitle(), command.getEmail(), user);
 		orderRepository.save(order);
 		log.info("Requested invoice for order[{}].", orderId);
@@ -83,15 +92,15 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void wxPay(String orderId, String wxTxnId, Instant paidAt, User user) {
-		mryRateLimiter.applyFor("Order:UpdateWxPay", 20);
+//		mryRateLimiter.applyFor("Order:UpdateWxPay", 20);
 
 		orderRepository.byIdOptional(orderId).ifPresent(order -> {
 			if (order.atCreated()) {
 				order.wxPay(wxTxnId, paidAt, user);
-				Tenant tenant = tenantRepository.byId(order.getTenantId());
-				tenant.applyOrder(order, user);
+//				Tenant tenant = tenantRepository.byId(order.getTenantId());
+//				tenant.applyOrder(order, user);
 				orderRepository.save(order);
-				tenantRepository.save(tenant);
+//				tenantRepository.save(tenant);
 				log.info("Order[{}] paid by WxPay with txn[{}].", orderId, wxTxnId);
 			} else {
 				order.wxPay(wxTxnId, paidAt, user);
@@ -104,16 +113,16 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void wxTransferPay(String orderId, List<UploadedFile> screenShots, Instant paidAt, User user) {
-		mryRateLimiter.applyFor("Order:UpdateWxTransfer", 5);
+//		mryRateLimiter.applyFor("Order:UpdateWxTransfer", 5);
 
 		Order order = orderRepository.byId(orderId);
 
 		if (order.atCreated()) {
 			order.wxTransferPay(screenShots, paidAt, user);
-			Tenant tenant = tenantRepository.byId(order.getTenantId());
-			tenant.applyOrder(order, user);
+//			Tenant tenant = tenantRepository.byId(order.getTenantId());
+//			tenant.applyOrder(order, user);
 			orderRepository.save(order);
-			tenantRepository.save(tenant);
+//			tenantRepository.save(tenant);
 			log.info("Order[{}] paid by WxTransfer.", orderId);
 		} else {
 			order.wxTransferPay(screenShots, paidAt, user);
@@ -124,16 +133,16 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void bankTransferPay(String orderId, String accountId, String bankName, Instant paidAt, User user) {
-		mryRateLimiter.applyFor("Order:UpdateBankTransfer", 5);
+//		mryRateLimiter.applyFor("Order:UpdateBankTransfer", 5);
 
 		Order order = orderRepository.byId(orderId);
 
 		if (order.atCreated()) {
 			order.bankTransferPay(accountId, bankName, paidAt, user);
-			Tenant tenant = tenantRepository.byId(order.getTenantId());
-			tenant.applyOrder(order, user);
+//			Tenant tenant = tenantRepository.byId(order.getTenantId());
+//			tenant.applyOrder(order, user);
 			orderRepository.save(order);
-			tenantRepository.save(tenant);
+//			tenantRepository.save(tenant);
 			log.info("Order[{}] paid by bank transfer with account[{}].", orderId, accountId);
 		} else {
 			order.bankTransferPay(accountId, bankName, paidAt, user);
@@ -144,7 +153,7 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void updateDelivery(String orderId, Delivery delivery, User user) {
-		mryRateLimiter.applyFor("Order:UpdateDelivery", 5);
+//		mryRateLimiter.applyFor("Order:UpdateDelivery", 5);
 
 		Order order = orderRepository.byId(orderId);
 		order.updateDelivery(delivery, user);
@@ -154,7 +163,7 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void issueInvoice(String orderId, List<UploadedFile> files, User user) {
-		mryRateLimiter.applyFor("Order:IssueInvoice", 5);
+//		mryRateLimiter.applyFor("Order:IssueInvoice", 5);
 
 		Order order = orderRepository.byId(orderId);
 		order.issueInvoice(files, user);
@@ -164,7 +173,7 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void refund(String orderId, String reason, User user) {
-		mryRateLimiter.applyFor("Order:Refund", 5);
+//		mryRateLimiter.applyFor("Order:Refund", 5);
 
 		Order order = orderRepository.byId(orderId);
 		order.refund(reason, user);
@@ -174,7 +183,7 @@ public class OrderCommandServiceImpl  implements OrderCommandService {
 
 	@Transactional
 	public void delete(String orderId) {
-		mryRateLimiter.applyFor("Order:Delete", 5);
+//		mryRateLimiter.applyFor("Order:Delete", 5);
 
 		Order order = orderRepository.byId(orderId);
 		orderRepository.delete(order);

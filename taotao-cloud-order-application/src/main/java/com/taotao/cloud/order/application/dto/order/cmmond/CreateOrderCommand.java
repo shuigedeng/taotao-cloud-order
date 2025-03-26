@@ -1,8 +1,8 @@
 package com.taotao.cloud.order.application.dto.order.cmmond;
 
-import com.mryqr.common.utils.Command;
-import com.mryqr.core.order.domain.PaymentType;
-import com.mryqr.core.order.domain.detail.OrderDetail;
+import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.cloud.order.domain.order.valueobject.PaymentType;
+import com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetail;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -14,11 +14,11 @@ import static lombok.AccessLevel.PRIVATE;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class CreateOrderCommand implements Command {
-    @Valid
-    @NotNull
-    private final OrderDetail detail;
+public class CreateOrderCommand extends Command {
+	@Valid
+	@NotNull
+	private final OrderDetail detail;
 
-    @NotNull
-    private final PaymentType paymentType;
+	@NotNull
+	private final PaymentType paymentType;
 }

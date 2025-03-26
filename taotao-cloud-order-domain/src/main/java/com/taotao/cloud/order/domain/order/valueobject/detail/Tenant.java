@@ -1,8 +1,9 @@
 package com.taotao.cloud.order.domain.order.valueobject.detail;
 
+import com.taotao.cloud.order.domain.order.valueobject.invoice.InvoiceTitle;
 import com.taotao.cloud.order.domain.order.valueobject.plan.PlanType;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
+
+import java.time.Instant;
 
 public class Tenant {
 	public void validateAddExtraMembers(int amount) {
@@ -39,5 +40,26 @@ public class Tenant {
 
 
 		return PlanType.FREE;
+	}
+
+	public String planVersion() {
+
+		return "";
+	}
+
+	public Object getTenantId() {
+		return null;
+	}
+
+	public void validateAddExtraStorage(int amount) {
+
+	}
+
+	public Instant packagesExpiredAt() {
+		return null;
+	}
+
+	public InvoiceTitle getInvoiceTitle() {
+		return null;
 	}
 }

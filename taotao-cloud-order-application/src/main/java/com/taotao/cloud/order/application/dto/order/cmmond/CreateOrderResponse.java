@@ -1,7 +1,7 @@
 package com.taotao.cloud.order.application.dto.order.cmmond;
 
-import com.mryqr.core.order.domain.OrderPrice;
-import com.mryqr.core.order.domain.PaymentType;
+import com.taotao.cloud.order.domain.order.valueobject.OrderPrice;
+import com.taotao.cloud.order.domain.order.valueobject.PaymentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -14,11 +14,11 @@ import static lombok.AccessLevel.PRIVATE;
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class CreateOrderResponse {
-    private final String id;
-    private final PaymentType paymentType;
-    private final String wxPayQrUrl;
-    private final String bankTransferCode;
-    private final OrderPrice price;
-    private final String payDescription;
-    private final Instant createdAt;
+	private final Long id;
+	private final PaymentType paymentType;
+	private final String wxPayQrUrl;
+	private final String bankTransferCode;
+	private final OrderPrice price;
+	private final String payDescription;
+	private final Instant createdAt;
 }

@@ -1,11 +1,10 @@
 package com.taotao.cloud.order.domain.order.event;
 
-import com.mryqr.common.domain.user.User;
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 
-import static com.mryqr.common.event.DomainEventType.ORDER_WX_TRANSFER_UPDATED;
 import static lombok.AccessLevel.PRIVATE;
 
 @Getter
@@ -13,7 +12,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class OrderWxTransferUpdatedEvent extends OrderUpdatedEvent {
 
-    public OrderWxTransferUpdatedEvent(String orderId, User user) {
-        super(ORDER_WX_TRANSFER_UPDATED, orderId, user);
+    public OrderWxTransferUpdatedEvent(Long orderId, User user) {
+//        super(ORDER_WX_TRANSFER_UPDATED, orderId, user);
     }
 }

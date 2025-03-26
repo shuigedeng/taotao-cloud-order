@@ -1,6 +1,6 @@
 package com.taotao.cloud.order.application.dto.order.query;
 
-import com.mryqr.core.order.domain.delivery.Carrier;
+import com.taotao.cloud.order.domain.order.valueobject.delivery.Carrier;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;

@@ -11,8 +11,8 @@ import static lombok.AccessLevel.PROTECTED;
 public class OrderUpdatedEvent extends DomainEvent {
     private String orderId;
 
-    public OrderUpdatedEvent(DomainEventType type, String orderId, User user) {
-        super(type, user);
-        this.orderId = orderId;
-    }
+//    public OrderUpdatedEvent(DomainEventType type, String orderId, User user) {
+//        super(type, user);
+//        this.orderId = orderId;
+//    }
 }

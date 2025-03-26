@@ -18,33 +18,19 @@ package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.common.enums.ClientTypeEnum;
-import com.taotao.boot.common.enums.PromotionTypeEnum;
-import com.taotao.boot.common.utils.bean.BeanUtils;
-import com.taotao.cloud.goods.api.enums.GoodsTypeEnum;
-import com.taotao.cloud.order.api.enums.cart.CartTypeEnum;
-import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
-import com.taotao.cloud.order.api.enums.order.DeliverStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderTypeEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
+import com.taotao.cloud.order.api.enums.order.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.*;
+import lombok.experimental.Accessors;
+import org.hibernate.Hibernate;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Optional;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-import lombok.ToString;
-import lombok.experimental.Accessors;
-import org.hibernate.Hibernate;
 
 /**
  * 订单表

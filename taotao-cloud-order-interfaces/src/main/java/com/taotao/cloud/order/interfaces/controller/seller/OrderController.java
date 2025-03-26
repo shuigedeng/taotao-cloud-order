@@ -3,27 +3,17 @@ package com.taotao.cloud.order.interfaces.controller.seller;
 import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.order.cmmond.RequestInvoiceCommand;
-import com.taotao.cloud.order.application.dto.order.query.ListOrdersQuery;
-import com.taotao.cloud.order.application.dto.order.query.QDetailedOrder;
-import com.taotao.cloud.order.application.dto.order.query.QListOrder;
-import com.taotao.cloud.order.application.dto.order.query.QOrderShipment;
-import com.taotao.cloud.order.application.dto.order.query.QPriceQuotation;
-import com.taotao.cloud.order.application.dto.order.query.QuotePriceQuery;
+import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import com.taotao.cloud.order.application.service.order.OrderQueryService;
 import com.taotao.cloud.order.domain.order.valueobject.OrderStatus;
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
@@ -43,32 +33,32 @@ public class OrderController {
 	}
 
 	@PostMapping(value = "/{orderId}/invoice-request")
-	public void requestInvoice(@PathVariable("orderId") @NotBlank @OrderId String orderId,
+	public void requestInvoice(@PathVariable("orderId") @NotBlank  String orderId,
 							   @RequestBody @Valid RequestInvoiceCommand command,
 							   @AuthenticationPrincipal User user) {
 		orderCommandService.requestInvoice(orderId, command, user);
 	}
 
 	@GetMapping(value = "/{orderId}/status")
-	public OrderStatus fetchOrderStatus(@PathVariable("orderId") @NotBlank @OrderId String orderId,
+	public OrderStatus fetchOrderStatus(@PathVariable("orderId") @NotBlank  String orderId,
 										@AuthenticationPrincipal User user) {
 		return orderQueryService.fetchOrderStatus(orderId, user);
 	}
 
-	@PostMapping(value = "/list")
-	public PagedList<QListOrder> listOrders(@RequestBody @Valid ListOrdersQuery queryCommand,
-											@AuthenticationPrincipal User user) {
-		return orderQueryService.listOrders(queryCommand, user);
-	}
+	//@PostMapping(value = "/list")
+	//public PagedList<QListOrder> listOrders(@RequestBody @Valid ListOrdersQuery queryCommand,
+	//										@AuthenticationPrincipal User user) {
+	//	return orderQueryService.listOrders(queryCommand, user);
+	//}
 
 	@GetMapping(value = "/{orderId}")
-	public QDetailedOrder fetchDetailedOrder(@PathVariable("orderId") @NotBlank @OrderId String orderId,
+	public QDetailedOrder fetchDetailedOrder(@PathVariable("orderId") @NotBlank  String orderId,
 											 @AuthenticationPrincipal User user) {
 		return orderQueryService.fetchDetailedOrder(orderId, user);
 	}
 
 	@GetMapping(value = "/{orderId}/shipment")
-	public QOrderShipment fetchOrderShipment(@PathVariable("orderId") @NotBlank @OrderId String orderId, @AuthenticationPrincipal User user) {
+	public QOrderShipment fetchOrderShipment(@PathVariable("orderId") @NotBlank  String orderId, @AuthenticationPrincipal User user) {
 		return orderQueryService.fetchOrderShipment(orderId, user);
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.data.annotation.TypeAlias;
 import java.math.BigDecimal;
 import java.time.Instant;
 
+import static com.taotao.cloud.order.domain.order.valueobject.plan.PlanType.*;
 import static java.math.BigDecimal.ZERO;
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
@@ -69,25 +70,25 @@ public class PlanOrderDetail extends OrderDetail {
 	}
 
 	private void validate(PlanType currentEffectivePlanType, PlanType requestedPlanType, int yearDuration) {
-		if (requestedPlanType == FREE) {
-			throw new MryException(PURCHASE_FREE_PLAN_NOT_ALLOWED,
-				"免费版套餐无法购买。", mapOf("planType", requestedPlanType));
-		}
-
-		if (currentEffectivePlanType == FREE && yearDuration == 0) {
-			throw new MryException(UPGRADE_FREE_PLAN_NOT_ALLOWED,
-				"当前有效套餐为免费版，不支持仅升级，请提供购买时长。", mapOf("planType", requestedPlanType));
-		}
-
-		if (currentEffectivePlanType == requestedPlanType && yearDuration == 0) {
-			throw new MryException(UPGRADE_TO_SAME_PLAN_NOT_ALLOWED,
-				"不支持仅升级相同版本套餐，请提供购买时长。", mapOf("planType", requestedPlanType));
-		}
-
-		if (!requestedPlanType.covers(currentEffectivePlanType)) {
-			throw new MryException(DOWNGRADE_PLAN_NOT_ALLOWED,
-				"购买套餐级别不能低于当前套餐级别。", mapOf("planType", requestedPlanType));
-		}
+//		if (requestedPlanType == FREE) {
+//			throw new MryException(PURCHASE_FREE_PLAN_NOT_ALLOWED,
+//				"免费版套餐无法购买。", mapOf("planType", requestedPlanType));
+//		}
+//
+//		if (currentEffectivePlanType == FREE && yearDuration == 0) {
+//			throw new MryException(UPGRADE_FREE_PLAN_NOT_ALLOWED,
+//				"当前有效套餐为免费版，不支持仅升级，请提供购买时长。", mapOf("planType", requestedPlanType));
+//		}
+//
+//		if (currentEffectivePlanType == requestedPlanType && yearDuration == 0) {
+//			throw new MryException(UPGRADE_TO_SAME_PLAN_NOT_ALLOWED,
+//				"不支持仅升级相同版本套餐，请提供购买时长。", mapOf("planType", requestedPlanType));
+//		}
+//
+//		if (!requestedPlanType.covers(currentEffectivePlanType)) {
+//			throw new MryException(DOWNGRADE_PLAN_NOT_ALLOWED,
+//				"购买套餐级别不能低于当前套餐级别。", mapOf("planType", requestedPlanType));
+//		}
 	}
 
 	private OrderPrice calculateRenewalOnlyPrice(PlanType requestedPlanType, int yearDuration) {

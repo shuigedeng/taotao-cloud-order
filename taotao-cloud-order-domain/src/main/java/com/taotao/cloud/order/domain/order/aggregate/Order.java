@@ -1,10 +1,13 @@
 package com.taotao.cloud.order.domain.order.aggregate;
 
+import cn.hutool.core.util.IdUtil;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
+import com.taotao.boot.ddd.model.domain.event.DomainEvent;
 import com.taotao.cloud.order.domain.order.event.*;
 import com.taotao.cloud.order.domain.order.valueobject.OrderPrice;
 import com.taotao.cloud.order.domain.order.valueobject.OrderStatus;
 import com.taotao.cloud.order.domain.order.valueobject.PaymentType;
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import com.taotao.cloud.order.domain.order.valueobject.delivery.Delivery;
 import com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetail;
 import com.taotao.cloud.order.domain.order.valueobject.detail.Tenant;
@@ -20,8 +23,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
-import static com.taotao.cloud.order.domain.order.valueobject.OrderStatus.CREATED;
-import static com.taotao.cloud.order.domain.order.valueobject.OrderStatus.PAID;
+import static com.taotao.cloud.order.domain.order.valueobject.OrderStatus.*;
+import static com.taotao.cloud.order.domain.order.valueobject.PaymentType.BANK_TRANSFER;
+import static com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetailType.PLATE_PRINTING;
 import static java.lang.String.valueOf;
 import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
@@ -29,7 +33,7 @@ import static org.apache.commons.lang3.RandomUtils.nextInt;
 @Slf4j
 @Getter
 @NoArgsConstructor(access = PRIVATE)
-public class Order extends AggregateRoot {
+public class Order extends AggregateRoot<Long> {
 	private OrderDetail detail;
 	private OrderPrice price;
 	private PaymentType paymentType;
@@ -51,14 +55,14 @@ public class Order extends AggregateRoot {
 	private String refundReason;
 
 	public static String newOrderId() {
-		return "ODR" + newSnowflakeId();
+		return "ODR" + IdUtil.getSnowflakeNextId();
 	}
 
 	public Order(OrderDetail detail,
 				 PaymentType paymentType,
 				 Tenant tenant,
 				 User user) {
-		super(newOrderId(), tenant.getTenantId(), user);
+//		super(newOrderId(), tenant.getTenantId(), user);
 		detail.validate(tenant);
 		this.detail = detail;
 		this.price = detail.calculatePrice(tenant);
@@ -80,10 +84,10 @@ public class Order extends AggregateRoot {
 	}
 
 	public void wxPay(String wxTxnId, Instant paidAt, User user) {
-		if (this.paymentType != WX_NATIVE) {
-			log.warn("Order[{}] is not created with wx pay, skip.", this.getId());
-			return;
-		}
+//		if (this.paymentType != WX_NATIVE) {
+//			log.warn("Order[{}] is not created with wx pay, skip.", this.getId());
+//			return;
+//		}
 
 		if (atCreated()) {
 			this.status = PAID;
@@ -96,10 +100,10 @@ public class Order extends AggregateRoot {
 	}
 
 	public void wxTransferPay(List<UploadedFile> screenShots, Instant paidAt, User user) {
-		if (this.paymentType != WX_TRANSFER) {
-			log.warn("Order[{}] is not created with ex transfer pay, skip.", this.getId());
-			return;
-		}
+//		if (this.paymentType != WX_TRANSFER) {
+//			log.warn("Order[{}] is not created with ex transfer pay, skip.", this.getId());
+//			return;
+//		}
 
 		if (atCreated()) {
 			this.status = PAID;
@@ -129,17 +133,17 @@ public class Order extends AggregateRoot {
 	}
 
 	public void requestInvoice(InvoiceType type, InvoiceTitle title, String email, User user) {
-		if (title == null) {
-			throw new MryException(NO_INVOICE_TITLE, "申请失败，尚无发票抬头信息。", mapOf("orderId", this.getId()));
-		}
-
-		if (!atPaid()) {
-			throw new MryException(ORDER_NOT_PAID, "申请失败，只有处于已支付状态才可申请发票。", mapOf("orderId", this.getId()));
-		}
-
-		if (isInvoiceRequested()) {
-			throw new MryException(INVOICE_ALREADY_REQUESTED, "申请失败，先前已经申请过发票。", mapOf("orderId", this.getId()));
-		}
+//		if (title == null) {
+//			throw new MryException(NO_INVOICE_TITLE, "申请失败，尚无发票抬头信息。", mapOf("orderId", this.getId()));
+//		}
+//
+//		if (!atPaid()) {
+//			throw new MryException(ORDER_NOT_PAID, "申请失败，只有处于已支付状态才可申请发票。", mapOf("orderId", this.getId()));
+//		}
+//
+//		if (isInvoiceRequested()) {
+//			throw new MryException(INVOICE_ALREADY_REQUESTED, "申请失败，先前已经申请过发票。", mapOf("orderId", this.getId()));
+//		}
 
 		this.invoice = new Invoice(title, type, email);
 		raiseEvent(new OrderInvoiceRequestedEvent(this.getId(), user));
@@ -193,6 +197,16 @@ public class Order extends AggregateRoot {
 		}
 		raiseEvent(new OrderRefundUpdatedEvent(this.getId(), user));
 		this.refundReason = reason;
+	}
+
+	private void addOpsLog(String msg, User user) {
+
+	}
+
+	private void raiseEvent(DomainEvent domainEvent) {
+
+
+
 	}
 
 	public String description() {

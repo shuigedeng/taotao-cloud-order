@@ -1,11 +1,10 @@
 package com.taotao.cloud.order.domain.order.event;
 
-import com.mryqr.common.domain.user.User;
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 
-import static com.mryqr.common.event.DomainEventType.ORDER_INVOICE_REQUESTED;
 import static lombok.AccessLevel.PRIVATE;
 
 @Getter
@@ -13,7 +12,7 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class OrderInvoiceRequestedEvent extends OrderUpdatedEvent {
 
-    public OrderInvoiceRequestedEvent(String orderId, User user) {
-        super(ORDER_INVOICE_REQUESTED, orderId, user);
+    public OrderInvoiceRequestedEvent(Long orderId, User user) {
+//        super(ORDER_INVOICE_REQUESTED, orderId, user);
     }
 }

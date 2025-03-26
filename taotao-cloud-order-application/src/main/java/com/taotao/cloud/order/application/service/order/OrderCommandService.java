@@ -15,17 +15,16 @@
  */
 
 package com.taotao.cloud.order.application.service.order;
-
+import com.taotao.cloud.order.domain.order.valueobject.User;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.order.cmmond.RequestInvoiceCommand;
-import com.taotao.cloud.order.domain.order.factory.OrderFactory;
-import com.taotao.cloud.order.domain.order.repository.OrderRepository;
 import com.taotao.cloud.order.domain.order.valueobject.delivery.Delivery;
 import com.taotao.cloud.order.domain.order.valueobject.invoice.UploadedFile;
 
 import java.time.Instant;
+import java.util.List;
 
 /**
  * 子订单业务层
@@ -35,11 +34,6 @@ import java.time.Instant;
  * @since 2022-04-28 08:54:47
  */
 public interface OrderCommandService extends CommandService {
-
-	private final OrderFactory orderFactory;
-	private final OrderRepository orderRepository;
-	private final MryRateLimiter mryRateLimiter;
-	private final TenantRepository tenantRepository;
 
 	public CreateOrderResponse createOrder(CreateOrderCommand command, User user);
 
