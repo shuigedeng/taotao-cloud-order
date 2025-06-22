@@ -34,7 +34,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER, fallbackFactory = FeignOrderItemApiFallback.class)
+@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
+	contextId = "OrderItemApi",
+	fallbackFactory = FeignOrderItemApiFallback.class)
 public interface OrderItemApi {
 
     @PostMapping(value = "/order/item")
