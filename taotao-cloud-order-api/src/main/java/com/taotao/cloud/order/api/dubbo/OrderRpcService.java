@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.order.api.dubbo;
 
+import com.taotao.boot.common.model.RpcRequest;
+import com.taotao.boot.common.model.RpcResponse;
 import com.taotao.cloud.order.api.dubbo.request.OrderQueryRpcRequest;
 import com.taotao.cloud.order.api.dubbo.response.OrderQueryGrpcResponse;
 
@@ -28,5 +30,5 @@ import com.taotao.cloud.order.api.dubbo.response.OrderQueryGrpcResponse;
  */
 public interface OrderRpcService {
 
-	OrderQueryGrpcResponse query(OrderQueryRpcRequest orderQueryRpcRequest);
+	RpcResponse<OrderQueryGrpcResponse> query(RpcRequest<OrderQueryRpcRequest> orderQueryRpcRequest);
 }
