@@ -1,5 +1,20 @@
-package com.taotao.cloud.order.domain.order.valueobject.plan;
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
+package com.taotao.cloud.order.domain.order.valueobject.plan;
 
 import static com.taotao.cloud.order.domain.order.valueobject.plan.ValueType.*;
 
@@ -52,15 +67,16 @@ public enum ControlType {
     SIGNATURE(true, false, SIGNATURE_VALUE, false),
     MULTI_LEVEL_SELECTION(true, true, MULTI_LEVEL_SELECTION_VALUE, false);
 
-    private final boolean fillable;//是否为填值控件
-    private final boolean autoFillEligible;//answer是否可以自动填充上次提交值
-    private final ValueType answerValueType;//控件对应answer的值类型
-    private final boolean qrImportable;//是否可包含在实例上传excel中
+    private final boolean fillable; // 是否为填值控件
+    private final boolean autoFillEligible; // answer是否可以自动填充上次提交值
+    private final ValueType answerValueType; // 控件对应answer的值类型
+    private final boolean qrImportable; // 是否可包含在实例上传excel中
 
-    ControlType(boolean fillable,
-                boolean autoFillEligible,
-                ValueType answerValueType,
-                boolean qrImportable) {
+    ControlType(
+            boolean fillable,
+            boolean autoFillEligible,
+            ValueType answerValueType,
+            boolean qrImportable) {
         this.fillable = fillable;
         this.autoFillEligible = autoFillEligible;
         this.answerValueType = answerValueType;

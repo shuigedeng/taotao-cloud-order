@@ -18,8 +18,6 @@ package com.taotao.cloud.order.application.service.aftersale;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 
-import java.util.List;
-
 /**
  * 订单日志业务层
  *
@@ -36,5 +34,5 @@ public interface AfterSaleLogQueryService extends CommandService {
      * @return {@link List }<{@link AfterSaleLogPO }>
      * @since 2022-04-28 08:49:07
      */
-//    List<AfterSaleLogPO> getAfterSaleLog(String sn);
+    //    List<AfterSaleLogPO> getAfterSaleLog(String sn);
 }

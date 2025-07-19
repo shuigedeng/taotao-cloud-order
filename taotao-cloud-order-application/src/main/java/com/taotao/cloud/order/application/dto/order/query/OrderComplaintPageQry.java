@@ -21,7 +21,6 @@ import com.taotao.cloud.order.api.enums.aftersale.ComplaintStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -42,8 +41,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "订单投诉查询参数")
 public class OrderComplaintPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     /**
      * @see ComplaintStatusEnum

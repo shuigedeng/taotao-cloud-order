@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 
 /** 售后原因数据处理层 */
 public interface AfterSaleReasonMapper extends BaseSuperMapper<AfterSaleReasonPO, Long> {}

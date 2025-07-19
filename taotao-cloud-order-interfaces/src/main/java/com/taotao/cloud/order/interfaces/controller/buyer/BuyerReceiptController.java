@@ -36,31 +36,31 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "买家端-发票API", description = "买家端-发票API")
 @RequestMapping("/order/buyer/receipt")
 public class BuyerReceiptController extends BusinessController {
-	//
-	//private final ReceiptCommandService receiptCommandService;
-	//
-	//@Operation(summary = "获取发票详情", description = "获取发票详情")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping("/{id}")
-	//public Result<Receipt> getDetail(@PathVariable String id) {
-	//	return Result.success(this.receiptCommandService.getDetail(id));
-	//}
-	//
-	//@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping("/page")
-	//public Result<PageResult<OrderReceiptDTO>> getPage(ReceiptPageQuery searchParams) {
-	//	IPage<OrderReceiptDTO> page = this.receiptCommandService.pageQuery(searchParams);
-	//	return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptDTO.class));
-	//}
-	//
-	//@Operation(summary = "保存发票信息", description = "保存发票信息")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PostMapping
-	//public Result<Boolean> save(@Valid Receipt receipt) {
-	//	return Result.success(receiptCommandService.saveReceipt(receipt));
-	//}
+    //
+    // private final ReceiptCommandService receiptCommandService;
+    //
+    // @Operation(summary = "获取发票详情", description = "获取发票详情")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping("/{id}")
+    // public Result<Receipt> getDetail(@PathVariable String id) {
+    //	return Result.success(this.receiptCommandService.getDetail(id));
+    // }
+    //
+    // @Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping("/page")
+    // public Result<PageResult<OrderReceiptDTO>> getPage(ReceiptPageQuery searchParams) {
+    //	IPage<OrderReceiptDTO> page = this.receiptCommandService.pageQuery(searchParams);
+    //	return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptDTO.class));
+    // }
+    //
+    // @Operation(summary = "保存发票信息", description = "保存发票信息")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PostMapping
+    // public Result<Boolean> save(@Valid Receipt receipt) {
+    //	return Result.success(receiptCommandService.saveReceipt(receipt));
+    // }
 }

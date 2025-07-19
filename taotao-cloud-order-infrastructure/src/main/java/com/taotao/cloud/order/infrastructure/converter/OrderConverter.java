@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.infrastructure.converter;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -32,5 +31,4 @@ public interface OrderConverter {
 
     /** 实例 */
     OrderConverter INSTANCE = Mappers.getMapper(OrderConverter.class);
-
 }

@@ -20,9 +20,8 @@ import com.taotao.boot.common.enums.UserEnum;
 import com.taotao.boot.common.model.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -44,8 +43,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "订单查询参数")
 public class OrderLogPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = -6380573339089959194L;
+    @Serial private static final long serialVersionUID = -6380573339089959194L;
 
     /** 订单编号 */
     private String orderSn;

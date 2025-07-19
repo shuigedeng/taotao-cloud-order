@@ -16,28 +16,24 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 
 /** 子订单数据处理层 */
 public interface OrderItemMapper extends BaseSuperMapper<OrderItemPO, Long> {
 
-    ///**
+    /// **
     // * 获取等待操作订单子项目
     // *
     // * @param queryWrapper 查询条件
     // * @return 订单子项列表
     // */
-    //@Select(
+    // @Select(
     //        """
-	//	SELECT *
-	//	FROM tt_order_item AS oi INNER JOIN tt_order AS o ON oi.order_sn=o.sn
-	//	${ew.customSqlSegment}
-	//	""")
-    //List<OrderItemPO> waitOperationOrderItem(@Param(Constants.WRAPPER) Wrapper<OrderSimpleVO> queryWrapper);
+    //	SELECT *
+    //	FROM tt_order_item AS oi INNER JOIN tt_order AS o ON oi.order_sn=o.sn
+    //	${ew.customSqlSegment}
+    //	""")
+    // List<OrderItemPO> waitOperationOrderItem(@Param(Constants.WRAPPER) Wrapper<OrderSimpleVO>
+    // queryWrapper);
 }

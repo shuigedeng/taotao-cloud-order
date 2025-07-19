@@ -27,26 +27,25 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:53
  */
 @Service
-public class OrderLogServiceImpl  implements
-    OrderLogService {
+public class OrderLogServiceImpl implements OrderLogService {
 
-//    @Override
-//    public List<OrderLogPO> getOrderLog(String orderSn) {
-//        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-//        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
-//        return this.list(lambdaQueryWrapper);
-//    }
-//
-//	@Override
-//	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
-//		return null;
-//	}
+    //    @Override
+    //    public List<OrderLogPO> getOrderLog(String orderSn) {
+    //        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+    //        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
+    //        return this.list(lambdaQueryWrapper);
+    //    }
+    //
+    //	@Override
+    //	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
+    //		return null;
+    //	}
 
-	//@Override
-    //public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
+    // @Override
+    // public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
     //    LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
     //    // todo 需要设置条件
-	//
+    //
     //    return this.page(orderLogPageQry.buildMpPage(), lambdaQueryWrapper);
-    //}
+    // }
 }

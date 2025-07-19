@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.service.order;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 
 /**
@@ -28,22 +27,22 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface OrderComplaintCommunicationQueryService extends CommandService {
 
-	/**
-	 * 添加订单投诉通信
-	 *
-	 * @param orderComplaintCommunicationPO 订单投诉通信
-	 * @return {@link Boolean }
-	 * @since 2022-04-28 08:54:33
-	 */
-//	Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO);
+    /**
+     * 添加订单投诉通信
+     *
+     * @param orderComplaintCommunicationPO 订单投诉通信
+     * @return {@link Boolean }
+     * @since 2022-04-28 08:54:33
+     */
+    //	Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO);
 
-	/**
-	 * 获取通信记录
-	 *
-	 * @param orderComplaintCommunicationPageQry 参数
-	 * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
-	 * @since 2022-04-28 08:54:33
-	 */
-//	IPage<OrderComplaintCommunicationPO> getCommunication(
-//		OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
+    /**
+     * 获取通信记录
+     *
+     * @param orderComplaintCommunicationPageQry 参数
+     * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
+     * @since 2022-04-28 08:54:33
+     */
+    //	IPage<OrderComplaintCommunicationPO> getCommunication(
+    //		OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
 }

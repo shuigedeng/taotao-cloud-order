@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.cls.trade;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 

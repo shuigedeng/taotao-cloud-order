@@ -61,8 +61,7 @@ public record OrderDetailCO(
         @Schema(description = "价格详情") String priceDetail)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -6293102172184734928L;
+    @Serial private static final long serialVersionUID = -6293102172184734928L;
 
     //
     // public OrderDetailVO(OrderBaseVO order, List<OrderItemVO> orderItems,

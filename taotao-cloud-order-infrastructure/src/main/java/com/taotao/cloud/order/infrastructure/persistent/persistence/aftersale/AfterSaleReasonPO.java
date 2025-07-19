@@ -17,18 +17,16 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.cloud.order.api.enums.trade.AfterSaleTypeEnum;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.cloud.order.api.enums.trade.AfterSaleTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;

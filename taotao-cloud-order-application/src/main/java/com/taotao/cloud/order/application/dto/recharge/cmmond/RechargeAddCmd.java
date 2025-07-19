@@ -18,15 +18,13 @@ package com.taotao.cloud.order.application.dto.recharge.cmmond;
 
 import com.taotao.boot.common.model.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-
-import java.io.Serial;
-import java.io.Serializable;
 
 /** 预存款充值记录查询条件 */
 @Setter
@@ -36,8 +34,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Schema(description = "预存款充值记录查询条件")
 public class RechargeAddCmd extends PageQuery implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 318396158590640917L;
+    @Serial private static final long serialVersionUID = 318396158590640917L;
 
     @Schema(description = "充值订单编号")
     private String rechargeSn;

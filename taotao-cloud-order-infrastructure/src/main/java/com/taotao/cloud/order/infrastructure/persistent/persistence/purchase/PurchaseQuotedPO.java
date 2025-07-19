@@ -23,11 +23,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -56,24 +54,31 @@ public class PurchaseQuotedPO extends BaseSuperEntity<PurchaseQuotedPO, Long> {
     /** 采购单ID */
     @Column(name = "purchase_order_id", columnDefinition = "bigint not null comment '采购单ID'")
     private Long purchaseOrderId;
+
     /** 标题 */
     @Column(name = "title", columnDefinition = "varchar(255) not null comment '标题'")
     private String title;
+
     /** 报价说明 */
     @Column(name = "context", columnDefinition = "varchar(255) not null comment '报价说明'")
     private String context;
+
     /** 附件 */
     @Column(name = "annex", columnDefinition = "varchar(255) not null comment '附件'")
     private String annex;
+
     /** 公司名称 */
     @Column(name = "company_name", columnDefinition = "varchar(255) not null comment '公司名称'")
     private String companyName;
+
     /** 联系人 */
     @Column(name = "contacts", columnDefinition = "varchar(255) not null comment '联系人'")
     private String contacts;
+
     /** 联系电话 */
     @Column(name = "contact_number", columnDefinition = "varchar(255) not null comment '联系电话'")
     private String contactNumber;
+
     /** 报价人 */
     @Column(name = "member_id", columnDefinition = "varchar(255) not null comment '报价人'")
     private String memberId;

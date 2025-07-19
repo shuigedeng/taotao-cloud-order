@@ -37,89 +37,93 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/order/complain")
 public class ManagerOrderComplaintController extends BusinessController {
 
-	///**
-	// * 交易投诉
-	// */
-	//private final OrderComplaintCommandService orderComplaintCommandService;
-	//
-	///**
-	// * 交易投诉沟通
-	// */
-	//private final OrderComplaintCommunicationCommandService orderComplaintCommunicationCommandService;
-	//
-	//@Operation(summary = "通过id获取", description = "通过id获取")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping(value = "/{id}")
-	//public Result<OrderComplaintCO> get(@PathVariable Long id) {
-	//	return Result.success(orderComplaintCommandService.getOrderComplainById(id));
-	//}
-	//
-	//@Operation(summary = "分页获取", description = "分页获取")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping("/page")
-	//public Result<PageResult<OrderComplaintBaseCO>> pageQuery(
-	//	@Validated OrderComplaintPageQry orderComplaintPageQry) {
-	//	IPage<OrderComplaintPO> page = orderComplaintCommandService.pageQuery(orderComplaintPageQry);
-	//	return Result.success(MpUtils.convertMybatisPage(page, OrderComplaintBaseCO.class));
-	//}
-	//
-	//@Operation(summary = "更新数据", description = "更新数据")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PutMapping("/{id}")
-	//public Result<Boolean> update(@PathVariable Long id,
-	//							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
-	//	OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
-	//		orderComplaintAddCmd);
-	//	orderComplaintPO.setId(id);
-	//	return Result.success(orderComplaintCommandService.updateOrderComplain(orderComplaintPO));
-	//}
-	//
-	//@Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PostMapping("/communication/{complainId}")
-	//public Result<Boolean> addCommunication(
-	//	@PathVariable("complainId") Long complainId,
-	//	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd) {
-	//	SecurityUser user = SecurityUtils.getCurrentUser();
-	//	OrderComplaintCommunicationPO orderComplaintCommunicationPO = OrderComplaintCommunicationPO.builder()
-	//		.complainId(complainId)
-	//		.content(orderComplaintCommunicationAddCmd.content())
-	//		.owner(CommunicationOwnerEnum.PLATFORM.name())
-	//		.ownerName(user.getUsername())
-	//		.ownerId(user.getUserId())
-	//		.build();
-	//	return Result.success(
-	//		orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
-	//}
-	//
-	//@Operation(summary = "修改状态", description = "修改状态")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PutMapping(value = "/status")
-	//public Result<Boolean> updateStatus(
-	//	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
-	//	return Result.success(
-	//		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
-	//}
-	//
-	//@Operation(summary = "仲裁", description = "仲裁")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PutMapping(value = "/complete/{id}")
-	//public Result<Boolean> complete(@PathVariable Long id, String arbitrationResult) {
-	//	// 新建对象
-	//	OrderComplaintOperationAddCmd orderComplaintOperationAddCmd = OrderComplaintOperationDTOBuilder.builder()
-	//		.complainId(id)
-	//		.arbitrationResult(arbitrationResult)
-	//		.complainStatus(OrderComplaintStatusEnum.COMPLETE.name())
-	//		.build();
-	//
-	//	// 修改状态
-	//	return Result.success(
-	//		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
-	//}
+    /// **
+    // * 交易投诉
+    // */
+    // private final OrderComplaintCommandService orderComplaintCommandService;
+    //
+    /// **
+    // * 交易投诉沟通
+    // */
+    // private final OrderComplaintCommunicationCommandService
+    // orderComplaintCommunicationCommandService;
+    //
+    // @Operation(summary = "通过id获取", description = "通过id获取")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/{id}")
+    // public Result<OrderComplaintCO> get(@PathVariable Long id) {
+    //	return Result.success(orderComplaintCommandService.getOrderComplainById(id));
+    // }
+    //
+    // @Operation(summary = "分页获取", description = "分页获取")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping("/page")
+    // public Result<PageResult<OrderComplaintBaseCO>> pageQuery(
+    //	@Validated OrderComplaintPageQry orderComplaintPageQry) {
+    //	IPage<OrderComplaintPO> page = orderComplaintCommandService.pageQuery(orderComplaintPageQry);
+    //	return Result.success(MpUtils.convertMybatisPage(page, OrderComplaintBaseCO.class));
+    // }
+    //
+    // @Operation(summary = "更新数据", description = "更新数据")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping("/{id}")
+    // public Result<Boolean> update(@PathVariable Long id,
+    //							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
+    //	OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
+    //		orderComplaintAddCmd);
+    //	orderComplaintPO.setId(id);
+    //	return Result.success(orderComplaintCommandService.updateOrderComplain(orderComplaintPO));
+    // }
+    //
+    // @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PostMapping("/communication/{complainId}")
+    // public Result<Boolean> addCommunication(
+    //	@PathVariable("complainId") Long complainId,
+    //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
+    // {
+    //	SecurityUser user = SecurityUtils.getCurrentUser();
+    //	OrderComplaintCommunicationPO orderComplaintCommunicationPO =
+    // OrderComplaintCommunicationPO.builder()
+    //		.complainId(complainId)
+    //		.content(orderComplaintCommunicationAddCmd.content())
+    //		.owner(CommunicationOwnerEnum.PLATFORM.name())
+    //		.ownerName(user.getUsername())
+    //		.ownerId(user.getUserId())
+    //		.build();
+    //	return Result.success(
+    //		orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
+    // }
+    //
+    // @Operation(summary = "修改状态", description = "修改状态")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping(value = "/status")
+    // public Result<Boolean> updateStatus(
+    //	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
+    //	return Result.success(
+    //		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
+    // }
+    //
+    // @Operation(summary = "仲裁", description = "仲裁")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping(value = "/complete/{id}")
+    // public Result<Boolean> complete(@PathVariable Long id, String arbitrationResult) {
+    //	// 新建对象
+    //	OrderComplaintOperationAddCmd orderComplaintOperationAddCmd =
+    // OrderComplaintOperationDTOBuilder.builder()
+    //		.complainId(id)
+    //		.arbitrationResult(arbitrationResult)
+    //		.complainStatus(OrderComplaintStatusEnum.COMPLETE.name())
+    //		.build();
+    //
+    //	// 修改状态
+    //	return Result.success(
+    //		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
+    // }
 }

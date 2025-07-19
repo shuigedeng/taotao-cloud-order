@@ -28,15 +28,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataVersionLogTopicMessageDelegate {
 
-    //@Autowired
-    //private ILogService logService;
+    // @Autowired
+    // private ILogService logService;
 
     public void handleRequestLog(String message, String channel) {
-        //try {
+        // try {
         //    Log log = JsonUtils.MAPPER.readValue(message, Log.class);
         //    logService.save(log);
-        //} catch (JsonProcessingException e) {
+        // } catch (JsonProcessingException e) {
         //    LogUtils.error(e);
-        //}
+        // }
     }
 }

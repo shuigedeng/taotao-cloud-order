@@ -20,9 +20,8 @@ import com.taotao.boot.common.model.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -44,8 +43,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "店铺流水查询DTO")
 public class StoreFlowPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     @Schema(description = "类型")
     private String type;
@@ -63,8 +61,8 @@ public class StoreFlowPageQry extends PageQuery {
     private BillDTO bill;
 
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     public static class BillDTO {
         private LocalDateTime startTime;
 

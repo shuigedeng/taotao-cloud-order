@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.infrastructure.assembler;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -28,7 +27,8 @@ import org.mapstruct.factory.Mappers;
 @Mapper
 public interface OrderComplainCommunicationAssembler {
 
-    OrderComplainCommunicationAssembler INSTANCE = Mappers.getMapper(OrderComplainCommunicationAssembler.class);
+    OrderComplainCommunicationAssembler INSTANCE =
+            Mappers.getMapper(OrderComplainCommunicationAssembler.class);
 
-    //OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
+    // OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

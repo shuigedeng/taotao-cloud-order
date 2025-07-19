@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.clientobject;
 
-import com.taotao.cloud.order.api.enums.trade.AfterSaleRefundWayEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -40,13 +39,14 @@ public record AfterSaleApplyCO(
          * @see AfterSaleRefundWayEnum
          */
         @Schema(description = "退款方式", allowableValues = "ORIGINAL,OFFLINE") String refundWay,
-        @Schema(description = "账号类型", allowableValues = "ALIPAY,WECHATPAY,MEMBERWALLET,BANKTRANSFER")
+        @Schema(
+                        description = "账号类型",
+                        allowableValues = "ALIPAY,WECHATPAY,MEMBERWALLET,BANKTRANSFER")
                 String accountType,
         @Schema(description = "是否支持退货") Boolean returnGoods,
         @Schema(description = "是否支持退款") Boolean returnMoney,
         @Schema(description = "会员ID") Long memberId)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

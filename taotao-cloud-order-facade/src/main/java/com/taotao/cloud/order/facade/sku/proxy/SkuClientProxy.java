@@ -32,19 +32,17 @@ public class SkuClientProxy {
 
     // @Resource
     // private GoodsSkuApi goodsSkuApi;
-    @Resource
-    private SkuClientAdapter skuClientAdapter;
+    @Resource private SkuClientAdapter skuClientAdapter;
 
-    @Resource
-    private SkuGrpcClient skuGrpcClient;
+    @Resource private SkuGrpcClient skuGrpcClient;
 
-    @DubboReference
-    private GoodsRpcService goodsRpcService;
+    @DubboReference private GoodsRpcService goodsRpcService;
 
     // 查询用户
     public SkuVO getUserInfo(Long skuId) {
         //		GoodsSkuSpecGalleryApiResponse user = goodsSkuApi.getGoodsSkuByIdFromCache(skuId);
-        GoodsQueryRpcResponse goodsQueryResponse = goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
+        GoodsQueryRpcResponse goodsQueryResponse =
+                goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
 
         GoodsSkuGrpcResponse helloReply = skuGrpcClient.getGoodsSkuByIdFromCache("");
 

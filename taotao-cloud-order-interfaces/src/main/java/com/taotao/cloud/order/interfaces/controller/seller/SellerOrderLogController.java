@@ -39,16 +39,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/seller/order/log")
 public class SellerOrderLogController extends BusinessController {
 
-	private final OrderLogService orderLogService;
+    private final OrderLogService orderLogService;
 
-	private final OrderCommandService orderCommandService;
+    private final OrderCommandService orderCommandService;
 
-//	@Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
-//	@RequestLogger
-//	@PreAuthorize("hasAuthority('dept:tree:data')")
-//	@GetMapping(value = "/{orderSn}")
-//	public Result<List<OrderLogPO>> get(@PathVariable String orderSn) {
-//		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
-//		return Result.success(orderLogService.getOrderLog(orderSn));
-//	}
+    //	@Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
+    //	@RequestLogger
+    //	@PreAuthorize("hasAuthority('dept:tree:data')")
+    //	@GetMapping(value = "/{orderSn}")
+    //	public Result<List<OrderLogPO>> get(@PathVariable String orderSn) {
+    //		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
+    //		return Result.success(orderLogService.getOrderLog(orderSn));
+    //	}
 }

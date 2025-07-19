@@ -26,29 +26,30 @@ import com.taotao.cloud.goods.api.grpc.GoodsSkuGrpcServiceGrpc;
 import com.taotao.cloud.goods.api.grpc.GoodsSkuGrpcServiceGrpc.GoodsSkuGrpcServiceFutureStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Component;
 
-import java.util.concurrent.ExecutionException;
-
 @Component
 public class SkuGrpcClient {
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
+    @Autowired private DiscoveryClient discoveryClient;
 
     public GoodsSkuGrpcResponse getGoodsSkuByIdFromCache(String name) {
         try {
             final ServiceInstance instanceInfo =
                     discoveryClient.getInstances("my-service-name").get(0);
-            final ManagedChannel channel = ManagedChannelBuilder.forAddress(
-                            instanceInfo.getUri().toString(), instanceInfo.getPort())
-                    .usePlaintext()
-                    .build();
-            final GoodsSkuGrpcServiceFutureStub stub = GoodsSkuGrpcServiceGrpc.newFutureStub(channel);
-            GoodsSkuGrpcRequest helloRequest = GoodsSkuGrpcRequest.parseFrom(ByteString.copyFromUtf8(name));
+            final ManagedChannel channel =
+                    ManagedChannelBuilder.forAddress(
+                                    instanceInfo.getUri().toString(), instanceInfo.getPort())
+                            .usePlaintext()
+                            .build();
+            final GoodsSkuGrpcServiceFutureStub stub =
+                    GoodsSkuGrpcServiceGrpc.newFutureStub(channel);
+            GoodsSkuGrpcRequest helloRequest =
+                    GoodsSkuGrpcRequest.parseFrom(ByteString.copyFromUtf8(name));
             ListenableFuture<GoodsSkuGrpcResponse> helloReplyListenableFuture =
                     stub.getGoodsSkuByIdFromCache(helloRequest);
             return helloReplyListenableFuture.get();

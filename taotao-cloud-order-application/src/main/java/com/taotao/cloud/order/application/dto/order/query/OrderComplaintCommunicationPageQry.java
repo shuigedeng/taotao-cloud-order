@@ -19,9 +19,8 @@ package com.taotao.cloud.order.application.dto.order.query;
 import com.taotao.boot.common.model.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
@@ -43,8 +42,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "订单投诉搜索参数")
 public class OrderComplaintCommunicationPageQry extends PageQuery {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     @Schema(description = "投诉id")
     private String complainId;

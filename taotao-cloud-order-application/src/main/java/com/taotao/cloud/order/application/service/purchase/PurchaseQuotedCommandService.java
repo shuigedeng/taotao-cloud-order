@@ -18,8 +18,6 @@ package com.taotao.cloud.order.application.service.purchase;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 
-import java.util.List;
-
 /**
  * 采购单报价业务层
  *
@@ -28,14 +26,14 @@ import java.util.List;
  * @since 2022-04-28 08:55:34
  */
 public interface PurchaseQuotedCommandService extends CommandService {
-    ///**
+    /// **
     // * 添加报价单
     // *
     // * @param purchaseQuotedVO 报价单
     // * @return {@link PurchaseQuotedVO }
     // * @since 2022-04-28 08:55:34
     // */
-    //PurchaseQuotedVO addPurchaseQuoted(PurchaseQuotedVO purchaseQuotedVO);
+    // PurchaseQuotedVO addPurchaseQuoted(PurchaseQuotedVO purchaseQuotedVO);
 
     /**
      * 根据采购单获取报价单列表
@@ -44,14 +42,14 @@ public interface PurchaseQuotedCommandService extends CommandService {
      * @return {@link List }<{@link PurchaseQuotedPO }>
      * @since 2022-04-28 08:55:34
      */
-//    List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId);
-	//
-    ///**
+    //    List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId);
+    //
+    /// **
     // * 获取采购单VO
     // *
     // * @param id 采购单ID
     // * @return {@link PurchaseQuotedVO }
     // * @since 2022-04-28 08:55:34
     // */
-    //PurchaseQuotedVO getById(String id);
+    // PurchaseQuotedVO getById(String id);
 }

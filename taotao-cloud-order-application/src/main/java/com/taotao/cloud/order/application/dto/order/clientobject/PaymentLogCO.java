@@ -17,8 +17,6 @@
 package com.taotao.cloud.order.application.dto.order.clientobject;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.taotao.boot.common.enums.ClientTypeEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -43,7 +41,8 @@ public record PaymentLogCO(
         @Schema(description = "付款状态") String payStatus,
         @Schema(description = "第三方付款流水号") String receivableNo,
         @Schema(description = "支付方式") String paymentMethod,
-        @Schema(description = "支付时间") @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+        @Schema(description = "支付时间")
+                @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
                 LocalDateTime paymentTime,
         @Schema(description = "总价格") BigDecimal flowPrice,
         @Schema(description = "支付方式返回的交易号") String payOrderNo,
@@ -59,6 +58,5 @@ public record PaymentLogCO(
         @Schema(description = "订单类型") String orderType)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -6293102172184734928L;
+    @Serial private static final long serialVersionUID = -6293102172184734928L;
 }

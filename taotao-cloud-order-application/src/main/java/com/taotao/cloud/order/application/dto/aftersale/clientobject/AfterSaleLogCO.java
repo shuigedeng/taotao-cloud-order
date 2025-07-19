@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.clientobject;
 
-import com.taotao.boot.common.enums.UserEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -48,6 +47,5 @@ public record AfterSaleLogCO(
         @Schema(description = "日志信息") String message)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

@@ -30,6 +30,5 @@ public record ReceiptCO(
         @Schema(description = "发票内容") String receiptContent)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -6293102172184734928L;
+    @Serial private static final long serialVersionUID = -6293102172184734928L;
 }

@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.taotao.cloud.order.domain.order.valueobject.detail;
 
 import static com.taotao.cloud.order.domain.order.valueobject.detail.MaterialType.*;
@@ -38,7 +54,6 @@ public enum PlatePrintingType {
     PORCELAIN_ACRYLIC_60x80(PORCELAIN_ACRYLIC, "60*80mm", 4.0),
     PORCELAIN_ACRYLIC_60x90(PORCELAIN_ACRYLIC, "60*90mm", 4.0),
     PORCELAIN_ACRYLIC_70x100(PORCELAIN_ACRYLIC, "70*100mm", 5.0),
-
 
     PVC_CARD_50x40(PVC_CARD, "50*40mm", 2.0),
     PVC_CARD_50x50(PVC_CARD, "50*50mm", 2.5),

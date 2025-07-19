@@ -27,13 +27,14 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface PurchaseOrderItemCommandService extends CommandService {
 
-	/**
-	 * 添加采购单子内容
-	 *
-	 * @param purchaseOrderId       采购单ID
-	 * @param purchaseOrderItemList 采购单子内容列表
-	 * @return boolean
-	 * @since 2022-04-28 08:55:27
-	 */
-//	boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList);
+    /**
+     * 添加采购单子内容
+     *
+     * @param purchaseOrderId       采购单ID
+     * @param purchaseOrderItemList 采购单子内容列表
+     * @return boolean
+     * @since 2022-04-28 08:55:27
+     */
+    //	boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO>
+    // purchaseOrderItemList);
 }

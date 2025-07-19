@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-
 import java.math.BigDecimal;
 
 /**

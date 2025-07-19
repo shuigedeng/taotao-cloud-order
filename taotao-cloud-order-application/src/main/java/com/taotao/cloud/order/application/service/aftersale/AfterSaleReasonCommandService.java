@@ -16,10 +16,7 @@
 
 package com.taotao.cloud.order.application.service.aftersale;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.boot.ddd.model.application.service.CommandService;
-
-import java.util.List;
 
 /**
  * 售后原因业务层
@@ -37,7 +34,7 @@ public interface AfterSaleReasonCommandService extends CommandService {
      * @return {@link List }<{@link AfterSaleReasonPO }>
      * @since 2022-04-28 08:49:03
      */
-//    List<AfterSaleReasonPO> afterSaleReasonList(String serviceType);
+    //    List<AfterSaleReasonPO> afterSaleReasonList(String serviceType);
 
     /**
      * 修改售后原因
@@ -46,7 +43,7 @@ public interface AfterSaleReasonCommandService extends CommandService {
      * @return {@link Boolean }
      * @since 2022-04-28 08:49:03
      */
-//    Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO);
+    //    Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO);
 
     /**
      * 分页查询售后原因
@@ -55,5 +52,5 @@ public interface AfterSaleReasonCommandService extends CommandService {
      * @return {@link IPage }<{@link AfterSaleReasonPO }>
      * @since 2022-04-28 08:49:03
      */
-//    IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry);
+    //    IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry);
 }

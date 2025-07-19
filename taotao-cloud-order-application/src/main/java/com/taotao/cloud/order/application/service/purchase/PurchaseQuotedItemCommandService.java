@@ -18,8 +18,6 @@ package com.taotao.cloud.order.application.service.purchase;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 
-import java.util.List;
-
 /**
  * 采购单子内容业务层
  *
@@ -37,7 +35,8 @@ public interface PurchaseQuotedItemCommandService extends CommandService {
      * @return boolean
      * @since 2022-04-28 08:55:32
      */
-//    boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList);
+    //    boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO>
+    // purchaseQuotedItemPOList);
 
     /**
      * 获取报价单子内容列表
@@ -46,5 +45,5 @@ public interface PurchaseQuotedItemCommandService extends CommandService {
      * @return {@link List }<{@link PurchaseQuotedItemPO }>
      * @since 2022-04-28 08:55:32
      */
-//    List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId);
+    //    List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId);
 }

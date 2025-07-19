@@ -46,7 +46,7 @@ public interface ReceiptQueryService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-//    ReceiptPO getByOrderSn(String orderSn);
+    //    ReceiptPO getByOrderSn(String orderSn);
 
     /**
      * 获取发票详情
@@ -55,7 +55,7 @@ public interface ReceiptQueryService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-//    ReceiptPO getDetail(String id);
+    //    ReceiptPO getDetail(String id);
 
     /**
      * 保存发票
@@ -64,7 +64,7 @@ public interface ReceiptQueryService extends CommandService {
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:50
      */
-//    Boolean saveReceipt(ReceiptPO receiptPO);
+    //    Boolean saveReceipt(ReceiptPO receiptPO);
 
     /**
      * 开具发票
@@ -73,5 +73,5 @@ public interface ReceiptQueryService extends CommandService {
      * @return {@link ReceiptPO }
      * @since 2022-04-28 08:54:50
      */
-//    ReceiptPO invoicing(Long receiptId);
+    //    ReceiptPO invoicing(Long receiptId);
 }

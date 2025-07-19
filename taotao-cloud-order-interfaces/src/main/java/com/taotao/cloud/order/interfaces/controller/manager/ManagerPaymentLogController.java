@@ -38,15 +38,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/payment/log")
 public class ManagerPaymentLogController extends BusinessController {
 
-	private final OrderCommandService orderCommandService;
+    private final OrderCommandService orderCommandService;
 
-	//@Operation(summary = "分页获取支付日志", description = "分页获取支付日志")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping("/tree")
-	//public Result<IPage<PaymentLogCO>> getByPage(Order order, SearchVO searchVo) {
-	//	return Result.success(
-	//		orderCommandService.queryPaymentLogs(PageUtil.initPage(page),
-	//			PageUtil.initWrapper(order, searchVo)));
-	//}
+    // @Operation(summary = "分页获取支付日志", description = "分页获取支付日志")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping("/tree")
+    // public Result<IPage<PaymentLogCO>> getByPage(Order order, SearchVO searchVo) {
+    //	return Result.success(
+    //		orderCommandService.queryPaymentLogs(PageUtil.initPage(page),
+    //			PageUtil.initWrapper(order, searchVo)));
+    // }
 }

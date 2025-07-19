@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -57,21 +55,27 @@ public class PurchaseOrderItemPO extends BaseSuperEntity<PurchaseOrderItemPO, Lo
     /** 采购ID */
     @Column(name = "purchase_order_id", columnDefinition = "bigint not null comment '采购ID'")
     private Long purchaseOrderId;
+
     /** 商品名称 */
     @Column(name = "goods_name", columnDefinition = "varchar(255) not null comment '商品名称'")
     private String goodsName;
+
     /** 数量 */
     @Column(name = "num", columnDefinition = "int not null comment '数量'")
     private Integer num;
+
     /** 数量单位 */
     @Column(name = "goods_unit", columnDefinition = "varchar(255) not null comment '数量单位'")
     private String goodsUnit;
+
     /** 价格 */
     @Column(name = "price", columnDefinition = "decimal(10,2) not null comment '价格'")
     private BigDecimal price;
+
     /** 规格 */
     @Column(name = "specs", columnDefinition = "varchar(255) not null comment '规格'")
     private String specs;
+
     /** 图片 */
     @Column(name = "images", columnDefinition = "text not null comment '图片'")
     private String images;

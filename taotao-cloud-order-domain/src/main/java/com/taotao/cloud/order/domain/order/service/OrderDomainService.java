@@ -16,7 +16,4 @@
 
 package com.taotao.cloud.order.domain.order.service;
 
-
-public interface OrderDomainService {
-
-}
+public interface OrderDomainService {}

@@ -27,19 +27,18 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:40
  */
 @Service
-public class PurchaseOrderCommandServiceImpl
-        implements PurchaseOrderCommandService {
-	@Override
-	public boolean close(String id) {
-		return false;
-	}
-	//
-    //@Autowired
-    //private PurchaseOrderItemCommandService purchaseOrderItemCommandService;
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public PurchaseOrderVO addPurchaseOrder(PurchaseOrderVO purchaseOrderVO) {
+public class PurchaseOrderCommandServiceImpl implements PurchaseOrderCommandService {
+    @Override
+    public boolean close(String id) {
+        return false;
+    }
+    //
+    // @Autowired
+    // private PurchaseOrderItemCommandService purchaseOrderItemCommandService;
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public PurchaseOrderVO addPurchaseOrder(PurchaseOrderVO purchaseOrderVO) {
     //    PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
     //    BeanUtil.copyProperties(purchaseOrderVO, purchaseOrderPO);
     //    // 添加采购单
@@ -47,28 +46,30 @@ public class PurchaseOrderCommandServiceImpl
     //    purchaseOrderPO.setMemberId(UserContext.getCurrentUser().getId());
     //    this.save(purchaseOrderPO);
     //    // 添加采购单子内容
-    //    purchaseOrderItemCommandService.addPurchaseOrderItem(purchaseOrderPO.getId(), purchaseOrderVO.getPurchaseOrderItems());
+    //    purchaseOrderItemCommandService.addPurchaseOrderItem(purchaseOrderPO.getId(),
+    // purchaseOrderVO.getPurchaseOrderItems());
     //    return purchaseOrderVO;
-    //}
-	//
-    //@Override
-    //public PurchaseOrderVO getPurchaseOrder(String id) {
+    // }
+    //
+    // @Override
+    // public PurchaseOrderVO getPurchaseOrder(String id) {
     //    PurchaseOrderVO purchaseOrderVO = new PurchaseOrderVO();
     //    // 获取采购单内容
     //    PurchaseOrderPO purchaseOrderPO = this.getById(id);
     //    BeanUtil.copyProperties(purchaseOrderPO, purchaseOrderVO);
-	//
+    //
     //    // 获取采购单子内容
     //    purchaseOrderVO.setPurchaseOrderItems(purchaseOrderItemCommandService.list(
-    //            new LambdaQueryWrapper<PurchaseOrderItem>().eq(PurchaseOrderItem::getPurchaseOrderId, id)));
+    //            new
+    // LambdaQueryWrapper<PurchaseOrderItem>().eq(PurchaseOrderItem::getPurchaseOrderId, id)));
     //    return purchaseOrderVO;
-    //}
-	//
-    //@Override
-    //public IPage<PurchaseOrderPO> page(PurchaseOrderSearchParams purchaseOrderSearchParams) {
-	//
+    // }
+    //
+    // @Override
+    // public IPage<PurchaseOrderPO> page(PurchaseOrderSearchParams purchaseOrderSearchParams) {
+    //
     //    LambdaQueryWrapper<PurchaseOrderPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-	//
+    //
     //    lambdaQueryWrapper.eq(
     //            purchaseOrderSearchParams.getMemberId() != null,
     //            PurchaseOrderPO::getMemberId,
@@ -83,18 +84,18 @@ public class PurchaseOrderCommandServiceImpl
     //            purchaseOrderSearchParams.getStatus());
     //    lambdaQueryWrapper.orderByDesc(PurchaseOrderPO::getCreateTime);
     //    return this.page(PageUtil.initPage(purchaseOrderSearchParams), lambdaQueryWrapper);
-    //}
-	//
-    //@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean close(String id) {
+    // }
+    //
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean close(String id) {
     //    PurchaseOrderPO purchaseOrderPO = this.getById(id);
     //    purchaseOrderPO.setStatus("CLOSE");
-	//
+    //
     //    UpdateWrapper<PurchaseOrderPO> updateWrapper = new UpdateWrapper<>();
     //    updateWrapper.eq("id", id);
     //    updateWrapper.set("status", "CLOSE");
-	//
+    //
     //    return this.update(updateWrapper);
-    //}
+    // }
 }

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.cls.purchase;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 

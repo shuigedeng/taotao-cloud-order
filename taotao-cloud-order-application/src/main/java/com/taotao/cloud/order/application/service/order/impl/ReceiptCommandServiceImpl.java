@@ -16,12 +16,7 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
 import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
@@ -37,73 +32,73 @@ import org.springframework.stereotype.Service;
  */
 @AllArgsConstructor
 @Service
-public class ReceiptCommandServiceImpl  implements
-	ReceiptCommandService {
-	@Override
-	public IPage<OrderReceiptAddCmd> pageQuery(ReceiptPageQry receiptPageQry) {
-		return null;
-	}
+public class ReceiptCommandServiceImpl implements ReceiptCommandService {
+    @Override
+    public IPage<OrderReceiptAddCmd> pageQuery(ReceiptPageQry receiptPageQry) {
+        return null;
+    }
 
-//	@Override
-//	public ReceiptPO getByOrderSn(String orderSn) {
-//		return null;
-//	}
-//
-//	@Override
-//	public ReceiptPO getDetail(String id) {
-//		return null;
-//	}
-//
-//	@Override
-//	public Boolean saveReceipt(ReceiptPO receiptPO) {
-//		return null;
-//	}
-//
-//	@Override
-//	public ReceiptPO invoicing(Long receiptId) {
-//		return null;
-//	}
+    //	@Override
+    //	public ReceiptPO getByOrderSn(String orderSn) {
+    //		return null;
+    //	}
+    //
+    //	@Override
+    //	public ReceiptPO getDetail(String id) {
+    //		return null;
+    //	}
+    //
+    //	@Override
+    //	public Boolean saveReceipt(ReceiptPO receiptPO) {
+    //		return null;
+    //	}
+    //
+    //	@Override
+    //	public ReceiptPO invoicing(Long receiptId) {
+    //		return null;
+    //	}
 
-	//@Override
-	//public IPage<OrderReceiptDTO> pageQuery(ReceiptPageQuery receiptPageQuery) {
-	//	return this.baseMapper.getReceipt(receiptPageQuery.buildMpPage(), receiptPageQuery.wrapper());
-	//}
-	//
-	//@Override
-	//public ReceiptPO getByOrderSn(String orderSn) {
-	//	LambdaQueryWrapper<ReceiptPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-	//	lambdaQueryWrapper.eq(ReceiptPO::getOrderSn, orderSn);
-	//	return this.getOne(lambdaQueryWrapper);
-	//}
-	//
-	//@Override
-	//public ReceiptPO getDetail(String id) {
-	//	return this.getById(id);
-	//}
-	//
-	//@Override
-	//public Boolean saveReceipt(ReceiptPO receiptPO) {
-	//	LambdaQueryWrapper<ReceiptPO> queryWrapper = new LambdaQueryWrapper<>();
-	//	queryWrapper.eq(ReceiptPO::getReceiptTitle, receiptPO.getReceiptTitle());
-	//	queryWrapper.eq(ReceiptPO::getMemberId, receiptPO.getMemberId());
-	//	if (receiptPO.getId() != null) {
-	//		queryWrapper.ne(ReceiptPO::getId, receiptPO.getId());
-	//	}
-	//	if (this.getOne(queryWrapper) == null) {
-	//		this.save(receiptPO);
-	//	}
-	//	return true;
-	//}
-	//
-	//@Override
-	//public ReceiptPO invoicing(Long receiptId) {
-	//	// 根据id查询发票信息
-	//	ReceiptPO receiptPO = this.getById(receiptId);
-	//	if (receiptPO != null) {
-	//		receiptPO.setReceiptStatus(1);
-	//		this.saveOrUpdate(receiptPO);
-	//		return receiptPO;
-	//	}
-	//	throw new BusinessException(ResultEnum.USER_RECEIPT_NOT_EXIST);
-	//}
+    // @Override
+    // public IPage<OrderReceiptDTO> pageQuery(ReceiptPageQuery receiptPageQuery) {
+    //	return this.baseMapper.getReceipt(receiptPageQuery.buildMpPage(),
+    // receiptPageQuery.wrapper());
+    // }
+    //
+    // @Override
+    // public ReceiptPO getByOrderSn(String orderSn) {
+    //	LambdaQueryWrapper<ReceiptPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
+    //	lambdaQueryWrapper.eq(ReceiptPO::getOrderSn, orderSn);
+    //	return this.getOne(lambdaQueryWrapper);
+    // }
+    //
+    // @Override
+    // public ReceiptPO getDetail(String id) {
+    //	return this.getById(id);
+    // }
+    //
+    // @Override
+    // public Boolean saveReceipt(ReceiptPO receiptPO) {
+    //	LambdaQueryWrapper<ReceiptPO> queryWrapper = new LambdaQueryWrapper<>();
+    //	queryWrapper.eq(ReceiptPO::getReceiptTitle, receiptPO.getReceiptTitle());
+    //	queryWrapper.eq(ReceiptPO::getMemberId, receiptPO.getMemberId());
+    //	if (receiptPO.getId() != null) {
+    //		queryWrapper.ne(ReceiptPO::getId, receiptPO.getId());
+    //	}
+    //	if (this.getOne(queryWrapper) == null) {
+    //		this.save(receiptPO);
+    //	}
+    //	return true;
+    // }
+    //
+    // @Override
+    // public ReceiptPO invoicing(Long receiptId) {
+    //	// 根据id查询发票信息
+    //	ReceiptPO receiptPO = this.getById(receiptId);
+    //	if (receiptPO != null) {
+    //		receiptPO.setReceiptStatus(1);
+    //		this.saveOrUpdate(receiptPO);
+    //		return receiptPO;
+    //	}
+    //	throw new BusinessException(ResultEnum.USER_RECEIPT_NOT_EXIST);
+    // }
 }

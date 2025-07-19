@@ -37,57 +37,59 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/aftersale/reason")
 public class ManagerAfterSaleReasonController extends BusinessController {
 
-	///**
-	// * 售后原因
-	// */
-	//private final AfterSaleReasonCommandService afterSaleReasonCommandService;
-	//
-	//@Operation(summary = "查看售后原因", description = "查看售后原因")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping(value = "/{id}")
-	//public Result<AfterSaleReasonCO> getById(@PathVariable String id) {
-	//	AfterSaleReasonPO afterSaleReasonPO = afterSaleReasonCommandService.getById(id);
-	//	return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonPO));
-	//}
-	//
-	//@Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping(value = "/page")
-	//public Result<PageResult<AfterSaleReasonCO>> getByPage(
-	//	@Validated AfterSaleReasonPageQry afterSaleReasonPageQry) {
-	//	IPage<AfterSaleReasonPO> page = afterSaleReasonCommandService.pageQuery(afterSaleReasonPageQry);
-	//	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleReasonCO.class));
-	//}
-	//
-	//@Operation(summary = "添加售后原因", description = "添加售后原因")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PostMapping
-	//public Result<Boolean> save(@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd) {
-	//	return Result.success(afterSaleReasonCommandService.save(
-	//		AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonUpdateCmd)));
-	//}
-	//
-	//@Operation(summary = "修改售后原因", description = "修改售后原因")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@PutMapping("/{id}")
-	//public Result<Boolean> update(
-	//	@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd,
-	//	@PathVariable("id") Long id) {
-	//	AfterSaleReasonPO afterSaleReasonPO = AfterSaleReasonAssembler.INSTANCE.convert(
-	//		afterSaleReasonUpdateCmd);
-	//	afterSaleReasonPO.setId(id);
-	//	return Result.success(afterSaleReasonCommandService.editAfterSaleReason(afterSaleReasonPO));
-	//}
-	//
-	//@Operation(summary = "删除售后原因", description = "删除售后原因")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@DeleteMapping(value = "/{id}")
-	//public Result<Boolean> delAllByIds(@PathVariable String id) {
-	//	return Result.success(afterSaleReasonCommandService.removeById(id));
-	//}
+    /// **
+    // * 售后原因
+    // */
+    // private final AfterSaleReasonCommandService afterSaleReasonCommandService;
+    //
+    // @Operation(summary = "查看售后原因", description = "查看售后原因")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/{id}")
+    // public Result<AfterSaleReasonCO> getById(@PathVariable String id) {
+    //	AfterSaleReasonPO afterSaleReasonPO = afterSaleReasonCommandService.getById(id);
+    //	return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonPO));
+    // }
+    //
+    // @Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/page")
+    // public Result<PageResult<AfterSaleReasonCO>> getByPage(
+    //	@Validated AfterSaleReasonPageQry afterSaleReasonPageQry) {
+    //	IPage<AfterSaleReasonPO> page =
+    // afterSaleReasonCommandService.pageQuery(afterSaleReasonPageQry);
+    //	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleReasonCO.class));
+    // }
+    //
+    // @Operation(summary = "添加售后原因", description = "添加售后原因")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PostMapping
+    // public Result<Boolean> save(@Validated @RequestBody AfterSaleReasonUpdateCmd
+    // afterSaleReasonUpdateCmd) {
+    //	return Result.success(afterSaleReasonCommandService.save(
+    //		AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonUpdateCmd)));
+    // }
+    //
+    // @Operation(summary = "修改售后原因", description = "修改售后原因")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @PutMapping("/{id}")
+    // public Result<Boolean> update(
+    //	@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd,
+    //	@PathVariable("id") Long id) {
+    //	AfterSaleReasonPO afterSaleReasonPO = AfterSaleReasonAssembler.INSTANCE.convert(
+    //		afterSaleReasonUpdateCmd);
+    //	afterSaleReasonPO.setId(id);
+    //	return Result.success(afterSaleReasonCommandService.editAfterSaleReason(afterSaleReasonPO));
+    // }
+    //
+    // @Operation(summary = "删除售后原因", description = "删除售后原因")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @DeleteMapping(value = "/{id}")
+    // public Result<Boolean> delAllByIds(@PathVariable String id) {
+    //	return Result.success(afterSaleReasonCommandService.removeById(id));
+    // }
 }

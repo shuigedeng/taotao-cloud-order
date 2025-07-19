@@ -17,10 +17,10 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleRefundWayEnum;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleStatusEnum;
 import com.taotao.cloud.order.api.enums.trade.AfterSaleTypeEnum;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,11 +29,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -152,7 +150,8 @@ public class AfterSalePO extends BaseSuperEntity<AfterSalePO, Long> {
      */
     @Schema(
             description = "售后单状态",
-            allowableValues = "APPLY,PASS,REFUSE,BUYER_RETURN,SELLER_RE_DELIVERY,BUYER_CONFIRM,SELLER_CONFIRM,COMPLETE")
+            allowableValues =
+                    "APPLY,PASS,REFUSE,BUYER_RETURN,SELLER_RE_DELIVERY,BUYER_CONFIRM,SELLER_CONFIRM,COMPLETE")
     @Column(name = "service_status", columnDefinition = "varchar(64) null comment '售后单状态'")
     private String serviceStatus;
 

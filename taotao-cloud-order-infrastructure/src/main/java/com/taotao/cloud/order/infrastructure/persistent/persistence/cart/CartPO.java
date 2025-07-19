@@ -18,7 +18,6 @@ package com.taotao.cloud.order.infrastructure.persistent.persistence.cart;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.data.jpa.base.entity.JpaSuperEntity;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -26,11 +25,9 @@ import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -53,9 +50,8 @@ import org.hibernate.Hibernate;
 @TableName(CartPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(CartPO.TABLE_NAME)
 public class CartPO extends JpaSuperEntity<Long> {
-	public static final String TABLE_NAME = "ttc_cart";
-    @Serial
-    private static final long serialVersionUID = 6887296988458221221L;
+    public static final String TABLE_NAME = "ttc_cart";
+    @Serial private static final long serialVersionUID = 6887296988458221221L;
 
     /** 申请单号 */
     @Column(name = "code", unique = true, columnDefinition = "varchar(32) not null comment '申请单号'")
@@ -74,7 +70,9 @@ public class CartPO extends JpaSuperEntity<Long> {
     private BigDecimal amount;
 
     /** 钱包余额 */
-    @Column(name = "balance_amount", columnDefinition = "decimal(10,2) not null default 0 comment '钱包余额'")
+    @Column(
+            name = "balance_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '钱包余额'")
     private BigDecimal balanceAmount;
 
     @Override

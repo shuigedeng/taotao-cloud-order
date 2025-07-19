@@ -34,8 +34,7 @@ import org.springframework.test.context.TestPropertySource;
 @TestPropertySource({"classpath:application-test.yml"})
 public class TaoTaoBootDemoApplicationTests {
 
-    @Autowired
-    private StandardOssClient standardOssClient;
+    @Autowired private StandardOssClient standardOssClient;
 
     @Test
     void contextLoads() {
@@ -52,16 +51,20 @@ public class TaoTaoBootDemoApplicationTests {
         int month = now.getMonthValue();
         int day = now.getDayOfMonth();
 
-        OssInfo ossInfo = getOssClient()
-                .upLoad(
-                        FileUtil.getInputStream("/Users/dengtao/document/商品图片/1561601122001_34.jpg"),
-                        year + "/" + month + "/" + day + "/" + "qqqqqqq.png",
-                        true);
+        OssInfo ossInfo =
+                getOssClient()
+                        .upLoad(
+                                FileUtil.getInputStream(
+                                        "/Users/dengtao/document/商品图片/1561601122001_34.jpg"),
+                                year + "/" + month + "/" + day + "/" + "qqqqqqq.png",
+                                true);
         System.out.println(ossInfo);
     }
 
     public void upLoadCheckPoint() {
-        OssInfo ossInfo = getOssClient().upLoadCheckPoint("/Users/dengtao/company/1622021703903187.mp4", "111.mp4");
+        OssInfo ossInfo =
+                getOssClient()
+                        .upLoadCheckPoint("/Users/dengtao/company/1622021703903187.mp4", "111.mp4");
         System.out.println(ossInfo);
     }
 

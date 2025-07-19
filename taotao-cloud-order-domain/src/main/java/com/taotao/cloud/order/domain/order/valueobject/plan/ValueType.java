@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.taotao.cloud.order.domain.order.valueobject.plan;
 
 public enum ValueType {
@@ -34,21 +50,22 @@ public enum ValueType {
     BOOLEAN_VALUE(false, true, false, true, false, false, true),
     CIRCULATION_STATUS_VALUE(false, true, false, true, false, false, true);
 
-    private final boolean sortable;//是否支持排序索引，基于IndexedValue.sv排序
-    private final boolean textable;//是否支持字符化索引，基于IndexedValue.tv进行筛选或去重等
-    private final boolean searchable;//是否可文本搜索，基于QR和Submission的svs搜索
-    private final boolean exportable;//是否可导出为excel
-    private final boolean numerical;//是否可以表示为一个数值，无论是直接的还是赋值的，主要用于控件填值的自动计算
-    private final boolean numbered;//是否表示一个直接数字，主要用于数字项统计报表和数值属性引用判断
-    private final boolean categorized;//是否可分类，用于判断是否可以创建BAR/PIE等报表
+    private final boolean sortable; // 是否支持排序索引，基于IndexedValue.sv排序
+    private final boolean textable; // 是否支持字符化索引，基于IndexedValue.tv进行筛选或去重等
+    private final boolean searchable; // 是否可文本搜索，基于QR和Submission的svs搜索
+    private final boolean exportable; // 是否可导出为excel
+    private final boolean numerical; // 是否可以表示为一个数值，无论是直接的还是赋值的，主要用于控件填值的自动计算
+    private final boolean numbered; // 是否表示一个直接数字，主要用于数字项统计报表和数值属性引用判断
+    private final boolean categorized; // 是否可分类，用于判断是否可以创建BAR/PIE等报表
 
-    ValueType(boolean sortable,
-              boolean textable,
-              boolean searchable,
-              boolean exportable,
-              boolean numerical,
-              boolean numbered,
-              boolean categorized) {
+    ValueType(
+            boolean sortable,
+            boolean textable,
+            boolean searchable,
+            boolean exportable,
+            boolean numerical,
+            boolean numbered,
+            boolean categorized) {
         this.sortable = sortable;
         this.textable = textable;
         this.searchable = searchable;
@@ -89,5 +106,4 @@ public enum ValueType {
     public boolean isCategorized() {
         return categorized;
     }
-
 }

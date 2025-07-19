@@ -24,13 +24,12 @@ import com.taotao.cloud.order.api.enums.order.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.*;
-import lombok.experimental.Accessors;
-import org.hibernate.Hibernate;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
+import lombok.*;
+import lombok.experimental.Accessors;
+import org.hibernate.Hibernate;
 
 /**
  * 订单表
@@ -130,11 +129,15 @@ public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
     private String deliveryMethod;
 
     /** 地址名称， ','分割 */
-    @Column(name = "consignee_address_path", columnDefinition = "varchar(64) not null comment '地址名称，逗号分割'")
+    @Column(
+            name = "consignee_address_path",
+            columnDefinition = "varchar(64) not null comment '地址名称，逗号分割'")
     private String consigneeAddressPath;
 
     /** 地址id，','分割 */
-    @Column(name = "consignee_address_id_path", columnDefinition = "varchar(64) not null comment '地址id，逗号分割'")
+    @Column(
+            name = "consignee_address_id_path",
+            columnDefinition = "varchar(64) not null comment '地址id，逗号分割'")
     private String consigneeAddressIdPath;
 
     /** 详细地址 */
@@ -214,11 +217,15 @@ public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
     private Boolean needReceipt;
 
     /** 是否为其他订单下的订单，如果是则为依赖订单的sn，否则为空 */
-    @Column(name = "parent_order_sn", columnDefinition = "varchar(64) not null comment '是否为其他订单下的订单，如果是则为依赖订单的sn，否则为空'")
+    @Column(
+            name = "parent_order_sn",
+            columnDefinition = "varchar(64) not null comment '是否为其他订单下的订单，如果是则为依赖订单的sn，否则为空'")
     private String parentOrderSn;
 
     /** 是否为某订单类型的订单，如果是则为订单类型的id，否则为空 */
-    @Column(name = "promotion_id", columnDefinition = "bigint  null comment '是否为某订单类型的订单，如果是则为订单类型的id，否则为空'")
+    @Column(
+            name = "promotion_id",
+            columnDefinition = "bigint  null comment '是否为某订单类型的订单，如果是则为订单类型的id，否则为空'")
     private Long promotionId;
 
     /**
@@ -234,7 +241,9 @@ public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
      *
      * @see OrderPromotionTypeEnum
      */
-    @Column(name = "order_promotion_type", columnDefinition = "varchar(64) not null comment '订单促销类型'")
+    @Column(
+            name = "order_promotion_type",
+            columnDefinition = "varchar(64) not null comment '订单促销类型'")
     private String orderPromotionType;
 
     /** 价格详情 */
@@ -260,7 +269,9 @@ public class OrderPO extends BaseSuperEntity<OrderPO, Long> {
     private String useStoreMemberCouponIds;
 
     /** 使用的平台会员优惠券id */
-    @Column(name = "use_platform_member_coupon_id", columnDefinition = "varchar(64) not null comment '使用的平台会员优惠券id'")
+    @Column(
+            name = "use_platform_member_coupon_id",
+            columnDefinition = "varchar(64) not null comment '使用的平台会员优惠券id'")
     private String usePlatformMemberCouponId;
 
     @Override

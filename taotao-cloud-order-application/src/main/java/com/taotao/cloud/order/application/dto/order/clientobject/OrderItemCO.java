@@ -16,9 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.order.clientobject;
 
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -112,6 +109,5 @@ public record OrderItemCO(
         Integer returnGoodsNumber)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -6293102172184734928L;
+    @Serial private static final long serialVersionUID = -6293102172184734928L;
 }

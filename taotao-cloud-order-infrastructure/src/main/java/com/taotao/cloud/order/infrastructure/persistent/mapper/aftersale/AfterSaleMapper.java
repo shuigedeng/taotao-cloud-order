@@ -16,13 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 
 /**
  * 售后数据处理层
@@ -31,14 +26,14 @@ import org.apache.ibatis.annotations.Select;
  */
 public interface AfterSaleMapper extends BaseSuperMapper<AfterSalePO, Long> {
 
-    ///**
+    /// **
     // * 获取售后VO分页
     // *
     // * @param page 分页
     // * @param queryWrapper 查询条件
     // * @return 售后VO分页
     // */
-    //@Select("SELECT * FROM tt_after_sale ${ew.customSqlSegment}")
-    //IPage<AfterSalePO> queryByParams(
+    // @Select("SELECT * FROM tt_after_sale ${ew.customSqlSegment}")
+    // IPage<AfterSalePO> queryByParams(
     //        IPage<AfterSaleVO> page, @Param(Constants.WRAPPER) Wrapper<AfterSaleVO> queryWrapper);
 }

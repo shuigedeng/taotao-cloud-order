@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.order.clientobject;
 
-import com.taotao.cloud.order.api.enums.aftersale.ComplaintStatusEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -67,6 +66,5 @@ public record OrderComplaintBaseCO(
         @Schema(description = "仲裁结果") String arbitrationResult)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -7013465343480854816L;
+    @Serial private static final long serialVersionUID = -7013465343480854816L;
 }

@@ -30,10 +30,9 @@ import java.io.Serializable;
  */
 @RecordBuilder
 @Schema(description = "店铺备注")
-public record StoreRemarkAddCmd(@Schema(description = "店铺id") String storeId,
-								@Schema(description = "备注") String remark)
-	implements Serializable {
+public record StoreRemarkAddCmd(
+        @Schema(description = "店铺id") String storeId, @Schema(description = "备注") String remark)
+        implements Serializable {
 
-	@Serial
-	private static final long serialVersionUID = -6793274046513576434L;
+    @Serial private static final long serialVersionUID = -6793274046513576434L;
 }

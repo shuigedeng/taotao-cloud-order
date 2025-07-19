@@ -50,43 +50,43 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/seller/receipt")
 public class SellerReceiptController extends BusinessController {
 
-	private final ReceiptCommandService receiptCommandService;
+    private final ReceiptCommandService receiptCommandService;
 
-	private final OrderCommandService orderCommandService;
+    private final OrderCommandService orderCommandService;
 
-	@Operation(summary = "分页获取", description = "分页获取")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/page")
-	public Result<PageResult<OrderReceiptAddCmd>> getByPage(ReceiptPageQry receiptPageQry) {
-		receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
-		IPage<OrderReceiptAddCmd> page = receiptCommandService.pageQuery(receiptPageQry);
-		return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
-	}
+    @Operation(summary = "分页获取", description = "分页获取")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping("/page")
+    public Result<PageResult<OrderReceiptAddCmd>> getByPage(ReceiptPageQry receiptPageQry) {
+        receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
+        IPage<OrderReceiptAddCmd> page = receiptCommandService.pageQuery(receiptPageQry);
+        return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
+    }
 
-//	@Operation(summary = "通过id获取", description = "通过id获取")
-//	@RequestLogger
-//	@PreAuthorize("hasAuthority('dept:tree:data')")
-//	@GetMapping(value = "/{id}")
-//	public Result<ReceiptPO> get(@PathVariable String id) {
-//		return Result.success(OperationalJudgment.judgment(receiptCommandService.getById(id)));
-//	}
-//
-//	@Operation(summary = "开发票", description = "开发票")
-//	@RequestLogger
-//	@PreAuthorize("hasAuthority('dept:tree:data')")
-//	@PostMapping(value = "/{id}/invoicing")
-//	public Result<ReceiptPO> invoicing(@PathVariable Long id) {
-//		OperationalJudgment.judgment(receiptCommandService.getById(id));
-//		return Result.success(receiptCommandService.invoicing(id));
-//	}
-//
-//	@Operation(summary = "通过订单编号获取", description = "通过订单编号获取")
-//	@RequestLogger
-//	@PreAuthorize("hasAuthority('dept:tree:data')")
-//	@GetMapping(value = "/orderSn/{orderSn}")
-//	public Result<ReceiptPO> getByOrderSn(@PathVariable String orderSn) {
-//		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
-//		return Result.success(receiptCommandService.getByOrderSn(orderSn));
-//	}
+    //	@Operation(summary = "通过id获取", description = "通过id获取")
+    //	@RequestLogger
+    //	@PreAuthorize("hasAuthority('dept:tree:data')")
+    //	@GetMapping(value = "/{id}")
+    //	public Result<ReceiptPO> get(@PathVariable String id) {
+    //		return Result.success(OperationalJudgment.judgment(receiptCommandService.getById(id)));
+    //	}
+    //
+    //	@Operation(summary = "开发票", description = "开发票")
+    //	@RequestLogger
+    //	@PreAuthorize("hasAuthority('dept:tree:data')")
+    //	@PostMapping(value = "/{id}/invoicing")
+    //	public Result<ReceiptPO> invoicing(@PathVariable Long id) {
+    //		OperationalJudgment.judgment(receiptCommandService.getById(id));
+    //		return Result.success(receiptCommandService.invoicing(id));
+    //	}
+    //
+    //	@Operation(summary = "通过订单编号获取", description = "通过订单编号获取")
+    //	@RequestLogger
+    //	@PreAuthorize("hasAuthority('dept:tree:data')")
+    //	@GetMapping(value = "/orderSn/{orderSn}")
+    //	public Result<ReceiptPO> getByOrderSn(@PathVariable String orderSn) {
+    //		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
+    //		return Result.success(receiptCommandService.getByOrderSn(orderSn));
+    //	}
 }

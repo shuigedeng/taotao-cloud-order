@@ -17,10 +17,9 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.common.utils.bean.BeanUtils;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
 import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -28,11 +27,9 @@ import java.io.Serial;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -58,18 +55,20 @@ public class TradePO extends BaseSuperEntity<TradePO, Long> {
 
     public static final String TABLE_NAME = "ttc_trade";
 
-    @Serial
-    private static final long serialVersionUID = 5177608752643561827L;
+    @Serial private static final long serialVersionUID = 5177608752643561827L;
 
     /** 交易编号 */
     @Column(name = "sn", columnDefinition = "varchar(64) not null comment '交易编号'")
     private String sn;
+
     /** 买家id */
     @Column(name = "member_id", columnDefinition = "varchar(64) not null comment '买家id'")
     private String memberId;
+
     /** 买家用户名 */
     @Column(name = "member_name", columnDefinition = "varchar(64) not null comment '买家用户名'")
     private String memberName;
+
     /** 支付方式 */
     @Column(name = "payment_method", columnDefinition = "varchar(64) not null comment '支付方式'")
     private String paymentMethod;
@@ -81,15 +80,19 @@ public class TradePO extends BaseSuperEntity<TradePO, Long> {
      */
     @Column(name = "pay_status", columnDefinition = "varchar(64) not null comment '会员ID'")
     private String payStatus;
+
     /** 总价格 */
     @Column(name = "flow_price", columnDefinition = "varchar(64) not null comment '总价格'")
     private BigDecimal flowPrice;
+
     /** 原价 */
     @Column(name = "goods_price", columnDefinition = "varchar(64) not null comment '原价'")
     private BigDecimal goodsPrice;
+
     /** 运费 */
     @Column(name = "freight_price", columnDefinition = "varchar(64) not null comment '运费'")
     private BigDecimal freightPrice;
+
     /** 优惠的金额 */
     @Column(name = "discount_price", columnDefinition = "varchar(64) not null comment '优惠的金额'")
     private BigDecimal discountPrice;
@@ -101,20 +104,26 @@ public class TradePO extends BaseSuperEntity<TradePO, Long> {
      */
     @Column(name = "delivery_method", columnDefinition = "varchar(64) not null comment '配送方式'")
     private String deliveryMethod;
+
     /** 收货人姓名 */
     @Column(name = "consignee_name", columnDefinition = "varchar(64) not null comment '收货人姓名'")
     private String consigneeName;
+
     /** 收件人手机 */
     @Column(name = "consignee_mobile", columnDefinition = "varchar(64) not null comment '收件人手机'")
     private String consigneeMobile;
+
     /** 地址名称 逗号分割 */
-    @Column(name = "consignee_address_path", columnDefinition = "varchar(64) not null comment '地址名称 逗号分割'")
+    @Column(
+            name = "consignee_address_path",
+            columnDefinition = "varchar(64) not null comment '地址名称 逗号分割'")
     private String consigneeAddressPath;
+
     /** 地址id逗号分割 */
-    @Column(name = "consignee_address_id_path", columnDefinition = "varchar(64) not null comment '地址id逗号分割'")
+    @Column(
+            name = "consignee_address_id_path",
+            columnDefinition = "varchar(64) not null comment '地址id逗号分割'")
     private String consigneeAddressIdPath;
-
-
 
     @Override
     public boolean equals(Object o) {

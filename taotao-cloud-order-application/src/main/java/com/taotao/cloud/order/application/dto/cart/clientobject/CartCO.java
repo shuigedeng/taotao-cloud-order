@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,25 +14,25 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.order.application.dto.cart.clientobject;
+// package com.taotao.cloud.order.application.dto.cart.clientobject;
 //
-//import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
-//import io.soabase.recordbuilder.core.RecordBuilder;
-//import io.swagger.v3.oas.annotations.media.Schema;
-//import java.io.Serial;
-//import java.math.BigDecimal;
-//import java.util.List;
+// import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
+// import io.soabase.recordbuilder.core.RecordBuilder;
+// import io.swagger.v3.oas.annotations.media.Schema;
+// import java.io.Serial;
+// import java.math.BigDecimal;
+// import java.util.List;
 //
-///**
+/// **
 // * 购物车展示VO
 // *
 // * @author shuigedeng
 // * @version 2022.04
 // * @since 2022-04-21 16:59:38
 // */
-//@RecordBuilder
-//@Schema(description = "购物车展示VO")
-//public record CartCO(
+// @RecordBuilder
+// @Schema(description = "购物车展示VO")
+// public record CartCO(
 //        @Schema(description = "购物车中的产品列表") List<CartSkuCO> skuList,
 //        @Schema(description = "sn") String sn,
 //        @Schema(description = "购物车页展示时，店铺内的商品是否全选状态.1为店铺商品全选状态,0位非全选") Boolean checked,
@@ -96,4 +96,4 @@
 //    public static class CartMemberCouponVO {}
 //
 //    public static class CartCouponVO {}
-//}
+// }

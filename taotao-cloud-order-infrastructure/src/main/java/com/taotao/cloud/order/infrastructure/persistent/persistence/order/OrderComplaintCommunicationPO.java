@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.io.Serial;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -49,26 +47,31 @@ import org.hibernate.Hibernate;
 @Entity
 @Table(name = OrderComplaintCommunicationPO.TABLE_NAME)
 @TableName(OrderComplaintCommunicationPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(name = OrderComplaintCommunicationPO.TABLE_NAME)
-public class OrderComplaintCommunicationPO extends BaseSuperEntity<OrderComplaintCommunicationPO, Long> {
+@org.springframework.data.relational.core.mapping.Table(
+        name = OrderComplaintCommunicationPO.TABLE_NAME)
+public class OrderComplaintCommunicationPO
+        extends BaseSuperEntity<OrderComplaintCommunicationPO, Long> {
 
     public static final String TABLE_NAME = "ttc_order_complaint_communication";
 
-    @Serial
-    private static final long serialVersionUID = -2384351827382795547L;
+    @Serial private static final long serialVersionUID = -2384351827382795547L;
 
     /** 投诉id */
     @Column(name = "complain_id", columnDefinition = "varchar(64) not null comment '投诉id'")
     private Long complainId;
+
     /** 对话内容 */
     @Column(name = "content", columnDefinition = "varchar(64) not null comment '对话内容'")
     private String content;
+
     /** 所属，买家/卖家 */
     @Column(name = "owner", columnDefinition = "varchar(64) not null comment '所属，买家/卖家'")
     private String owner;
+
     /** 对话所属名称 */
     @Column(name = "owner_name", columnDefinition = "varchar(64) not null comment '对话所属名称'")
     private String ownerName;
+
     /** 对话所属id,卖家id/买家id */
     @Column(name = "owner_id", columnDefinition = "varchar(64) not null comment '对话所属id,卖家id/买家id'")
     private Long ownerId;

@@ -16,8 +16,4 @@
 
 package com.taotao.cloud.order.domain.cart.service;
 
-
-public interface CartDomainService {
-
-
-}
+public interface CartDomainService {}

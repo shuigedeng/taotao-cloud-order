@@ -35,8 +35,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class TestApp extends TaoTaoCloudOrderApplicationTestBase {
 
-    @Autowired
-    private DeptsService deptsService;
+    @Autowired private DeptsService deptsService;
 
     @TtcTest(duration = 1000, reporter = HtmlReporter.class)
     public void helloTest111() throws InterruptedException {

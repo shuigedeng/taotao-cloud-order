@@ -28,58 +28,63 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RedisListenerConfig {
 
-    //@Bean
-    //@Primary
-    //public RedisMessageListenerContainer redisMessageListenerContainer(
+    // @Bean
+    // @Primary
+    // public RedisMessageListenerContainer redisMessageListenerContainer(
     //        RedisConnectionFactory redisConnectionFactory,
     //        RequestLogTopicMessageDelegate requestLogTopicMessageDelegate,
     //        DataVersionLogTopicMessageDelegate dataVersionLogTopicMessageDelegate) {
-	//
+    //
     //    RedisMessageListenerContainer container = new RedisMessageListenerContainer();
     //    container.setConnectionFactory(redisConnectionFactory);
-	//
+    //
     //    // Runtime.getRuntime().availableProcessors() * 2
-	//	MDCThreadPoolExecutor executor = new MDCThreadPoolExecutor(
-	//		100,
-	//		1500,
-	//		2000,
-	//		TimeUnit.SECONDS,
-	//		new SynchronousQueue<>(),
-	//		new ThreadPoolFactory("taotao-cloud-redis-listener-executor"));
-	//	container.setTaskExecutor(executor);
-	//
+    //	MDCThreadPoolExecutor executor = new MDCThreadPoolExecutor(
+    //		100,
+    //		1500,
+    //		2000,
+    //		TimeUnit.SECONDS,
+    //		new SynchronousQueue<>(),
+    //		new ThreadPoolFactory("taotao-cloud-redis-listener-executor"));
+    //	container.setTaskExecutor(executor);
+    //
     //    Map<MessageListenerAdapter, Collection<? extends Topic>> listeners = new HashMap<>();
-	//
+    //
     //    MessageListenerAdapter requestLogMessageListenerAdapter =
     //            new MessageListenerAdapter(requestLogTopicMessageDelegate, "handleRequestLog");
     //    requestLogMessageListenerAdapter.afterPropertiesSet();
-    //    listeners.put(requestLogMessageListenerAdapter, List.of(ChannelTopic.of(RedisConstant.REQUEST_LOG_TOPIC)));
-	//
+    //    listeners.put(requestLogMessageListenerAdapter,
+    // List.of(ChannelTopic.of(RedisConstant.REQUEST_LOG_TOPIC)));
+    //
     //    MessageListenerAdapter dataVersionLogListenerAdapter =
-    //            new MessageListenerAdapter(dataVersionLogTopicMessageDelegate, "handleRequestLog");
+    //            new MessageListenerAdapter(dataVersionLogTopicMessageDelegate,
+    // "handleRequestLog");
     //    dataVersionLogListenerAdapter.afterPropertiesSet();
-    //    listeners.put(dataVersionLogListenerAdapter, List.of(ChannelTopic.of(RedisConstant.DATA_VERSION_LOG_TOPIC)));
-	//
+    //    listeners.put(dataVersionLogListenerAdapter,
+    // List.of(ChannelTopic.of(RedisConstant.DATA_VERSION_LOG_TOPIC)));
+    //
     //    container.setMessageListeners(listeners);
     //    return container;
-    //}
-	//
-    //@Bean
-    //@Primary
-    //public KeyExpirationEventMessageListener keyExpirationEventMessageListener(
+    // }
+    //
+    // @Bean
+    // @Primary
+    // public KeyExpirationEventMessageListener keyExpirationEventMessageListener(
     //        RedisMessageListenerContainer listenerContainer) {
     //    return new RedisKeyExpirationEventMessageListener(listenerContainer);
-    //}
-	//
-    //public static class RedisKeyExpirationEventMessageListener extends KeyExpirationEventMessageListener {
-	//
-    //    public RedisKeyExpirationEventMessageListener(RedisMessageListenerContainer listenerContainer) {
+    // }
+    //
+    // public static class RedisKeyExpirationEventMessageListener extends
+    // KeyExpirationEventMessageListener {
+    //
+    //    public RedisKeyExpirationEventMessageListener(RedisMessageListenerContainer
+    // listenerContainer) {
     //        super(listenerContainer);
     //    }
-	//
+    //
     //    @Override
     //    public void onMessage(Message message, byte[] pattern) {
     //        LogUtils.info("接受到消息: {}, {}", message, new String(pattern));
     //    }
-    //}
+    // }
 }

@@ -16,8 +16,4 @@
 
 package com.taotao.cloud.order.domain.aftersale.service;
 
-
-public interface AftersaleDomainService {
-
-
-}
+public interface AftersaleDomainService {}

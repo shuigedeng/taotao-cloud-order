@@ -20,4 +20,5 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderC
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /** 交易投诉通信数据处理层 */
-public interface IOrderComplainCommunicationRepository extends JpaRepository<OrderComplaintCommunicationPO, Long> {}
+public interface IOrderComplainCommunicationRepository
+        extends JpaRepository<OrderComplaintCommunicationPO, Long> {}

@@ -16,12 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.order.clientobject;
 
-import com.taotao.boot.common.enums.ClientTypeEnum;
-import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
-import com.taotao.cloud.order.api.enums.order.DeliverStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.io.Serial;
 import java.io.Serializable;
@@ -201,6 +195,5 @@ public record OrderBaseCO(
         String usePlatformMemberCouponId)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

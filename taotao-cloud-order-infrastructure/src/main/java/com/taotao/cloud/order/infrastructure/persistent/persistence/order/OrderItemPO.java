@@ -17,22 +17,19 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.common.utils.bean.BeanUtils;
+import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
 import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -134,7 +131,8 @@ public class OrderItemPO extends BaseSuperEntity<OrderItemPO, Long> {
     @Column(
             name = "comment_status",
             columnDefinition =
-                    "varchar(64) not null comment" + " '评论状态:未评论(UNFINISHED),待追评(WAIT_CHASE),评论完成(FINISHED)，'")
+                    "varchar(64) not null comment"
+                            + " '评论状态:未评论(UNFINISHED),待追评(WAIT_CHASE),评论完成(FINISHED)，'")
     private String commentStatus;
 
     /**
@@ -162,7 +160,9 @@ public class OrderItemPO extends BaseSuperEntity<OrderItemPO, Long> {
     private Long complainId;
 
     /** 退货商品数量 */
-    @Column(name = "return_goods_number", columnDefinition = "varchar(64) not null comment '退货商品数量'")
+    @Column(
+            name = "return_goods_number",
+            columnDefinition = "varchar(64) not null comment '退货商品数量'")
     private Integer returnGoodsNumber;
 
     @Override

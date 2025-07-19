@@ -30,9 +30,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IOrderInfoRepository extends JpaRepository<OrderInfoPO, Long> {
 
-    @Query(value = """
-			select u from OrderInfoPO u where u.id = ?#{[0]}
-		""")
+    @Query(
+            value =
+                    """
+            select u from OrderInfoPO u where u.id = ?#{[0]}
+        """)
     List<OrderInfoPO> findOrderInfoById(Long id);
 
     OrderInfoPO findByCode(String code);

@@ -32,22 +32,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class GoodsClientProxy {
 
-    @Autowired
-    private GoodsApi goodsApi;
+    @Autowired private GoodsApi goodsApi;
 
-    @Resource
-    private GoodsClientAdapter userIntegrationAdapter;
+    @Resource private GoodsClientAdapter userIntegrationAdapter;
 
-    @Resource
-    private GoodsGrpcClient goodsGrpcClient;
+    @Resource private GoodsGrpcClient goodsGrpcClient;
 
-    @DubboReference
-    private GoodsRpcService goodsRpcService;
+    @DubboReference private GoodsRpcService goodsRpcService;
 
     // 查询用户
     public GoodsVO getGoodsVO(Long storeId) {
         //		Long goodsNum = goodsApi.countStoreGoodsNum(storeId);
-        GoodsQueryRpcResponse goods = goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
+        GoodsQueryRpcResponse goods =
+                goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
         CountStoreGoodsNumGrpcResponse helloReply = goodsGrpcClient.countStoreGoodsNum("sfdasdf");
 
         return userIntegrationAdapter.convert(0L, goods, helloReply);

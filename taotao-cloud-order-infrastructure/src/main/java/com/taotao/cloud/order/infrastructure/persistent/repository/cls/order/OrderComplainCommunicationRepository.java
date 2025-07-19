@@ -16,14 +16,15 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.cls.order;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
 /** 交易投诉通信数据处理层 */
 @Repository
-public class OrderComplainCommunicationRepository extends BaseClassSuperRepository<OrderComplaintCommunicationPO, Long> {
+public class OrderComplainCommunicationRepository
+        extends BaseClassSuperRepository<OrderComplaintCommunicationPO, Long> {
 
     public OrderComplainCommunicationRepository(EntityManager em) {
         super(OrderComplaintCommunicationPO.class, em);

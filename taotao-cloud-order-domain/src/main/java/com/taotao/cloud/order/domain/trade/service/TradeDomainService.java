@@ -16,7 +16,4 @@
 
 package com.taotao.cloud.order.domain.trade.service;
 
-
-public interface TradeDomainService {
-
-}
+public interface TradeDomainService {}

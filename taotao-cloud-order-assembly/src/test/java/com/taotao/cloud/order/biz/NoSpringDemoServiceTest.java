@@ -54,8 +54,10 @@ public class NoSpringDemoServiceTest extends TtcBootTestBase {
         //        // serviceB 根本没有打桩，但由于 mockService 这个对象实例是 Mock 出来的，
         //        // 所以 serviceB 的方法体代码不会被执行，并且返回值固定为 null，不管入参是什么
         //        for (int i = 0; i < 3; i++) {
-        //            String returnValueFromRandom = mockService.serviceB(RandomStringUtils.random(10));
-        //            System.out.println("returnValueFromRandom 第[" + i + "]次 = " + returnValueFromRandom);
+        //            String returnValueFromRandom =
+        // mockService.serviceB(RandomStringUtils.random(10));
+        //            System.out.println("returnValueFromRandom 第[" + i + "]次 = " +
+        // returnValueFromRandom);
         //            Assertions.assertNull(returnValueFromRandom);
         //        }
     }
@@ -104,7 +106,8 @@ public class NoSpringDemoServiceTest extends TtcBootTestBase {
         //		IDemoService spyService = Mockito.spy(IDemoService.class);
         //
         //        // 对 Spy 对象的正确打桩姿势，
-        //        // （巧了，用这种 doReturn|doThrow|doAnswer(xxx).when(obj).methodXXX() 的方式，也适用于 Mock 出来的对象）
+        //        // （巧了，用这种 doReturn|doThrow|doAnswer(xxx).when(obj).methodXXX() 的方式，也适用于 Mock
+        // 出来的对象）
         //        Mockito.doReturn("spy：serviceA方法入参等于asdf时的特定返回值2")
         //                // 注意这里 when 里面是对象实例的变量名，而不是一个 methodCall
         //                .when(spyService)

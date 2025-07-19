@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.infrastructure.assembler;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 /**
@@ -32,5 +31,5 @@ public interface AfterSaleLogAssembler {
 
     AfterSaleLogAssembler INSTANCE = Mappers.getMapper(AfterSaleLogAssembler.class);
 
-    //List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
+    // List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
 }

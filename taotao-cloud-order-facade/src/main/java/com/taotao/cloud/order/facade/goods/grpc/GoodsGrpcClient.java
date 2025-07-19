@@ -26,27 +26,26 @@ import com.taotao.cloud.goods.api.grpc.GoodsGrpcServiceGrpc;
 import com.taotao.cloud.goods.api.grpc.GoodsGrpcServiceGrpc.GoodsGrpcServiceFutureStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Component;
 
-import java.util.concurrent.ExecutionException;
-
 @Component
 public class GoodsGrpcClient {
 
-    @Autowired
-    private DiscoveryClient discoveryClient;
+    @Autowired private DiscoveryClient discoveryClient;
 
     public CountStoreGoodsNumGrpcResponse countStoreGoodsNum(String name) {
         try {
             final ServiceInstance instanceInfo =
                     discoveryClient.getInstances("my-service-name").get(0);
-            final ManagedChannel channel = ManagedChannelBuilder.forAddress(
-                            instanceInfo.getUri().toString(), instanceInfo.getPort())
-                    .usePlaintext()
-                    .build();
+            final ManagedChannel channel =
+                    ManagedChannelBuilder.forAddress(
+                                    instanceInfo.getUri().toString(), instanceInfo.getPort())
+                            .usePlaintext()
+                            .build();
             GoodsGrpcServiceFutureStub stub = GoodsGrpcServiceGrpc.newFutureStub(channel);
             CountStoreGoodsNumGrpcRequest helloRequest =
                     CountStoreGoodsNumGrpcRequest.parseFrom(ByteString.copyFromUtf8(name));

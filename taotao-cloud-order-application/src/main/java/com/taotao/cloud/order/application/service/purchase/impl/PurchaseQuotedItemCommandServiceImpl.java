@@ -27,31 +27,32 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:42
  */
 @Service
-public class PurchaseQuotedItemCommandServiceImpl
-        implements PurchaseQuotedItemCommandService {
-//	@Override
-//	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
-//		return false;
-//	}
-//
-//	@Override
-//	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
-//		return List.of();
-//	}
+public class PurchaseQuotedItemCommandServiceImpl implements PurchaseQuotedItemCommandService {
+    //	@Override
+    //	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO>
+    // purchaseQuotedItemPOList) {
+    //		return false;
+    //	}
+    //
+    //	@Override
+    //	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
+    //		return List.of();
+    //	}
 
-	//@Override
-    //@Transactional(rollbackFor = Exception.class)
-    //public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemPO> purchaseQuotedItemPOList) {
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemPO>
+    // purchaseQuotedItemPOList) {
     //    for (PurchaseQuotedItemPO purchaseQuotedItemPO : purchaseQuotedItemPOList) {
     //        purchaseQuotedItemPO.setPurchaseQuotedId(purchaseQuotedId);
     //    }
-	//
+    //
     //    return this.saveBatch(purchaseQuotedItemPOList);
-    //}
-	//
-    //@Override
-    //public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
+    // }
+    //
+    // @Override
+    // public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
     //    return this.list(new LambdaQueryWrapper<PurchaseQuotedItemPO>()
     //            .eq(PurchaseQuotedItemPO::getPurchaseQuotedId, purchaseQuotedId));
-    //}
+    // }
 }

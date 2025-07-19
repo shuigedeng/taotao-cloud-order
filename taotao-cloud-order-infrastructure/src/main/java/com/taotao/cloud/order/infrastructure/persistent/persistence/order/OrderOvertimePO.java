@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -66,7 +64,9 @@ public class OrderOvertimePO extends BaseSuperEntity<OrderOvertimePO, Long> {
     private LocalDateTime paySuccessTime;
 
     /** 超时类型 */
-    @Column(name = "type", columnDefinition = "int not null default 0 comment '超时类型 0-未支付超时 1-未处理售后超时'")
+    @Column(
+            name = "type",
+            columnDefinition = "int not null default 0 comment '超时类型 0-未支付超时 1-未处理售后超时'")
     private Integer type;
 
     /** 超时时间 */

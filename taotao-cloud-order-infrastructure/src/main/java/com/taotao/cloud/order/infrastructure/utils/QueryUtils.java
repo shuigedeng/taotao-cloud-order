@@ -16,7 +16,4 @@
 
 package com.taotao.cloud.order.infrastructure.utils;
 
-public class QueryUtils {
-
-
-}
+public class QueryUtils {}

@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.cls;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderInfoPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderInfoPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
@@ -32,17 +32,17 @@ public class OrderInfoRepository extends BaseClassSuperRepository<OrderInfoPO, L
     public OrderInfoRepository(EntityManager em) {
         super(OrderInfoPO.class, em);
     }
-	//
-    //public static final QOrderInfo ORDER_INFO = QOrderInfo.orderInfo;
-	//
-    //public OrderInfoPO findOrderInfoById(Long id) {
+    //
+    // public static final QOrderInfo ORDER_INFO = QOrderInfo.orderInfo;
+    //
+    // public OrderInfoPO findOrderInfoById(Long id) {
     //    OrderInfoPO fetch = jpaQueryFactory()
     //            .selectFrom(ORDER_INFO)
     //            .where(ORDER_INFO.id.eq(id))
     //            .fetchOne();
-	//
+    //
     //    OrderInfoPO t = getById(id);
-	//
+    //
     //    return fetch;
-    //}
+    // }
 }

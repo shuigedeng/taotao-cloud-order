@@ -25,11 +25,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -60,15 +58,21 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     private String refundCode;
 
     /** 售后类型 1, 仅退款;0, 退货退款 */
-    @Column(name = "refund_type", columnDefinition = "int not null default 0 comment ' 售后类型 1, 仅退款;0, 退货退款'")
+    @Column(
+            name = "refund_type",
+            columnDefinition = "int not null default 0 comment ' 售后类型 1, 仅退款;0, 退货退款'")
     private Integer refundType;
 
     /** 用户物流收货类型：未收到货--3;已收到货--4 */
-    @Column(name = "receive_status", columnDefinition = "int not null default 0 comment ' 用户物流收货类型：未收到货--3;已收到货--4'")
+    @Column(
+            name = "receive_status",
+            columnDefinition = "int not null default 0 comment ' 用户物流收货类型：未收到货--3;已收到货--4'")
     private Integer receiveStatus;
 
     /** 主状态 10, 关闭;20, 处理中;30, 退款成功 */
-    @Column(name = "main_status", columnDefinition = "int not null default 0 comment ' 主状态 10, 关闭;20, 处理中;30, 退款成功'")
+    @Column(
+            name = "main_status",
+            columnDefinition = "int not null default 0 comment ' 主状态 10, 关闭;20, 处理中;30, 退款成功'")
     private Integer mainStatus;
 
     /** 子状态 */
@@ -90,15 +94,21 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     private String refundRemark;
 
     /** 订单总金额 */
-    @Column(name = "total_amount", columnDefinition = "decimal(10,2) not null default 0 comment '订单总金额'")
+    @Column(
+            name = "total_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '订单总金额'")
     private BigDecimal totalAmount;
 
     /** 申请退款金额 */
-    @Column(name = "req_refund_amount", columnDefinition = "decimal(10,2) not null default 0 comment '申请退款金额'")
+    @Column(
+            name = "req_refund_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '申请退款金额'")
     private BigDecimal reqRefundAmount;
 
     /** 实际退款金额--定时任务设置 */
-    @Column(name = "act_refund_amount", columnDefinition = "decimal(10,2) not null default 0 comment '实际退款金额--定时任务设置'")
+    @Column(
+            name = "act_refund_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '实际退款金额--定时任务设置'")
     private BigDecimal actRefundAmount;
 
     /** 买家会员ID */
@@ -162,11 +172,15 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     private String productSkuId;
 
     /** 商品SKU 规格名称 */
-    @Column(name = "product_sku_name", columnDefinition = "varchar(256) not null comment ' 商品SKU 规格名称'")
+    @Column(
+            name = "product_sku_name",
+            columnDefinition = "varchar(256) not null comment ' 商品SKU 规格名称'")
     private String productSkuName;
 
     /** 商品单价 */
-    @Column(name = "product_price", columnDefinition = "decimal(10,2) not null default 0 comment '商品单价'")
+    @Column(
+            name = "product_price",
+            columnDefinition = "decimal(10,2) not null default 0 comment '商品单价'")
     private BigDecimal productPrice = BigDecimal.ZERO;
 
     /** 购买数量 */
@@ -206,7 +220,9 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     private String expressRemark;
 
     /** 此售后是否存在撤销 1 -存在撤销 0 -不存在撤销 */
-    @Column(name = "has_cancel", columnDefinition = "int not null default 0 comment '此售后是否存在撤销 1 -存在撤销 0 -不存在撤销'")
+    @Column(
+            name = "has_cancel",
+            columnDefinition = "int not null default 0 comment '此售后是否存在撤销 1 -存在撤销 0 -不存在撤销'")
     private Integer hasCancel;
 
     @Column(name = "order_code", columnDefinition = "varchar(256) not null comment 'orderCode'")
@@ -232,7 +248,9 @@ public class OrderRefundRequestPO extends BaseSuperEntity<OrderRefundRequestPO, 
     @Column(name = "scene_id", columnDefinition = "int not null default 0 comment '场景方id'")
     private Integer sceneId;
 
-    @Column(name = "collect_scene_confirm_date", columnDefinition = "TIMESTAMP comment 'collectSceneConfirmDate'")
+    @Column(
+            name = "collect_scene_confirm_date",
+            columnDefinition = "TIMESTAMP comment 'collectSceneConfirmDate'")
     private LocalDateTime collectSceneConfirmDate;
 
     @Column(name = "org_id", columnDefinition = "int not null default 0 comment 'orgId'")

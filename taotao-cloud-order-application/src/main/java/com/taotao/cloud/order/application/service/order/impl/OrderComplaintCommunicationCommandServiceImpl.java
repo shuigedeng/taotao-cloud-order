@@ -16,13 +16,8 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintCommunicationPageQry;
 import com.taotao.cloud.order.application.service.order.OrderComplaintCommunicationCommandService;
 import lombok.AllArgsConstructor;
-import org.dromara.hutool.core.text.StrUtil;
 import org.springframework.stereotype.Service;
 
 /**
@@ -37,26 +32,30 @@ import org.springframework.stereotype.Service;
 public class OrderComplaintCommunicationCommandServiceImpl
         implements OrderComplaintCommunicationCommandService {
 
-//    @Override
-//    public Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO) {
-//        return this.save(orderComplaintCommunicationPO);
-//    }
-//
-//	@Override
-//	public IPage<OrderComplaintCommunicationPO> getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
-//		return null;
-//	}
+    //    @Override
+    //    public Boolean addCommunication(OrderComplaintCommunicationPO
+    // orderComplaintCommunicationPO) {
+    //        return this.save(orderComplaintCommunicationPO);
+    //    }
+    //
+    //	@Override
+    //	public IPage<OrderComplaintCommunicationPO>
+    // getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
+    //		return null;
+    //	}
 
-	//@Override
-    //public IPage<OrderComplaintCommunicationPO> getCommunication(
-	//	OrderComplaintCommunicationPageQry pageQuery) {
-    //    LambdaQueryWrapper<OrderComplaintCommunicationPO> queryWrapper = new LambdaQueryWrapper<>();
+    // @Override
+    // public IPage<OrderComplaintCommunicationPO> getCommunication(
+    //	OrderComplaintCommunicationPageQry pageQuery) {
+    //    LambdaQueryWrapper<OrderComplaintCommunicationPO> queryWrapper = new
+    // LambdaQueryWrapper<>();
     //    queryWrapper.eq(
     //            StrUtil.isNotEmpty(pageQuery.getComplainId()),
     //            OrderComplaintCommunicationPO::getComplainId,
     //            pageQuery.getComplainId());
     //    queryWrapper.eq(
-    //            StrUtil.isNotEmpty(pageQuery.getOwner()), OrderComplaintCommunicationPO::getOwner, pageQuery.getOwner());
+    //            StrUtil.isNotEmpty(pageQuery.getOwner()), OrderComplaintCommunicationPO::getOwner,
+    // pageQuery.getOwner());
     //    queryWrapper.eq(
     //            StrUtil.isNotEmpty(pageQuery.getOwnerName()),
     //            OrderComplaintCommunicationPO::getOwnerName,
@@ -65,7 +64,7 @@ public class OrderComplaintCommunicationCommandServiceImpl
     //            StrUtil.isNotEmpty(pageQuery.getOwnerId()),
     //            OrderComplaintCommunicationPO::getOwnerId,
     //            pageQuery.getOwnerId());
-	//
+    //
     //    return this.page(pageQuery.buildMpPage(), queryWrapper);
-    //}
+    // }
 }

@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -55,7 +53,10 @@ public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
     public static final String TABLE_NAME = "ttc_order_item_back";
 
     /** 订单子编码 */
-    @Column(name = "item_code", unique = true, columnDefinition = "varchar(32) not null comment '订单子编码'")
+    @Column(
+            name = "item_code",
+            unique = true,
+            columnDefinition = "varchar(32) not null comment '订单子编码'")
     private String itemCode;
 
     /** 商品SPU ID */
@@ -63,7 +64,9 @@ public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
     private Long productSpuId;
 
     /** 商品SPU_CODE */
-    @Column(name = "product_spu_code", columnDefinition = "varchar(32) not null comment '商品SPU CODE'")
+    @Column(
+            name = "product_spu_code",
+            columnDefinition = "varchar(32) not null comment '商品SPU CODE'")
     private String productSpuCode;
 
     /** 商品SPU名称 */
@@ -75,11 +78,15 @@ public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
     private Long productSkuId;
 
     /** 商品SKU 规格名称 */
-    @Column(name = "product_sku_name", columnDefinition = "varchar(255) not null comment '商品SKU 规格名称'")
+    @Column(
+            name = "product_sku_name",
+            columnDefinition = "varchar(255) not null comment '商品SKU 规格名称'")
     private String productSkuName;
 
     /** 商品单价 */
-    @Column(name = "product_price", columnDefinition = "decimal(10,2) not null default 0 comment '商品单价'")
+    @Column(
+            name = "product_price",
+            columnDefinition = "decimal(10,2) not null default 0 comment '商品单价'")
     private BigDecimal productPrice = BigDecimal.ZERO;
 
     /** 购买数量 */
@@ -87,7 +94,9 @@ public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
     private Integer num = 1;
 
     /** 合计金额 */
-    @Column(name = "sum_amount", columnDefinition = "decimal(10,2) not null default 0 comment '合计金额'")
+    @Column(
+            name = "sum_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '合计金额'")
     private BigDecimal sumAmount = BigDecimal.ZERO;
 
     /** 商品主图 */

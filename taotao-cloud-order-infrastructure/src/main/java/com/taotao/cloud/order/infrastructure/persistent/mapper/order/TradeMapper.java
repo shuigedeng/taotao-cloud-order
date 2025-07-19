@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 import org.apache.ibatis.annotations.Update;
 
 /** 交易数据处理层 */
@@ -28,7 +28,8 @@ public interface TradeMapper extends BaseSuperMapper<TradePO, Long> {
      *
      * @param tradeSn 交易编号
      */
-    @Update("UPDATE tt_trade SET flow_price =(SELECT SUM(flow_price) FROM tt_order WHERE"
-            + " trade_sn=#{tradeSn}) WHERE sn=#{tradeSn}")
+    @Update(
+            "UPDATE tt_trade SET flow_price =(SELECT SUM(flow_price) FROM tt_order WHERE"
+                    + " trade_sn=#{tradeSn}) WHERE sn=#{tradeSn}")
     void updateTradePrice(String tradeSn);
 }

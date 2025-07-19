@@ -18,11 +18,9 @@ package com.taotao.cloud.order.infrastructure.assembler;
 
 import com.taotao.cloud.order.application.dto.aftersale.clientobject.AfterSaleCO;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
-import org.mapstruct.factory.Mappers;
-
 import java.util.List;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 /**
  * IAfterSaleMapStruct

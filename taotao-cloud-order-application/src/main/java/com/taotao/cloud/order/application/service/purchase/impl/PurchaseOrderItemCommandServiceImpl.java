@@ -27,22 +27,22 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:37
  */
 @Service
-public class PurchaseOrderItemCommandServiceImpl
-	implements PurchaseOrderItemCommandService {
-//	@Override
-//	public boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO> purchaseOrderItemList) {
-//		return false;
-//	}
+public class PurchaseOrderItemCommandServiceImpl implements PurchaseOrderItemCommandService {
+    //	@Override
+    //	public boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO>
+    // purchaseOrderItemList) {
+    //		return false;
+    //	}
 
-	//@Override
-	//@Transactional(rollbackFor = Exception.class)
-	//public boolean addPurchaseOrderItem(String purchaseOrderId,
-	//									List<PurchaseOrderItemPO> purchaseOrderItemPOList) {
-	//	// 添加采购单子内容
-	//	for (PurchaseOrderItemPO purchaseOrderItemPO : purchaseOrderItemPOList) {
-	//		purchaseOrderItemPO.setPurchaseOrderId(purchaseOrderId);
-	//		this.save(purchaseOrderItemPO);
-	//	}
-	//	return true;
-	//}
+    // @Override
+    // @Transactional(rollbackFor = Exception.class)
+    // public boolean addPurchaseOrderItem(String purchaseOrderId,
+    //									List<PurchaseOrderItemPO> purchaseOrderItemPOList) {
+    //	// 添加采购单子内容
+    //	for (PurchaseOrderItemPO purchaseOrderItemPO : purchaseOrderItemPOList) {
+    //		purchaseOrderItemPO.setPurchaseOrderId(purchaseOrderId);
+    //		this.save(purchaseOrderItemPO);
+    //	}
+    //	return true;
+    // }
 }

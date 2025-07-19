@@ -27,52 +27,52 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface AfterSaleQueryService extends CommandService {
 
-    ///**
+    /// **
     // * 分页查询售后信息
     // *
     // * @param afterSalePageQry 查询参数
     // * @return {@link IPage }<{@link AfterSalePO }>
     // * @since 2022-04-28 08:49:10
     // */
-    //IPage<AfterSalePO> pageQuery(AfterSalePageQry afterSalePageQry);
-	//
-    ///**
+    // IPage<AfterSalePO> pageQuery(AfterSalePageQry afterSalePageQry);
+    //
+    /// **
     // * 查询导出售后信息
     // *
     // * @param afterSalePageQry 查询参数
     // * @return {@link List }<{@link AfterSalePO }>
     // * @since 2022-04-28 08:49:10
     // */
-    //List<AfterSalePO> exportAfterSaleOrder(AfterSalePageQry afterSalePageQry);
-	//
-    ///**
+    // List<AfterSalePO> exportAfterSaleOrder(AfterSalePageQry afterSalePageQry);
+    //
+    /// **
     // * 查询售后信息
     // *
     // * @param sn 售后单号
     // * @return {@link AfterSalePO }
     // * @since 2022-04-28 08:49:10
     // */
-    //AfterSalePO getAfterSaleBySn(String sn);
-	//
-    ///**
+    // AfterSalePO getAfterSaleBySn(String sn);
+    //
+    /// **
     // * 获取申请售后页面信息
     // *
     // * @param sn 订单编号
     // * @return {@link AfterSaleApplyCO }
     // * @since 2022-04-28 08:49:10
     // */
-    //AfterSaleApplyCO getAfterSaleVO(String sn);
-	//
-    ///**
+    // AfterSaleApplyCO getAfterSaleVO(String sn);
+    //
+    /// **
     // * 售后申请
     // *
     // * @param afterSaleAddCmd 售后对象
     // * @return {@link Boolean }
     // * @since 2022-04-28 08:49:10
     // */
-    //Boolean saveAfterSale(AfterSaleAddCmd afterSaleAddCmd);
-	//
-    ///**
+    // Boolean saveAfterSale(AfterSaleAddCmd afterSaleAddCmd);
+    //
+    /// **
     // * 商家审核售后申请
     // *
     // * @param afterSaleSn 售后编号
@@ -82,9 +82,10 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link Boolean }
     // * @since 2022-04-28 08:49:10
     // */
-    //Boolean review(String afterSaleSn, String serviceStatus, String remark, BigDecimal actualRefundPrice);
-	//
-    ///**
+    // Boolean review(String afterSaleSn, String serviceStatus, String remark, BigDecimal
+    // actualRefundPrice);
+    //
+    /// **
     // * 买家退货,物流填写
     // *
     // * @param afterSaleSn 售后服务单号
@@ -94,18 +95,19 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link AfterSalePO }
     // * @since 2022-04-28 08:49:10
     // */
-    //AfterSalePO buyerDelivery(String afterSaleSn, String logisticsNo, Long logisticsId, LocalDateTime mDeliverTime);
-	//
-    ///**
+    // AfterSalePO buyerDelivery(String afterSaleSn, String logisticsNo, Long logisticsId,
+    // LocalDateTime mDeliverTime);
+    //
+    /// **
     // * 获取买家退货物流踪迹
     // *
     // * @param afterSaleSn 售后服务单号
     // * @return {@link TracesVO }
     // * @since 2022-04-28 08:49:10
     // */
-    //TracesVO deliveryTraces(String afterSaleSn);
-	//
-    ///**
+    // TracesVO deliveryTraces(String afterSaleSn);
+    //
+    /// **
     // * 商家收货
     // *
     // * @param afterSaleSn 售后编号
@@ -114,9 +116,9 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link Boolean }
     // * @since 2022-04-28 08:49:10
     // */
-    //Boolean storeConfirm(String afterSaleSn, String serviceStatus, String remark);
-	//
-    ///**
+    // Boolean storeConfirm(String afterSaleSn, String serviceStatus, String remark);
+    //
+    /// **
     // * 平台退款-线下支付
     // *
     // * @param afterSaleSn 售后单号
@@ -124,32 +126,32 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link Boolean }
     // * @since 2022-04-28 08:49:10
     // */
-    //Boolean refund(String afterSaleSn, String remark);
-	//
-    ///**
+    // Boolean refund(String afterSaleSn, String remark);
+    //
+    /// **
     // * 买家确认解决问题
     // *
     // * @param afterSaleSn 售后订单sn
     // * @return {@link AfterSalePO }
     // * @since 2022-04-28 08:49:11
     // */
-    //AfterSalePO complete(String afterSaleSn);
-	//
-    ///**
+    // AfterSalePO complete(String afterSaleSn);
+    //
+    /// **
     // * 买家取消售后
     // *
     // * @param afterSaleSn 售后订单sn
     // * @return {@link Boolean }
     // * @since 2022-04-28 08:49:11
     // */
-    //Boolean cancel(String afterSaleSn);
-	//
-    ///**
+    // Boolean cancel(String afterSaleSn);
+    //
+    /// **
     // * 根据售后单号获取店铺退货收货地址信息
     // *
     // * @param sn 售后单号
     // * @return {@link StoreAfterSaleAddressVO }
     // * @since 2022-04-28 08:49:11
     // */
-    //StoreAfterSaleAddressVO getStoreAfterSaleAddressVO(String sn);
+    // StoreAfterSaleAddressVO getStoreAfterSaleAddressVO(String sn);
 }

@@ -36,6 +36,5 @@ public record StoreAppealCmd(
         @Schema(description = "申诉商家上传的图片") String appealImages)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

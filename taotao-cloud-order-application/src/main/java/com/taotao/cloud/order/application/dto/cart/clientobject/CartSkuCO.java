@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,21 +14,21 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.order.application.dto.cart.clientobject;
+// package com.taotao.cloud.order.application.dto.cart.clientobject;
 //
-//import com.taotao.cloud.order.api.enums.cart.CartTypeEnum;
-//import io.soabase.recordbuilder.core.RecordBuilder;
-//import io.swagger.v3.oas.annotations.media.Schema;
-//import java.io.Serial;
-//import java.io.Serializable;
-//import java.math.BigDecimal;
-//import java.util.Date;
-//import java.util.List;
+// import com.taotao.cloud.order.api.enums.cart.CartTypeEnum;
+// import io.soabase.recordbuilder.core.RecordBuilder;
+// import io.swagger.v3.oas.annotations.media.Schema;
+// import java.io.Serial;
+// import java.io.Serializable;
+// import java.math.BigDecimal;
+// import java.util.Date;
+// import java.util.List;
 //
-///** 购物车中的产品 */
-//@RecordBuilder
-//@Schema(description = "购物车中的产品")
-//public record CartSkuCO(
+/// ** 购物车中的产品 */
+// @RecordBuilder
+// @Schema(description = "购物车中的产品")
+// public record CartSkuCO(
 //        String sn,
 //        @Schema(description = "对应的sku信息") CartGoodsSkuVO goodsSku,
 //        @Schema(description = "分销商品信息") DistributionGoodsVO distributionGoods,
@@ -41,12 +41,14 @@
 //        @Schema(description = "是否失效 ") Boolean invalid,
 //        @Schema(description = "购物车商品错误消息") String errorMessage,
 //        @Schema(description = "是否可配送") Boolean isShip,
-//        @Schema(description = "拼团id 如果是拼团购买 此值为拼团活动id，" + "当pintuanId为空，则表示普通购买（或者拼团商品，单独购买）") String pintuanId,
+//        @Schema(description = "拼团id 如果是拼团购买 此值为拼团活动id，" + "当pintuanId为空，则表示普通购买（或者拼团商品，单独购买）")
+// String pintuanId,
 //        @Schema(description = "砍价ID") String kanjiaId,
 //        @Schema(description = "积分兑换ID") String pointsId,
 //        @Schema(description = "积分购买 积分数量") Long point,
 //        @Schema(description = "可参与的单品活动") List<PromotionGoodsVO> promotions,
-//        @Schema(description = "参与促销活动更新时间(一天更新一次) 例如时间为：2020-01-01  00：00：01") Date updatePromotionTime,
+//        @Schema(description = "参与促销活动更新时间(一天更新一次) 例如时间为：2020-01-01  00：00：01") Date
+// updatePromotionTime,
 //
 //        /**
 //         * @see CartTypeEnum
@@ -82,4 +84,4 @@
 //    public static class DistributionGoodsVO {}
 //
 //    public static class PromotionGoodsVO {}
-//}
+// }

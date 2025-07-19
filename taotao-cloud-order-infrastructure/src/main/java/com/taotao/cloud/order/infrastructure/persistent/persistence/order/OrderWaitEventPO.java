@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -59,7 +57,9 @@ public class OrderWaitEventPO extends BaseSuperEntity<OrderWaitEventPO, Long> {
     private Integer eventType = 0;
 
     /** 事件状态；1--已处理；0--待处理 */
-    @Column(name = "event_status", columnDefinition = "int not null default 0 comment '事件状态；1--已处理；0--待处理'")
+    @Column(
+            name = "event_status",
+            columnDefinition = "int not null default 0 comment '事件状态；1--已处理；0--待处理'")
     private Integer eventStatus = 0;
 
     /** 触发时间 */

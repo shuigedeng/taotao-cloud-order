@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.cls.aftersale;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 import jakarta.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 

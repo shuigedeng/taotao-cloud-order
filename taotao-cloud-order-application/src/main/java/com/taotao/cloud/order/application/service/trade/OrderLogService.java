@@ -18,8 +18,6 @@ package com.taotao.cloud.order.application.service.trade;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 
-import java.util.List;
-
 /**
  * 订单日志业务层
  *
@@ -36,7 +34,7 @@ public interface OrderLogService extends CommandService {
      * @return {@link List }<{@link OrderLogPO }>
      * @since 2022-04-28 08:55:50
      */
-//    List<OrderLogPO> getOrderLog(String orderSn);
-//
-//    IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry);
+    //    List<OrderLogPO> getOrderLog(String orderSn);
+    //
+    //    IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry);
 }

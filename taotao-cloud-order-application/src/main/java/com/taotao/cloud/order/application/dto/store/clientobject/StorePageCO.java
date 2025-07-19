@@ -20,9 +20,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
@@ -42,8 +41,7 @@ import lombok.experimental.Accessors;
 @Schema(description = "会员收货地址DTO")
 public class StorePageCO implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -7605952923416404638L;
+    @Serial private static final long serialVersionUID = -7605952923416404638L;
 
     @Schema(description = "会员ID")
     private String memberId;

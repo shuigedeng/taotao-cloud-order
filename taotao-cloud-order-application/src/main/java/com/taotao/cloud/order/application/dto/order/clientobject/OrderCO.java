@@ -30,8 +30,7 @@ public record OrderCO(
         @Schema(description = "订单vo") OrderBaseCO orderBase)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     // public OrderVO(OrderBaseVO order, List<OrderItem> orderItems) {
     // 	BeanUtil.copyProperties(order, this);

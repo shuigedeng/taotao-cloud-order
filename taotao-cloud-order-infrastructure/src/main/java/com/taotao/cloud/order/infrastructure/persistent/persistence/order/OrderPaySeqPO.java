@@ -24,11 +24,9 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -67,7 +65,9 @@ public class OrderPaySeqPO extends BaseSuperEntity<OrderPaySeqPO, Long> {
     private String payerBankCode;
 
     /** 交易金额 */
-    @Column(name = "actual_amount", columnDefinition = "decimal(10,2) not null default 0 comment '交易金额'")
+    @Column(
+            name = "actual_amount",
+            columnDefinition = "decimal(10,2) not null default 0 comment '交易金额'")
     private BigDecimal actualAmount;
 
     /** 微信预支付ID */
@@ -87,7 +87,9 @@ public class OrderPaySeqPO extends BaseSuperEntity<OrderPaySeqPO, Long> {
     private String appId;
 
     /** 状态 0-等待支付 1-超时关闭 2-支付失败 3-支付成功 */
-    @Column(name = "status", columnDefinition = "int not null default 0 comment '状态 0-等待支付 1-超时关闭 2-支付失败 3-支付成功'")
+    @Column(
+            name = "status",
+            columnDefinition = "int not null default 0 comment '状态 0-等待支付 1-超时关闭 2-支付失败 3-支付成功'")
     private Integer status;
 
     /** 备注 */

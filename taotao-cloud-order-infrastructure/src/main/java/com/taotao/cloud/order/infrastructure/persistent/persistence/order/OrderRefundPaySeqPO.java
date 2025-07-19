@@ -25,11 +25,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import org.hibernate.Hibernate;
@@ -76,15 +74,21 @@ public class OrderRefundPaySeqPO extends BaseSuperEntity<OrderRefundPaySeqPO, Lo
     private String wxRefundId;
 
     /** 微信退款渠道 需要通过微信 “查询退款”接口设置 */
-    @Column(name = "wx_refund_chanel", columnDefinition = "varchar(32) not null comment '微信退款渠道 需要通过微信 “查询退款”接口设置'")
+    @Column(
+            name = "wx_refund_chanel",
+            columnDefinition = "varchar(32) not null comment '微信退款渠道 需要通过微信 “查询退款”接口设置'")
     private String wxRefundChanel;
 
     /** 微信退款状态 需要通过微信 “查询退款”接口设置 */
-    @Column(name = "wx_refund_status", columnDefinition = "int not null default 0 comment ' 微信退款状态 需要通过微信 “查询退款”接口设置'")
+    @Column(
+            name = "wx_refund_status",
+            columnDefinition = "int not null default 0 comment ' 微信退款状态 需要通过微信 “查询退款”接口设置'")
     private Integer wxRefundStatus;
 
     /** 微信退款收款账户 需要通过微信 “查询退款”接口设置 */
-    @Column(name = "wx_refund_target", columnDefinition = "varchar(32) not null comment '微信退款收款账户 需要通过微信 “查询退款”接口设置'")
+    @Column(
+            name = "wx_refund_target",
+            columnDefinition = "varchar(32) not null comment '微信退款收款账户 需要通过微信 “查询退款”接口设置'")
     private String wxRefundTarget;
 
     /** 退款时间 */

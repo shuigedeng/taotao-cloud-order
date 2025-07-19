@@ -35,8 +35,7 @@ public record AfterSaleAllowOperationCmd(
         @Schema(description = "可以取消") Boolean cancel)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     /** 根据各种状态构建对象 */
     public AfterSaleAllowOperationCmd(AfterSaleCO afterSaleCO) {

@@ -1,4 +1,4 @@
-///*
+/// *
 // * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
 // *
 // * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +14,20 @@
 // * limitations under the License.
 // */
 //
-//package com.taotao.cloud.order.application.dto.cart.clientobject;
+// package com.taotao.cloud.order.application.dto.cart.clientobject;
 //
-//import com.taotao.cloud.order.sys.model.vo.cart.PriceDetailVOBuilder;
-//import com.taotao.cloud.order.application.model.dto.order.PriceDetailDTO;
-//import io.soabase.recordbuilder.core.RecordBuilder;
-//import io.swagger.v3.oas.annotations.media.Schema;
-//import java.io.Serial;
-//import java.io.Serializable;
-//import java.math.BigDecimal;
+// import com.taotao.cloud.order.sys.model.vo.cart.PriceDetailVOBuilder;
+// import com.taotao.cloud.order.application.model.dto.order.PriceDetailDTO;
+// import io.soabase.recordbuilder.core.RecordBuilder;
+// import io.swagger.v3.oas.annotations.media.Schema;
+// import java.io.Serial;
+// import java.io.Serializable;
+// import java.math.BigDecimal;
 //
-///** 订单价格详情 */
-//@RecordBuilder
-//@Schema(description = "订单价格详情")
-//public record PriceDetailCO(
+/// ** 订单价格详情 */
+// @RecordBuilder
+// @Schema(description = "订单价格详情")
+// public record PriceDetailCO(
 //        @Schema(description = "商品原价") BigDecimal originalPrice,
 //        @Schema(description = "配送费") BigDecimal freight,
 //        @Schema(description = "优惠金额") BigDecimal discountPrice,
@@ -54,4 +54,4 @@
 //                .originalPrice(dto.goodsPrice())
 //                .build();
 //    }
-//}
+// }

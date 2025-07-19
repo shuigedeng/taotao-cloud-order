@@ -18,9 +18,8 @@ package com.taotao.cloud.order.application.dto.order.query;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.*;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
@@ -56,8 +55,8 @@ public class StoreFlowQry {
     private BillDTO bill;
 
     @Setter
-@Getter
-@ToString
+    @Getter
+    @ToString
     public static class BillDTO {
         private LocalDateTime startTime;
 

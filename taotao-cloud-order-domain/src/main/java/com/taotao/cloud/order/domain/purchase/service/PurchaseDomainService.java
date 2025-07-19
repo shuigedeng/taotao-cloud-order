@@ -16,8 +16,4 @@
 
 package com.taotao.cloud.order.domain.purchase.service;
 
-
-public interface PurchaseDomainService {
-
-
-}
+public interface PurchaseDomainService {}

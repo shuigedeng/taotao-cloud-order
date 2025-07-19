@@ -38,22 +38,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/order/log")
 public class ManagerOrderLogController extends BusinessController {
 
-	private final OrderLogService orderLogService;
+    private final OrderLogService orderLogService;
 
-	//@Operation(summary = "通过id获取", description = "通过id获取")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping(value = "/{id}")
-	//public Result<OrderLogPO> get(@PathVariable String id) {
-	//	return Result.success(orderLogService.getById(id));
-	//}
-	//
-	//@Operation(summary = "分页获取", description = "分页获取")
-	//@RequestLogger
-	//@PreAuthorize("hasAuthority('dept:tree:data')")
-	//@GetMapping(value = "/page")
-	//public Result<PageResult<OrderLogCO>> getByPage(OrderLogPageQry orderLogPageQry) {
-	//	IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
-	//	return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
-	//}
+    // @Operation(summary = "通过id获取", description = "通过id获取")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/{id}")
+    // public Result<OrderLogPO> get(@PathVariable String id) {
+    //	return Result.success(orderLogService.getById(id));
+    // }
+    //
+    // @Operation(summary = "分页获取", description = "分页获取")
+    // @RequestLogger
+    // @PreAuthorize("hasAuthority('dept:tree:data')")
+    // @GetMapping(value = "/page")
+    // public Result<PageResult<OrderLogCO>> getByPage(OrderLogPageQry orderLogPageQry) {
+    //	IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
+    //	return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
+    // }
 }

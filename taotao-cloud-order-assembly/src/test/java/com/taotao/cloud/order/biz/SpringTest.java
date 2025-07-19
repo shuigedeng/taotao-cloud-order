@@ -37,11 +37,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 public class SpringTest extends TtcBootTestBase {
 
-    @MockitoBean
-	private DeptsService deptsService;
+    @MockitoBean private DeptsService deptsService;
 
-    @MockitoSpyBean
-	private DictsService dictsService;
+    @MockitoSpyBean private DictsService dictsService;
 
     @Test
     @DisplayName("SpyBean的正确打桩姿势")
@@ -83,13 +81,13 @@ public class SpringTest extends TtcBootTestBase {
         //			// 添加ResultHandler结果处理器，比如调试时 打印结果(print方法)到控制台
         //			.andDo(MockMvcResultHandlers.print());
 
-        final String result = mockMvc.perform(
-                        MockMvcRequestBuilders.get("/echo/").param("name", "看山"))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print())
-                .andReturn()
-                .getResponse()
-                .getContentAsString(StandardCharsets.UTF_8);
+        final String result =
+                mockMvc.perform(MockMvcRequestBuilders.get("/echo/").param("name", "看山"))
+                        .andExpect(MockMvcResultMatchers.status().isOk())
+                        .andDo(MockMvcResultHandlers.print())
+                        .andReturn()
+                        .getResponse()
+                        .getContentAsString(StandardCharsets.UTF_8);
 
         Assertions.assertEquals("Hello, 看山", result);
     }
@@ -100,16 +98,19 @@ public class SpringTest extends TtcBootTestBase {
         /**
          * get请求
          */
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/example") // 发起GET请求，访问路径为"/example"
-                .accept(MediaType.APPLICATION_JSON) // 接受JSON格式的响应
-                .param("id", "123") // 参数
-                .param("first_flag", String.valueOf(true)); // 参数
+        MockHttpServletRequestBuilder requestBuilder =
+                MockMvcRequestBuilders.get("/example") // 发起GET请求，访问路径为"/example"
+                        .accept(MediaType.APPLICATION_JSON) // 接受JSON格式的响应
+                        .param("id", "123") // 参数
+                        .param("first_flag", String.valueOf(true)); // 参数
 
-        MvcResult result = mockMvc.perform(requestBuilder)
-                .andExpect(MockMvcResultMatchers.status().isOk()) // 验证请求的HTTP状态码为200
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message")
-                        .value("success")) // 验证响应中的JSON字段"message"的值为"success"
-                .andReturn(); // 返回MockMvcResult对象
+        MvcResult result =
+                mockMvc.perform(requestBuilder)
+                        .andExpect(MockMvcResultMatchers.status().isOk()) // 验证请求的HTTP状态码为200
+                        .andExpect(
+                                MockMvcResultMatchers.jsonPath("$.message")
+                                        .value("success")) // 验证响应中的JSON字段"message"的值为"success"
+                        .andReturn(); // 返回MockMvcResult对象
 
         MockHttpServletResponse response = result.getResponse(); // 得到返回值
         response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE); // 设置响应 Content-Type

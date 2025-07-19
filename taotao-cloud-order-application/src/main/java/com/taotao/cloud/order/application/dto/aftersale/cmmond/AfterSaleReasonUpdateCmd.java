@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.cmmond;
 
-import com.taotao.cloud.order.api.enums.trade.AfterSaleTypeEnum;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -40,6 +39,5 @@ public record AfterSaleReasonUpdateCmd(
         @Schema(description = "售后类型") String serviceType)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

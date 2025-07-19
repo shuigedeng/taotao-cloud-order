@@ -25,9 +25,9 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "订单发票")
 public record OrderReceiptAddCmd(
-        @Schema(description = "订单状态") String orderStatus, @Schema(description = "发票子内容") ReceiptAddCmd receipt)
+        @Schema(description = "订单状态") String orderStatus,
+        @Schema(description = "发票子内容") ReceiptAddCmd receipt)
         implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = 8808470688518188146L;
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }
