@@ -16,6 +16,8 @@
 
 package com.taotao.cloud.order.facade.sku.proxy;
 
+import com.taotao.boot.common.model.RpcRequest;
+import com.taotao.boot.common.model.RpcResponse;
 import com.taotao.cloud.goods.api.dubbo.GoodsRpcService;
 import com.taotao.cloud.goods.api.dubbo.request.GoodsQueryRpcRequest;
 import com.taotao.cloud.goods.api.dubbo.response.GoodsQueryRpcResponse;
@@ -41,11 +43,11 @@ public class SkuClientProxy {
     // 查询用户
     public SkuVO getUserInfo(Long skuId) {
         //		GoodsSkuSpecGalleryApiResponse user = goodsSkuApi.getGoodsSkuByIdFromCache(skuId);
-        GoodsQueryRpcResponse goodsQueryResponse =
-                goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
+		RpcResponse<GoodsQueryRpcResponse> goodsQueryResponse =
+			goodsRpcService.queryGoodsByParams(RpcRequest.success(new GoodsQueryRpcRequest()));
 
         GoodsSkuGrpcResponse helloReply = skuGrpcClient.getGoodsSkuByIdFromCache("");
 
-        return skuClientAdapter.convert(null, goodsQueryResponse, helloReply);
+        return skuClientAdapter.convert(null, goodsQueryResponse.getData(), helloReply);
     }
 }

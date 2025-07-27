@@ -16,11 +16,14 @@
 
 package com.taotao.cloud.order.facade.goods.proxy;
 
+import com.taotao.boot.common.model.RpcRequest;
+import com.taotao.boot.common.model.RpcResponse;
 import com.taotao.cloud.goods.api.dubbo.GoodsRpcService;
 import com.taotao.cloud.goods.api.dubbo.request.GoodsQueryRpcRequest;
 import com.taotao.cloud.goods.api.dubbo.response.GoodsQueryRpcResponse;
 import com.taotao.cloud.goods.api.feign.GoodsApi;
 import com.taotao.cloud.goods.api.grpc.CountStoreGoodsNumGrpcResponse;
+import com.taotao.cloud.goods.api.grpc.GoodsSkuGrpcResponse;
 import com.taotao.cloud.order.facade.goods.adapter.GoodsClientAdapter;
 import com.taotao.cloud.order.facade.goods.grpc.GoodsGrpcClient;
 import com.taotao.cloud.order.facade.goods.vo.GoodsVO;
@@ -43,10 +46,11 @@ public class GoodsClientProxy {
     // 查询用户
     public GoodsVO getGoodsVO(Long storeId) {
         //		Long goodsNum = goodsApi.countStoreGoodsNum(storeId);
-        GoodsQueryRpcResponse goods =
-                goodsRpcService.queryGoodsByParams(new GoodsQueryRpcRequest());
+		RpcResponse<GoodsQueryRpcResponse> goodsQueryResponse =
+			goodsRpcService.queryGoodsByParams(RpcRequest.success(new GoodsQueryRpcRequest()));
+
         CountStoreGoodsNumGrpcResponse helloReply = goodsGrpcClient.countStoreGoodsNum("sfdasdf");
 
-        return userIntegrationAdapter.convert(0L, goods, helloReply);
+        return userIntegrationAdapter.convert(0L, goodsQueryResponse.getData(), helloReply);
     }
 }
