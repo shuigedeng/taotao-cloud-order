@@ -6,7 +6,7 @@ apply from: rootProject.file('gradle/smart-doc.gradle')
 apply from: rootProject.file('gradle/springdoc-openapi.gradle')
 apply from: rootProject.file('gradle/docker.gradle')
 apply from: rootProject.file('gradle/google-tools-jib.gradle')
-//apply from: rootProject.file('gradle/shadow.gradle')
+apply from: rootProject.file('gradle/shadow.gradle')
 //apply from: rootProject.file('gradle/graalvm.gradle')
 apply from: rootProject.file('gradle/swagger.gradle')
 apply from: rootProject.file('gradle/test.gradle')
@@ -46,9 +46,11 @@ dependencies {
     testAnnotationProcessor "no.entur.mapstruct.spi:protobuf-spi-impl:1.49.0"
 }
 
-//mainClassName = "com.taotao.cloud.order.TaoTaoCloudOrderApplication"
+application {
+    mainClass.set("com.taotao.cloud.order.TaoTaoCloudOrderApplication")
+    applicationName = "taotao-cloud-order"
+}
 description = "order中心"
-//archivesBaseName = 'taotao-cloud-order'
 
 def getProperty(String key, String defaultValue) {
     def keyValue = findProperty(key) ?: System.getenv(key)
