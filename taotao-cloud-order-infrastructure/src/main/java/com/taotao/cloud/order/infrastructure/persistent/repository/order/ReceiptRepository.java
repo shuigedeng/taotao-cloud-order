@@ -14,18 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.cls.aftersale;
+package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 
-/** 售后原因数据处理层 */
-@Repository
-public class AfterSaleReasonRepository extends BaseClassSuperRepository<AfterSaleReasonPO, Long> {
-
-    public AfterSaleReasonRepository(EntityManager em) {
-        super(AfterSaleReasonPO.class, em);
-    }
-}
+/** 发票数据处理层 */
+public interface ReceiptRepository extends JpaSuperRepository<ReceiptPO, Long> {}

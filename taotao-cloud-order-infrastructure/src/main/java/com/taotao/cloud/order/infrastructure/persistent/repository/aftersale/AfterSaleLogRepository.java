@@ -14,10 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.inf.order;
+package com.taotao.cloud.order.infrastructure.persistent.repository.aftersale;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
 
-/** 商家订单流水数据处理层 */
-public interface IStoreFlowRepository extends JpaRepository<StoreFlowPO, Long> {}
+/**
+ * 售后日志数据处理层
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-28 08:49:21
+ */
+public interface AfterSaleLogRepository extends JpaSuperRepository<AfterSaleLogPO, Long> {}

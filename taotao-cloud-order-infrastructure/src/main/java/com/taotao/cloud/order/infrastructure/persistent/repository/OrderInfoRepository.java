@@ -14,11 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.inf;
+package com.taotao.cloud.order.infrastructure.persistent.repository;
 
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderInfoPO;
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -28,7 +27,7 @@ import org.springframework.stereotype.Repository;
  * @since 2020/10/22 12:46
  */
 @Repository
-public interface IOrderInfoRepository extends JpaRepository<OrderInfoPO, Long> {
+public interface OrderInfoRepository extends JpaSuperRepository<OrderInfoPO, Long> {
 
     @Query(
             value =

@@ -14,22 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.cls;
+package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemBackPO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 
-/**
- * @author shuigedeng
- * @version 2022.03
- * @since 2020/10/22 12:46
- */
-@Repository
-public class OrderItemBackRepository extends BaseClassSuperRepository<OrderItemBackPO, Long> {
-
-    public OrderItemBackRepository(EntityManager em) {
-        super(OrderItemBackPO.class, em);
-    }
-}
+/** 交易数据处理层 */
+public interface TradeRepository extends JpaSuperRepository<TradePO, Long> {}

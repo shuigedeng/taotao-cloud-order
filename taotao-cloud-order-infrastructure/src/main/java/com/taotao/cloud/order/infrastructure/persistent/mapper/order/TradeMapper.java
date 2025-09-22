@@ -16,12 +16,12 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 import org.apache.ibatis.annotations.Update;
 
 /** 交易数据处理层 */
-public interface TradeMapper extends BaseSuperMapper<TradePO, Long> {
+public interface TradeMapper extends MpSuperMapper<TradePO, Long> {
 
     /**
      * 修改交易金额

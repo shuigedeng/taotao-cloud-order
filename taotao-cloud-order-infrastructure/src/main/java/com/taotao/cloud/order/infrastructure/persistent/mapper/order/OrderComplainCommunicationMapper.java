@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 
 /** 交易投诉通信数据处理层 */
 public interface OrderComplainCommunicationMapper
-        extends BaseSuperMapper<OrderComplaintCommunicationPO, Long> {}
+        extends MpSuperMapper<OrderComplaintCommunicationPO, Long> {}

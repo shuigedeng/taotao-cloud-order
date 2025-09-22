@@ -16,11 +16,11 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 
 /** 商家订单流水数据处理层 */
-public interface StoreFlowMapper extends BaseSuperMapper<StoreFlowPO, Long> {
+public interface StoreFlowMapper extends MpSuperMapper<StoreFlowPO, Long> {
     //
     /// **
     // * 获取结算单的入账流水

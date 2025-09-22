@@ -14,18 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.inf;
+package com.taotao.cloud.order.infrastructure.persistent.repository.purchase;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemBackPO;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedItemPO;
 
-/**
- * @author shuigedeng
- * @version 2022.03
- * @since 2020/10/22 12:46
- */
-@Repository
-public interface IOrderItemRepository
-        extends JpaRepository<OrderItemBackPO, Long>, JpaSpecificationExecutor<OrderItemBackPO> {}
+/** 采购单子内容数据处理层 */
+public interface PurchaseQuotedItemRepository extends JpaSuperRepository<PurchaseQuotedItemPO, Long> {}

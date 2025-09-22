@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 
 /**
@@ -24,7 +24,7 @@ import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.Af
  *
  * @author shuigedeng
  */
-public interface AfterSaleMapper extends BaseSuperMapper<AfterSalePO, Long> {
+public interface AfterSaleMapper extends MpSuperMapper<AfterSalePO, Long> {
 
     /// **
     // * 获取售后VO分页

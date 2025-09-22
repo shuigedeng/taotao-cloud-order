@@ -14,18 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.cls.trade;
+package com.taotao.cloud.order.infrastructure.persistent.repository.purchase;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseQuotedPO;
 
-/** 订单日志数据处理层 */
-@Repository
-public class OrderLogRepository extends BaseClassSuperRepository<OrderLogPO, Long> {
-
-    public OrderLogRepository(EntityManager em) {
-        super(OrderLogPO.class, em);
-    }
-}
+/** 采购报价数据处理层 */
+public interface PurchaseQuotedRepository extends JpaSuperRepository<PurchaseQuotedPO, Long> {}

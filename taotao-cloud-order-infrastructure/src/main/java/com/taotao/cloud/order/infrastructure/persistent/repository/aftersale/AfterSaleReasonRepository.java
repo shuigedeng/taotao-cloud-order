@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.inf.order;
+package com.taotao.cloud.order.infrastructure.persistent.repository.aftersale;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintPO;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
 
-/** 订单投诉数据处理层 */
-public interface IOrderComplaintRepository extends JpaRepository<OrderComplaintPO, Long> {}
+/** 售后原因数据处理层 */
+public interface AfterSaleReasonRepository extends JpaSuperRepository<AfterSaleReasonPO, Long> {}

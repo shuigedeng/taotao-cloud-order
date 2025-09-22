@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.persistent.repository.inf.trade;
+package com.taotao.cloud.order.infrastructure.persistent.repository.purchase;
 
-import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.purchase.PurchaseOrderPO;
 
-/** 订单日志数据处理层 */
-public interface IOrderLogRepository extends JpaRepository<OrderLogPO, Long> {}
+/** 采购单数据处理层 */
+public interface PurchaseOrderRepository extends JpaSuperRepository<PurchaseOrderPO, Long> {}

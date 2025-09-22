@@ -16,11 +16,11 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.order;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemPO;
 
 /** 子订单数据处理层 */
-public interface OrderItemMapper extends BaseSuperMapper<OrderItemPO, Long> {
+public interface OrderItemMapper extends MpSuperMapper<OrderItemPO, Long> {
 
     /// **
     // * 获取等待操作订单子项目

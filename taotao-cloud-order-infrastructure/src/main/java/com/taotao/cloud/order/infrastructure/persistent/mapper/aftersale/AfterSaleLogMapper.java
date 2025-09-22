@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.mapper.aftersale;
 
-import com.taotao.boot.webagg.mapper.BaseSuperMapper;
+import com.taotao.boot.data.mybatis.mybatisplus.base.mapper.MpSuperMapper;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleLogPO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -28,4 +28,4 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2022-04-28 08:49:21
  */
 @Mapper
-public interface AfterSaleLogMapper extends BaseSuperMapper<AfterSaleLogPO, Long> {}
+public interface AfterSaleLogMapper extends MpSuperMapper<AfterSaleLogPO, Long> {}
