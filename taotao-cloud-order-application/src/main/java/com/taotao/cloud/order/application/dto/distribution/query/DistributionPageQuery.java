@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.dto.order.query;
+package com.taotao.cloud.order.application.dto.distribution.query;
 
-import static lombok.AccessLevel.PRIVATE;
-
-import com.taotao.cloud.order.domain.order.valueobject.delivery.Carrier;
-import java.util.List;
+import com.taotao.boot.common.model.PageQuery;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Value;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
-@Value
-@Builder
-@AllArgsConstructor(access = PRIVATE)
-public class QOrderShipment {
-    private final String orderId;
-    private final Carrier carrier;
-    private final String deliveryOrderId;
-    private final List<ShipmentNodeQuery> nodes;
-    private final boolean signed;
-    private final String deliveryStatus;
-    private final String carrierName;
-    private final String carrierLogo;
-    private final String updateTime;
+@Setter
+@Getter
+@Accessors(fluent = true)
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "售后搜索参数")
+public class DistributionPageQuery extends PageQuery {
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
+
+    // 结算单ID
+    private String id;
 }

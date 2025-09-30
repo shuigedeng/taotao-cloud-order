@@ -17,9 +17,9 @@
 package com.taotao.cloud.order.application.service.order;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintOperationAddCmd;
-import com.taotao.cloud.order.application.dto.order.cmmond.StoreAppealCmd;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 
 /**
  * 交易投诉业务层
@@ -43,10 +43,10 @@ public interface OrderComplaintCommandService extends CommandService {
      * 获取交易投诉详情
      *
      * @param id 交易投诉ID
-     * @return {@link OrderComplaintCO }
+     * @return {@link OrderComplaintResult }
      * @since 2022-04-28 08:54:36
      */
-    OrderComplaintCO getOrderComplainById(Long id);
+    OrderComplaintResult getOrderComplainById(Long id);
 
     /**
      * 获取交易投诉详情
@@ -83,7 +83,7 @@ public interface OrderComplaintCommandService extends CommandService {
      * @since 2022-04-28 08:54:36
      */
     Boolean updateOrderComplainByStatus(
-            OrderComplaintOperationAddCmd orderComplaintOperationAddCmd);
+            OrderComplaintOperationAddCommand orderComplaintOperationAddCmd);
 
     /**
      * 待处理投诉数量
@@ -109,5 +109,5 @@ public interface OrderComplaintCommandService extends CommandService {
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:37
      */
-    Boolean appeal(StoreAppealCmd storeAppealDTO);
+    Boolean appeal(StoreAppealCommand storeAppealDTO);
 }

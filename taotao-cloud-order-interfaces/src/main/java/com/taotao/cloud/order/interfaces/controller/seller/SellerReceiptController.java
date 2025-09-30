@@ -23,8 +23,8 @@ import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.security.spring.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
-import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
+import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -58,10 +58,10 @@ public class SellerReceiptController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/page")
-    public Result<PageResult<OrderReceiptAddCmd>> getByPage(ReceiptPageQry receiptPageQry) {
+    public Result<PageResult<OrderReceiptAddCommand>> getByPage(ReceiptPageQuery receiptPageQry) {
         receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
-        IPage<OrderReceiptAddCmd> page = receiptCommandService.pageQuery(receiptPageQry);
-        return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
+        IPage<OrderReceiptAddCommand> page = receiptCommandService.pageQuery(receiptPageQry);
+        return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCommand.class));
     }
 
     //	@Operation(summary = "通过id获取", description = "通过id获取")

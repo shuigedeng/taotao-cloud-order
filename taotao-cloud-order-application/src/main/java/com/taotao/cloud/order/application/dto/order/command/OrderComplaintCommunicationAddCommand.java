@@ -14,27 +14,24 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.assembler;
+package com.taotao.cloud.order.application.dto.order.command;
 
-import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import java.util.List;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
- * IAfterSaleMapStruct
+ * 投诉通信VO
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-07 20:55:46
+ * @since 2022-04-21 16:59:38
  */
-@Mapper
-public interface AfterSaleAssembler {
+@RecordBuilder
+@Schema(description = "投诉通信VO")
+public record OrderComplaintCommunicationAddCommand(@Schema(description = "内容") String content)
+        implements Serializable {
 
-    AfterSaleAssembler INSTANCE = Mappers.getMapper(AfterSaleAssembler.class);
-
-    AfterSaleResult convert(AfterSalePO afterSale);
-
-    List<AfterSaleResult> convert(List<AfterSalePO> afterSales);
+    @Serial private static final long serialVersionUID = -8460949951683122695L;
 }

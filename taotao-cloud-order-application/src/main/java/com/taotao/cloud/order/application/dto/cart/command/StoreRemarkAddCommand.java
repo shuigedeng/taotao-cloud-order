@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.assembler;
+package com.taotao.cloud.order.application.dto.cart.command;
 
-import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import java.util.List;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
- * IAfterSaleMapStruct
+ * 店铺备注
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-07 20:55:46
+ * @since 2022-04-28 09:17:04
  */
-@Mapper
-public interface AfterSaleAssembler {
+@RecordBuilder
+@Schema(description = "店铺备注")
+public record StoreRemarkAddCommand(
+        @Schema(description = "店铺id") String storeId, @Schema(description = "备注") String remark)
+        implements Serializable {
 
-    AfterSaleAssembler INSTANCE = Mappers.getMapper(AfterSaleAssembler.class);
-
-    AfterSaleResult convert(AfterSalePO afterSale);
-
-    List<AfterSaleResult> convert(List<AfterSalePO> afterSales);
+    @Serial private static final long serialVersionUID = -6793274046513576434L;
 }

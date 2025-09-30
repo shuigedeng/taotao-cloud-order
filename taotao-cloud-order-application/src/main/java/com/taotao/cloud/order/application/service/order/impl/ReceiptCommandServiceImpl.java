@@ -17,8 +17,8 @@
 package com.taotao.cloud.order.application.service.order.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderReceiptAddCmd;
-import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQry;
+import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.service.order.ReceiptCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ReceiptCommandServiceImpl implements ReceiptCommandService {
     @Override
-    public IPage<OrderReceiptAddCmd> pageQuery(ReceiptPageQry receiptPageQry) {
+    public IPage<OrderReceiptAddCommand> pageQuery(ReceiptPageQuery receiptPageQry) {
         return null;
     }
 

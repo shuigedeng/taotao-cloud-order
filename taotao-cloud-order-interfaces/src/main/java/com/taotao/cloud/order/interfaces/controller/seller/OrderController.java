@@ -18,9 +18,9 @@ package com.taotao.cloud.order.interfaces.controller.seller;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
-import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderCommand;
-import com.taotao.cloud.order.application.dto.order.cmmond.CreateOrderResponse;
-import com.taotao.cloud.order.application.dto.order.cmmond.RequestInvoiceCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderResponse;
+import com.taotao.cloud.order.application.dto.order.command.RequestInvoiceCommand;
 import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.service.order.OrderCommandService;
 import com.taotao.cloud.order.application.service.order.OrderQueryService;

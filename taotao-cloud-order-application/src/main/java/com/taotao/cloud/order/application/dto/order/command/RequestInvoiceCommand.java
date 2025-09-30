@@ -14,12 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.dto.order.query;
+package com.taotao.cloud.order.application.dto.order.command;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valueobject.delivery.Carrier;
-import java.util.List;
+import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.cloud.order.domain.order.valueobject.invoice.InvoiceType;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -27,14 +30,9 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class QOrderShipment {
-    private final String orderId;
-    private final Carrier carrier;
-    private final String deliveryOrderId;
-    private final List<ShipmentNodeQuery> nodes;
-    private final boolean signed;
-    private final String deliveryStatus;
-    private final String carrierName;
-    private final String carrierLogo;
-    private final String updateTime;
+public class RequestInvoiceCommand extends Command {
+
+    @NotNull private final InvoiceType type;
+
+    @Email @NotBlank private final String email;
 }

@@ -18,8 +18,6 @@ package com.taotao.cloud.order.application.dto.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valueobject.delivery.Carrier;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -27,14 +25,7 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class QOrderShipment {
-    private final String orderId;
-    private final Carrier carrier;
-    private final String deliveryOrderId;
-    private final List<ShipmentNodeQuery> nodes;
-    private final boolean signed;
-    private final String deliveryStatus;
-    private final String carrierName;
-    private final String carrierLogo;
-    private final String updateTime;
+public class ShipmentNodeQuery {
+    private final String time;
+    private final String status;
 }

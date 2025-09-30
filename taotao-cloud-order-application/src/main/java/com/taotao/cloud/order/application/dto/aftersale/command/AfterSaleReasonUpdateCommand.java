@@ -14,27 +14,30 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.assembler;
+package com.taotao.cloud.order.application.dto.aftersale.command;
 
-import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
-import java.util.List;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import io.soabase.recordbuilder.core.RecordBuilder;
+import io.swagger.v3.oas.annotations.media.Schema;
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
- * IAfterSaleMapStruct
+ * 售后原因dto
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-07 20:55:46
+ * @since 2022-04-28 09:16:53
  */
-@Mapper
-public interface AfterSaleAssembler {
+@RecordBuilder
+@Schema(description = "售后原因dto")
+public record AfterSaleReasonUpdateCommand(
+        @Schema(description = "售后原因") String reason,
 
-    AfterSaleAssembler INSTANCE = Mappers.getMapper(AfterSaleAssembler.class);
+        /**
+         * @see AfterSaleTypeEnum
+         */
+        @Schema(description = "售后类型") String serviceType)
+        implements Serializable {
 
-    AfterSaleResult convert(AfterSalePO afterSale);
-
-    List<AfterSaleResult> convert(List<AfterSalePO> afterSales);
+    @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

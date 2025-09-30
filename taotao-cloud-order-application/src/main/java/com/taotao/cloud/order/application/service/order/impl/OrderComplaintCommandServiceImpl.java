@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.order.application.service.order.impl;
 
-import com.taotao.cloud.order.application.dto.order.clientobject.OrderComplaintCO;
-import com.taotao.cloud.order.application.dto.order.cmmond.OrderComplaintOperationAddCmd;
-import com.taotao.cloud.order.application.dto.order.cmmond.StoreAppealCmd;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.service.order.OrderComplaintCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,13 +34,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class OrderComplaintCommandServiceImpl implements OrderComplaintCommandService {
     @Override
-    public OrderComplaintCO getOrderComplainById(Long id) {
+    public OrderComplaintResult getOrderComplainById(Long id) {
         return null;
     }
 
     @Override
     public Boolean updateOrderComplainByStatus(
-            OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
+            OrderComplaintOperationAddCommand orderComplaintOperationAddCmd) {
         return null;
     }
 
@@ -55,7 +55,7 @@ public class OrderComplaintCommandServiceImpl implements OrderComplaintCommandSe
     }
 
     @Override
-    public Boolean appeal(StoreAppealCmd storeAppealDTO) {
+    public Boolean appeal(StoreAppealCommand storeAppealDTO) {
         return null;
     }
     //	@Override

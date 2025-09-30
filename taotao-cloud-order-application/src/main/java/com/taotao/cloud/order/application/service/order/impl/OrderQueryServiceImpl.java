@@ -224,7 +224,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                         result.getList().stream()
                                 .map(
                                         node ->
-                                                ShipmentNode.builder()
+                                                ShipmentNodeQuery.builder()
                                                         .time(node.getTime())
                                                         .status(node.getStatus())
                                                         .build())
