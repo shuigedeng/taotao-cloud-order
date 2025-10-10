@@ -17,10 +17,10 @@
 package com.taotao.cloud.order.domain.order.factory;
 
 import com.taotao.cloud.order.domain.order.aggregate.Order;
-import com.taotao.cloud.order.domain.order.valueobject.PaymentType;
-import com.taotao.cloud.order.domain.order.valueobject.User;
-import com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetail;
-import com.taotao.cloud.order.domain.order.valueobject.detail.Tenant;
+import com.taotao.cloud.order.domain.order.valobj.PaymentType;
+import com.taotao.cloud.order.domain.order.valobj.User;
+import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetail;
+import com.taotao.cloud.order.domain.order.valobj.detail.Tenant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

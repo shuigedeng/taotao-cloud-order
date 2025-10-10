@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valueobject.delivery.Carrier;
+import com.taotao.cloud.order.domain.order.valobj.delivery.Carrier;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

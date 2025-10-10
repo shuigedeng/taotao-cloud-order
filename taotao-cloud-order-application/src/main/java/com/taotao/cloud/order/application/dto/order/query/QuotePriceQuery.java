@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.dto.order.query;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.boot.ddd.model.application.dto.Query;
-import com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetail;
+import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetail;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;

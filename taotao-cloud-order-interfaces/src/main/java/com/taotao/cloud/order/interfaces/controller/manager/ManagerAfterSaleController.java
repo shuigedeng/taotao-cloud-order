@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.interfaces.controller.manager;
 
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.service.aftersale.AfterSaleCommandService;
+import com.taotao.cloud.order.application.service.command.AfterSaleCommandService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;

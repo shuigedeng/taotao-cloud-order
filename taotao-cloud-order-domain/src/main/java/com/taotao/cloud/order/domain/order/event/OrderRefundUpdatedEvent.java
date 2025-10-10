@@ -18,7 +18,7 @@ package com.taotao.cloud.order.domain.order.event;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valueobject.User;
+import com.taotao.cloud.order.domain.order.valobj.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;

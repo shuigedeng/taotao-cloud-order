@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.interfaces.controller.manager;
 
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.service.trade.OrderLogService;
+import com.taotao.cloud.order.application.service.command.OrderLogCommandService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/order/manager/order/log")
 public class ManagerOrderLogController extends BusinessController {
 
-    private final OrderLogService orderLogService;
+    private final OrderLogCommandService orderLogService;
 
     // @Operation(summary = "通过id获取", description = "通过id获取")
     // @RequestLogger

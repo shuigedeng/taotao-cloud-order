@@ -18,8 +18,8 @@ package com.taotao.cloud.order.application.dto.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valueobject.OrderStatus;
-import com.taotao.cloud.order.domain.order.valueobject.detail.OrderDetailType;
+import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
+import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetailType;
 import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

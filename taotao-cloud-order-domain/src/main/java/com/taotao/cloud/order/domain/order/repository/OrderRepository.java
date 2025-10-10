@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.domain.order.repository;
 
 import com.taotao.cloud.order.domain.order.aggregate.Order;
-import com.taotao.cloud.order.domain.order.valueobject.User;
+import com.taotao.cloud.order.domain.order.valobj.User;
 import java.util.Optional;
 
 public interface OrderRepository {

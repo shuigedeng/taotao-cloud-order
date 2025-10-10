@@ -19,7 +19,7 @@ package com.taotao.cloud.order.application.dto.order.command;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.boot.ddd.model.application.dto.Command;
-import com.taotao.cloud.order.domain.order.valueobject.invoice.InvoiceType;
+import com.taotao.cloud.order.domain.order.valobj.invoice.InvoiceType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
