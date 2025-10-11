@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.facade.sys;
 
-import com.taotao.boot.common.model.FeignRequest;
-import com.taotao.boot.common.model.FeignResponse;
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.sys.api.dubbo.DictRpcService;
 import com.taotao.cloud.sys.api.feign.DictApi;
 import com.taotao.cloud.sys.api.feign.request.DictQueryApiRequest;
@@ -40,14 +40,14 @@ public class DictClientProxy {
 	// 查询用户
 	public DictApiResponse findByCode() {
 
-		FeignRequest<DictQueryApiRequest> dictQueryApiRequest =
-			FeignRequest.<DictQueryApiRequest>builder().data(new DictQueryApiRequest()).build();
+		Request<DictQueryApiRequest> dictQueryApiRequest =
+			Request.<DictQueryApiRequest>builder().data(new DictQueryApiRequest()).build();
 
-		FeignResponse<DictApiResponse> dictApiResponse = dictApi.findByCode(dictQueryApiRequest);
+		Response<DictApiResponse> dictApiResponse = dictApi.findByCode(dictQueryApiRequest);
 
 //		DictQueryRpcRequest dictQueryRpcRequest = new DictQueryRpcRequest();
 //		dictQueryRpcRequest.setCode("123");
-//		RpcResponse<DictRpcResponse> dictRpcResponse = dictRpcService.findByCode(RpcRequest.success(dictQueryRpcRequest));
+//		Response<DictRpcResponse> dictRpcResponse = dictRpcService.findByCode(RpcRequest.success(dictQueryRpcRequest));
 
 		return dictApiResponse.getData();
 	}

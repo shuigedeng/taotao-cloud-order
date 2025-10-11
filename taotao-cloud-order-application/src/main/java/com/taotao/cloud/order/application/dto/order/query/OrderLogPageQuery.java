@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.dto.order.query;
 
 import com.taotao.boot.common.enums.UserEnum;
-import com.taotao.boot.common.model.PageQuery;
+import com.taotao.boot.common.model.request.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.*;
