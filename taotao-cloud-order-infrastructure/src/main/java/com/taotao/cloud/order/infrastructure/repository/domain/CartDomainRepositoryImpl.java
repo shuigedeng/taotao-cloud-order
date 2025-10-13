@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.repository.domain;
 
-import com.taotao.cloud.order.domain.cart.repository.CartDomainRepository;
+import com.taotao.cloud.order.domain.repository.CartDomainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

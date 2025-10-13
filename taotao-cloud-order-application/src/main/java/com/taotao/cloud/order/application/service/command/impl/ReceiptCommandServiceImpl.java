@@ -17,8 +17,8 @@
 package com.taotao.cloud.order.application.service.command.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
-import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
+import com.taotao.cloud.order.application.dto.own.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.own.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

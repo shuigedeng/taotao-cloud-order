@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
+import com.taotao.cloud.order.application.dto.own.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.dto.own.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.own.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

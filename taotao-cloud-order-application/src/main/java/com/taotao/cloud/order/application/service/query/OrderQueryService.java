@@ -17,7 +17,10 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.order.query.*;
+import com.taotao.cloud.order.application.dto.own.order.query.QDetailedOrder;
+import com.taotao.cloud.order.application.dto.own.order.query.QOrderShipment;
+import com.taotao.cloud.order.application.dto.own.order.query.QPriceQuotation;
+import com.taotao.cloud.order.application.dto.own.order.query.QuotePriceQuery;
 import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.order.valobj.User;
 

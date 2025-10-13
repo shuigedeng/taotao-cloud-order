@@ -1,0 +1,35 @@
+package com.taotao.cloud.order.facade.sys.invoker;
+
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.ddd.gateway.invoker.GatewayInvokeBuilder;
+import com.taotao.boot.ddd.gateway.model.GatewayRequest;
+import com.taotao.boot.ddd.gateway.model.GatewayResponse;
+import com.taotao.cloud.goods.facade.sys.interceptor.SysInterceptor;
+import com.taotao.cloud.sys.api.dubbo.DictRpcService;
+import com.taotao.cloud.sys.api.feign.DictApi;
+import com.taotao.cloud.sys.api.feign.request.DictQueryApiRequest;
+import com.taotao.cloud.sys.api.feign.response.DictApiResponse;
+import lombok.RequiredArgsConstructor;
+import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.stereotype.Component;
+
+@Component
+@RequiredArgsConstructor
+public class SysInvoker {
+
+	private final DictApi dictApi;
+
+	@DubboReference
+	private final DictRpcService dictRpcService;
+
+	public GatewayResponse<DictApiResponse> findByCode(GatewayRequest<DictQueryApiRequest> gatewayRequest) {
+		return new GatewayInvokeBuilder<DictQueryApiRequest,DictApiResponse >()
+			.description("sys系统-字典信息查询")
+			.gatewayRouter(request -> dictApi.findByCode(Request.from(request)))
+			.addFirst(new SysInterceptor<>())
+			.build()
+			.invoke(gatewayRequest);
+	}
+
+
+}

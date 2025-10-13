@@ -17,9 +17,9 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
+import com.taotao.cloud.order.application.dto.own.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.dto.own.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.own.order.command.StoreAppealCommand;
 
 /**
  * 交易投诉业务层

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.assembler;
 
-import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
+import com.taotao.cloud.order.application.dto.own.aftersale.result.AfterSaleResult;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSalePO;
 import java.util.List;
 import org.mapstruct.Mapper;
