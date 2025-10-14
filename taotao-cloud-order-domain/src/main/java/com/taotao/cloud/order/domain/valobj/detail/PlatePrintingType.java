@@ -16,7 +16,8 @@
 
 package com.taotao.cloud.order.domain.valobj.detail;
 
-import static com.taotao.cloud.order.domain.order.valobj.detail.MaterialType.*;
+
+import static com.taotao.cloud.order.domain.valobj.detail.MaterialType.*;
 
 public enum PlatePrintingType {
     TRANSPARENT_ACRYLIC_50x40(TRANSPARENT_ACRYLIC, "50*40mm", 3.0),

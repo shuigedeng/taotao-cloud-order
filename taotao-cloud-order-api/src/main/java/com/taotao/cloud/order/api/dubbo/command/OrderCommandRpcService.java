@@ -14,10 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.repository;
+package com.taotao.cloud.order.api.dubbo.command;
 
+import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
+import com.taotao.cloud.order.api.dubbo.dto.request.OrderQueryRpcRequest;
+import com.taotao.cloud.order.api.dubbo.dto.response.OrderQueryGrpcResponse;
 
-public interface BrandQueryRepository {
+/**
+ * 后台部门表服务接口
+ *
+ * @author shuigedeng
+ * @version 2022.03
+ * @since 2022-03-25 14:22:32
+ */
+public interface OrderCommandRpcService {
 
-    BrandResult getById(Long id);
+	Response<OrderQueryGrpcResponse> query(Request<OrderQueryRpcRequest> orderQueryRpcRequest);
 }

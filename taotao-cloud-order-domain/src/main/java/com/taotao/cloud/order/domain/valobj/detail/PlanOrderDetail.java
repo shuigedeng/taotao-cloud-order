@@ -30,7 +30,7 @@ import org.springframework.data.annotation.TypeAlias;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-import static com.taotao.cloud.order.domain.order.valobj.plan.PlanType.FREE;
+import static com.taotao.cloud.order.domain.valobj.plan.PlanType.FREE;
 import static java.math.BigDecimal.ZERO;
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
