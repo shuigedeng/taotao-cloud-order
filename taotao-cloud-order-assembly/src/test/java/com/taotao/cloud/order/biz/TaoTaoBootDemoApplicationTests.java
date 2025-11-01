@@ -20,7 +20,6 @@ import com.taotao.boot.oss.common.model.OssInfo;
 import com.taotao.boot.oss.common.service.StandardOssClient;
 import com.taotao.cloud.order.TaoTaoCloudOrderApplication;
 import java.time.LocalDateTime;
-import org.dromara.hutool.core.io.file.FileUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
