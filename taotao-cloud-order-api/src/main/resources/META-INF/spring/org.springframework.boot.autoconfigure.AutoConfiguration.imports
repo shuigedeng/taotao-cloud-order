@@ -2,3 +2,7 @@ com.taotao.cloud.order.api.feign.command.fallback.OrderCommandApiFallback
 com.taotao.cloud.order.api.feign.command.fallback.OrderItemCommandApiFallback
 com.taotao.cloud.order.api.feign.command.fallback.StoreFlowCommandApiFallback
 com.taotao.cloud.order.api.feign.command.fallback.TradeCommandApiFallback
+com.taotao.cloud.order.api.feign.query.fallback.OrderItemQueryApiFallback
+com.taotao.cloud.order.api.feign.query.fallback.OrderQueryApiFallback
+com.taotao.cloud.order.api.feign.query.fallback.StoreFlowQueryApiFallback
+com.taotao.cloud.order.api.feign.query.fallback.TradeQueryApiFallback

@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @since 2020/5/2 16:42
  */
 @FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "TradeApi",
+	contextId = "TradeCommandApi",
 	fallbackFactory = TradeCommandApiFallback.class)
 public interface TradeCommandApi {
 

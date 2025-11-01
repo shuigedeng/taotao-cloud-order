@@ -20,6 +20,7 @@ import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.order.api.dubbo.dto.request.OrderQueryRpcRequest;
 import com.taotao.cloud.order.api.dubbo.dto.response.OrderQueryGrpcResponse;
+import com.taotao.cloud.order.api.dubbo.dto.response.OrderQueryRpcResponse;
 
 /**
  * 后台部门表服务接口
@@ -30,5 +31,5 @@ import com.taotao.cloud.order.api.dubbo.dto.response.OrderQueryGrpcResponse;
  */
 public interface OrderCommandRpcService {
 
-	Response<OrderQueryGrpcResponse> query(Request<OrderQueryRpcRequest> orderQueryRpcRequest);
+	Response<OrderQueryRpcResponse> query(Request<OrderQueryRpcRequest> orderQueryRpcRequest);
 }

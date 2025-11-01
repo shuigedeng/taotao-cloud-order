@@ -40,7 +40,7 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
  * @since 2020/5/2 16:42
  */
 @FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "OrderApi",
+	contextId = "OrderQueryApi",
 	fallbackFactory = OrderQueryApiFallback.class)
 public interface OrderQueryApi {
 

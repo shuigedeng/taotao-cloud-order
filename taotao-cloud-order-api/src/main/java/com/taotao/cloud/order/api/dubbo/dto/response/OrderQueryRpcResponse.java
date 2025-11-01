@@ -14,16 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.dubbo.dto.request;
+package com.taotao.cloud.order.api.dubbo.dto.response;
 
 import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.response.ResponseBase;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
@@ -39,7 +40,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderQueryRpcRequest extends RequestBase implements Serializable {
+public class OrderQueryRpcResponse extends ResponseBase implements Serializable {
 
     private static final long serialVersionUID = 5126530068827085130L;
 

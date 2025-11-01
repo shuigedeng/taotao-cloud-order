@@ -28,7 +28,7 @@ import java.math.BigDecimal;
  * @since 2021-10-09 16:31:52
  */
 @Schema(description = "订单添加对象")
-public record OrderSaveApiRequest(
+public record OrderSaveApiRequest (
 
         /** 买家ID */
         @Schema(description = "买家ID") Long memberId,
