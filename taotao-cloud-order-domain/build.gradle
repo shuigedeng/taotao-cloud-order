@@ -63,7 +63,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-cloud-starter-stream"
     api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
     api "io.github.shuigedeng:taotao-cloud-starter-ttc"
-    api "io.github.shuigedeng:taotao-cloud-starter-openfeign"
+    //api "io.github.shuigedeng:taotao-cloud-starter-openfeign"
 
     //boot
     api "io.github.shuigedeng:taotao-boot-starter-apollo"
@@ -76,7 +76,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-elk"
     api "io.github.shuigedeng:taotao-boot-starter-captcha"
     api "io.github.shuigedeng:taotao-boot-starter-office"
-    api "io.github.shuigedeng:taotao-boot-starter-third-client"
+    api "io.github.shuigedeng:taotao-boot-starter-client"
     api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
     api "io.github.shuigedeng:taotao-boot-starter-oss-minio"
     api "io.github.shuigedeng:taotao-boot-starter-job-xxl"
