@@ -1,9 +1,7 @@
-package com.taotao.cloud.order.api.feign.dto.request;
+package com.taotao.cloud.order.api.client.dto.request;
 
 import com.taotao.boot.common.model.request.RequestBase;
-import lombok.AllArgsConstructor;
 import lombok.*;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Setter

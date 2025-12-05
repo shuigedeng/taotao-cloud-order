@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.query;
+package com.taotao.cloud.order.api.client.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.order.api.feign.dto.response.StoreFlowApiResponse;
-import com.taotao.cloud.order.api.feign.dto.response.TradeApiResponse;
-import com.taotao.cloud.order.api.feign.query.fallback.StoreFlowQueryApiFallback;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.taotao.cloud.order.api.client.dto.response.StoreFlowApiResponse;
+import com.taotao.cloud.order.api.client.dto.response.TradeApiResponse;
+import com.taotao.cloud.order.api.client.query.fallback.StoreFlowQueryApiFallback;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
 
 /**
  * 远程调用订单模块
@@ -32,20 +32,18 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "StoreFlowApi",
-	fallbackFactory = StoreFlowQueryApiFallback.class)
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER)
 public interface StoreFlowQueryApi {
 
-    @GetMapping(value = "/trade")
-	TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
+    @GetExchange(value = "/trade")
+    TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
-    @GetMapping(value = "/getStoreFlow")
+    @GetExchange(value = "/getStoreFlow")
     PageResult<StoreFlowApiResponse> getStoreFlow(@RequestParam(value = "id")String id,
 												  @RequestParam(value = "flowType")String flowType,
 												  @RequestParam(value = "PageQuery")PageQuery PageQuery);
 
-    @GetMapping(value = "/getDistributionFlow")
+    @GetExchange(value = "/getDistributionFlow")
     PageResult<StoreFlowApiResponse> getDistributionFlow(@RequestParam(value = "id")String id,
 														 @RequestParam(value = "PageQuery")PageQuery PageQuery);
 }

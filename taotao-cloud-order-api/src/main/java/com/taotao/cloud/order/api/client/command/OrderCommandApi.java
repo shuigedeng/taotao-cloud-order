@@ -14,27 +14,28 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.command;
+package com.taotao.cloud.order.api.client.command;
 
-
-import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
-import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.support.info.ApiInfo;
 import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.Update;
-import com.taotao.cloud.order.api.feign.command.fallback.OrderCommandApiFallback;
-import com.taotao.cloud.order.api.feign.dto.request.OrderSaveApiRequest;
-import com.taotao.cloud.order.api.feign.dto.response.OrderDetailApiResponse;
-import com.taotao.cloud.order.api.feign.dto.response.OrderApiResponse;
-import java.util.List;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.taotao.cloud.order.api.client.command.fallback.OrderCommandApiFallback;
+import com.taotao.cloud.order.api.client.dto.request.OrderSaveApiRequest;
+import com.taotao.cloud.order.api.client.dto.response.OrderApiResponse;
+import com.taotao.cloud.order.api.client.dto.response.OrderDetailApiResponse;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PostExchange;
+
+import java.util.List;
+
+import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
+import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 /**
  * 远程调用订单模块
@@ -42,9 +43,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "OrderCommandApi",
-	fallbackFactory = OrderCommandApiFallback.class)
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER)
 public interface OrderCommandApi {
 
 	@ApiInfo(
@@ -53,8 +52,8 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@GetMapping(value = "/order/feign/info/{code}")
-	OrderApiResponse findOrderInfoByCode(@PathVariable("code") String code);
+	@GetExchange(value = "/order/feign/info/{code}")
+    OrderApiResponse findOrderInfoByCode(@PathVariable("code") String code);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -62,8 +61,8 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@PostMapping(value = "/order/feign/saveOrder")
-	OrderApiResponse saveOrder(@RequestBody OrderSaveApiRequest orderDTO);
+	@PostExchange(value = "/order/feign/saveOrder")
+    OrderApiResponse saveOrder(@RequestBody OrderSaveApiRequest orderDTO);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -71,8 +70,8 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@GetMapping(value = "/order/feign/queryDetail")
-	OrderDetailApiResponse queryDetail(@RequestParam(value = "sn")String sn);
+	@GetExchange(value = "/order/feign/queryDetail")
+    OrderDetailApiResponse queryDetail(@RequestParam(value = "sn")String sn);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -80,7 +79,7 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@PostMapping(value = "/order/feign/payOrder")
+	@PostExchange(value = "/order/feign/payOrder")
 	Boolean payOrder(@RequestParam(value = "sn")String sn,
 					 @RequestParam(value = "paymentMethod")String paymentMethod,
 					 @RequestParam(value = "receivableNo")String receivableNo);
@@ -91,8 +90,8 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@GetMapping(value = "/order/feign/getBySn")
-	OrderApiResponse getBySn(@RequestParam(value = "sn")String sn);
+	@GetExchange(value = "/order/feign/getBySn")
+    OrderApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -100,6 +99,6 @@ public interface OrderCommandApi {
 			@Update(version = V2022_07, content = "主要修改了配置信息的接口查询", date = "2022-07-01 17:11:55"),
 			@Update(version = V2022_08, content = "主要修改了配置信息的接口查询08", date = "2022-07-01 17:11:55")
 		})
-	@GetMapping(value = "/order/feign/getByTradeSn")
+	@GetExchange(value = "/order/feign/getByTradeSn")
 	List<OrderApiResponse> getByTradeSn(@RequestParam(value = "sn")String sn);
 }

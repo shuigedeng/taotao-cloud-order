@@ -14,16 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.dto.response;
+package com.taotao.cloud.order.api.client.dto.response;
 
 import com.taotao.boot.common.enums.ClientTypeEnum;
 import com.taotao.cloud.order.api.enums.cart.DeliveryMethodEnum;
-import com.taotao.cloud.order.api.enums.order.DeliverStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderTypeEnum;
-import com.taotao.cloud.order.api.enums.order.PayStatusEnum;
+import com.taotao.cloud.order.api.enums.order.*;
 import io.soabase.recordbuilder.core.RecordBuilder;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;

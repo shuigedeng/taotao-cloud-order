@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.command;
+package com.taotao.cloud.order.api.client.command;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.cloud.order.api.feign.command.fallback.TradeCommandApiFallback;
-import com.taotao.cloud.order.api.feign.dto.response.TradeApiResponse;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import com.taotao.cloud.order.api.client.command.fallback.TradeCommandApiFallback;
+import com.taotao.cloud.order.api.client.dto.response.TradeApiResponse;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PostExchange;
 
 /**
  * 远程调用订单模块
@@ -30,15 +30,13 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "TradeCommandApi",
-	fallbackFactory = TradeCommandApiFallback.class)
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER)
 public interface TradeCommandApi {
 
-	@GetMapping(value = "/trade")
-	TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
+	@GetExchange(value = "/trade")
+    TradeApiResponse getBySn(@RequestParam(value = "sn")String sn);
 
-	@PostMapping(value = "/payTrade")
+	@PostExchange(value = "/payTrade")
 	boolean payTrade(@RequestParam(value = "sn")String sn,
 					 @RequestParam(value = "paymentMethod")String paymentMethod,
 					 @RequestParam(value = "receivableNo")String receivableNo);

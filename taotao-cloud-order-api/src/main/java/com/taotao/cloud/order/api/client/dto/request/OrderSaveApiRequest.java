@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.dto.request;
+package com.taotao.cloud.order.api.client.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 

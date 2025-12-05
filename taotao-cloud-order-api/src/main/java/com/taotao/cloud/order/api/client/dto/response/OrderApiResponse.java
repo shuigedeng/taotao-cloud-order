@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.dto.response;
+package com.taotao.cloud.order.api.client.dto.response;
 
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;

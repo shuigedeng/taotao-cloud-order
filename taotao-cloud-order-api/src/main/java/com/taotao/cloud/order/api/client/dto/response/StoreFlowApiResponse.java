@@ -1,8 +1,6 @@
-package com.taotao.cloud.order.api.feign.dto.response;
+package com.taotao.cloud.order.api.client.dto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.*;
-import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Setter

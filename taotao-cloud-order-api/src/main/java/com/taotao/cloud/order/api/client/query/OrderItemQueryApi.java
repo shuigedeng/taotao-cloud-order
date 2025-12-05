@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.feign.command;
+package com.taotao.cloud.order.api.client.query;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.cloud.order.api.client.dto.request.OrderItemSaveApiRequest;
+import com.taotao.cloud.order.api.client.dto.response.OrderItemApiResponse;
+import com.taotao.cloud.order.api.client.query.fallback.OrderItemQueryApiFallback;
 import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.feign.command.fallback.OrderItemCommandApiFallback;
-import com.taotao.cloud.order.api.feign.dto.request.OrderItemSaveApiRequest;
-import com.taotao.cloud.order.api.feign.dto.response.OrderItemApiResponse;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
+import org.springframework.web.service.annotation.PostExchange;
 
 /**
  * 远程调用订单项模块
@@ -34,23 +34,21 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER,
-	contextId = "OrderItemCommandApi",
-	fallbackFactory = OrderItemCommandApiFallback.class)
-public interface OrderItemCommandApi {
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_ORDER)
+public interface OrderItemQueryApi {
 
-    @PostMapping(value = "/order/item")
+    @PostExchange(value = "/order/item")
     Boolean saveOrderItem(@RequestBody OrderItemSaveApiRequest orderItemSaveDTO);
 
     @PutMapping(value = "/order/item")
     Boolean updateById(@RequestBody OrderItemSaveApiRequest orderItem);
 
-    @GetMapping(value = "/order/item")
-	OrderItemApiResponse getByOrderSnAndSkuId(@RequestParam(value = "orderSn")String orderSn,
+    @GetExchange(value = "/order/item")
+    OrderItemApiResponse getByOrderSnAndSkuId(@RequestParam(value = "orderSn")String orderSn,
 											  @RequestParam(value = "skuId")String skuId);
 
-    @GetMapping(value = "/order/item")
-	OrderItemApiResponse getBySn(@RequestParam(value = "orderItemSn")String orderItemSn);
+    @GetExchange(value = "/order/item")
+    OrderItemApiResponse getBySn(@RequestParam(value = "orderItemSn")String orderItemSn);
 
     @PutMapping(value = "/order/item")
     Boolean updateCommentStatus(@RequestParam(value = "sn")String sn,
