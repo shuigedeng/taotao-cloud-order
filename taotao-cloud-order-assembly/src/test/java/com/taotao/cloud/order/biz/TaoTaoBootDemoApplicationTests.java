@@ -19,13 +19,22 @@ package com.taotao.cloud.order.biz;
 import com.taotao.boot.oss.common.model.OssInfo;
 import com.taotao.boot.oss.common.service.StandardOssClient;
 import com.taotao.cloud.order.TaoTaoCloudOrderApplication;
+
 import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 
+/**
+ * TaoTaoBootDemoApplicationTests
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest(
         classes = TaoTaoCloudOrderApplication.class,
         properties = "spring.main.allow-bean-definition-overriding=true")
@@ -33,7 +42,8 @@ import org.springframework.test.context.TestPropertySource;
 @TestPropertySource({"classpath:application-test.yml"})
 public class TaoTaoBootDemoApplicationTests {
 
-    @Autowired private StandardOssClient standardOssClient;
+    @Autowired
+    private StandardOssClient standardOssClient;
 
     @Test
     void contextLoads() {

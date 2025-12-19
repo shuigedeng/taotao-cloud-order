@@ -59,13 +59,23 @@ public record AfterSalePriceDetailCommand(
         // =========end platform coupon==========
 
         @Schema(description = "流水金额(入账 出帐金额) = goodsPrice - discountPrice - couponPrice")
-                BigDecimal flowPrice,
+        BigDecimal flowPrice,
         @Schema(description = "最终结算金额 = flowPrice - platFormCommission - distributionCommission")
-                BigDecimal billPrice,
+        BigDecimal billPrice,
         @Schema(description = "参与的促销活动") List<BasePromotionsDTO> joinPromotion)
         implements Serializable {
 
-    @Serial private static final long serialVersionUID = 8808470688518188146L;
+    @Serial
+    private static final long serialVersionUID = 8808470688518188146L;
 
-    public static class BasePromotionsDTO {}
+    /**
+     * BasePromotionsDTO
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
+    public static class BasePromotionsDTO {
+
+    }
 }

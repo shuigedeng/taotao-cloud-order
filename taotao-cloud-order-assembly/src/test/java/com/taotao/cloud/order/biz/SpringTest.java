@@ -19,7 +19,9 @@ package com.taotao.cloud.order.biz;
 import com.taotao.boot.test.TtcBootTestBase;
 import com.taotao.cloud.order.application.service.DeptsService;
 import com.taotao.cloud.order.application.service.DictsService;
+
 import java.nio.charset.StandardCharsets;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,12 +36,21 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+/**
+ * SpringTest
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest
 public class SpringTest extends TtcBootTestBase {
 
-    @MockitoBean private DeptsService deptsService;
+    @MockitoBean
+    private DeptsService deptsService;
 
-    @MockitoSpyBean private DictsService dictsService;
+    @MockitoSpyBean
+    private DictsService dictsService;
 
     @Test
     @DisplayName("SpyBean的正确打桩姿势")

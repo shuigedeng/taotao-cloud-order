@@ -28,6 +28,7 @@ import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.order.valobj.User;
 import java.util.List;
 import java.util.Objects;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -45,6 +46,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class OrderQueryServiceImpl implements OrderQueryService {
+
     private static final List<OrderStatus> VIEWABLE_ORDER_STATUSES = List.of(PAID, REFUNDED);
     private static final String SHIPMENT_BASE_URL = "https://wuliu.market.alicloudapi.com/kdi";
     //	private final TenantRepository tenantRepository;
@@ -56,7 +58,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     //	private final AliyunProperties aliyunProperties;
     //	private final MryObjectMapper objectMapper;
 
-    public QPriceQuotation quoteOrderPrice(QuotePriceQuery queryCommand, User user) {
+    public QPriceQuotation quoteOrderPrice( QuotePriceQuery queryCommand, User user ) {
         user.checkIsTenantAdmin();
         //		mryRateLimiter.applyFor(user.getTenantId(), "Order:Quote", 5);
 
@@ -68,7 +70,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .build();
     }
 
-    public OrderStatus fetchOrderStatus(String orderId, User user) {
+    public OrderStatus fetchOrderStatus( String orderId, User user ) {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchStatus", 5);
 
@@ -135,7 +137,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     //		.build();
     // }
 
-    public QDetailedOrder fetchDetailedOrder(String orderId, User user) {
+    public QDetailedOrder fetchDetailedOrder( String orderId, User user ) {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchDetailedOrder", 5);
 
@@ -177,7 +179,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .build();
     }
 
-    public QOrderShipment fetchOrderShipment(String orderId, User user) {
+    public QOrderShipment fetchOrderShipment( String orderId, User user ) {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchOrderShipment", 5);
 
@@ -237,19 +239,35 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .build();
     }
 
+    /**
+     * RawShipment
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Value
     @Builder
     @AllArgsConstructor(access = PRIVATE)
     private static class RawShipment {
+
         private final String status;
         private final String msg;
         private final RawShipmentResult result;
     }
 
+    /**
+     * RawShipmentResult
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Value
     @Builder
     @AllArgsConstructor(access = PRIVATE)
     private static class RawShipmentResult {
+
         private final String number;
         private final String type;
         private final List<RawShipmentNode> list;
@@ -260,10 +278,18 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         private final String updateTime;
     }
 
+    /**
+     * RawShipmentNode
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Value
     @Builder
     @AllArgsConstructor(access = PRIVATE)
     private static class RawShipmentNode {
+
         private final String time;
         private final String status;
     }

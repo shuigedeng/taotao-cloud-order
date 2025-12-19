@@ -17,18 +17,26 @@
 package com.taotao.cloud.order.domain.event;
 
 import com.taotao.cloud.order.domain.valobj.User;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * OrderInvoiceIssuedEvent
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @TypeAlias("ORDER_INVOICE_ISSUED_EVENT")
 @NoArgsConstructor(access = PRIVATE)
 public class OrderInvoiceIssuedEvent extends OrderUpdatedEvent {
 
-    public OrderInvoiceIssuedEvent(Long orderId, User user) {
+    public OrderInvoiceIssuedEvent( Long orderId, User user ) {
         //        super(ORDER_INVOICE_ISSUED, orderId, user);
     }
 }

@@ -24,6 +24,13 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+/**
+ * OrderLogResult
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @Setter
 @ToString(callSuper = true)
@@ -32,10 +39,14 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 public class OrderLogResult {
 
-    /** 订单编号 */
+    /**
+     * 订单编号
+     */
     private String orderSn;
 
-    /** 操作者id(可以是卖家) */
+    /**
+     * 操作者id(可以是卖家)
+     */
     private Long operatorId;
 
     /**
@@ -45,9 +56,13 @@ public class OrderLogResult {
      */
     private String operatorType;
 
-    /** 操作者名称 */
+    /**
+     * 操作者名称
+     */
     private String operatorName;
 
-    /** 日志信息 */
+    /**
+     * 日志信息
+     */
     private String message;
 }

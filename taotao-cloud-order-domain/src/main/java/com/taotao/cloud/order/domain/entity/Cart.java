@@ -26,6 +26,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
+/**
+ * Cart
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @ToString
@@ -47,7 +54,7 @@ public class Cart extends AggregateRoot<Long> {
     @Schema(name = "sort", description = "部门排序")
     private Integer sort;
 
-    public void checkName(long count) {
+    public void checkName( long count ) {
         if (count > 0) {
             throw new BusinessException("部门名称已存在，请重新填写");
         }

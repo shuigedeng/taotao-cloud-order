@@ -16,16 +16,25 @@
 
 package com.taotao.cloud.order.domain.valobj.delivery;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * Delivery
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class Delivery {
+
     private final Carrier carrier;
     private final String deliveryOrderId;
 }

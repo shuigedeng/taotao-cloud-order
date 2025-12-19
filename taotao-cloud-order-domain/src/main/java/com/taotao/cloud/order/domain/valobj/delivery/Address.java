@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.domain.valobj.delivery;
 
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -24,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
@@ -31,10 +33,18 @@ import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+/**
+ * Address
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class Address {
+
     private static final String ADDRESS_JOINNER = "/";
 
     @Size(max = 20)
@@ -49,7 +59,7 @@ public class Address {
     @Size(max = 100)
     private final String address;
 
-    public static String joinAddress(String... addressPart) {
+    public static String joinAddress( String... addressPart ) {
         return String.join(ADDRESS_JOINNER, addressPart);
     }
 

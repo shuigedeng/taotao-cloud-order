@@ -20,6 +20,15 @@ import com.taotao.cloud.order.domain.aftersale.repository.AftersaleDomainReposit
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * AftersaleDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
-public class AftersaleDomainRepositoryImpl implements AftersaleDomainRepository {}
+public class AftersaleDomainRepositoryImpl implements AftersaleDomainRepository {
+
+}

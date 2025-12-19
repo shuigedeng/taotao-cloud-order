@@ -18,14 +18,23 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * ShipmentNodeQuery
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class ShipmentNodeQuery {
+
     private final String time;
     private final String status;
 }

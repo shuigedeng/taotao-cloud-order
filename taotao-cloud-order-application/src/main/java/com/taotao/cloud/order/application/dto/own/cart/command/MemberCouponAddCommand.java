@@ -34,14 +34,24 @@ import java.util.Map;
 @Schema(description = "用于计算优惠券结算详情")
 public record MemberCouponAddCommand(
         @Schema(
-                        description =
-                                "在整比交易中时： key 为店铺id，value 为每个店铺跨店优惠 结算金额 在购物车中时：key为sku id"
-                                        + " ，value为每个商品结算时的金额")
-                Map<String, BigDecimal> skuDetail,
+                description =
+                        "在整比交易中时： key 为店铺id，value 为每个店铺跨店优惠 结算金额 在购物车中时：key为sku id"
+                                + " ，value为每个商品结算时的金额")
+        Map<String, BigDecimal> skuDetail,
         @Schema(description = "优惠券详情") InnerMemberCouponDTO memberCoupon)
         implements Serializable {
 
-    @Serial private static final long serialVersionUID = 8276369124551043085L;
+    @Serial
+    private static final long serialVersionUID = 8276369124551043085L;
 
-    public static class InnerMemberCouponDTO {}
+    /**
+     * InnerMemberCouponDTO
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
+    public static class InnerMemberCouponDTO {
+
+    }
 }

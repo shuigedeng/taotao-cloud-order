@@ -43,7 +43,8 @@ import lombok.experimental.Accessors;
 @Schema(description = "店铺流水查询DTO")
 public class StoreFlowPageQuery extends PageQuery {
 
-    @Serial private static final long serialVersionUID = 8808470688518188146L;
+    @Serial
+    private static final long serialVersionUID = 8808470688518188146L;
 
     @Schema(description = "类型")
     private String type;
@@ -60,10 +61,18 @@ public class StoreFlowPageQuery extends PageQuery {
     @Schema(description = "结算单")
     private BillDTO bill;
 
+    /**
+     * BillDTO
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Setter
     @Getter
     @ToString
     public static class BillDTO {
+
         private LocalDateTime startTime;
 
         private LocalDateTime endTime;

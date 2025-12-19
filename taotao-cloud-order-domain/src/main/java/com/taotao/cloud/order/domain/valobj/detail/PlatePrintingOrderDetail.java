@@ -21,6 +21,7 @@ import com.taotao.cloud.order.domain.valobj.delivery.Consignee;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,12 +29,20 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.TypeAlias;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * PlatePrintingOrderDetail
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @SuperBuilder
 @TypeAlias("PLATE_PRINTING")
@@ -41,7 +50,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class PlatePrintingOrderDetail extends OrderDetail {
 
-    @NotNull private PlatePrintingType plateType;
+    @NotNull
+    private PlatePrintingType plateType;
 
     @Min(10)
     @Max(10000)
@@ -53,7 +63,9 @@ public class PlatePrintingOrderDetail extends OrderDetail {
     @Size(max = 10)
     private List<UploadedFile> files;
 
-    @Valid @NotNull private Consignee consignee;
+    @Valid
+    @NotNull
+    private Consignee consignee;
 
     @Override
     public String description() {
@@ -61,10 +73,11 @@ public class PlatePrintingOrderDetail extends OrderDetail {
     }
 
     @Override
-    public void validate(Tenant tenant) {}
+    public void validate( Tenant tenant ) {
+    }
 
     @Override
-    public OrderPrice doCalculatePrice(Tenant tenant) {
+    public OrderPrice doCalculatePrice( Tenant tenant ) {
         BigDecimal originalPrice =
                 valueOf(this.amount).multiply(valueOf(this.plateType.getUnitPrice()));
         BigDecimal deliveryFee = valueOf(this.plateType.getDeliveryFee());

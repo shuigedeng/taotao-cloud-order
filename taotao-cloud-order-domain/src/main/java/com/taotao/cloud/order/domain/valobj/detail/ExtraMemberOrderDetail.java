@@ -19,22 +19,34 @@ package com.taotao.cloud.order.domain.valobj.detail;
 import com.taotao.cloud.order.domain.valobj.OrderPrice;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.TypeAlias;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * ExtraMemberOrderDetail
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @SuperBuilder
 @TypeAlias("EXTRA_MEMBER")
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = PRIVATE)
 public class ExtraMemberOrderDetail extends OrderDetail {
+
     private static final int PRICE_PER_MEMBER = 200;
 
     @Min(1)
@@ -47,13 +59,13 @@ public class ExtraMemberOrderDetail extends OrderDetail {
     }
 
     @Override
-    public void validate(Tenant tenant) {
+    public void validate( Tenant tenant ) {
         validateRequireNonFreePlan(tenant);
         tenant.validateAddExtraMembers(amount);
     }
 
     @Override
-    public OrderPrice doCalculatePrice(Tenant tenant) {
+    public OrderPrice doCalculatePrice( Tenant tenant ) {
         String priceString =
                 valueOf(this.amount)
                         .multiply(valueOf(PRICE_PER_MEMBER))

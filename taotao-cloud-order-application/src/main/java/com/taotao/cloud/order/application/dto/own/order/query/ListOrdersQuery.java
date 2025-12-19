@@ -22,10 +22,18 @@ import com.taotao.boot.ddd.model.application.dto.Query;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * ListOrdersQuery
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)

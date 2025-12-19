@@ -21,6 +21,7 @@ import com.taotao.cloud.order.domain.valobj.plan.PlanType;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,9 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.TypeAlias;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 import static com.taotao.cloud.order.domain.valobj.plan.PlanType.FREE;
 import static java.math.BigDecimal.ZERO;
@@ -38,6 +41,13 @@ import static java.time.Instant.now;
 import static java.time.temporal.ChronoUnit.DAYS;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * PlanOrderDetail
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @SuperBuilder
 @TypeAlias("PLAN")
@@ -45,7 +55,8 @@ import static lombok.AccessLevel.PRIVATE;
 @NoArgsConstructor(access = PRIVATE)
 public class PlanOrderDetail extends OrderDetail {
 
-    @NotNull private PlanType planType;
+    @NotNull
+    private PlanType planType;
 
     @Max(10)
     @Min(0)
@@ -61,12 +72,12 @@ public class PlanOrderDetail extends OrderDetail {
     }
 
     @Override
-    public void validate(Tenant tenant) {
+    public void validate( Tenant tenant ) {
         tenant.validateAddPlanDuration(yearDuration);
     }
 
     @Override
-    public OrderPrice doCalculatePrice(Tenant tenant) {
+    public OrderPrice doCalculatePrice( Tenant tenant ) {
         PlanType currentEffectivePlanType = tenant.effectivePlanType();
         validate(currentEffectivePlanType, this.planType, this.yearDuration);
 
@@ -86,7 +97,7 @@ public class PlanOrderDetail extends OrderDetail {
     }
 
     private void validate(
-            PlanType currentEffectivePlanType, PlanType requestedPlanType, int yearDuration) {
+            PlanType currentEffectivePlanType, PlanType requestedPlanType, int yearDuration ) {
         //		if (requestedPlanType == FREE) {
         //			throw new MryException(PURCHASE_FREE_PLAN_NOT_ALLOWED,
         //				"免费版套餐无法购买。", mapOf("planType", requestedPlanType));
@@ -108,7 +119,7 @@ public class PlanOrderDetail extends OrderDetail {
         //		}
     }
 
-    private OrderPrice calculateRenewalOnlyPrice(PlanType requestedPlanType, int yearDuration) {
+    private OrderPrice calculateRenewalOnlyPrice( PlanType requestedPlanType, int yearDuration ) {
         BigDecimal originalTotalPrice = originalRenewalPrice(requestedPlanType, yearDuration);
         String originalTotalPriceString = originalTotalPrice.setScale(2, HALF_UP).toString();
 
@@ -137,7 +148,7 @@ public class PlanOrderDetail extends OrderDetail {
     }
 
     private OrderPrice calculateUpgradeOnlyPrice(
-            Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType) {
+            Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {
         BigDecimal originalUpgradePrice =
                 originalUpgradePrice(tenant, currentEffectivePlanType, requestedPlanType);
 
@@ -167,7 +178,7 @@ public class PlanOrderDetail extends OrderDetail {
             Tenant tenant,
             PlanType currentEffectivePlanType,
             PlanType requestedPlanType,
-            int yearDuration) {
+            int yearDuration ) {
         BigDecimal originalRenewalPrice = originalRenewalPrice(requestedPlanType, yearDuration);
         BigDecimal originalUpgradePrice =
                 originalUpgradePrice(tenant, currentEffectivePlanType, requestedPlanType);
@@ -199,7 +210,7 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
-    private int discountFor(int yearDuration) {
+    private int discountFor( int yearDuration ) {
         if (yearDuration == 1) {
             return 95;
         }
@@ -215,12 +226,12 @@ public class PlanOrderDetail extends OrderDetail {
         return 100;
     }
 
-    private BigDecimal originalRenewalPrice(PlanType requestedPlanType, int yearDuration) {
+    private BigDecimal originalRenewalPrice( PlanType requestedPlanType, int yearDuration ) {
         return valueOf(requestedPlanType.getPrice()).multiply(valueOf(yearDuration));
     }
 
     private BigDecimal originalUpgradePrice(
-            Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType) {
+            Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {
         Instant packagesExpiredAt = tenant.packagesExpiredAt();
         long leftDays = DAYS.between(now(), packagesExpiredAt);
         if (leftDays < 0) {

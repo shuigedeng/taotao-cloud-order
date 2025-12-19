@@ -19,13 +19,22 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.cloud.order.domain.order.valobj.OrderPrice;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * QPriceQuotation
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class QPriceQuotation {
+
     private final OrderPrice price;
 }

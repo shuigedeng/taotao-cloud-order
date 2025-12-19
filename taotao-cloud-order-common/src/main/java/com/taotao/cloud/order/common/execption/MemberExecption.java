@@ -16,4 +16,13 @@
 
 package com.taotao.cloud.order.common.execption;
 
-public class MemberExecption {}
+/**
+ * MemberExecption
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class MemberExecption {
+
+}

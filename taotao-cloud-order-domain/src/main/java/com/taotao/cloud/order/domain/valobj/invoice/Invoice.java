@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.domain.valobj.invoice;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,9 +26,17 @@ import java.util.List;
 import static java.time.Instant.now;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * Invoice
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @NoArgsConstructor(access = PRIVATE)
 public class Invoice {
+
     private InvoiceTitle title;
     private InvoiceType type;
     private String email;
@@ -36,14 +45,14 @@ public class Invoice {
     private List<UploadedFile> files;
     private Instant issuedAt;
 
-    public Invoice(InvoiceTitle title, InvoiceType type, String email) {
+    public Invoice( InvoiceTitle title, InvoiceType type, String email ) {
         this.type = type;
         this.title = title;
         this.email = email;
         this.requestedAt = now();
     }
 
-    public void issue(List<UploadedFile> files) {
+    public void issue( List<UploadedFile> files ) {
         this.files = files;
         this.issuedAt = now();
     }

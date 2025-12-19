@@ -54,10 +54,18 @@ public class StoreFlowQuery {
     @Schema(description = "结算单")
     private BillDTO bill;
 
+    /**
+     * BillDTO
+     *
+     * @author shuigedeng
+     * @version 2026.01
+     * @since 2025-12-19 09:30:45
+     */
     @Setter
     @Getter
     @ToString
     public static class BillDTO {
+
         private LocalDateTime startTime;
 
         private LocalDateTime endTime;

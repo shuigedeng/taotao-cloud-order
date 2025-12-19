@@ -21,8 +21,17 @@ import com.taotao.cloud.order.domain.valobj.plan.PlanType;
 
 import java.time.Instant;
 
+/**
+ * Tenant
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class Tenant {
-    public void validateAddExtraMembers(int amount) {}
+
+    public void validateAddExtraMembers( int amount ) {
+    }
 
     public boolean isEffectiveFreePlan() {
 
@@ -37,9 +46,11 @@ public class Tenant {
         return false;
     }
 
-    public void validateAddExtraVideoTraffic(int amount) {}
+    public void validateAddExtraVideoTraffic( int amount ) {
+    }
 
-    public void validateAddPlanDuration(int yearDuration) {}
+    public void validateAddPlanDuration( int yearDuration ) {
+    }
 
     public PlanType effectivePlanType() {
 
@@ -55,7 +66,8 @@ public class Tenant {
         return null;
     }
 
-    public void validateAddExtraStorage(int amount) {}
+    public void validateAddExtraStorage( int amount ) {
+    }
 
     public Instant packagesExpiredAt() {
         return null;

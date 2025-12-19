@@ -20,6 +20,15 @@ import com.taotao.cloud.order.domain.order.repository.OrderDomainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * OrderDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
-public class OrderDomainRepositoryImpl implements OrderDomainRepository {}
+public class OrderDomainRepositoryImpl implements OrderDomainRepository {
+
+}

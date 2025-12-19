@@ -31,9 +31,11 @@ import com.taotao.cloud.order.domain.valobj.invoice.Invoice;
 import com.taotao.cloud.order.domain.valobj.invoice.InvoiceTitle;
 import com.taotao.cloud.order.domain.valobj.invoice.InvoiceType;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 
 import java.time.Instant;
 import java.util.List;
@@ -46,10 +48,18 @@ import static java.lang.String.valueOf;
 import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang3.RandomUtils.nextInt;
 
+/**
+ * Order
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Slf4j
 @Getter
 @NoArgsConstructor(access = PRIVATE)
 public class Order extends AggregateRoot<Long> {
+
     private OrderDetail detail;
     private OrderPrice price;
     private PaymentType paymentType;
@@ -74,7 +84,7 @@ public class Order extends AggregateRoot<Long> {
         return "ODR" + IdUtil.getSnowflakeNextId();
     }
 
-    public Order(OrderDetail detail, PaymentType paymentType, Tenant tenant, User user) {
+    public Order( OrderDetail detail, PaymentType paymentType, Tenant tenant, User user ) {
         //		super(newOrderId(), tenant.getTenantId(), user);
         detail.validate(tenant);
         this.detail = detail;
@@ -92,11 +102,11 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("新建", user);
     }
 
-    void setWxPayQrUrl(String url) {
+    void setWxPayQrUrl( String url ) {
         this.wxPayQrUrl = url;
     }
 
-    public void wxPay(String wxTxnId, Instant paidAt, User user) {
+    public void wxPay( String wxTxnId, Instant paidAt, User user ) {
         //		if (this.paymentType != WX_NATIVE) {
         //			log.warn("Order[{}] is not created with wx pay, skip.", this.getId());
         //			return;
@@ -112,7 +122,7 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("在线微信支付", user);
     }
 
-    public void wxTransferPay(List<UploadedFile> screenShots, Instant paidAt, User user) {
+    public void wxTransferPay( List<UploadedFile> screenShots, Instant paidAt, User user ) {
         //		if (this.paymentType != WX_TRANSFER) {
         //			log.warn("Order[{}] is not created with ex transfer pay, skip.", this.getId());
         //			return;
@@ -129,7 +139,7 @@ public class Order extends AggregateRoot<Long> {
     }
 
     public void bankTransferPay(
-            String bankTransferAccountId, String bankName, Instant paidAt, User user) {
+            String bankTransferAccountId, String bankName, Instant paidAt, User user ) {
         if (this.paymentType != BANK_TRANSFER) {
             log.warn("Order[{}] is not created with bank transfer pay, skip.", this.getId());
             return;
@@ -146,7 +156,7 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("银行对公转账", user);
     }
 
-    public void requestInvoice(InvoiceType type, InvoiceTitle title, String email, User user) {
+    public void requestInvoice( InvoiceType type, InvoiceTitle title, String email, User user ) {
         //		if (title == null) {
         //			throw new MryException(NO_INVOICE_TITLE, "申请失败，尚无发票抬头信息。", mapOf("orderId",
         // this.getId()));
@@ -167,7 +177,7 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("申请发票", user);
     }
 
-    public void updateDelivery(Delivery delivery, User user) {
+    public void updateDelivery( Delivery delivery, User user ) {
         if (this.detail.getType() != PLATE_PRINTING) {
             log.warn(
                     "Order[{}] is not plate printing type, skip update delivery info.",
@@ -189,7 +199,7 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("添加物流信息", user);
     }
 
-    public void issueInvoice(List<UploadedFile> files, User user) {
+    public void issueInvoice( List<UploadedFile> files, User user ) {
         if (!this.isInvoiceRequested()) {
             log.warn("Order[{}] invoice not requested, skip issue invoice.", this.getId());
             return;
@@ -204,7 +214,7 @@ public class Order extends AggregateRoot<Long> {
         addOpsLog("开具发票", user);
     }
 
-    public void refund(String reason, User user) {
+    public void refund( String reason, User user ) {
         if (atCreated()) {
             log.warn("Order[{}] is not paid, cannot be refund.", this.getId());
             return;
@@ -218,9 +228,11 @@ public class Order extends AggregateRoot<Long> {
         this.refundReason = reason;
     }
 
-    private void addOpsLog(String msg, User user) {}
+    private void addOpsLog( String msg, User user ) {
+    }
 
-    private void raiseEvent(DomainEvent domainEvent) {}
+    private void raiseEvent( DomainEvent domainEvent ) {
+    }
 
     public String description() {
         return detail.description();

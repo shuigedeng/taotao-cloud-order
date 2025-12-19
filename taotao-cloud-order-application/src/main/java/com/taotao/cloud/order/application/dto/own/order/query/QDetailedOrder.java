@@ -19,15 +19,26 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetail;
+
 import java.time.Instant;
+
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * QDetailedOrder
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class QDetailedOrder {
+
     private final String id;
     private final String description;
     private final String orderDetailType;

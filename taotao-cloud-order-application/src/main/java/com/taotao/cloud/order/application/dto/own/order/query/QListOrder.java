@@ -20,15 +20,26 @@ import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetailType;
+
 import java.time.Instant;
+
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * QListOrder
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class QListOrder {
+
     private final String id;
     private final OrderDetailType orderDetailTypeEnum;
     private final String orderDetailType;

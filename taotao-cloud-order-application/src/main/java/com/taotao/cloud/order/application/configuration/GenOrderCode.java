@@ -23,6 +23,13 @@ import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
+/**
+ * GenOrderCode
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Slf4j
 @Component
 public class GenOrderCode {
@@ -30,7 +37,7 @@ public class GenOrderCode {
     // 创建Redisson客户端实例
     private final RedissonClient redissonClient;
 
-    public GenOrderCode(RedissonClient redissonClient) {
+    public GenOrderCode( RedissonClient redissonClient ) {
         this.redissonClient = redissonClient;
     }
 
@@ -47,13 +54,14 @@ public class GenOrderCode {
      * 		String key = "com" + orderPrefix;
      * 		String orderCode = genOrderCode.genOrderCode(25, orderPrefix, key);
      * }
-     * }
-     * @param length   订单总长度
-     * @param prefix   前缀 当天日期-yyMMdd
+     *}
+     *
+     * @param length 订单总长度
+     * @param prefix 前缀 当天日期-yyMMdd
      * @param lockKey 分布式锁id
      * @return 订单号
      */
-    public String genOrderCode(int length, String prefix, String lockKey) {
+    public String genOrderCode(int length, String prefix, String lockKe y) {
         // 检查参数合法性
         if (length <= 0) {
             log.warn("获取订单号：订单总长度不能小于0");

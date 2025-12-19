@@ -25,17 +25,28 @@ import com.taotao.boot.test.junitperf.core.annotation.TtcTest;
 import com.taotao.boot.test.junitperf.core.report.impl.HtmlReporter;
 import com.taotao.cloud.order.TaoTaoCloudOrderApplicationTestBase;
 import com.taotao.cloud.order.application.service.DeptsService;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * TestApp
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class TestApp extends TaoTaoCloudOrderApplicationTestBase {
 
-    @Autowired private DeptsService deptsService;
+    @Autowired
+    private DeptsService deptsService;
 
     @TtcTest(duration = 1000, reporter = HtmlReporter.class)
     public void helloTest111() throws InterruptedException {
@@ -69,9 +80,6 @@ public class TestApp extends TaoTaoCloudOrderApplicationTestBase {
         System.out.println("asdfasf");
     }
 
-    // @ParameterizedTest 注解用于标记一个参数化测试方法。与普通的 @Test 注解不同，
-    // @ParameterizedTest 注解的方法将接受一个或多个参数，并根据提供的参数执行多次测试。以下是一个示例：
-
     // @ValueSource：提供基本类型、字符串或枚举类型的参数值。
     //
     //
@@ -84,7 +92,7 @@ public class TestApp extends TaoTaoCloudOrderApplicationTestBase {
     // @MethodSource：通过调用其他方法来提供参数值。
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3})
-    public void testSquare(int num) {
+    public void testSquare( int num ) {
         int result = num * num;
         Assertions.assertEquals(num * num, result);
     }

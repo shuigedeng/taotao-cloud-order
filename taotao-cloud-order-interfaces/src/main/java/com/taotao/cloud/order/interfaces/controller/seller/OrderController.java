@@ -32,22 +32,31 @@ import com.taotao.cloud.order.domain.order.valobj.User;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * OrderController
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/orders")
 public class OrderController {
+
     private final OrderQueryService orderQueryService;
     private final OrderCommandService orderCommandService;
 
     @PostMapping
     @ResponseStatus(CREATED)
     public CreateOrderResponse createOrder(
-            @RequestBody @Valid CreateOrderCommand command, @AuthenticationPrincipal User user) {
+            @RequestBody @Valid CreateOrderCommand command, @AuthenticationPrincipal User user ) {
         return orderCommandService.createOrder(command, user);
     }
 
@@ -55,37 +64,31 @@ public class OrderController {
     public void requestInvoice(
             @PathVariable("orderId") @NotBlank String orderId,
             @RequestBody @Valid RequestInvoiceCommand command,
-            @AuthenticationPrincipal User user) {
+            @AuthenticationPrincipal User user ) {
         orderCommandService.requestInvoice(orderId, command, user);
     }
 
     @GetMapping(value = "/{orderId}/status")
     public OrderStatus fetchOrderStatus(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
         return orderQueryService.fetchOrderStatus(orderId, user);
     }
 
-    // @PostMapping(value = "/list")
-    // public PagedList<QListOrder> listOrders(@RequestBody @Valid ListOrdersQuery queryCommand,
-    //										@AuthenticationPrincipal User user) {
-    //	return orderQueryService.listOrders(queryCommand, user);
-    // }
-
     @GetMapping(value = "/{orderId}")
     public QDetailedOrder fetchDetailedOrder(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
         return orderQueryService.fetchDetailedOrder(orderId, user);
     }
 
     @GetMapping(value = "/{orderId}/shipment")
     public QOrderShipment fetchOrderShipment(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
         return orderQueryService.fetchOrderShipment(orderId, user);
     }
 
     @PostMapping(value = "/quotations")
     public QPriceQuotation requestQuote(
-            @RequestBody @Valid QuotePriceQuery queryCommand, @AuthenticationPrincipal User user) {
+            @RequestBody @Valid QuotePriceQuery queryCommand, @AuthenticationPrincipal User user ) {
         return orderQueryService.quoteOrderPrice(queryCommand, user);
     }
 }

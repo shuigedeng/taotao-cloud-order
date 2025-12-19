@@ -20,6 +20,15 @@ import com.taotao.cloud.order.domain.repository.CartDomainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * CartDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
-public class CartDomainRepositoryImpl implements CartDomainRepository {}
+public class CartDomainRepositoryImpl implements CartDomainRepository {
+
+}

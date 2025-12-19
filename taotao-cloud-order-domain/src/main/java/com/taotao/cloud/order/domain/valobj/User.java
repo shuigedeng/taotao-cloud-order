@@ -16,6 +16,15 @@
 
 package com.taotao.cloud.order.domain.valobj;
 
+/**
+ * User
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class User {
-    public void checkIsTenantAdmin() {}
+
+    public void checkIsTenantAdmin() {
+    }
 }

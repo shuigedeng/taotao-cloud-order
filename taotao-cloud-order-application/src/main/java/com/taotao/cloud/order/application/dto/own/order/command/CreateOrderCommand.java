@@ -23,15 +23,27 @@ import com.taotao.cloud.order.domain.order.valobj.PaymentType;
 import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetail;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * CreateOrderCommand
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class CreateOrderCommand extends Command {
-    @Valid @NotNull private final OrderDetail detail;
 
-    @NotNull private final PaymentType paymentType;
+    @Valid
+    @NotNull
+    private final OrderDetail detail;
+
+    @NotNull
+    private final PaymentType paymentType;
 }

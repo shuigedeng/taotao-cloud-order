@@ -17,18 +17,26 @@
 package com.taotao.cloud.order.domain.event;
 
 import com.taotao.cloud.order.domain.valobj.User;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.TypeAlias;
 
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * OrderBankTransferUpdatedEvent
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @TypeAlias("ORDER_BANK_TRANSFER_UPDATED_EVENT")
 @NoArgsConstructor(access = PRIVATE)
 public class OrderBankTransferUpdatedEvent extends OrderUpdatedEvent {
 
-    public OrderBankTransferUpdatedEvent(Long orderId, User user) {
+    public OrderBankTransferUpdatedEvent( Long orderId, User user ) {
         //        super(ORDER_BANK_TRANSFER_UPDATED, orderId, user);
     }
 }

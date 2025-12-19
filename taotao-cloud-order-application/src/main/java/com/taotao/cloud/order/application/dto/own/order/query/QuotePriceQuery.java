@@ -22,14 +22,24 @@ import com.taotao.boot.ddd.model.application.dto.Query;
 import com.taotao.cloud.order.domain.order.valobj.detail.OrderDetail;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * QuotePriceQuery
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class QuotePriceQuery extends Query {
 
-    @Valid @NotNull private final OrderDetail detail;
+    @Valid
+    @NotNull
+    private final OrderDetail detail;
 }

@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.taotao.cloud.order.domain.valobj.OrderPrice;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,13 @@ import lombok.experimental.SuperBuilder;
 
 import static lombok.AccessLevel.PROTECTED;
 
+/**
+ * OrderDetail
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
@@ -34,27 +42,29 @@ import static lombok.AccessLevel.PROTECTED;
         visible = true)
 @JsonSubTypes(
         value = {
-            @JsonSubTypes.Type(value = PlanOrderDetail.class, name = "PLAN"),
-            @JsonSubTypes.Type(value = ExtraMemberOrderDetail.class, name = "EXTRA_MEMBER"),
-            @JsonSubTypes.Type(value = ExtraSmsOrderDetail.class, name = "EXTRA_SMS"),
-            @JsonSubTypes.Type(value = ExtraStorageOrderDetail.class, name = "EXTRA_STORAGE"),
-            @JsonSubTypes.Type(
-                    value = ExtraVideoTrafficOrderDetail.class,
-                    name = "EXTRA_VIDEO_TRAFFIC"),
-            @JsonSubTypes.Type(value = PlatePrintingOrderDetail.class, name = "PLATE_PRINTING"),
+                @JsonSubTypes.Type(value = PlanOrderDetail.class, name = "PLAN"),
+                @JsonSubTypes.Type(value = ExtraMemberOrderDetail.class, name = "EXTRA_MEMBER"),
+                @JsonSubTypes.Type(value = ExtraSmsOrderDetail.class, name = "EXTRA_SMS"),
+                @JsonSubTypes.Type(value = ExtraStorageOrderDetail.class, name = "EXTRA_STORAGE"),
+                @JsonSubTypes.Type(
+                        value = ExtraVideoTrafficOrderDetail.class,
+                        name = "EXTRA_VIDEO_TRAFFIC"),
+                @JsonSubTypes.Type(value = PlatePrintingOrderDetail.class, name = "PLATE_PRINTING"),
         })
 @Getter
 @SuperBuilder
 @EqualsAndHashCode
 @NoArgsConstructor(access = PROTECTED)
 public abstract class OrderDetail {
-    @NotNull private OrderDetailType type;
+
+    @NotNull
+    private OrderDetailType type;
 
     public abstract String description();
 
-    public abstract void validate(Tenant tenant);
+    public abstract void validate( Tenant tenant );
 
-    protected void validateRequireNonFreePlan(Tenant tenant) {
+    protected void validateRequireNonFreePlan( Tenant tenant ) {
         if (tenant.isEffectiveFreePlan()) {
             //            throw new MryException(ORDER_REQUIRE_NON_FREE_PLAN,
             //                    "您当前有效套餐为免费版，无法购买，请升级到付费版套餐后再进行购买。",
@@ -62,9 +72,9 @@ public abstract class OrderDetail {
         }
     }
 
-    protected abstract OrderPrice doCalculatePrice(Tenant tenant);
+    protected abstract OrderPrice doCalculatePrice( Tenant tenant );
 
-    public OrderPrice calculatePrice(Tenant tenant) {
+    public OrderPrice calculatePrice( Tenant tenant ) {
         OrderPrice price = doCalculatePrice(tenant);
         if (tenant.isMryManageTenant() || tenant.isMryTestingTenant()) {
             return OrderPrice.builder()

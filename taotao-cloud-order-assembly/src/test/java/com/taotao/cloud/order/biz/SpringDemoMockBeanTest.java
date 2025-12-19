@@ -25,9 +25,18 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 // @ActiveProfiles("test")
 // @TestPropertySource({"classpath:application-test.yml"})
+/**
+ * SpringDemoMockBeanTest
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest(classes = TaoTaoCloudOrderApplication.class)
 public class SpringDemoMockBeanTest {
-    @MockBean DeptsService mockBeanService;
+
+    @MockBean
+    DeptsService mockBeanService;
 
     @Test
     @DisplayName("MockBean的正确姿势")

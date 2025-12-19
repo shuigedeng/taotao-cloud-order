@@ -21,6 +21,13 @@ import com.taotao.cloud.order.domain.service.CartDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * CartDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class CartDomainServiceImpl implements CartDomainService {

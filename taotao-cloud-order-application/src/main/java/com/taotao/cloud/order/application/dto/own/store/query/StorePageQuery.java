@@ -18,13 +18,22 @@ package com.taotao.cloud.order.application.dto.own.store.query;
 
 import com.taotao.boot.common.model.request.PageQuery;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+/**
+ * StorePageQuery
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Setter
 @Getter
 @Accessors(fluent = true)
@@ -33,7 +42,8 @@ import lombok.experimental.Accessors;
 @Schema(description = "售后搜索参数")
 public class StorePageQuery extends PageQuery {
 
-    @Serial private static final long serialVersionUID = 8808470688518188146L;
+    @Serial
+    private static final long serialVersionUID = 8808470688518188146L;
 
     // 结算单ID
     private String id;

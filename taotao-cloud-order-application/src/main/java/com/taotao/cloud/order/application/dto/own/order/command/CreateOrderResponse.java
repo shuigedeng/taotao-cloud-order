@@ -20,15 +20,26 @@ import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.cloud.order.domain.order.valobj.OrderPrice;
 import com.taotao.cloud.order.domain.order.valobj.PaymentType;
+
 import java.time.Instant;
+
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * CreateOrderResponse
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class CreateOrderResponse {
+
     private final Long id;
     private final PaymentType paymentType;
     private final String wxPayQrUrl;

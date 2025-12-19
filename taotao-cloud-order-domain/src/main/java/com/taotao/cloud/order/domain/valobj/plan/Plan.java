@@ -16,10 +16,8 @@
 
 package com.taotao.cloud.order.domain.valobj.plan;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Value;
-import lombok.With;
+import com.google.common.collect.ImmutableSet;
+import lombok.*;
 
 import java.util.Map;
 import java.util.Set;
@@ -29,11 +27,19 @@ import static com.taotao.cloud.order.domain.order.valobj.plan.ControlType.*;
 import static com.taotao.cloud.order.domain.order.valobj.plan.PlanType.*;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * Plan
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @With
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class Plan {
+
     private static final Set<ControlType> FREE_PLAN_EXCLUDES = Set.of();
 
     private static final Set<ControlType> BASIC_PLAN_EXCLUDES =
@@ -214,7 +220,7 @@ public class Plan {
     private final boolean submissionApprovalAllowed; // 提交审批
     private final boolean assignmentAllowed; // 任务管理
 
-    public static Plan planFor(PlanType type) {
+    public static Plan planFor( PlanType type ) {
         return ALL_PLANS.get(type);
     }
 

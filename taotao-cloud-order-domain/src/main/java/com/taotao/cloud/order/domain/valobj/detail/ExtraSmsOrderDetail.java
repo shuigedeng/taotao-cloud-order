@@ -17,22 +17,34 @@
 package com.taotao.cloud.order.domain.valobj.detail;
 
 import com.taotao.cloud.order.domain.valobj.OrderPrice;
+import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.TypeAlias;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * ExtraSmsOrderDetail
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Getter
 @SuperBuilder
 @TypeAlias("EXTRA_SMS")
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor(access = PRIVATE)
 public class ExtraSmsOrderDetail extends OrderDetail {
+
     private ExtraSmsAmountType amountType;
 
     @Override
@@ -41,12 +53,12 @@ public class ExtraSmsOrderDetail extends OrderDetail {
     }
 
     @Override
-    public void validate(Tenant tenant) {
+    public void validate( Tenant tenant ) {
         validateRequireNonFreePlan(tenant);
     }
 
     @Override
-    public OrderPrice doCalculatePrice(Tenant tenant) {
+    public OrderPrice doCalculatePrice( Tenant tenant ) {
         String priceString = valueOf(this.amountType.getPrice()).setScale(2, HALF_UP).toString();
 
         return OrderPrice.builder()

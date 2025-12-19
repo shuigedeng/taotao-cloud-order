@@ -21,6 +21,13 @@ import com.taotao.boot.common.utils.common.PropertyUtils;
 import com.taotao.boot.test.TtcBootTestBase;
 import org.springframework.boot.test.context.SpringBootTest;
 
+/**
+ * TaoTaoCloudOrderApplicationTestBase
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest
 public abstract class TaoTaoCloudOrderApplicationTestBase extends TtcBootTestBase {
 

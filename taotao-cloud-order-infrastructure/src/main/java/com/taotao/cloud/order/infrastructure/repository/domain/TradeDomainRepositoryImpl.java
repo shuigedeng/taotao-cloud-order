@@ -20,6 +20,15 @@ import com.taotao.cloud.order.domain.trade.repository.TradeDomainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * TradeDomainRepositoryImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
-public class TradeDomainRepositoryImpl implements TradeDomainRepository {}
+public class TradeDomainRepositoryImpl implements TradeDomainRepository {
+
+}

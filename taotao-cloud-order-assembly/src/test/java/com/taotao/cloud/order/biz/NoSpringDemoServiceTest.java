@@ -28,6 +28,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 // @TestPropertySource({"classpath:application-test.yml"})
 // @SpringBootTest(classes = TaoTaoCloudDDDApplication.class, properties =
 // "spring.main.allow-bean-definition-overriding=true")
+/**
+ * NoSpringDemoServiceTest
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @SpringBootTest
 public class NoSpringDemoServiceTest extends TtcBootTestBase {
 
@@ -135,7 +142,7 @@ public class NoSpringDemoServiceTest extends TtcBootTestBase {
 
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3})
-    public void testSquare(int num) {
+    public void testSquare( int num ) {
         int result = num * num;
         Assertions.assertEquals(num * num, result);
     }

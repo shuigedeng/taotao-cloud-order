@@ -24,24 +24,19 @@ import com.taotao.cloud.order.domain.valobj.detail.Tenant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+/**
+ * OrderFactory
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 @RequiredArgsConstructor
 public class OrderFactory {
+
     public Order createOrder(
-            OrderDetail detail, PaymentType paymentType, Tenant tenant, User user) {
+            OrderDetail detail, PaymentType paymentType, Tenant tenant, User user ) {
         return null;
     }
-    //    private final WxPayService wxPayService;
-    //
-    //    public Order createOrder(OrderDetail detail, PaymentType paymentType, Tenant tenant, User
-    // user) {
-    //        Order order = new Order(detail, paymentType, tenant, user);
-    //
-    //        if (paymentType == WX_NATIVE) {
-    //            String wxPayOrder = wxPayService.createWxPayOrder(order);
-    //            order.setWxPayQrUrl(wxPayOrder);
-    //        }
-    //
-    //        return order;
-    //    }
 }

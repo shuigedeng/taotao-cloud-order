@@ -20,23 +20,36 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
 import static lombok.AccessLevel.PRIVATE;
 
+/**
+ * Consignee
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class Consignee {
-    @NotBlank private final String id;
+
+    @NotBlank
+    private final String id;
 
     @NotBlank
     @Size(max = 500)
     private final String name;
 
-    @NotBlank private final String mobile;
+    @NotBlank
+    private final String mobile;
 
-    @Valid @NotNull private final Address address;
+    @Valid
+    @NotNull
+    private final Address address;
 }

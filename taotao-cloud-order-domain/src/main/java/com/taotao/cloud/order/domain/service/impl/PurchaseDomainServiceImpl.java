@@ -21,6 +21,13 @@ import com.taotao.cloud.order.domain.service.PurchaseDomainService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * PurchaseDomainServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 @AllArgsConstructor
 public class PurchaseDomainServiceImpl implements PurchaseDomainService {

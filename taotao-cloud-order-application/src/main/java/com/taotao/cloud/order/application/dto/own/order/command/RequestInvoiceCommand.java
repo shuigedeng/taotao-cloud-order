@@ -23,16 +23,27 @@ import com.taotao.cloud.order.domain.order.valobj.invoice.InvoiceType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
+/**
+ * RequestInvoiceCommand
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
 public class RequestInvoiceCommand extends Command {
 
-    @NotNull private final InvoiceType type;
+    @NotNull
+    private final InvoiceType type;
 
-    @Email @NotBlank private final String email;
+    @Email
+    @NotBlank
+    private final String email;
 }
