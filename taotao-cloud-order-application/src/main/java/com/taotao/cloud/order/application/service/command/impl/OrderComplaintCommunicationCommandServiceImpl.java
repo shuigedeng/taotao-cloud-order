@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:00
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class OrderComplaintCommunicationCommandServiceImpl
         implements OrderComplaintCommunicationCommandService {
 

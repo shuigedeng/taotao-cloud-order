@@ -29,7 +29,7 @@ import com.taotao.cloud.order.domain.order.valobj.detail.Tenant;
 import com.taotao.cloud.order.domain.order.valobj.invoice.UploadedFile;
 import java.time.Instant;
 import java.util.List;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,7 +41,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version 2022.04
  * @since 2022-04-28 08:55:12
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
 @Slf4j

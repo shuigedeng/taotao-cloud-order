@@ -18,7 +18,7 @@ package com.taotao.cloud.order.interfaces.controller.buyer;
 
 import com.taotao.boot.webagg.controller.BusinessController;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2022.04
  * @since 2022-04-07 20:31:22
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 @RestController
 @Tag(name = "买家端-售后API", description = "买家端-售后API")

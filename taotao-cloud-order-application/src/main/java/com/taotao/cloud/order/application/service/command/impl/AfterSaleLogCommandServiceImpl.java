@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.service.command.AfterSaleLogCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @since 2022-04-28 08:49:24
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleLogCommandServiceImpl implements AfterSaleLogCommandService {
 

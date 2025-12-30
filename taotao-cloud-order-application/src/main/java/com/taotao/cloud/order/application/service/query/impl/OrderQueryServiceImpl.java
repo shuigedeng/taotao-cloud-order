@@ -29,7 +29,7 @@ import com.taotao.cloud.order.domain.order.valobj.User;
 import java.util.List;
 import java.util.Objects;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 import org.springframework.stereotype.Service;
@@ -42,7 +42,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version 2022.04
  * @since 2022-04-28 08:54:47
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class OrderQueryServiceImpl implements OrderQueryService {
@@ -248,7 +248,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      */
     @Value
     @Builder
-    @AllArgsConstructor(access = PRIVATE)
+    @RequiredArgsConstructor(access = PRIVATE)
     private static class RawShipment {
 
         private final String status;
@@ -265,7 +265,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      */
     @Value
     @Builder
-    @AllArgsConstructor(access = PRIVATE)
+    @RequiredArgsConstructor(access = PRIVATE)
     private static class RawShipmentResult {
 
         private final String number;
@@ -287,7 +287,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      */
     @Value
     @Builder
-    @AllArgsConstructor(access = PRIVATE)
+    @RequiredArgsConstructor(access = PRIVATE)
     private static class RawShipmentNode {
 
         private final String time;

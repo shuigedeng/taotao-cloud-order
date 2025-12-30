@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.query.impl;
 
 import com.taotao.cloud.order.application.service.query.StoreFlowQueryService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version 2022.04
  * @since 2022-04-28 08:55:17
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class StoreFlowQueryServiceImpl implements StoreFlowQueryService {

@@ -29,7 +29,7 @@ import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 2022.04
  * @since 2022-04-28 08:57:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Validated
 @RestController
 @Tag(name = "店铺端-发票API", description = "店铺端-发票API")

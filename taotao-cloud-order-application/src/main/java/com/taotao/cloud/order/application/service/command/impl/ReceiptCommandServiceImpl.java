@@ -20,7 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.taotao.cloud.order.application.dto.own.order.command.OrderReceiptAddCommand;
 import com.taotao.cloud.order.application.dto.own.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-28 08:55:14
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class ReceiptCommandServiceImpl implements ReceiptCommandService {
     @Override

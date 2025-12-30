@@ -20,7 +20,7 @@ import com.taotao.cloud.order.application.dto.own.order.result.OrderComplaintRes
 import com.taotao.cloud.order.application.dto.own.order.command.OrderComplaintOperationAddCommand;
 import com.taotao.cloud.order.application.dto.own.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,7 +30,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-28 08:55:04
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class OrderComplaintCommandServiceImpl implements OrderComplaintCommandService {
     @Override
