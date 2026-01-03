@@ -243,7 +243,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * RawShipment
      *
      * @author shuigedeng
-     * @version 2026.01
+     * @version 2026.02
      * @since 2025-12-19 09:30:45
      */
     @Value
@@ -260,7 +260,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * RawShipmentResult
      *
      * @author shuigedeng
-     * @version 2026.01
+     * @version 2026.02
      * @since 2025-12-19 09:30:45
      */
     @Value
@@ -282,7 +282,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * RawShipmentNode
      *
      * @author shuigedeng
-     * @version 2026.01
+     * @version 2026.02
      * @since 2025-12-19 09:30:45
      */
     @Value
