@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.taotao.cloud.order.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.order.api.grpc";
+option java_outer_classname = "AfterSaleCommandGrpcServiceProto";
+//option objc_class_prefix = "HLW";
+
+service AfterSaleCommandGrpcService {
+  rpc insertDeviceFix (AfterSaleCommandGrpcRequest) returns (AfterSaleCommandGrpcResponse){}
+}
+
+message AfterSaleCommandGrpcRequest {
+  string id = 1;
+}
+
+message AfterSaleCommandGrpcResponse {
+  bool reply = 1;
+}
