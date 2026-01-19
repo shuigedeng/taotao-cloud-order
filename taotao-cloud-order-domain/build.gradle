@@ -126,3 +126,13 @@ dependencies {
     api "jakarta.persistence:jakarta.persistence-api:3.2.0"
     annotationProcessor "jakarta.persistence:jakarta.persistence-api:3.2.0"
 }
+
+configurations {
+    configureEach {
+        resolutionStrategy {
+            //force "org.codehaus.groovy:groovy:3.0.25"
+            force 'org.antlr:antlr4:4.13.2'
+            force 'org.apache.logging.log4j:log4j-core:2.25.3'
+        }
+    }
+}

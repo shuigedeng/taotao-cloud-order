@@ -17,3 +17,13 @@ dependencies {
     api project(":taotao-cloud-order-api")
     api project(":taotao-cloud-order-domain")
 }
+
+configurations {
+    configureEach {
+        resolutionStrategy {
+            //force "org.codehaus.groovy:groovy:3.0.25"
+            force 'org.antlr:antlr4:4.13.2'
+            force 'org.apache.logging.log4j:log4j-core:2.25.3'
+        }
+    }
+}
