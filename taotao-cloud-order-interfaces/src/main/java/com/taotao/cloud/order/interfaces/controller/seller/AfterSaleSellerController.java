@@ -90,7 +90,7 @@ public class AfterSaleSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/tree")
-    // @PutMapping(value = "/confirm/{afterSaleSn}")
+    // @PostMapping(value = "/confirm/{afterSaleSn}")
     // public Result<Boolean> confirm(
     //	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
     //	@NotNull(message = "请审核") String serviceStatus,

@@ -93,7 +93,7 @@ public class OrderComplaintSellerController extends BusinessController {
     // @Operation(summary = "修改申诉信息", description = "修改申诉信息")
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PutMapping("/{id}")
+    // @PostMapping("/{id}")
     // public Result<Boolean> update(@PathVariable Long id,
     //							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
@@ -117,7 +117,7 @@ public class OrderComplaintSellerController extends BusinessController {
     // @Operation(summary = "修改状态", description = "修改状态")
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PutMapping(value = "/status")
+    // @PostMapping(value = "/status")
     // public Result<Boolean> updateStatus(
     //	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
     //	return Result.success(

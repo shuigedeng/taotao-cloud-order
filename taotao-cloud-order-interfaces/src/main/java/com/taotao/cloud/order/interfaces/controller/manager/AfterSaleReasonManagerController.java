@@ -75,7 +75,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @Operation(summary = "修改售后原因", description = "修改售后原因")
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PutMapping("/{id}")
+    // @PostMapping("/{id}")
     // public Result<Boolean> update(
     //	@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd,
     //	@PathVariable("id") Long id) {
@@ -88,7 +88,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @Operation(summary = "删除售后原因", description = "删除售后原因")
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @DeleteMapping(value = "/{id}")
+    // @PostMapping(value = "/{id}")
     // public Result<Boolean> delAllByIds(@PathVariable String id) {
     //	return Result.success(afterSaleReasonCommandService.removeById(id));
     // }
