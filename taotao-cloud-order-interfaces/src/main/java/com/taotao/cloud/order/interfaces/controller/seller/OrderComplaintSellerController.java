@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-交易投诉API", description = "店铺端-交易投诉API")
-@RequestMapping("/order/seller/order/complain")
+@RequestMapping("/seller/order/order/complain")
 public class OrderComplaintSellerController extends BusinessController {
 
     /// **

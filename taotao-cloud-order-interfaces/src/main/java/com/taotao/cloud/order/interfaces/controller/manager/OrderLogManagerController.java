@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-订单日志管理API", description = "管理端-订单日志管理API")
-@RequestMapping("/order/manager/order/log")
+@RequestMapping("/manager/order/order/log")
 public class OrderLogManagerController extends BusinessController {
 
     private final OrderLogCommandService orderLogService;

@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-退款日志管理API", description = "管理端-退款日志管理API")
-@RequestMapping("/order/manager/refund/log")
+@RequestMapping("/manager/order/refund/log")
 public class RefundLogManagerController extends BusinessController {
     //
     // private final RefundLogService refundLogService;

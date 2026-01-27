@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-售后原因管理API", description = "管理端-售后原因管理API")
-@RequestMapping("/order/manager/aftersale/reason")
+@RequestMapping("/manager/order/aftersale/reason")
 public class AfterSaleReasonManagerController extends BusinessController {
 
     /// **

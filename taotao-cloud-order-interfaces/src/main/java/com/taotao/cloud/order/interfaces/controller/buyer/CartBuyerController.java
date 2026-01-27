@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "买家端-购物车API", description = "买家端-购物车API")
-@RequestMapping("/order/buyer/cart")
+@RequestMapping("/buyer/order/cart")
 public class CartBuyerController extends BusinessController {
     //
     /// **

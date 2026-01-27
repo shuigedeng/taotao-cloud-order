@@ -47,7 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "店铺端-发票API", description = "店铺端-发票API")
-@RequestMapping("/order/seller/receipt")
+@RequestMapping("/seller/order/receipt")
 public class ReceiptSellerController extends BusinessController {
 
     private final ReceiptCommandService receiptCommandService;

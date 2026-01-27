@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "买家端-预存款充值记录API", description = "买家端-预存款充值记录API")
-@RequestMapping("/order/buyer/recharge")
+@RequestMapping("/buyer/order/recharge")
 public class RechargeTradeBuyerController extends BusinessController {
 
     // private final IFeignMemberRechargeApi memberRechargeApi;
