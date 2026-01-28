@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Validated
 @RestController
-@RequestMapping("/sys/feign/dict")
+@RequestMapping("/sys/dict")
 public class OrderCommandApiController extends InnerController implements OrderCommandApi {
 
 	@Override

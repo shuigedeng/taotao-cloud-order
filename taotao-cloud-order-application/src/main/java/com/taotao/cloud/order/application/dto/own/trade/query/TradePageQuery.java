@@ -43,7 +43,7 @@ public class TradePageQuery implements Serializable {
     /**
      * @see ClientTypeEnum
      */
-    @Schema(description = "客户端：H5/移动端 PC/PC端,WECHAT_MP/小程序端,APP/移动应用端")
+    @Schema(description = "客户端：H5/移动端 PC/买家端,WECHAT_MP/小程序端,APP/移动应用端")
     private String client;
 
     // @Schema(description = "店铺备注")

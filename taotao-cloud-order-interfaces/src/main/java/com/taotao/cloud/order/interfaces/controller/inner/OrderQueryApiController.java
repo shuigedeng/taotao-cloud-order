@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Validated
 @RestController
-@RequestMapping("/sys/feign/dict")
+@RequestMapping("/sys/dict")
 public class OrderQueryApiController extends InnerController implements OrderQueryApi {
 
 	@Override
