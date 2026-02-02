@@ -21,8 +21,8 @@ import com.taotao.cloud.order.application.dto.own.order.query.QDetailedOrder;
 import com.taotao.cloud.order.application.dto.own.order.query.QOrderShipment;
 import com.taotao.cloud.order.application.dto.own.order.query.QPriceQuotation;
 import com.taotao.cloud.order.application.dto.own.order.query.QuotePriceQuery;
-import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
-import com.taotao.cloud.order.domain.order.valobj.User;
+import com.taotao.cloud.order.domain.valobj.OrderStatus;
+import com.taotao.cloud.order.domain.valobj.User;
 
 /**
  * 子订单业务层

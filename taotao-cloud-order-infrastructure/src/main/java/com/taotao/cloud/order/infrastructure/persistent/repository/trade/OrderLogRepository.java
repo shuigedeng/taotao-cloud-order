@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.trade;
 
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderLogPO;
 
 /** 订单日志数据处理层 */

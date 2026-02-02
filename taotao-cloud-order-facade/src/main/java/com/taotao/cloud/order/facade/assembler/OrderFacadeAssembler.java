@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.facade.assembler;
 
-import com.taotao.cloud.goods.application.dto.sys.res.DictRes;
-import com.taotao.cloud.sys.api.inner.response.DictApiResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
@@ -35,6 +33,6 @@ public interface OrderFacadeAssembler {
     /** 实例 */
     OrderFacadeAssembler INSTANCE = Mappers.getMapper(OrderFacadeAssembler.class);
 
-	DictRes toRes(DictApiResponse dictApiResponse);
+//	DictRes toRes(DictApiResponse dictApiResponse);
 
 }

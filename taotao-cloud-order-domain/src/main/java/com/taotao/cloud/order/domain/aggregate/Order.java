@@ -41,9 +41,9 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 
-import static com.taotao.cloud.order.domain.order.valobj.OrderStatus.*;
-import static com.taotao.cloud.order.domain.order.valobj.PaymentType.BANK_TRANSFER;
-import static com.taotao.cloud.order.domain.order.valobj.detail.OrderDetailType.PLATE_PRINTING;
+import static com.taotao.cloud.order.domain.valobj.OrderStatus.*;
+import static com.taotao.cloud.order.domain.valobj.PaymentType.BANK_TRANSFER;
+import static com.taotao.cloud.order.domain.valobj.detail.OrderDetailType.PLATE_PRINTING;
 import static java.lang.String.valueOf;
 import static lombok.AccessLevel.PRIVATE;
 import static org.apache.commons.lang3.RandomUtils.nextInt;

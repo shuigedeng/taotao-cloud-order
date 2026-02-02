@@ -23,8 +23,8 @@ import java.util.Map;
 import java.util.Set;
 
 import static com.google.common.collect.ImmutableSet.toImmutableSet;
-import static com.taotao.cloud.order.domain.order.valobj.plan.ControlType.*;
-import static com.taotao.cloud.order.domain.order.valobj.plan.PlanType.*;
+import static com.taotao.cloud.order.domain.valobj.plan.ControlType.*;
+import static com.taotao.cloud.order.domain.valobj.plan.PlanType.*;
 import static lombok.AccessLevel.PRIVATE;
 
 /**

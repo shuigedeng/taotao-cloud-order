@@ -19,5 +19,5 @@ package com.taotao.cloud.order.application.repository;
 
 public interface BrandQueryRepository {
 
-    BrandResult getById(Long id);
+//    BrandResult getById(Long id);
 }

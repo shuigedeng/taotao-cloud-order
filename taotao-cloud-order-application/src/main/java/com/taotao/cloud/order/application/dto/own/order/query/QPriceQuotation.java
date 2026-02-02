@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.domain.order.valobj.OrderPrice;
+import com.taotao.cloud.order.domain.valobj.OrderPrice;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

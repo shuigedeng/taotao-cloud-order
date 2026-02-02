@@ -61,7 +61,7 @@ public class GenOrderCode {
      * @param lockKey 分布式锁id
      * @return 订单号
      */
-    public String genOrderCode(int length, String prefix, String lockKe y) {
+    public String genOrderCode(int length, String prefix, String lockKey ) {
         // 检查参数合法性
         if (length <= 0) {
             log.warn("获取订单号：订单总长度不能小于0");

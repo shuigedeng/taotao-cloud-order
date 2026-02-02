@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository;
 
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderItemBackPO;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;

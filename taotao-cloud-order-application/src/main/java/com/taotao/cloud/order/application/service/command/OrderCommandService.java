@@ -20,9 +20,10 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.own.order.command.RequestInvoiceCommand;
-import com.taotao.cloud.order.domain.order.valobj.User;
-import com.taotao.cloud.order.domain.order.valobj.delivery.Delivery;
-import com.taotao.cloud.order.domain.order.valobj.invoice.UploadedFile;
+import com.taotao.cloud.order.domain.valobj.User;
+import com.taotao.cloud.order.domain.valobj.delivery.Delivery;
+import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
+
 import java.time.Instant;
 import java.util.List;
 

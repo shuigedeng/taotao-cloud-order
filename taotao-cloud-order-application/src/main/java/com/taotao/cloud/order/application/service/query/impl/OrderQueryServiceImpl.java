@@ -16,18 +16,19 @@
 
 package com.taotao.cloud.order.application.service.query.impl;
 
-import static com.taotao.cloud.order.domain.order.valobj.OrderStatus.PAID;
-import static com.taotao.cloud.order.domain.order.valobj.OrderStatus.REFUNDED;
+import static com.taotao.cloud.order.domain.valobj.OrderStatus.PAID;
+import static com.taotao.cloud.order.domain.valobj.OrderStatus.REFUNDED;
 import static lombok.AccessLevel.PRIVATE;
 
 import com.taotao.cloud.order.application.dto.own.order.query.*;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
-import com.taotao.cloud.order.domain.order.aggregate.Order;
-import com.taotao.cloud.order.domain.order.repository.OrderRepository;
-import com.taotao.cloud.order.domain.order.valobj.OrderStatus;
-import com.taotao.cloud.order.domain.order.valobj.User;
 import java.util.List;
 import java.util.Objects;
+
+import com.taotao.cloud.order.domain.aggregate.Order;
+import com.taotao.cloud.order.domain.repository.OrderRepository;
+import com.taotao.cloud.order.domain.valobj.OrderStatus;
+import com.taotao.cloud.order.domain.valobj.User;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.Builder;

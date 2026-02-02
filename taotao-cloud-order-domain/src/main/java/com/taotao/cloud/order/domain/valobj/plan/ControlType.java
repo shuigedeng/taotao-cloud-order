@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.domain.valobj.plan;
 
-import static com.taotao.cloud.order.domain.order.valobj.plan.ValueType.*;
+import static com.taotao.cloud.order.domain.valobj.plan.ValueType.*;
 
 public enum ControlType {
     SECTION_TITLE(false, false, null, false),
