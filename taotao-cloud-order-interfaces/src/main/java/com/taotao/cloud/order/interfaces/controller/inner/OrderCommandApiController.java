@@ -20,7 +20,7 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.ratelimit.ratelimitguava.GuavaLimit;
-import com.taotao.boot.security.spring.support.annotation.NotAuth;
+import com.taotao.boot.security.spring.annotation.NotAuth;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.order.api.inner.command.OrderCommandApi;
