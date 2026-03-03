@@ -26,7 +26,7 @@ import java.math.BigDecimal;
  * @version 2022.04
  * @since 2022-04-28 08:54:44
  */
-public interface OrderPriceCommandService extends CommandService {
+public interface OrderPriceCommandService implements CommandService {
 
     /**
      * 价格修改 日志功能内部实现

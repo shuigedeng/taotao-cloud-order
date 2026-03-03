@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
@@ -37,7 +37,7 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class ListOrdersQuery extends Query {
+public class ListOrdersQuery implements Query  {
 
     @Size(max = 50)
     private final String search;

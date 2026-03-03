@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.own.order.command;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.boot.ddd.model.application.dto.Command;
+import com.taotao.boot.common.model.ddd.types.Command;;
 import com.taotao.cloud.order.domain.valobj.invoice.InvoiceType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -38,7 +38,7 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class RequestInvoiceCommand extends Command {
+public class RequestInvoiceCommand implements Command {
 
     @NotNull
     private final InvoiceType type;

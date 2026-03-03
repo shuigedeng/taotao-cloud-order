@@ -28,7 +28,7 @@ import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
  * @version 2022.04
  * @since 2022-04-28 08:54:41
  */
-public interface OrderItemQueryService extends CommandService {
+public interface OrderItemQueryService implements CommandService {
 
     /**
      * 更新评论状态

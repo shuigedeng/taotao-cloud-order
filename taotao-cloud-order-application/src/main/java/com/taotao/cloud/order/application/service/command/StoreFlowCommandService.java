@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:54:53
  */
-public interface StoreFlowCommandService extends CommandService {
+public interface StoreFlowCommandService implements CommandService {
 
     /**
      * 支付订单

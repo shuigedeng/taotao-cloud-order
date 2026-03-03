@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.boot.ddd.model.application.dto.Query;
+import com.taotao.boot.common.model.ddd.types.Query;
 import com.taotao.cloud.order.domain.valobj.detail.OrderDetail;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -37,7 +37,7 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class QuotePriceQuery extends Query {
+public class QuotePriceQuery implements Query  {
 
     @Valid
     @NotNull

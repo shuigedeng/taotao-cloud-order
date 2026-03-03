@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.api.rpc.dto.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
@@ -39,7 +39,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderQueryRpcResponse extends ResponseBase implements Serializable {
+public class OrderQueryRpcResponse implements MarkerResponse  {
 
     private static final long serialVersionUID = 5126530068827085130L;
 

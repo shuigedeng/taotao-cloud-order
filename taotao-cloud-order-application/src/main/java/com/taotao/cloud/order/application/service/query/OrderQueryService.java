@@ -31,7 +31,7 @@ import com.taotao.cloud.order.domain.valobj.User;
  * @version 2022.04
  * @since 2022-04-28 08:54:47
  */
-public interface OrderQueryService extends CommandService {
+public interface OrderQueryService implements CommandService {
 
     public QPriceQuotation quoteOrderPrice(QuotePriceQuery queryCommand, User user);
 

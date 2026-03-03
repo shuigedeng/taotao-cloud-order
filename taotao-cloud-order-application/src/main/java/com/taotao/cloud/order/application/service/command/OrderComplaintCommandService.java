@@ -28,7 +28,7 @@ import com.taotao.cloud.order.application.dto.own.order.command.StoreAppealComma
  * @version 2022.04
  * @since 2022-04-28 08:54:36
  */
-public interface OrderComplaintCommandService extends CommandService {
+public interface OrderComplaintCommandService implements CommandService {
 
     /**
      * 分页获取交易投诉信息
