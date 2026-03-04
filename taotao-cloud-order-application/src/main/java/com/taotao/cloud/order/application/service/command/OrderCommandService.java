@@ -34,7 +34,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:54:47
  */
-public interface OrderCommandService implements CommandService {
+public interface OrderCommandService extends CommandService {
 
     public CreateOrderResponse createOrder(CreateOrderCommand command, User user);
 

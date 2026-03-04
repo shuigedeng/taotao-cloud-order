@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:29
  */
-public interface PurchaseOrderQueryService implements CommandService {
+public interface PurchaseOrderQueryService extends CommandService {
     //
     /// **
     // * 添加采购单

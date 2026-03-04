@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:32
  */
-public interface PurchaseQuotedItemQueryService implements CommandService {
+public interface PurchaseQuotedItemQueryService extends CommandService {
 
     /**
      * 添加报价单子内容

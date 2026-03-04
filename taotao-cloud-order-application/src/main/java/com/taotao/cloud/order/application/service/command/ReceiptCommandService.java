@@ -28,7 +28,7 @@ import com.taotao.cloud.order.application.dto.own.order.query.ReceiptPageQuery;
  * @version 2022.04
  * @since 2022-04-28 08:54:50
  */
-public interface ReceiptCommandService implements CommandService {
+public interface ReceiptCommandService extends CommandService {
 
     /**
      * 根据条件获取发票信息列表

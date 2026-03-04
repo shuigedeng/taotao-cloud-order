@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface OrderLogCommandService implements CommandService {
+public interface OrderLogCommandService extends CommandService {
 
     /**
      * 根据订单编号获取订单日志列表

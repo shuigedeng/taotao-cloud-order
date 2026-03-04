@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:49:10
  */
-public interface AfterSaleCommandService implements CommandService {
+public interface AfterSaleCommandService extends CommandService {
     //
     /// **
     // * 分页查询售后信息
