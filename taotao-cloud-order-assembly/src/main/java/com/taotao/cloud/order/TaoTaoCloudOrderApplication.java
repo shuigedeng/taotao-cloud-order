@@ -18,7 +18,6 @@ package com.taotao.cloud.order;
 
 import com.taotao.boot.core.startup.StartupSpringApplication;
 import com.taotao.boot.web.annotation.TaoTaoBootApplication;
-import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 
 /**
  * 系统管理中心
@@ -62,7 +61,6 @@ import com.taotao.cloud.bootstrap.annotation.TaoTaoCloudApplication;
 //	"com.taotao.cloud.order.biz.repository.cls"
 // } )
 @TaoTaoBootApplication
-@TaoTaoCloudApplication
 public class TaoTaoCloudOrderApplication {
 
     public static void main(String[] args) {
