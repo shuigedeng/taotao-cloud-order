@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.dto.own.order.command;
 
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.boot.common.model.ddd.types.Command;;
+import com.taotao.boot.common.model.ddd.types.Command;
 import com.taotao.cloud.order.domain.valobj.PaymentType;
 import com.taotao.cloud.order.domain.valobj.detail.OrderDetail;
 import jakarta.validation.Valid;
