@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.order.domain.service;
 
-public interface CartDomainService {}
+import com.taotao.boot.ddd.model.domain.service.DomainService;
+
+public interface CartDomainService extends DomainService {}

@@ -8,13 +8,13 @@ option java_outer_classname = "AfterSaleQueryGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 service AfterSaleQueryGrpcService {
-  rpc insertDeviceFix (AfterSaleQueryGrpcRequest) returns (AfterSaleQueryGrpcResponse){}
+  rpc insertDeviceFix (AfterSaleGrpcQuery) returns (AfterSaleGrpcQueryResponse){}
 }
 
-message AfterSaleQueryGrpcRequest {
+message AfterSaleGrpcQuery {
   string id = 1;
 }
 
-message AfterSaleQueryGrpcResponse {
+message AfterSaleGrpcQueryResponse {
   bool reply = 1;
 }

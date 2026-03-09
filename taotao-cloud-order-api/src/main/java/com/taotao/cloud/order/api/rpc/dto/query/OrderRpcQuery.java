@@ -14,11 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.rpc.dto.request;
+package com.taotao.cloud.order.api.rpc.dto.query;
 
 import com.taotao.boot.common.model.ddd.types.MarkerRequest;
-import java.io.Serializable;
+
 import java.time.LocalDateTime;
+
+import com.taotao.boot.common.model.ddd.types.Query;
 import lombok.AllArgsConstructor;
 import lombok.*;
 import lombok.NoArgsConstructor;
@@ -37,7 +39,7 @@ import lombok.experimental.Accessors;
 @Accessors(fluent = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderQueryRpcRequest implements MarkerRequest {
+public class OrderRpcQuery implements Query {
 
     private static final long serialVersionUID = 5126530068827085130L;
 

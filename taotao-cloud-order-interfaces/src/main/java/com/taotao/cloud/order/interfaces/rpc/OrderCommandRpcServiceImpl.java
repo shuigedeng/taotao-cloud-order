@@ -19,7 +19,8 @@ package com.taotao.cloud.order.interfaces.rpc;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.order.api.rpc.command.OrderCommandRpcService;
-import com.taotao.cloud.order.api.rpc.dto.request.OrderQueryRpcRequest;
+import com.taotao.cloud.order.api.rpc.dto.command.OrderRpcCommand;
+import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
 import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -31,7 +32,7 @@ import org.springframework.stereotype.Service;
 public class OrderCommandRpcServiceImpl implements OrderCommandRpcService {
 
 	@Override
-	public Response<OrderQueryRpcResponse> query( Request<OrderQueryRpcRequest> orderQueryRpcRequest ) {
+	public Response<OrderQueryRpcResponse> query( Request<OrderRpcCommand> orderQueryRpcRequest ) {
 		return null;
 	}
 }

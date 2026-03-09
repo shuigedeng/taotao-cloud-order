@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.order.domain.repository;
 
-public interface CartDomainRepository {}
+import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
+
+public interface CartDomainRepository extends DomainRepository {}

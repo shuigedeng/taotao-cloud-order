@@ -19,8 +19,7 @@ package com.taotao.cloud.order.interfaces.controller.inner;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.webagg.controller.InnerController;
-import com.taotao.cloud.order.api.inner.command.OrderCommandApi;
-import com.taotao.cloud.order.api.inner.dto.request.OrderQueryApiRequest;
+import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
 import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
 import com.taotao.cloud.order.api.inner.query.OrderQueryApi;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderQueryApiController extends InnerController implements OrderQueryApi {
 
 	@Override
-	public Response<OrderApiResponse> findByCode( Request<OrderQueryApiRequest> dictQueryApiRequest ) {
+	public Response<OrderApiResponse> findByCode( Request<OrderApiQuery> dictQueryApiRequest ) {
 		return null;
 	}
 

@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.domain.factory;
 
+import com.taotao.boot.common.model.ddd.types.MarkerFactory;
 import com.taotao.cloud.order.domain.aggregate.Order;
 import com.taotao.cloud.order.domain.valobj.PaymentType;
 import com.taotao.cloud.order.domain.valobj.User;
@@ -33,7 +34,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @RequiredArgsConstructor
-public class OrderFactory {
+public class OrderFactory implements MarkerFactory {
 
     public Order createOrder(
             OrderDetail detail, PaymentType paymentType, Tenant tenant, User user ) {

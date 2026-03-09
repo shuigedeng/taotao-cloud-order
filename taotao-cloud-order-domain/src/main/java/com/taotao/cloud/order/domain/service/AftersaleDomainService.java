@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.order.domain.service;
 
-public interface AftersaleDomainService {}
+import com.taotao.boot.ddd.model.domain.service.DomainService;
+
+public interface AftersaleDomainService extends DomainService {}

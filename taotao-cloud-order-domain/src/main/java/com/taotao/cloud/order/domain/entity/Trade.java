@@ -18,6 +18,7 @@ package com.taotao.cloud.order.domain.entity;
 
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
+import com.taotao.boot.ddd.model.domain.Entity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.Accessors;
@@ -38,7 +39,7 @@ import static lombok.AccessLevel.PRIVATE;
 @AllArgsConstructor(access = PRIVATE)
 @NoArgsConstructor(access = PRIVATE)
 @Schema(name = "Dept", description = "部门")
-public class Trade extends AggregateRoot<Long> {
+public class Trade implements Entity {
 
     @Schema(name = "name", description = "部门名称")
     private String name;
@@ -55,12 +56,6 @@ public class Trade extends AggregateRoot<Long> {
     public void checkName( long count ) {
         if (count > 0) {
             throw new BusinessException("部门名称已存在，请重新填写");
-        }
-    }
-
-    public void checkIdAndPid() {
-        if (id.equals(pid)) {
-            throw new BusinessException("上级部门不能为当前部门");
         }
     }
 }

@@ -16,12 +16,13 @@
 
 package com.taotao.cloud.order.domain.repository;
 
+import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
 import com.taotao.cloud.order.domain.aggregate.Order;
 import com.taotao.cloud.order.domain.valobj.User;
 
 import java.util.Optional;
 
-public interface OrderRepository {
+public interface OrderRepository extends DomainRepository {
     void save(Order it);
 
     Order byId(String id);

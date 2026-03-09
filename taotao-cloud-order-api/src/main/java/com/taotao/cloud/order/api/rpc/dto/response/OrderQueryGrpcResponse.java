@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.api.rpc.dto.response;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import java.io.Serializable;
 
@@ -66,7 +67,7 @@ public record OrderQueryGrpcResponse(
 
         /** 公司类型 */
         Integer type)
-        implements Serializable {
+        implements MarkerResponse {
 
     static final long serialVersionUID = 5126530068827085130L;
 }

@@ -22,7 +22,7 @@ import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.common.support.info.ApiInfo;
 import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.Update;
-import com.taotao.cloud.order.api.inner.dto.request.OrderQueryApiRequest;
+import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
 import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -64,6 +64,6 @@ public interface OrderCommandApi {
 
     @PostExchange("/sys/dict/code")
     Response<OrderApiResponse> findByCode(
-            @Validated @RequestBody Request<OrderQueryApiRequest> dictQueryApiRequest);
+            @Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest);
 
 }

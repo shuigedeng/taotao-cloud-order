@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.order.domain.repository;
 
-public interface TradeDomainRepository {}
+import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
+
+public interface TradeDomainRepository extends DomainRepository {}

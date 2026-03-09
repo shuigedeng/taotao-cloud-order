@@ -8,14 +8,14 @@ option java_outer_classname = "OrderCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
 service OrderCommandGrpcService {
-  rpc insertOrder (OrderCommandGrpcRequest) returns (OrderCommandGrpcResponse){}
+  rpc insertOrder (OrderGrpcCommand) returns (OrderGrpcCommandResponse){}
 }
 
-message OrderCommandGrpcRequest {
+message OrderGrpcCommand {
   string id = 1;
 }
 
-message OrderCommandGrpcResponse {
+message OrderGrpcCommandResponse {
   bool reply = 1;
 }
 

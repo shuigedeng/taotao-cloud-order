@@ -18,8 +18,7 @@ package com.taotao.cloud.order.interfaces.rpc;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.order.api.rpc.command.OrderCommandRpcService;
-import com.taotao.cloud.order.api.rpc.dto.request.OrderQueryRpcRequest;
+import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
 import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
 import com.taotao.cloud.order.api.rpc.query.OrderQueryRpcService;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +31,7 @@ import org.springframework.stereotype.Service;
 public class OrderQueryRpcServiceImpl implements OrderQueryRpcService {
 
 	@Override
-	public Response<OrderQueryRpcResponse> query( Request<OrderQueryRpcRequest> orderQueryRpcRequest ) {
+	public Response<OrderQueryRpcResponse> query( Request<OrderRpcQuery> orderQueryRpcRequest ) {
 		return null;
 	}
 }
