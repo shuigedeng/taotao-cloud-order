@@ -20,12 +20,6 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Value;
-
-import static lombok.AccessLevel.PRIVATE;
 
 /**
  * Consignee
@@ -34,22 +28,7 @@ import static lombok.AccessLevel.PRIVATE;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Value
-@Builder
-@AllArgsConstructor(access = PRIVATE)
-public class Consignee {
+public record Consignee(@NotBlank String id, @NotBlank @Size(max = 500) String name, @NotBlank String mobile,
+						@Valid @NotNull Address address) {
 
-    @NotBlank
-    private final String id;
-
-    @NotBlank
-    @Size(max = 500)
-    private final String name;
-
-    @NotBlank
-    private final String mobile;
-
-    @Valid
-    @NotNull
-    private final Address address;
 }

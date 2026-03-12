@@ -29,7 +29,6 @@ import com.taotao.cloud.order.domain.aggregate.Order;
 import com.taotao.cloud.order.domain.repository.OrderRepository;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.valobj.User;
-import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
@@ -168,11 +167,11 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .invoiceEmail(order.isInvoiceRequested() ? order.getInvoice().getEmail() : null)
                 .carrier(
                         order.getDelivery() != null
-                                ? order.getDelivery().getCarrier().getName()
+                                ? order.getDelivery().carrier().getName()
                                 : null)
                 .deliveryOrderId(
                         order.getDelivery() != null
-                                ? order.getDelivery().getDeliveryOrderId()
+                                ? order.getDelivery().deliveryOrderId()
                                 : null)
                 // .createdAt(order.getCreatedAt())
                 // .createdBy(order.getCreatedBy())
