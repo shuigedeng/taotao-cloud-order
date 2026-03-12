@@ -14,35 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.cart;
 
 /**
- * 订单元Key枚举
+ * 购物车类型
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:22:08
+ * @since 2022-04-28 09:21:37
  */
-public enum OrderMetaKeyEnum {
+public enum CartTypeEnum {
 
-    /** 订单属性 */
-    POINT("使用的积分"),
-    DISCOUNT_PRICE("优惠金额"),
-    GIFT_POINT("赠送的积分"),
-    GIFT_COUPON("赠送的优惠券"),
-    GIFT_SKU("赠品");
+    /** 购物车 */
+    CART,
+    /** 立即购买 */
+    BUY_NOW,
+    /** 虚拟商品 */
+    VIRTUAL,
+    /** 拼团 */
+    PINTUAN,
+    /** 积分 */
+    POINTS,
+    /** 砍价商品 */
+    KANJIA;
 
-    private final String description;
-
-    OrderMetaKeyEnum(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String description() {
-        return this.description;
+    public String getPrefix() {
+        return "{" + this.name() + "}_";
     }
 }

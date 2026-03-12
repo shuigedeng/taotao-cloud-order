@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.trade;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 退款方式
+ * 订单状态枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:23:33
+ * @since 2022-04-28 09:22:31
  */
-public enum AfterSaleRefundWayEnum {
+public enum PayStatusEnum {
 
-    /** "原路退回" */
-    ORIGINAL("原路退回"),
-    /** "线下支付" */
-    OFFLINE("线下支付");
+    /** 支付状态 */
+    UNPAID("待付款"),
+    PAID("已付款"),
+    CANCEL("已取消");
 
     private final String description;
 
-    AfterSaleRefundWayEnum(String description) {
+    PayStatusEnum(String description) {
         this.description = description;
     }
 
     public String description() {
-        return description;
+        return this.description;
     }
 }

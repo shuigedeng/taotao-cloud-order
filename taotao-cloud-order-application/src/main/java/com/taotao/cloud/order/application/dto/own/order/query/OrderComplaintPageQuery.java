@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.dto.own.order.query;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.cloud.order.api.enums.aftersale.ComplaintStatusEnum;
+import com.taotao.cloud.order.common.enums.aftersale.ComplaintStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import lombok.AllArgsConstructor;

@@ -14,20 +14,35 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 订单类型枚举
+ * 订单元Key枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:22:28
+ * @since 2022-04-28 09:22:08
  */
-public enum OrderTypeEnum {
+public enum OrderMetaKeyEnum {
 
-    /** 普通订单 */
-    NORMAL,
+    /** 订单属性 */
+    POINT("使用的积分"),
+    DISCOUNT_PRICE("优惠金额"),
+    GIFT_POINT("赠送的积分"),
+    GIFT_COUPON("赠送的优惠券"),
+    GIFT_SKU("赠品");
 
-    /** 虚拟订单 */
-    VIRTUAL
+    private final String description;
+
+    OrderMetaKeyEnum(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String description() {
+        return this.description;
+    }
 }

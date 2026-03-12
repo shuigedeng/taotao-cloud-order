@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.cart;
+package com.taotao.cloud.order.common.enums.cart;
 
 /**
  * 购物车渲染枚举

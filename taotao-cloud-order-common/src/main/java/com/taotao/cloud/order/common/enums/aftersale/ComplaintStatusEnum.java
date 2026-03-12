@@ -14,29 +14,33 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.aftersale;
 
 /**
- * 评论状态枚举
+ * 交易投诉状态
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:21:51
+ * @since 2022-04-28 09:21:33
  */
-public enum CommentStatusEnum {
+public enum ComplaintStatusEnum {
 
-    /** 新订单，不能进行评论 */
-    NEW("新订单，不能进行评论"),
-    /** 未完成的评论 */
-    UNFINISHED("未完成评论"),
-    /** 待追评的评论信息 */
-    WAIT_CHASE("待追评评论"),
-    /** 已经完成评论 */
-    FINISHED("已经完成评论");
+    /** 新投诉 */
+    NEW("新投诉"),
+    /** 已撤销 */
+    CANCEL("已撤销"),
+    /** 待申诉 */
+    WAIT_APPEAL("待申诉"),
+    /** 对话中 */
+    COMMUNICATION("对话中"),
+    /** 等待仲裁 */
+    WAIT_ARBITRATION("等待仲裁"),
+    /** 已完成 */
+    COMPLETE("已完成");
 
     private final String description;
 
-    CommentStatusEnum(String description) {
+    ComplaintStatusEnum(String description) {
         this.description = description;
     }
 

@@ -14,29 +14,45 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.cart;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 活动叠加
+ * 订单的操作方式枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:21:46
+ * @since 2022-04-28 09:22:13
  */
-public enum SuperpositionPromotionEnum {
+public enum OrderOperateEnum {
 
-    /** 商品促销放在商品属性，这里只负责可叠加的其他促销 叠加促销枚举，每一个商品，以下每个参数都只能参加一个 */
-    SELLER_COUPON("店铺优惠券"),
-    PLATFORM_COUPON("平台优惠券"),
-    FULL_DISCOUNT("满优惠");
+    /** 确认 */
+    CONFIRM("确认"),
+
+    /** 支付 */
+    PAY("支付"),
+
+    /** 发货 */
+    SHIP("发货"),
+
+    /** 确认收货 */
+    ROG("确认收货"),
+
+    /** 取消 */
+    CANCEL("取消"),
+
+    /** 评论 */
+    COMMENT("评论"),
+
+    /** 完成 */
+    COMPLETE("完成");
 
     private final String description;
 
-    SuperpositionPromotionEnum(String description) {
+    OrderOperateEnum(String description) {
         this.description = description;
     }
 
-    public String getDescription() {
-        return description;
+    public String description() {
+        return this.description;
     }
 }

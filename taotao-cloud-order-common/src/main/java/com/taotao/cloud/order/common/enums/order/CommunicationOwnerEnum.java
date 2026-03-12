@@ -14,33 +14,29 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.aftersale;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 交易投诉状态
+ * 投诉角色枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:21:33
+ * @since 2022-04-28 09:21:53
  */
-public enum ComplaintStatusEnum {
+public enum CommunicationOwnerEnum {
 
-    /** 新投诉 */
-    NEW("新投诉"),
-    /** 已撤销 */
-    CANCEL("已撤销"),
-    /** 待申诉 */
-    WAIT_APPEAL("待申诉"),
-    /** 对话中 */
-    COMMUNICATION("对话中"),
-    /** 等待仲裁 */
-    WAIT_ARBITRATION("等待仲裁"),
-    /** 已完成 */
-    COMPLETE("已完成");
+    /** 买家 */
+    BUYER("买家"),
+
+    /** 卖家 */
+    STORE("卖家"),
+
+    /** 平台 */
+    PLATFORM("平台");
 
     private final String description;
 
-    ComplaintStatusEnum(String description) {
+    CommunicationOwnerEnum(String description) {
         this.description = description;
     }
 

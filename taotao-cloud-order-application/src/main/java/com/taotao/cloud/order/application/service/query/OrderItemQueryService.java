@@ -17,9 +17,9 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
+import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
 
 /**
  * 子订单业务层

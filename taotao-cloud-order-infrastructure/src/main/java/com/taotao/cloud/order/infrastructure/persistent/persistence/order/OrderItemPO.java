@@ -18,9 +18,9 @@ package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BaseSuperEntity;
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
+import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

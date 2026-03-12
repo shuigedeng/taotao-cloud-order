@@ -14,30 +14,35 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 投诉角色枚举
+ * 订单状态枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:21:53
+ * @since 2022-04-28 09:22:23
  */
-public enum CommunicationOwnerEnum {
+public enum OrderStatusEnum {
 
-    /** 买家 */
-    BUYER("买家"),
-
-    /** 卖家 */
-    STORE("卖家"),
-
-    /** 平台 */
-    PLATFORM("平台");
+    /** 订单状态 */
+    UNPAID("未付款"),
+    PAID("已付款"),
+    UNDELIVERED("待发货"),
+    DELIVERED("已发货"),
+    COMPLETED("已完成"),
+    /** 虚拟订单需要核验商品 */
+    TAKE("待核验"),
+    CANCELLED("已取消");
 
     private final String description;
 
-    CommunicationOwnerEnum(String description) {
+    OrderStatusEnum(String description) {
         this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String description() {

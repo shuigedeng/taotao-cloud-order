@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.application.dto.own.order.result;
 
-import com.taotao.cloud.order.api.enums.order.FlowTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
+import com.taotao.cloud.order.common.enums.order.FlowTypeEnum;
+import com.taotao.cloud.order.common.enums.order.OrderPromotionTypeEnum;
 import java.io.Serial;
 import java.math.BigDecimal;
 import lombok.AllArgsConstructor;

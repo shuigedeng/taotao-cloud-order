@@ -14,35 +14,29 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.trade;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 售后状态
+ * 发货状态枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:23:36
+ * @since 2022-04-28 09:21:55
  */
-public enum AfterSaleStatusEnum {
+public enum DeliverStatusEnum {
 
-    /** 售后服务类型枚举 */
-    APPLY("申请中"),
-    PASS("已通过"),
-    REFUSE("已拒绝"),
-    BUYER_RETURN("待卖家收货"),
-    SELLER_CONFIRM("卖家确认收货"),
-    SELLER_TERMINATION("卖家终止售后"),
-    BUYER_CANCEL("买家取消售后"),
-    WAIT_REFUND("等待平台退款"),
-    COMPLETE("完成");
+    /** 发货状态 */
+    UNDELIVERED("未发货"),
+    DELIVERED("已发货"),
+    RECEIVED("已收货");
 
     private final String description;
 
-    AfterSaleStatusEnum(String description) {
+    DeliverStatusEnum(String description) {
         this.description = description;
     }
 
-    public String description() {
+    public String getDescription() {
         return description;
     }
 }

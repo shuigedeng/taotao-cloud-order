@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderItemAfterSaleStatusEnum;
+import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
 import com.taotao.cloud.order.application.service.command.OrderItemCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

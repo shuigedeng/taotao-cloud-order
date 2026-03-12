@@ -14,29 +14,29 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 订单出库状态枚举
+ * 评论状态枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:22:16
+ * @since 2022-04-28 09:21:51
  */
-public enum OrderOutStatusEnum {
+public enum CommentStatusEnum {
 
-    /** 等待出库 */
-    WAIT("等待出库"),
-
-    /** 出库成功 */
-    SUCCESS("出库成功"),
-
-    /** 出库失败 */
-    FAIL("出库失败");
+    /** 新订单，不能进行评论 */
+    NEW("新订单，不能进行评论"),
+    /** 未完成的评论 */
+    UNFINISHED("未完成评论"),
+    /** 待追评的评论信息 */
+    WAIT_CHASE("待追评评论"),
+    /** 已经完成评论 */
+    FINISHED("已经完成评论");
 
     private final String description;
 
-    OrderOutStatusEnum(String description) {
+    CommentStatusEnum(String description) {
         this.description = description;
     }
 

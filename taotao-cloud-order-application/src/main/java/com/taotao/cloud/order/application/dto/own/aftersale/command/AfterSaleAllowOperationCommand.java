@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.own.aftersale.command;
 
-import com.taotao.cloud.order.api.enums.trade.AfterSaleStatusEnum;
+import com.taotao.cloud.order.common.enums.trade.AfterSaleStatusEnum;
 import com.taotao.cloud.order.application.dto.own.aftersale.result.AfterSaleResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;

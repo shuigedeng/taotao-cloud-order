@@ -18,9 +18,9 @@ package com.taotao.cloud.order.application.dto.own.order.query;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.cloud.order.api.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.api.enums.order.OrderPromotionTypeEnum;
-import com.taotao.cloud.order.api.enums.order.OrderTypeEnum;
+import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
+import com.taotao.cloud.order.common.enums.order.OrderPromotionTypeEnum;
+import com.taotao.cloud.order.common.enums.order.OrderTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.time.LocalDateTime;

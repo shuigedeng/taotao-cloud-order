@@ -14,29 +14,31 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.cart;
 
 /**
- * 订单状态枚举
+ * 配送方式
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:22:31
+ * @since 2022-04-28 09:21:40
  */
-public enum PayStatusEnum {
+public enum DeliveryMethodEnum {
 
-    /** 支付状态 */
-    UNPAID("待付款"),
-    PAID("已付款"),
-    CANCEL("已取消");
+    /** "自提" */
+    SELF_PICK_UP("自提"),
+    /** "同城配送" */
+    LOCAL_TOWN_DELIVERY("同城配送"),
+    /** "物流" */
+    LOGISTICS("物流");
 
     private final String description;
 
-    PayStatusEnum(String description) {
+    DeliveryMethodEnum(String description) {
         this.description = description;
     }
 
-    public String description() {
-        return this.description;
+    public String getDescription() {
+        return description;
     }
 }

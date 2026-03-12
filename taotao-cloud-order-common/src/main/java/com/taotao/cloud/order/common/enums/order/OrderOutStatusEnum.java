@@ -14,25 +14,33 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.enums.order;
+package com.taotao.cloud.order.common.enums.order;
 
 /**
- * 订单促销类型枚举
+ * 订单出库状态枚举
  *
  * @author shuigedeng
  * @version 2022.04
- * @since 2022-04-28 09:22:21
+ * @since 2022-04-28 09:22:16
  */
-public enum OrderPromotionTypeEnum {
+public enum OrderOutStatusEnum {
 
-    /** 普通订单 */
-    NORMAL,
-    /** 赠品订单 */
-    GIFT,
-    /** 拼团订单 */
-    PINTUAN,
-    /** 积分订单 */
-    POINTS,
-    /** 砍价订单 */
-    KANJIA
+    /** 等待出库 */
+    WAIT("等待出库"),
+
+    /** 出库成功 */
+    SUCCESS("出库成功"),
+
+    /** 出库失败 */
+    FAIL("出库失败");
+
+    private final String description;
+
+    OrderOutStatusEnum(String description) {
+        this.description = description;
+    }
+
+    public String description() {
+        return this.description;
+    }
 }
