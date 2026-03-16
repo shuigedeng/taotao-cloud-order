@@ -35,7 +35,7 @@ import static lombok.AccessLevel.PRIVATE;
 @Setter
 @Getter
 @ToString
-@Accessors(fluent = true)
+
 @AllArgsConstructor(access = PRIVATE)
 @NoArgsConstructor(access = PRIVATE)
 @Schema(name = "Dept", description = "部门")

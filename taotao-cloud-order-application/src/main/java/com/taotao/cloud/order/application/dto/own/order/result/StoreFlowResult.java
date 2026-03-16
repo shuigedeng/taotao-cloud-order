@@ -37,7 +37,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @ToString(callSuper = true)
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class StoreFlowResult {

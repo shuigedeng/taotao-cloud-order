@@ -34,7 +34,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @ToString
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")

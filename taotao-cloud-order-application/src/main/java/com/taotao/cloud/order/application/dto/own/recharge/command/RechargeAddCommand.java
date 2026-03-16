@@ -29,7 +29,7 @@ import lombok.experimental.Accessors;
 /** 预存款充值记录查询条件 */
 @Setter
 @Getter
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "预存款充值记录查询条件")

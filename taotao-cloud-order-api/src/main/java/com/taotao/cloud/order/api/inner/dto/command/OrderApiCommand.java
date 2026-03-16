@@ -35,7 +35,7 @@ import java.io.Serial;
 @Setter
 @Getter
 @ToString
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询对象")

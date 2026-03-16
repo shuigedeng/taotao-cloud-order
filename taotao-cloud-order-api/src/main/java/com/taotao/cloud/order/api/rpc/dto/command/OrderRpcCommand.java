@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @ToString
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRpcCommand implements Command {

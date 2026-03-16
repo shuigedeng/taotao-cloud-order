@@ -36,7 +36,7 @@ import lombok.experimental.Accessors;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(fluent = true)
+
 public class OrderLogResult {
 
     /**

@@ -36,7 +36,7 @@ import lombok.experimental.Accessors;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = true)
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "订单投诉搜索参数")

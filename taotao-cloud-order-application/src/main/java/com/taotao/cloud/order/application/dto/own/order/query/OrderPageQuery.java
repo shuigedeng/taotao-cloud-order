@@ -42,7 +42,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper = true)
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "订单查询参数")

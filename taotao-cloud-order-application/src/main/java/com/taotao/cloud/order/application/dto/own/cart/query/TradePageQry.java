@@ -48,7 +48,7 @@
 //@Setter
 @Getter
 @ToString
-//@Accessors(fluent = true)
+//
 //@AllArgsConstructor
 //@Schema(description = "购物车视图")
 //public class TradePageQry implements Serializable {

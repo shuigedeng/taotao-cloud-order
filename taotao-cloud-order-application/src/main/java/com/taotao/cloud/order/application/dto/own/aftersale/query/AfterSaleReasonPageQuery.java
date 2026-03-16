@@ -28,7 +28,7 @@ import lombok.experimental.Accessors;
 /** 售后原因搜索参数 */
 @Setter
 @Getter
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "售后原因搜索参数")

@@ -36,7 +36,7 @@ import lombok.experimental.Accessors;
  */
 @Setter
 @Getter
-@Accessors(fluent = true)
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "售后搜索参数")
