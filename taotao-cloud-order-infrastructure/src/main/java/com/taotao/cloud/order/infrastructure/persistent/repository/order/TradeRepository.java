@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.TradePO;
 
 /** 交易数据处理层 */
-public interface TradeRepository extends JpaSuperRepository<TradePO, Long> {}
+public interface TradeRepository extends BaseRepository<TradePO> {}

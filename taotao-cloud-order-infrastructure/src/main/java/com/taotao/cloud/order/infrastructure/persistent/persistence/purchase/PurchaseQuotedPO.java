@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.purchase;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -47,7 +47,7 @@ import org.hibernate.Hibernate;
 @Table(name = PurchaseQuotedPO.TABLE_NAME)
 @TableName(PurchaseQuotedPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = PurchaseQuotedPO.TABLE_NAME)
-public class PurchaseQuotedPO extends BaseSuperEntity<PurchaseQuotedPO, Long> {
+public class PurchaseQuotedPO extends BasePO<PurchaseQuotedPO> {
 
     public static final String TABLE_NAME = "ttc_purchase_quoted";
 

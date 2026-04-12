@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
 import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
 import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
@@ -51,7 +51,7 @@ import org.hibernate.Hibernate;
 @Table(name = OrderItemPO.TABLE_NAME)
 @TableName(OrderItemPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OrderItemPO.TABLE_NAME)
-public class OrderItemPO extends BaseSuperEntity<OrderItemPO, Long> {
+public class OrderItemPO extends BasePO<OrderItemPO> {
 
     public static final String TABLE_NAME = "ttc_order_item";
 

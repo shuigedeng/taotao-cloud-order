@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderComplaintCommunicationPO;
 
 /** 交易投诉通信数据处理层 */
 public interface OrderComplainCommunicationRepository
-        extends JpaSuperRepository<OrderComplaintCommunicationPO, Long> {}
+        extends BaseRepository<OrderComplaintCommunicationPO> {}

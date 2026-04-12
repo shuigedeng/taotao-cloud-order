@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import com.taotao.cloud.order.common.enums.trade.AfterSaleRefundWayEnum;
 import com.taotao.cloud.order.common.enums.trade.AfterSaleStatusEnum;
 import com.taotao.cloud.order.common.enums.trade.AfterSaleTypeEnum;
@@ -53,7 +53,7 @@ import org.hibernate.Hibernate;
 @Table(name = AfterSalePO.TABLE_NAME)
 @TableName(AfterSalePO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = AfterSalePO.TABLE_NAME)
-public class AfterSalePO extends BaseSuperEntity<AfterSalePO, Long> {
+public class AfterSalePO extends BasePO<AfterSalePO> {
 
     public static final String TABLE_NAME = "ttc_after_sale";
 

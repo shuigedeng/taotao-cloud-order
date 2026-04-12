@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -50,7 +50,7 @@ import org.hibernate.Hibernate;
 @org.springframework.data.relational.core.mapping.Table(
         name = OrderComplaintCommunicationPO.TABLE_NAME)
 public class OrderComplaintCommunicationPO
-        extends BaseSuperEntity<OrderComplaintCommunicationPO, Long> {
+        extends BasePO<OrderComplaintCommunicationPO> {
 
     public static final String TABLE_NAME = "ttc_order_complaint_communication";
 

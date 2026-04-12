@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.StoreFlowPO;
 
 /** 商家订单流水数据处理层 */
-public interface StoreFlowRepository extends JpaSuperRepository<StoreFlowPO, Long> {}
+public interface StoreFlowRepository extends BaseRepository<StoreFlowPO> {}

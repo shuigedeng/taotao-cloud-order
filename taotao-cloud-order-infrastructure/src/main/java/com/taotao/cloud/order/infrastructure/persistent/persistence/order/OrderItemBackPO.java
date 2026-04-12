@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -48,7 +48,7 @@ import org.hibernate.Hibernate;
 @TableName(OrderItemBackPO.TABLE_NAME)
 @Table(name = OrderItemBackPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = OrderItemBackPO.TABLE_NAME)
-public class OrderItemBackPO extends BaseSuperEntity<OrderItemBackPO, Long> {
+public class OrderItemBackPO extends BasePO<OrderItemBackPO> {
 
     public static final String TABLE_NAME = "ttc_order_item_back";
 

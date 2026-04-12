@@ -17,11 +17,13 @@
 package com.taotao.cloud.order.infrastructure.configuration;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.RandomStringUtils;
+
 import org.redisson.api.RAtomicLong;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
+
+import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
 /**
  * GenOrderCode
@@ -90,7 +92,7 @@ public class GenOrderCode {
 
             // 生成随机码
             int randomLength = length - incrLength;
-            String randomAlphabetic = RandomStringUtils.randomAlphabetic(randomLength);
+            String randomAlphabetic = randomAlphabetic(randomLength);
             // 格式化订单号
             String orderCode = prefix + randomAlphabetic + counterValue;
             log.info("根据规则生成的订单号:{}", orderCode);

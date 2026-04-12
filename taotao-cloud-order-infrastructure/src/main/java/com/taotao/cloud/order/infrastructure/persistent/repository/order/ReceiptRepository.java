@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository.order;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.ReceiptPO;
 
 /** 发票数据处理层 */
-public interface ReceiptRepository extends JpaSuperRepository<ReceiptPO, Long> {}
+public interface ReceiptRepository extends BaseRepository<ReceiptPO> {}

@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import com.taotao.cloud.order.common.enums.trade.AfterSaleTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -48,7 +48,7 @@ import org.hibernate.Hibernate;
 @Table(name = AfterSaleReasonPO.TABLE_NAME)
 @TableName(AfterSaleReasonPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = AfterSaleReasonPO.TABLE_NAME)
-public class AfterSaleReasonPO extends BaseSuperEntity<AfterSaleReasonPO, Long> {
+public class AfterSaleReasonPO extends BasePO<AfterSaleReasonPO> {
 
     public static final String TABLE_NAME = "ttc_after_sale_reason";
 

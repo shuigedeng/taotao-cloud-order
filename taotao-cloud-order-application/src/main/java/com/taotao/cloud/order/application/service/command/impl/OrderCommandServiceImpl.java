@@ -20,7 +20,7 @@ import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderComma
 import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.own.order.command.RequestInvoiceCommand;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
-import com.taotao.cloud.order.domain.aggregate.Order;
+import com.taotao.cloud.order.domain.aggregate.OrderAgg;
 import com.taotao.cloud.order.domain.factory.OrderFactory;
 import com.taotao.cloud.order.domain.repository.OrderRepository;
 import com.taotao.cloud.order.domain.valobj.User;
@@ -63,7 +63,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 		//		Tenant tenant = tenantRepository.byId(user.getTenantId());
 		Tenant tenant = null;
-		Order order =
+		OrderAgg order =
 			orderFactory.createOrder(
 				command.getDetail(), command.getPaymentType(), tenant, user);
 		orderRepository.save(order);
@@ -85,7 +85,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		user.checkIsTenantAdmin();
 		//		mryRateLimiter.applyFor(user.getTenantId(), "Order:RequestInvoice", 5);
 
-		Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
+		OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
 		//		Tenant tenant = tenantRepository.byId(user.getTenantId());
 		Tenant tenant = null;
 		order.requestInvoice(command.getType(), tenant.getInvoiceTitle(), command.getEmail(), user);
@@ -124,7 +124,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		String orderId, List<UploadedFile> screenShots, Instant paidAt, User user ) {
 		//		mryRateLimiter.applyFor("Order:UpdateWxTransfer", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 
 		if (order.atCreated()) {
 			order.wxTransferPay(screenShots, paidAt, user);
@@ -145,7 +145,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		String orderId, String accountId, String bankName, Instant paidAt, User user ) {
 		//		mryRateLimiter.applyFor("Order:UpdateBankTransfer", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 
 		if (order.atCreated()) {
 			order.bankTransferPay(accountId, bankName, paidAt, user);
@@ -165,7 +165,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	public void updateDelivery( String orderId, Delivery delivery, User user ) {
 		//		mryRateLimiter.applyFor("Order:UpdateDelivery", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 		order.updateDelivery(delivery, user);
 		orderRepository.save(order);
 		log.info("Order[{}] delivery info updated.", orderId);
@@ -175,7 +175,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	public void issueInvoice( String orderId, List<UploadedFile> files, User user ) {
 		//		mryRateLimiter.applyFor("Order:IssueInvoice", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 		order.issueInvoice(files, user);
 		orderRepository.save(order);
 		log.info("Order[{}] invoice issued.", orderId);
@@ -185,7 +185,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	public void refund( String orderId, String reason, User user ) {
 		//		mryRateLimiter.applyFor("Order:Refund", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 		order.refund(reason, user);
 		orderRepository.save(order);
 		log.info("Order[{}] refunded.", orderId);
@@ -195,7 +195,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	public void delete( String orderId ) {
 		//		mryRateLimiter.applyFor("Order:Delete", 5);
 
-		Order order = orderRepository.byId(orderId);
+		OrderAgg order = orderRepository.byId(orderId);
 		orderRepository.delete(order);
 		log.info("Order[{}] deleted.", orderId);
 	}

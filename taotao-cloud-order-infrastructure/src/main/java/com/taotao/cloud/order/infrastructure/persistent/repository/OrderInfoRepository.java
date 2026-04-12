@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.infrastructure.persistent.repository;
 
-import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.boot.data.jpa.base.repository.BaseRepository;
 import com.taotao.cloud.order.infrastructure.persistent.persistence.order.OrderInfoPO;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
@@ -28,7 +28,7 @@ import org.springframework.stereotype.Repository;
  * @since 2020/10/22 12:46
  */
 @Repository
-public interface OrderInfoRepository extends JpaSuperRepository<OrderInfoPO, Long> {
+public interface OrderInfoRepository extends BaseRepository<OrderInfoPO> {
 
     @Query(
             value =

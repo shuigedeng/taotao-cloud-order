@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.infrastructure.persistent.persistence.order;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import com.taotao.cloud.order.common.enums.order.FlowTypeEnum;
 import com.taotao.cloud.order.common.enums.order.OrderPromotionTypeEnum;
 import jakarta.persistence.Column;
@@ -51,7 +51,7 @@ import org.hibernate.Hibernate;
 @Table(name = StoreFlowPO.TABLE_NAME)
 @TableName(StoreFlowPO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = StoreFlowPO.TABLE_NAME)
-public class StoreFlowPO extends BaseSuperEntity<StoreFlowPO, Long> {
+public class StoreFlowPO extends BasePO<StoreFlowPO> {
 
     public static final String TABLE_NAME = "ttc_store_flow";
 

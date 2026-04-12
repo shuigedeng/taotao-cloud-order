@@ -25,7 +25,7 @@ import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import java.util.List;
 import java.util.Objects;
 
-import com.taotao.cloud.order.domain.aggregate.Order;
+import com.taotao.cloud.order.domain.aggregate.OrderAgg;
 import com.taotao.cloud.order.domain.repository.OrderRepository;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.valobj.User;
@@ -74,7 +74,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchStatus", 5);
 
-        Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
+        OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
         return order.getStatus();
     }
 
@@ -141,7 +141,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchDetailedOrder", 5);
 
-        Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
+        OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
 
         return QDetailedOrder.builder()
                 // .id(order.getId())
@@ -183,7 +183,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         user.checkIsTenantAdmin();
         // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchOrderShipment", 5);
 
-        Order order = orderRepository.byIdAndCheckTenantShip(orderId, user);
+        OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
         // if (order.getDelivery() == null ||
         //	!order.atPaid() ||
         //	order.getCreatedAt().isBefore(now().minus(90, DAYS))) {
