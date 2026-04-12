@@ -33,7 +33,7 @@ public interface AfterSaleMapper extends BaseMapper<AfterSalePO> {
     // * @param queryWrapper 查询条件
     // * @return 售后VO分页
     // */
-    // @Select("SELECT * FROM tt_after_sale ${ew.customSqlSegment}")
+    // @Select("SELECT * FROM ttc_after_sale ${ew.customSqlSegment}")
     // IPage<AfterSalePO> queryByParams(
     //        IPage<AfterSaleVO> page, @Param(Constants.WRAPPER) Wrapper<AfterSaleVO> queryWrapper);
 }

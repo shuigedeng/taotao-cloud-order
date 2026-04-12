@@ -28,7 +28,7 @@ public interface StoreFlowMapper extends BaseMapper<StoreFlowPO> {
     // * @param queryWrapper 查询条件
     // * @return 入账流水
     // */
-    // @Select("SELECT * FROM tt_store_flow ${ew.customSqlSegment}")
+    // @Select("SELECT * FROM ttc_store_flow ${ew.customSqlSegment}")
     // List<StoreFlowPayDownloadVO> getStoreFlowPayDownloadVO(@Param(Constants.WRAPPER)
     // Wrapper<StoreFlowPO> queryWrapper);
     //
@@ -38,7 +38,7 @@ public interface StoreFlowMapper extends BaseMapper<StoreFlowPO> {
     // * @param queryWrapper 查询条件
     // * @return 退款流水
     // */
-    // @Select("SELECT * FROM tt_store_flow ${ew.customSqlSegment}")
+    // @Select("SELECT * FROM ttc_store_flow ${ew.customSqlSegment}")
     // List<StoreFlowRefundDownloadVO> getStoreFlowRefundDownloadVO(
     //        @Param(Constants.WRAPPER) Wrapper<StoreFlowPO> queryWrapper);
 }

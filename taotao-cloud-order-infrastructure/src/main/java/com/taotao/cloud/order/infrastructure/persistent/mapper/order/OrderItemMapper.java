@@ -31,7 +31,7 @@ public interface OrderItemMapper extends BaseMapper<OrderItemPO> {
     // @Select(
     //        """
     //	SELECT *
-    //	FROM tt_order_item AS oi INNER JOIN tt_order AS o ON oi.order_sn=o.sn
+    //	FROM ttc_order_item AS oi INNER JOIN ttc_order AS o ON oi.order_sn=o.sn
     //	${ew.customSqlSegment}
     //	""")
     // List<OrderItemPO> waitOperationOrderItem(@Param(Constants.WRAPPER) Wrapper<OrderSimpleVO>

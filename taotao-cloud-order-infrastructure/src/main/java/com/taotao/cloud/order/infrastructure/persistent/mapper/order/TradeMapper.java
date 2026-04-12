@@ -29,7 +29,7 @@ public interface TradeMapper extends BaseMapper<TradePO> {
      * @param tradeSn 交易编号
      */
     @Update(
-            "UPDATE tt_trade SET flow_price =(SELECT SUM(flow_price) FROM tt_order WHERE"
+            "UPDATE ttc_trade SET flow_price =(SELECT SUM(flow_price) FROM ttc_order WHERE"
                     + " trade_sn=#{tradeSn}) WHERE sn=#{tradeSn}")
     void updateTradePrice(String tradeSn);
 }

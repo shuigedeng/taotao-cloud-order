@@ -28,7 +28,7 @@ public interface ReceiptMapper extends BaseMapper<ReceiptPO> {
     // * @param page 分页
     // * @param queryWrapper 查询条件
     // */
-    // @Select("select r.*,o.order_status from tt_receipt r inner join tt_order o ON
+    // @Select("select r.*,o.order_status from ttc_receipt r inner join ttc_order o ON
     // o.sn=r.order_sn"
     //        + " ${ew.customSqlSegment}")
     // IPage<OrderReceiptDTO> getReceipt(
