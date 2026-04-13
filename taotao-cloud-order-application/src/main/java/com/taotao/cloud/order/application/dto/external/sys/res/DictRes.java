@@ -1,4 +1,4 @@
-package com.taotao.cloud.order.application.dto.sys.res;
+package com.taotao.cloud.order.application.dto.external.sys.res;
 
 import lombok.Getter;
 import lombok.Setter;

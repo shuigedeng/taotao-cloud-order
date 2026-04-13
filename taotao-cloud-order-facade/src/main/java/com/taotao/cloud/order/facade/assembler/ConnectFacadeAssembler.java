@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.facade.assembler;
 
-import com.taotao.cloud.order.application.dto.sys.res.DictRes;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;

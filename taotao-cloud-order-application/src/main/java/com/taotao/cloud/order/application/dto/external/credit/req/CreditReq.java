@@ -1,4 +1,4 @@
-package com.taotao.cloud.order.application.dto.credit.req;
+package com.taotao.cloud.order.application.dto.external.credit.req;
 
 /**
  * CreditReq

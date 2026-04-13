@@ -1,4 +1,4 @@
-package com.taotao.cloud.order.application.dto.connect.req;
+package com.taotao.cloud.order.application.dto.external.connect.req;
 
 /**
  * ConnectReq
