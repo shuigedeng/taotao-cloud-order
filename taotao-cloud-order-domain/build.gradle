@@ -74,7 +74,7 @@ dependencies {
     api "io.github.shuigedeng:taotao-boot-starter-lock"
     api "io.github.shuigedeng:taotao-boot-starter-dingtalk"
     api "io.github.shuigedeng:taotao-boot-starter-elk"
-    api "io.github.shuigedeng:taotao-boot-starter-webguard-captcha"
+    api "io.github.shuigedeng:taotao-boot-starter-captcha"
     api "io.github.shuigedeng:taotao-boot-starter-office"
     api "io.github.shuigedeng:taotao-boot-starter-client"
     api "io.github.shuigedeng:taotao-boot-starter-data-elasticsearch"
