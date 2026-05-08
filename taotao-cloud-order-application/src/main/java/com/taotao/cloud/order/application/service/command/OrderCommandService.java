@@ -17,9 +17,9 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderCommand;
-import com.taotao.cloud.order.application.dto.own.order.command.CreateOrderResponse;
-import com.taotao.cloud.order.application.dto.own.order.command.RequestInvoiceCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderResponse;
+import com.taotao.cloud.order.application.dto.order.command.RequestInvoiceCommand;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.domain.valobj.delivery.Delivery;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;

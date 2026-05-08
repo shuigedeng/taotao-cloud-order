@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.facade.sys.acl;
 
 import com.taotao.boot.ddd.acl.AclBaseService;
-import com.taotao.cloud.order.application.acl.SysAclService;
+import com.taotao.cloud.order.application.acl.service.SysAclService;
 import com.taotao.cloud.order.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.order.facade.sys.invoker.SysInvoker;
 import lombok.AllArgsConstructor;

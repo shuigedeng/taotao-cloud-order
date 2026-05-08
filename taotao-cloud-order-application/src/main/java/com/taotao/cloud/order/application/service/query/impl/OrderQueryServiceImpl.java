@@ -20,7 +20,7 @@ import static com.taotao.cloud.order.domain.valobj.OrderStatus.PAID;
 import static com.taotao.cloud.order.domain.valobj.OrderStatus.REFUNDED;
 import static lombok.AccessLevel.PRIVATE;
 
-import com.taotao.cloud.order.application.dto.own.order.query.*;
+import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import java.util.List;
 import java.util.Objects;
