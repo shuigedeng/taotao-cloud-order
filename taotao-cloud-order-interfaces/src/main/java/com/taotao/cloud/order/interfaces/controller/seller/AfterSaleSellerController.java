@@ -54,7 +54,7 @@ public class AfterSaleSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/page")
-    // public Result<PageResult<AfterSaleCO>> getByPage(AfterSalePageQry searchParams) {
+    // public Result<PageResult<AfterSaleCO>> queryByPage(AfterSalePageQry searchParams) {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	searchParams.setStoreId(storeId);
     //	IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);

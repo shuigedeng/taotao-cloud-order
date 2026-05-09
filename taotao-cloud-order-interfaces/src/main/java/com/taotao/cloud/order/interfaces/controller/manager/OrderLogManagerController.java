@@ -52,7 +52,7 @@ public class OrderLogManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/page")
-    // public Result<PageResult<OrderLogCO>> getByPage(OrderLogPageQry orderLogPageQry) {
+    // public Result<PageResult<OrderLogCO>> queryByPage(OrderLogPageQry orderLogPageQry) {
     //	IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
     //	return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
     // }

@@ -51,7 +51,7 @@ public class RefundLogManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/tree")
-    // public Result<IPage<RefundLog>> getByPage(RefundLog entity, SearchVO searchVo, PageVO page) {
+    // public Result<IPage<RefundLog>> queryByPage(RefundLog entity, SearchVO searchVo, PageVO page) {
     //	return Result.success(refundLogService.page(PageUtil.initPage(page),
     // PageUtil.initWrapper(entity, searchVo)));
     // }

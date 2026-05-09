@@ -44,7 +44,7 @@ public class PaymentLogManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/tree")
-    // public Result<IPage<PaymentLogCO>> getByPage(Order order, SearchVO searchVo) {
+    // public Result<IPage<PaymentLogCO>> queryByPage(Order order, SearchVO searchVo) {
     //	return Result.success(
     //		orderCommandService.queryPaymentLogs(PageUtil.initPage(page),
     //			PageUtil.initWrapper(order, searchVo)));

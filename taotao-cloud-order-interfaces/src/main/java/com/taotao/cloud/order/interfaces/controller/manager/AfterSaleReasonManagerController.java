@@ -55,7 +55,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping(value = "/page")
-    // public Result<PageResult<AfterSaleReasonCO>> getByPage(
+    // public Result<PageResult<AfterSaleReasonCO>> queryByPage(
     //	@Validated AfterSaleReasonPageQry afterSaleReasonPageQry) {
     //	IPage<AfterSaleReasonPO> page =
     // afterSaleReasonCommandService.pageQuery(afterSaleReasonPageQry);
