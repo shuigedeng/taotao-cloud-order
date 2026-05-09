@@ -59,7 +59,7 @@ public class ReceiptSellerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/page")
     public Result<PageResult<OrderReceiptAddCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
-        receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
+        //receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
         IPage<OrderReceiptAddCommand> page = receiptCommandService.pageQuery(receiptPageQry);
         return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCommand.class));
     }
