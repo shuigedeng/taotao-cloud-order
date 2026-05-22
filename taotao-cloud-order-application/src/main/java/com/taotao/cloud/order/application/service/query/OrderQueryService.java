@@ -63,7 +63,7 @@ public interface OrderQueryService extends CommandService {
     //     * @return {@link OrderPO }
     //     * @since 2022-04-28 08:54:47
     //     */
-    ////    OrderPO getBySn(String orderSn);
+    ////    OrderPO queryBySn(String orderSn);
     //
     //    /**
     //     * 订单查询
@@ -196,7 +196,7 @@ public interface OrderQueryService extends CommandService {
     //     * @param orderSn 订单编号
     //     * @return 物流踪迹
     //     */
-    //    Traces getTraces(String orderSn);
+    //    Traces queryTraces(String orderSn);
     //
     //    /**
     //     * 订单核验
@@ -213,7 +213,7 @@ public interface OrderQueryService extends CommandService {
     //     * @param verificationCode 验证码
     //     * @return 订单
     //     */
-    ////    OrderPO getOrderByVerificationCode(String verificationCode);
+    ////    OrderPO queryOrderByVerificationCode(String verificationCode);
     //
     //    /**
     //     * 订单完成
@@ -235,7 +235,7 @@ public interface OrderQueryService extends CommandService {
     //     * @param tradeSn 交易编号
     //     * @return 订单列表
     //     */
-    ////    List<OrderPO> getByTradeSn(String tradeSn);
+    ////    List<OrderPO> queryByTradeSn(String tradeSn);
     //
     //    ///**
     //    // * 发送更新订单状态的信息
@@ -289,7 +289,7 @@ public interface OrderQueryService extends CommandService {
     //     * @param orderSn 订单sn
     //     * @return 金额
     //     */
-    //    BigDecimal getPaymentTotal(String orderSn);
+    //    BigDecimal queryPaymentTotal(String orderSn);
     //
     //    /**
     //     * 查询订单支付记录

@@ -14,15 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.factory;
+package com.taotao.cloud.order.infrastructure.assembler;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 /**
- * OrderFactory
- *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @version 2022.03
+ * @since 2020/11/11 14:42
  */
-public class OrderFactory {
+@Mapper
+public interface OrderComplainInfraAssembler {
 
+    OrderComplainInfraAssembler INSTANCE = Mappers.getMapper(OrderComplainInfraAssembler.class);
+
+    // OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

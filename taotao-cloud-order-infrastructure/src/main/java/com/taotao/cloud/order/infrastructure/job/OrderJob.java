@@ -1,4 +1,4 @@
-package com.taotao.cloud.order.infrastructure.task;// package com.taotao.cloud.order.application.task;
+package com.taotao.cloud.order.infrastructure.job;// package com.taotao.cloud.order.application.task;
 //
 // import com.mryqr.common.domain.permission.Permission;
 // import com.mryqr.common.domain.task.RetryableTask;

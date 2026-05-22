@@ -27,12 +27,4 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface AfterSaleLogCommandService extends CommandService {
 
-    /**
-     * 获取售后日志
-     *
-     * @param sn 售后编号
-     * @return {@link List }<{@link AfterSaleLogPO }>
-     * @since 2022-04-28 08:49:07
-     */
-    //    List<AfterSaleLogPO> getAfterSaleLog(String sn);
 }

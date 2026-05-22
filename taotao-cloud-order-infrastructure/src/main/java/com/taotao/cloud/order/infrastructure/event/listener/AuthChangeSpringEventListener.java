@@ -14,21 +14,29 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.assembler;
+package com.taotao.cloud.order.infrastructure.event.listener;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
+ * AuthChangeEventListener
+ *
  * @author shuigedeng
- * @version 2022.03
- * @since 2020/11/11 14:42
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-@Mapper
-public interface OrderComplainCommunicationAssembler {
+@AllArgsConstructor
+@Slf4j
+@Component
+public class AuthChangeSpringEventListener {
 
-    OrderComplainCommunicationAssembler INSTANCE =
-            Mappers.getMapper(OrderComplainCommunicationAssembler.class);
+	private final GoodsCommandService goodsCommandService;
 
-    // OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
+//	@EventListener(AuthChangeEvent.class)
+//	public void handleAuthChangeEvent( AuthChangeEvent authChangeEvent ){
+//		log.info("接受到AuthChangeEvent:{}", authChangeEvent);
+//	}
 }

@@ -82,7 +82,7 @@ public class OrderComplaintBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/communication/{complainId}")
-    // public Result<Boolean> addCommunication(
+    // public Result<Void> addCommunication(
     //	@PathVariable("complainId") Long complainId,
     //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
     // {
@@ -104,7 +104,7 @@ public class OrderComplaintBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/status/{id}")
-    // public Result<Boolean> cancel(@PathVariable Long id) {
+    // public Result<Void> cancel(@PathVariable Long id) {
     //	return Result.success(orderComplaintCommandService.cancel(id));
     // }
 }

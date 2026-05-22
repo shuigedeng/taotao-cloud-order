@@ -70,7 +70,7 @@ public class OrderComplaintManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/{id}")
-    // public Result<Boolean> update(@PathVariable Long id,
+    // public Result<Void> update(@PathVariable Long id,
     //							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
     //	OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
     //		orderComplaintAddCmd);
@@ -82,7 +82,7 @@ public class OrderComplaintManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/communication/{complainId}")
-    // public Result<Boolean> addCommunication(
+    // public Result<Void> addCommunication(
     //	@PathVariable("complainId") Long complainId,
     //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
     // {
@@ -103,7 +103,7 @@ public class OrderComplaintManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/status")
-    // public Result<Boolean> updateStatus(
+    // public Result<Void> updateStatus(
     //	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
     //	return Result.success(
     //		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
@@ -113,7 +113,7 @@ public class OrderComplaintManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/complete/{id}")
-    // public Result<Boolean> complete(@PathVariable Long id, String arbitrationResult) {
+    // public Result<Void> complete(@PathVariable Long id, String arbitrationResult) {
     //	// 新建对象
     //	OrderComplaintOperationAddCmd orderComplaintOperationAddCmd =
     // OrderComplaintOperationDTOBuilder.builder()

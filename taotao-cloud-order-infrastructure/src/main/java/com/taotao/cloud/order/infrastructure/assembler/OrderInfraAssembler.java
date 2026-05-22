@@ -25,9 +25,9 @@ import org.mapstruct.factory.Mappers;
  * @since 2020/11/11 14:42
  */
 @Mapper
-public interface OrderAssembler {
+public interface OrderInfraAssembler {
 
-    OrderAssembler INSTANCE = Mappers.getMapper(OrderAssembler.class);
+    OrderInfraAssembler INSTANCE = Mappers.getMapper(OrderInfraAssembler.class);
 
     // OrderBO entityToBo(OrderInfo entity);
     //

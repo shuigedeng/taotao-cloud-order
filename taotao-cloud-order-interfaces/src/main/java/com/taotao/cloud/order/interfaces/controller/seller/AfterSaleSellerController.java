@@ -76,7 +76,7 @@ public class AfterSaleSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/review/{afterSaleSn}")
-    // public Result<Boolean> review(
+    // public Result<Void> review(
     //	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
     //	@NotNull(message = "请审核") String serviceStatus,
     //	String remark,
@@ -91,7 +91,7 @@ public class AfterSaleSellerController extends BusinessController {
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/tree")
     // @PostMapping(value = "/confirm/{afterSaleSn}")
-    // public Result<Boolean> confirm(
+    // public Result<Void> confirm(
     //	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
     //	@NotNull(message = "请审核") String serviceStatus,
     //	String remark) {

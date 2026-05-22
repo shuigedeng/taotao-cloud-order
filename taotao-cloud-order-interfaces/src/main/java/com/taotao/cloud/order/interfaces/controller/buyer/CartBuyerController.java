@@ -46,7 +46,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping
-    // public Result<Boolean> add(
+    // public Result<Void> add(
     //        @NotNull(message = "产品id不能为空") String skuId,
     //        @NotNull(message = "购买数量不能为空") @Min(value = 1, message = "加入购物车数量必须大于0") Integer num,
     //        @NotBlank(message = "购物车类型") String cartType) {
@@ -81,7 +81,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/sku/num/{skuId}")
-    // public Result<Boolean> update(
+    // public Result<Void> update(
     //        @NotNull(message = "产品id不能为空") @PathVariable(name = "skuId") String skuId, Integer
     // num) {
     //    return Result.success(cartCommandService.add(skuId, num, CartTypeEnum.CART.name(), true));
@@ -91,7 +91,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/sku/checked/{skuId}")
-    // public Result<Boolean> updateChecked(
+    // public Result<Void> updateChecked(
     //        @NotNull(message = "产品id不能为空") @PathVariable(name = "skuId") String skuId, boolean
     // checked) {
     //    return Result.success(cartCommandService.checked(skuId, checked));
@@ -101,7 +101,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/sku/checked", produces = MediaType.APPLICATION_JSON_VALUE)
-    // public Result<Boolean> updateAll(boolean checked) {
+    // public Result<Void> updateAll(boolean checked) {
     //    return Result.success(cartCommandService.checkedAll(checked));
     // }
     //
@@ -109,7 +109,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/store/{storeId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    // public Result<Boolean> updateStoreAll(
+    // public Result<Void> updateStoreAll(
     //        @NotNull(message = "卖家id不能为空") @PathVariable(name = "storeId") String storeId, boolean
     // checked) {
     //    return Result.success(cartCommandService.checkedStore(storeId, checked));
@@ -119,7 +119,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping()
-    // public Result<Boolean> clean() {
+    // public Result<Void> clean() {
     //    return Result.success(cartCommandService.clean());
     // }
     //
@@ -127,7 +127,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/sku/remove")
-    // public Result<Boolean> delete(String[] skuIds) {
+    // public Result<Void> delete(String[] skuIds) {
     //    return Result.success(cartCommandService.delete(skuIds));
     // }
     //
@@ -144,7 +144,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/shippingAddress")
-    // public Result<Boolean> shippingAddress(@NotNull(message = "收货地址ID不能为空") String
+    // public Result<Void> shippingAddress(@NotNull(message = "收货地址ID不能为空") String
     // shippingAddressId, String way) {
     //    return Result.success(cartCommandService.shippingAddress(shippingAddressId, way));
     // }
@@ -153,7 +153,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/shippingMethod")
-    // public Result<Boolean> shippingMethod(
+    // public Result<Void> shippingMethod(
     //        @NotNull(message = "配送方式不能为空") String shippingMethod, String selleId, String way) {
     //    return Result.success(cartCommandService.shippingMethod(selleId, shippingMethod, way));
     // }
@@ -162,7 +162,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/receipt")
-    // public Result<Boolean> selectReceipt(String way, ReceiptVO receiptVO) {
+    // public Result<Void> selectReceipt(String way, ReceiptVO receiptVO) {
     //    return Result.success(this.cartCommandService.shippingReceipt(receiptVO, way));
     // }
     //
@@ -170,7 +170,7 @@ public class CartBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @GetMapping("/coupon")
-    // public Result<Boolean> selectCoupon(String way,
+    // public Result<Void> selectCoupon(String way,
     //                                    @NotNull(message = "优惠券id不能为空") String memberCouponId,
     //                                    boolean used) {
     //    return Result.success(this.cartCommandService.selectCoupon(memberCouponId, way, used));

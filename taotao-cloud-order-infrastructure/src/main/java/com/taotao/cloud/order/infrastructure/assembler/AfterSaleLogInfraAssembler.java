@@ -14,15 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.event.subscribe;
+package com.taotao.cloud.order.infrastructure.assembler;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 /**
- * RedisEventSubscriber
+ * IAfterSaleMapStruct
  *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @version 2022.04
+ * @since 2022-04-07 20:55:46
  */
-public class RedisEventSubscriber {
+@Mapper
+public interface AfterSaleLogInfraAssembler {
 
+    AfterSaleLogInfraAssembler INSTANCE = Mappers.getMapper(AfterSaleLogInfraAssembler.class);
+
+    // List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
 }

@@ -75,7 +75,7 @@ public class OrderManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderSn}/pay")
-    // public Result<Boolean> payOrder(@PathVariable String orderSn) {
+    // public Result<Void> payOrder(@PathVariable String orderSn) {
     //	return Result.success(orderPriceCommandService.adminPayOrder(orderSn));
     // }
     //
@@ -92,7 +92,7 @@ public class OrderManagerController extends BusinessController {
     // @Operation(summary = "修改订单价格", description = "修改订单价格")
     // @RequestLogger
     // @PostMapping(value = "/{orderSn}/price")
-    // public Result<Boolean> updateOrderPrice(
+    // public Result<Void> updateOrderPrice(
     //	@PathVariable String orderSn,
     //	@NotNull(message = "订单价格不能为空") @RequestParam BigDecimal price) {
     //	return Result.success(orderPriceCommandService.updatePrice(orderSn, price));

@@ -42,7 +42,7 @@ public interface PurchaseQuotedQueryService extends CommandService {
     // * @return {@link List }<{@link PurchaseQuotedPO }>
     // * @since 2022-04-28 08:55:34
     // */
-    // List<PurchaseQuotedPO> getByPurchaseOrderId(String purchaseOrderId);
+    // List<PurchaseQuotedPO> queryByPurchaseOrderId(String purchaseOrderId);
     //
     /// **
     // * 获取采购单VO
@@ -51,5 +51,5 @@ public interface PurchaseQuotedQueryService extends CommandService {
     // * @return {@link PurchaseQuotedVO }
     // * @since 2022-04-28 08:55:34
     // */
-    // PurchaseQuotedVO getById(String id);
+    // PurchaseQuotedVO queryById(String id);
 }

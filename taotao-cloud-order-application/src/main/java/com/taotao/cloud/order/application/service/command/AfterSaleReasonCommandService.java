@@ -27,14 +27,6 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  */
 public interface AfterSaleReasonCommandService extends CommandService {
 
-    /**
-     * 获取售后原因列表
-     *
-     * @param serviceType 售后类型
-     * @return {@link List }<{@link AfterSaleReasonPO }>
-     * @since 2022-04-28 08:49:03
-     */
-    //    List<AfterSaleReasonPO> afterSaleReasonList(String serviceType);
 
     /**
      * 修改售后原因
@@ -45,12 +37,4 @@ public interface AfterSaleReasonCommandService extends CommandService {
      */
     //    Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO);
 
-    /**
-     * 分页查询售后原因
-     *
-     * @param afterSaleReasonPageQry 查询条件
-     * @return {@link IPage }<{@link AfterSaleReasonPO }>
-     * @since 2022-04-28 08:49:03
-     */
-    //    IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry);
 }

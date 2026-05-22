@@ -52,7 +52,7 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link AfterSalePO }
     // * @since 2022-04-28 08:49:10
     // */
-    // AfterSalePO getAfterSaleBySn(String sn);
+    // AfterSalePO queryAfterSaleBySn(String sn);
     //
     /// **
     // * 获取申请售后页面信息
@@ -61,7 +61,7 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link AfterSaleApplyCO }
     // * @since 2022-04-28 08:49:10
     // */
-    // AfterSaleApplyCO getAfterSaleVO(String sn);
+    // AfterSaleApplyCO queryAfterSaleVO(String sn);
     //
     /// **
     // * 售后申请
@@ -153,5 +153,5 @@ public interface AfterSaleQueryService extends CommandService {
     // * @return {@link StoreAfterSaleAddressVO }
     // * @since 2022-04-28 08:49:11
     // */
-    // StoreAfterSaleAddressVO getStoreAfterSaleAddressVO(String sn);
+    // StoreAfterSaleAddressVO queryStoreAfterSaleAddressVO(String sn);
 }

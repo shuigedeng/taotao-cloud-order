@@ -73,7 +73,7 @@ public class OrderComplaintSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/communication/{complainId}")
-    // public Result<Boolean> addCommunication(
+    // public Result<Void> addCommunication(
     //	@PathVariable("complainId") Long complainId,
     //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
     // {
@@ -94,7 +94,7 @@ public class OrderComplaintSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/{id}")
-    // public Result<Boolean> update(@PathVariable Long id,
+    // public Result<Void> update(@PathVariable Long id,
     //							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
@@ -118,7 +118,7 @@ public class OrderComplaintSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/status")
-    // public Result<Boolean> updateStatus(
+    // public Result<Void> updateStatus(
     //	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
     //	return Result.success(
     //		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));

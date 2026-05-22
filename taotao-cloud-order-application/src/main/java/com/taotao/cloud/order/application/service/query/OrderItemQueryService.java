@@ -74,7 +74,7 @@ public interface OrderItemQueryService extends CommandService {
     //	 * @return {@link OrderItemPO }
     //	 * @since 2022-04-28 08:54:41
     //	 */
-    //	OrderItemPO getBySn(String sn);
+    //	OrderItemPO queryBySn(String sn);
     //
     //	/**
     //	 * 根据订单编号获取子订单列表
@@ -83,7 +83,7 @@ public interface OrderItemQueryService extends CommandService {
     //	 * @return {@link List }<{@link OrderItemPO }>
     //	 * @since 2022-04-28 08:54:41
     //	 */
-    //	List<OrderItemPO> getByOrderSn(String orderSn);
+    //	List<OrderItemPO> queryByOrderSn(String orderSn);
     //
     //	/**
     //	 * 子订单查询
@@ -93,6 +93,6 @@ public interface OrderItemQueryService extends CommandService {
     //	 * @return {@link OrderItemPO }
     //	 * @since 2022-04-28 08:54:41
     //	 */
-    //	OrderItemPO getByOrderSnAndSkuId(String orderSn, Long skuId);
+    //	OrderItemPO queryByOrderSnAndSkuId(String orderSn, Long skuId);
     // }
 }

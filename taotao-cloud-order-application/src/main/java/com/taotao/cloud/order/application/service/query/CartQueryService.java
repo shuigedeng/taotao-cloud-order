@@ -43,7 +43,7 @@ public interface CartQueryService extends CommandService {
     // * @return {@link TradeDTO }
     // * @since 2022-04-28 08:49:41
     // */
-    // TradeDTO getCheckedTradeDTO(CartTypeEnum way);
+    // TradeDTO queryCheckedTradeDTO(CartTypeEnum way);
     //
     /// **
     // * 获取可使用的优惠券数量
@@ -52,7 +52,7 @@ public interface CartQueryService extends CommandService {
     // * @return {@link Long }
     // * @since 2022-04-28 08:49:41
     // */
-    // Long getCanUseCoupon(CartTypeEnum checkedWay);
+    // Long queryCanUseCoupon(CartTypeEnum checkedWay);
     //
     /// **
     // * 获取整个交易中勾选的购物车和商品
@@ -60,7 +60,7 @@ public interface CartQueryService extends CommandService {
     // * @return {@link TradeDTO }
     // * @since 2022-04-28 08:49:41
     // */
-    // TradeDTO getAllTradeDTO();
+    // TradeDTO queryAllTradeDTO();
     //
     /// **
     // * 购物车加入一个商品
@@ -176,7 +176,7 @@ public interface CartQueryService extends CommandService {
     // * @return {@link Long }
     // * @since 2022-04-28 08:49:41
     // */
-    // Long getCartNum(Boolean checked);
+    // Long queryCartNum(Boolean checked);
     //
     /// **
     // * 选择优惠券

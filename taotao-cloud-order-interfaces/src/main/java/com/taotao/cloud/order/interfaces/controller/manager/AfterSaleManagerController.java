@@ -83,7 +83,7 @@ public class AfterSaleManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/refund/{afterSaleSn}")
-    // public Result<Boolean> refund(
+    // public Result<Void> refund(
     //	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
     //	@RequestParam String remark) {
     //	return Result.success(afterSaleCommandService.refund(afterSaleSn, remark));
@@ -93,7 +93,7 @@ public class AfterSaleManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/review/{afterSaleSn}")
-    // public Result<Boolean> review(
+    // public Result<Void> review(
     //	@NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
     //	@NotNull(message = "请审核") String serviceStatus,
     //	String remark,

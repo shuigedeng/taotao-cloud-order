@@ -16,6 +16,10 @@
 
 package com.taotao.cloud.order.infrastructure.assembler;
 
+import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
+import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleReasonUpdateCommand;
+import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -27,9 +31,13 @@ import org.mapstruct.factory.Mappers;
  * @since 2022-04-07 20:55:46
  */
 @Mapper
-public interface AfterSaleLogAssembler {
+public interface AfterSaleReasonInfraAssembler {
 
-    AfterSaleLogAssembler INSTANCE = Mappers.getMapper(AfterSaleLogAssembler.class);
+    AfterSaleReasonInfraAssembler INSTANCE = Mappers.getMapper(AfterSaleReasonInfraAssembler.class);
 
-    // List<AfterSaleLogVO> convert(List<AfterSaleLog> afterSaleLogList);
+    List<AfterSaleReasonResult> convert(List<AfterSaleReasonPO> afterSaleReasonPOList);
+
+    AfterSaleReasonResult convert(AfterSaleReasonPO afterSaleReasonPO);
+
+    AfterSaleReasonPO convert(AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd);
 }

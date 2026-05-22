@@ -45,7 +45,7 @@ public interface OrderComplaintQueryService extends CommandService {
     //     * @return {@link OrderComplaintCO }
     //     * @since 2022-04-28 08:54:36
     //     */
-    //    OrderComplaintCO getOrderComplainById(Long id);
+    //    OrderComplaintCO queryOrderComplainById(Long id);
     //
     //    /**
     //     * 获取交易投诉详情
@@ -54,7 +54,7 @@ public interface OrderComplaintQueryService extends CommandService {
     //     * @return {@link OrderComplaintPO }
     //     * @since 2022-04-28 08:54:36
     //     */
-    //    OrderComplaintPO getOrderComplainByStoreId(Long storeId);
+    //    OrderComplaintPO queryOrderComplainByStoreId(Long storeId);
     //
     //    /**
     //     * 添加交易投诉

@@ -43,6 +43,6 @@ public interface OrderComplaintCommunicationQueryService extends CommandService 
      * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
      * @since 2022-04-28 08:54:33
      */
-    //	IPage<OrderComplaintCommunicationPO> getCommunication(
+    //	IPage<OrderComplaintCommunicationPO> queryCommunication(
     //		OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
 }

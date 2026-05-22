@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.event.roketmq.handler.impl;
+package com.taotao.cloud.order.application.assembler;
 
-import com.taotao.cloud.order.infrastructure.event.roketmq.handler.MemberRegisterEventHandler;
-import org.springframework.stereotype.Service;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-/** 会员钱包创建 */
-@Service
-public class MemberWalletExecuteHandler implements MemberRegisterEventHandler {
+/**
+ * @author shuigedeng
+ * @version 2022.03
+ * @since 2020/11/11 14:42
+ */
+@Mapper
+public interface OrderComplainCommunicationAppAssembler {
 
-    //    @Autowired
-    //    private IFeignMemberWalletApi memberWalletApi;
-    //
-    //    @Override
-    //    public void memberRegister(Member member) {
-    //        // 有些情况下，会同时创建一个member_id的两条数据
-    //        memberWalletApi.save(member.getId(), member.getUsername());
-    //    }
+    OrderComplainCommunicationAppAssembler INSTANCE =
+            Mappers.getMapper(OrderComplainCommunicationAppAssembler.class);
+
+    // OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

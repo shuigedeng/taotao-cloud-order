@@ -66,7 +66,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping
-    // public Result<Boolean> save(@Validated @RequestBody AfterSaleReasonUpdateCmd
+    // public Result<Void> save(@Validated @RequestBody AfterSaleReasonUpdateCmd
     // afterSaleReasonUpdateCmd) {
     //	return Result.success(afterSaleReasonCommandService.save(
     //		AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonUpdateCmd)));
@@ -76,7 +76,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping("/{id}")
-    // public Result<Boolean> update(
+    // public Result<Void> update(
     //	@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd,
     //	@PathVariable("id") Long id) {
     //	AfterSaleReasonPO afterSaleReasonPO = AfterSaleReasonAssembler.INSTANCE.convert(
@@ -89,7 +89,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{id}")
-    // public Result<Boolean> delAllByIds(@PathVariable String id) {
+    // public Result<Void> delAllByIds(@PathVariable String id) {
     //	return Result.success(afterSaleReasonCommandService.removeById(id));
     // }
 }

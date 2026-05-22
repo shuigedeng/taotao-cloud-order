@@ -1,5 +1,5 @@
 server:
-  port: 33334
+  port: 33332
   shutdown: graceful
   http2:
     enabled: true
@@ -50,48 +50,6 @@ jasypt:
       prefix: "ENC@["
       suffix: "]"
 
-#jetcache:
-#  statIntervalMinutes: 1
-#  areaInCacheName: false
-#  local:
-#    default:
-#      type: linkedhashmap
-#      keyConvertor: jacksonKeyConvertor
-#  remote:
-#    default:
-#      type: redis
-#      keyConvertor: jacksonKeyConvertor
-#      valueEncoder: jacksonValueEncoder
-#      valueDecoder: jacksonValueDecoder
-#      poolConfig:
-#        minIdle: 5
-#        maxIdle: 20
-#        maxTotal: 50
-#      host: 127.0.0.1
-#      port: 6379
-
-pulsar:
-  service-url: pulsar://127.0.0.1:6650
-  io-threads: 10
-  listener-threads: 10
-  enable-tcp-no-delay: false
-  keep-alive-interval-sec: 20
-  connection-timeout-sec: 10
-  operation-timeout-sec: 15
-  starting-backoff-interval-ms: 100
-  max-backoff-interval-sec: 10
-  consumer-name-delimiter:
-  namespace: taotao-cloud-namespace
-  tenant: taotao-cloud-tenant
-  auto-start: true
-  allow-interceptor: true
-  #token-auth-value: 43th4398gh340gf34gj349gh304ghryj34fh
-  consumer:
-    default:
-      dead-letter-policy-max-redeliver-count: -1
-      ack-timeout-ms: 3000
-      subscription-type: Exclusive
-
 redisson:
   client-name: ${spring.application.name}   #在Redis节点里显示的客户端名称。
   #password: taotao-cloud   #用于节点身份验证的密码
@@ -132,48 +90,6 @@ redisson:
     connection_pool_size: 64     #连接池最大容量。连接池的连接数量自动弹性伸缩。
     database: 3     #尝试连接的数据库编号。
     dns_monitoring_interval: 5000     #用来指定检查节点DNS变化的时间间隔。使用的时候应该确保JVM里的DNS数据的缓存时间保持在足够低的范围才有意义。用-1来禁用该功能。
-  #multiple-server-config:
-  #  #在多Redis服务节点的环境里，可以选用以下几种负载均衡方式选择一个节点：
-  #  #org.redisson.connection.balancer.WeightedRoundRobinBalancer - 权重轮询调度算法
-  #  #org.redisson.connection.balancer.RoundRobinLoadBalancer - 轮询调度算法
-  #  #org.redisson.connection.balancer.RandomLoadBalancer - 随机调度算法
-  #  loadBalancer: "org.redisson.connection.balancer.RoundRobinLoadBalancer"
-  #  #多从节点的环境里，每个 从服务节点里用于普通操作（非 发布和订阅）的最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时读取反映速度。
-  #  slaveConnectionMinimumIdleSize: 32
-  #  #多从节点的环境里，每个 从服务节点里用于普通操作（非 发布和订阅）连接的连接池最大容量。连接池的连接数量自动弹性伸缩。
-  #  slaveConnectionPoolSize: 64
-  #  failedSlaveReconnectionInterval: 3000
-  #  failedSlaveCheckInterval: 180000
-  #  #多节点的环境里，每个 主节点的最小保持连接数（长连接）。长期保持一定数量的连接有利于提高瞬时写入反应速度。
-  #  masterConnectionMinimumIdleSize: 32
-  #  #多主节点的环境里，每个 主节点的连接池最大容量。连接池的连接数量自动弹性伸缩。
-  #  masterConnectionPoolSize: 64
-  #  #设置读取操作选择节点的模式。 可用值为： SLAVE - 只在从服务节点里读取。 MASTER - 只在主服务节点里读取。 MASTER_SLAVE - 在主从服务节点里都可以读取。
-  #  readMode: slave
-  #  #设置订阅操作选择节点的模式。 可用值为： SLAVE - 只在从服务节点里订阅。 MASTER - 只在主服务节点里订阅。
-  #  subscriptionMode: slave
-  #  #用于发布和订阅连接的最小保持连接数（长连接）。Redisson内部经常通过发布和订阅来实现许多功能。长期保持一定数量的发布订阅连接是必须的。 redisson.multiple-server-config.subscriptionConnectionPoolSize
-  #  subscriptionConnectionMinimumIdleSize: 1
-  #  subscriptionConnectionPoolSize: 50
-  #  #监测DNS的变化情况的时间间隔。
-  #  dnsMonitoringInterval: 5000
-  #  #服务器节点地址.必填
-  #  #redisson.multiple-server-config.node-addresses[0]=127.0.0.1:6379
-  #  #redisson.multiple-server-config.node-addresses[1]=127.0.0.1:6380
-  #  #redisson.multiple-server-config.node-addresses[2]=127.0.0.1:6381
-  #  nodeAddresses:
-  #    - "127.0.0.1:6381"
-  #    - "127.0.0.1:6382"
-  #    - "127.0.0.1:6383"
-  #    - "127.0.0.1:6384"
-  #    - "127.0.0.1:6385"
-  #    - "127.0.0.1:6386"
-  #  #(哨兵模式,云托管,主从模式特有)尝试连接的数据库编号。
-  #  database: 1
-  #  #(哨兵模式特有)主服务器的名称是哨兵进程中用来监测主从服务切换情况的。
-  #  masterName:
-  #  #(集群,哨兵,云托管模特特有) 对Redis集群节点状态扫描的时间间隔。单位是毫秒。
-  #  scanInterval: 1000
 
 arthas:
   # telnetPort、httpPort为 -1 ，则不listen telnet端口，为 0 ，则随机telnet端口
@@ -188,7 +104,7 @@ arthas:
 
 dubbo:
   scan:
-    base-packages: com.taotao.cloud.order.interfaces.dubbo
+    base-packages: com.taotao.cloud.dubbo.interfaces.dubbo
   application:
     name: ${spring.application.name}     #当前应用名称
     compiler: javassist     #Java字节码编译器，用于动态类的生成，可选：jdk或javassist
@@ -196,14 +112,19 @@ dubbo:
     owner: 981376577
     architecture: china
     organization: taotao-cloud
-    metadata-type: local
-    environment: dev
-    qos-port: 20880     #禁用qos同一台集群可能会有端口冲突现象
+    metadata-type: remote
+    environment: product
+    qos-port: 20883     #禁用qos同一台集群可能会有端口冲突现象
     qos-enable: false
     qos-accept-foreign-ip: true
     logger: slf4j
     shutwait: 3000
     dump-directory: ${user.home}/logs/${spring.application.name}/dubbo/
+    #https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/tasks/security/class-check/
+    check-serializable: false
+    #STRICT 严格检查，WARN 告警，DISABLE 禁用
+    serialize-check-status: DISABLE
+    protocol: tri
   registry:
     address: nacos://127.0.0.1:8848
     group: DUBBO_REGISTRY_GROUP
@@ -211,10 +132,14 @@ dubbo:
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
+      register-ip: 127.0.0.1
     timeout: 15000
     username: nacos
     password: nacos
-    protocol: dubbo
     version: ${ttcVersion}
     check: false
     register: true
@@ -223,10 +148,12 @@ dubbo:
     use-as-config-center: false
     use-as-metadata-center: false
   protocol:
+    host: 127.0.0.1
     name: tri
-    port: 50051
+    port: 50053
     ssl-enabled: false
-    accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
+    #accesslog: ${user.home}/logs/${spring.application.name}/dubbo/access.log
+    accesslog: true
     #serialization: kryo
     status: server
     payload: 83886080
@@ -235,19 +162,19 @@ dubbo:
     threads: 20
     queues: 200
   provider:
+    host: 127.0.0.1
     timeout: 3000
     version: ${ttcVersion}
     threads: 500
-    group: taotao-cloud-order-dev
+    #group: taotao-cloud-dubbo-dev
     #delay: 3000     #延时注册服务（毫秒）
-    protocol: dubbo
     retries: 3
     loadbalance: shortestresponse
     async: true
-    accesslog: ${user.home}/logs/${spring.application.name}/dubbo/provider.log
+    accesslog: true
     owner: 981376577
     threadpool: fixed
-    threadname: taotao-cloud-order-dubbo-provider-executor
+    threadname: taotao-cloud-dubbo-dubbo-provider-executor
   consumer:
     check: false
     timeout: 3000
@@ -261,8 +188,8 @@ dubbo:
     actives: 10
     cluster: failover
     validation: true
-    protocol: dubbo
-    group: taotao-cloud-dev
+    #group: taotao-cloud-dev
+    filter: -connectivity
   module:
     name: ${spring.application.name}
     version: ${ttcVersion}
@@ -287,7 +214,14 @@ dubbo:
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
       cluster-name: CQ
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
+    check: false
+    timeout: 10000
   config-center:
+    check: false
     id: ${spring.application.name}
     address: nacos://127.0.0.1:8848
     username: nacos
@@ -295,7 +229,21 @@ dubbo:
     group: DUBBO_REGISTRY_GROUP
     parameters:
       namespace: 213336af-bf44-45ce-850d-6ae563173799
-    check: false
+      # 为了在测试时nacos未启动一直阻塞线程
+      nacos.retry: 1
+      nacos.retry-wait: 1000
+      nacos.check: false
+  #tracing:
+  #  enabled: true # 默认为false
+  #  sampling:
+  #    probability: 0.5 # 采样率, 默认是 0.1
+  #  propagation:
+  #    type: W3C # 传播器类型：W3C/B3 默认是W3C
+  #  tracing-exporter:
+  #    zipkin-config:
+  #      endpoint: http://127.0.0.1:9411/api/v2/spans
+  #      connect-timeout: 1s # 建立连接超时时间, 默认为1s
+  #      read-timeout: 10s # 传递数据超时时间, 默认为10s
   metrics:
     default: true
     id: ${spring.application.name}
@@ -307,6 +255,8 @@ dubbo:
     enable-netty: true
     rpc-level: method
     protocol: prometheus
+    export-metrics-service: false
+    use-global-registry: true
     aggregation:
       enabled: true
       bucketNum: 100
@@ -424,6 +374,62 @@ rocketmq:
     pull-batch-size: 10
 
 spring:
+  grpc:
+    server:
+      port: 9098
+      enabled: true
+      servlet:
+        enabled: false
+    client:
+      enabled: true
+      channels:
+        local:
+          address: static://localhost:9098
+          enableKeepAlive: true
+          idle-timeout: 60s
+        #laokou-common-grpc:
+        #  address: discovery://laokou-common-grpc
+        #  enable-keep-alive: true
+        #  idle-timeout: 60s
+  http:
+    clients:
+      connect-timeout: 30s
+      read-timeout: 30s
+    serviceclient:
+      taotao-cloud-sys:
+        base-url: lb://taotao-cloud-sys
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Authorization: "Bearer 123"
+      stackoverflow:
+        base-url: https://api.stackexchange.com/2.3
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Accept: "application/json"
+          Accept-Encoding: "gzip"
+      github:
+        base-url: https://api.github.com
+        connectTimeout: 30s
+        readTimeout: 30s
+        defaultHeader:
+          Authorization: "Bearer 123"
+          X-GitHub-Api-Version: "2022-11-28"
+  autoconfigure:
+    exclude:
+      #此处排除掉此配置类  是因为在走api请求或者静态资源请求的时候会走FunctionHandlerMapping 导致出现静态资源获取不到
+      - org.springframework.cloud.function.web.mvc.ReactorAutoConfiguration
+  task:
+    execution:
+      mode: FORCE
+      thread-name-prefix: ttc-dubbo-task-
+      pool:
+        core-size: 16
+        max-size: 200
+        queue-capacity: 500
+        allow-core-thread-timeout: true
+        keep-alive: 60s
   threads:
     virtual:
       #1.Tomcat将使用虚拟线程来处理HTTP请求。这意味着处理Web请求的应用程序代码（例如控制器中的方法）将在虚拟线程上运行。
@@ -438,151 +444,6 @@ spring:
       #- optional:nacos:shared-config.yaml
     activate:
       on-profile: dev
-  #autoconfigure:
-  #  exclude:
-  #    - org.springframework.boot.actuate.autoconfigure.elasticsearch.ElasticSearchReactiveHealthContributorAutoConfiguration
-  dynamic:
-    tp:
-      enabled: false
-      enabledBanner: true           # 是否开启banner打印，默认true
-      enabledCollect: true          # 是否开启监控指标采集，默认false
-      collectorTypes: micrometer,logging     # 监控数据采集器类型（logging | micrometer | internal_logging），默认micrometer
-      logPath: /home/logs           # 监控日志数据路径，默认 ${user.home}/logs，采集类型非logging不用配置
-      monitorInterval: 5            # 监控时间间隔（报警判断、指标采集），默认5s
-      configType: yml               # 配置文件类型，非cloud nacos 和 apollo需配置，其他不用配
-      platforms: # 通知报警平台配置
-        - platform: wechat
-          urlKey: 3a700-127-4bd-a798-c53d8b69c     # 替换
-          receivers: "test1,test2"                   # 接受人企微名称
-        - platform: ding
-          urlKey: f80dad441fcd655438f4a08dcd6a     # 替换
-          secret: SECb5441fa6f375d5b9d21           # 替换，非sign模式可以没有此值
-          receivers: "18888888888"                   # 钉钉账号手机号
-        - platform: lark
-          urlKey: 0d944ae7-b24a-40                 # 替换
-          receivers: "test1,test2"                   # 接受人飞书名称/openid
-        - platform: email
-          receivers: "981376577@qq.com"            # 接受人邮箱 多个逗号连接
-      tomcat-tp: # tomcat webserver线程池配置
-        threadPoolName: taotao-cloud-order-tomcat-executor
-        threadPoolAliasName: tomcat线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-      jettyTp: # jetty weberver线程池配置
-        threadPoolName: taotao-cloud-order-jetty-executor
-        threadPoolAliasName: jetty线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-      undertowTp: # undertow webserver线程池配置
-        threadPoolName: taotao-cloud-order-undertow-executor
-        threadPoolAliasName: undertow线程池
-        corePoolSize: 100
-        maximumPoolSize: 200
-        keepAliveTime: 60
-        notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-          - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-            enabled: true
-            threshold: 80                        # 报警阈值
-            platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-            interval: 120                        # 报警间隔（单位：s）
-      dubboTp: # dubbo 线程池配置
-        - threadPoolName: dubboTp#20883            # 名称规则：dubboTp + "#" + 协议端口
-          threadPoolAliasName: 测试线程池             # dubbo线程池
-          corePoolSize: 100
-          maximumPoolSize: 200
-          keepAliveTime: 60
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-            - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                        # 报警阈值
-              platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-              interval: 120                        # 报警间隔（单位：s）
-      rocketMqTp: # rocketmq 线程池配置
-        - threadPoolName: group1#topic1            # 名称规则：group + "#" + topic
-          corePoolSize: 200
-          maximumPoolSize: 200
-          keepAliveTime: 60
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警）
-            - type: capacity                       # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                        # 报警阈值
-              platform-ids: [ ding,wechat,email ]             # 可选配置，不配置默认拿上层platforms配置的所以平台
-              interval: 120                        # 报警间隔（单位：s）
-      executors: # 动态线程池配置，都有默认值，采用默认值的可以不配置该项，减少配置量
-        - threadPoolName: taotao-cloud-order-executor
-          threadNamePrefix: taotao-cloud-order-executor  # 线程名前缀
-          threadPoolAliasName: 测试线程池             # 线程池别名
-          executorType: common                     # 线程池类型common、eager：适用于io密集型
-          corePoolSize: 6
-          maximumPoolSize: 8
-          queueCapacity: 200
-          queueType: VariableLinkedBlockingQueue   # 任务队列，查看源码QueueTypeEnum枚举类
-          rejectedHandlerType: CallerRunsPolicy    # 拒绝策略，查看RejectedTypeEnum枚举类
-          keepAliveTime: 50
-          allowCoreThreadTimeOut: false                  # 是否允许核心线程池超时
-          waitForTasksToCompleteOnShutdown: false        # 参考spring线程池设计，优雅关闭线程池
-          awaitTerminationSeconds: 5                     # 单位（s）
-          preStartAllCoreThreads: false                  # 是否预热所有核心线程，默认false
-          runTimeout: 200                                # 任务执行超时阈值，目前只做告警用，单位（ms）
-          queueTimeout: 100                              # 任务在队列等待超时阈值，目前只做告警用，单位（ms）
-          taskWrapperNames: [ "ttl", "mdc", "swTrace" ]                      # 任务包装器名称，集成TaskWrapper接口
-          notifyItems: # 报警项，不配置自动会按默认值配置（变更通知、容量报警、活性报警、拒绝报警、任务超时报警）
-            - type: capacity               # 报警项类型，查看源码 NotifyTypeEnum枚举类
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: change
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: liveness
-              enabled: true
-              threshold: 80                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: reject
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: run_timeout
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
-            - type: queue_timeout
-              enabled: true
-              threshold: 1                # 报警阈值
-              platform-ids:
-                - ding
-                - wechat
-                - email
-              interval: 120                # 报警间隔（单位：s）
-              clusterLimit: 1
   lifecycle:
     timeout-per-shutdown-phase: 30s
   thymeleaf:
@@ -597,7 +458,7 @@ spring:
     allow-bean-definition-overriding: false
     banner-mode: console
     register-shutdown-hook: true
-    cloud-platform: kubernetes
+    cloud-platform: none
     web-application-type: servlet
   application:
     name: taotao-cloud-order
@@ -639,7 +500,7 @@ spring:
     password: 123456
     hikari:
       auto-commit: true # 从池返回的连接的默认自动提交行为 默认true 是否自动提交，默认true
-      connection-timeout: 350000 # 客户端等待连接池的最大毫秒数 从连接池获取连接的超时时间，默认30s
+      connection-timeout: 1000 # 客户端等待连接池的最大毫秒数 从连接池获取连接的超时时间，默认30s
       idle-timeout: 180000 # 允许连接在连接池中空闲的最大时间（毫秒） 连接空闲时间，当最小连接数 < 最大连接数生效。默认10min
       login-timeout: 5
       validation-timeout: 3000   # 连接测试活动的最大时间量 检验连接是否有效的超时时间，默认5s
@@ -675,50 +536,46 @@ spring:
   jpa:
     database: mysql
     database-platform: mysql
-    show-sql: true
-    open-in-view: true
-    generate-ddl: true
+    show-sql: false # 生产环境不显示SQL
+    open-in-view: false
+    generate-ddl: true # 关闭DDL生成
     hibernate:
       #create：每次运行程序时，都会重新创建表，故而数据会丢失
       #create-drop：每次运行程序时会先创建表结构，然后程序结束时清空表
       #update：每次运行程序，没有表时会创建表，如果对象发生改变会更新表结构，原有数据不会清空，只会更新（推荐使用）
       #validate：运行程序会校验数据于数据库的字段类型是否相同，字段不同会报错
       #none：禁用DDL处理
-      ddl-auto: update
+      ddl-auto: create # 不执行DDL
       naming:
         implicit-strategy: org.springframework.boot.hibernate.SpringImplicitNamingStrategy
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-    #properties:
-    #  hibernate:
-    #    eclipselink.logging.level.sql: FINE
-    #    format_sql: true
-    #    hbm2ddl.auto: update
-    #    dialect: org.hibernate.dialect.MySQLDialect
-    #properties:
-    #  eclipselink:
-    #    logging:
-    #      level:
-    #        sql=FINE:
-    #  javax:
-    #    persistence:
-    #      sharedCache:
-    #        mode: ENABLE_SELECTIVE
-    #  hibernate:
-    #    use_sql_comments: true
-    #    dialect: mysql
-    #    format_sql: false
-    #    show_sql: false
-    #    generate_statistics: false
-    #    cache:
-    #      use_query_cache: true
-    #      use_second_level_cache: true
-    #      region:
-    #        factory_class: 二级缓存class
-    #    javax:
-    #      cache:
-    #        missing_cache_strategy: create
-    #    temp:
-    #      use_jdbc_metadata_defaults: false
+    properties:
+      eclipselink:
+        logging:
+          level:
+            sql: FINE
+      javax:
+        persistence:
+          sharedCache:
+            mode: ENABLE_SELECTIVE
+      hibernate:
+        eclipselink.logging.level.sql: FINE
+        hbm2ddl.auto: create
+        use_sql_comments: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true #输出sql语句 此种方式是直接通过System.out方式进行输出，并且还不会记录预处理语句的参数；不推荐此做法。
+        show_sql: false
+        generate_statistics: false
+        #cache:
+        #  use_query_cache: true
+        #  use_second_level_cache: true
+        #  region:
+        #    factory_class: 二级缓存class
+        javax:
+          cache:
+            missing_cache_strategy: create
+        temp:
+          use_jdbc_metadata_defaults: false
   data:
     redis:
       host: 127.0.0.1
@@ -869,103 +726,208 @@ spring:
         jwt:
           issuer-uri: ${herodotus.endpoint.issuer-uri}
           #jwk-set-uri: ${herodotus.endpoint.jwk-set-uri}
-          jwk-set-uri: http://127.0.0.1:33336/oauth2/jwks
+          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
         opaquetoken:
           client-id: 25953fda237841689743a94871915661
           client-secret: a667ed5606f44e159db062239ed5a838
           introspection-uri: http://127.0.0.1
   cloud:
-
+    function:
+      web:
+        export:
+          enabled: false
+    circuitbreaker:
+      sentinel:
+        enabled: true
     compatibility-verifier:
       enabled: false
     loadbalancer:
       #nacos:
       #  enabled: true
       enabled: true
-    function:
-      # functionName对应服务中的Bean
-      definition: inputKafka1;inputKafka2;demo;example;test
-    stream:
-      #instance-count: 2       #该参数指定了当前消费者的总实例数量；
-      #instance-index: 0       #该参数设置当前实例的索引号，从0开始，最大值为
-      bindings: #消费者
-        demo-in-0:
-          binder: rocketmq
-          destination: dtopic #topic
-          content-type: application/json
-          group: demo1-group #group
-        demo-out-0:
-          binder: rocketmq
-          destination: dtopic #topic
-          group: pd-group
-        example-in-0:
-          binder: rocketmq
-          destination: extopic #topic
-          content-type: application/json
-          group: example-group #group
-        example-out-0:
-          binder: rocketmq
-          destination: extopic #topic
-          group: px-group
-        test-in-0:
-          binder: rocketmq
-          destination: ttopic #topic
-          content-type: application/json
-          group: t-group #group
-        test-out-0:
-          binder: rocketmq
-          destination: ttopic #topic
-          group: pt-group #group
-        # kafka
-        order-output:
-          destination: order-topic
-          content-type: application/json
-          binder: kafka
-        order-input:
-          destination: order-topic
-          group: order-group
-          binder: kafka
-      rocketmq:
-        binder:
-          name-server: 127.0.0.1:9876
-          vip-channel-enabled: false
-          group: demo
-        #RocketMQSpecificPropertiesProvider
-        bindings:
-          demo-in-0:
-            consumer:
-              tags: s1||s2  #消费tag
-              broadcasting: false # 是否使用广播消费，默认为 false 使用集群消费
-          demo-out-0:
-            producer:
-              #开启同步发送
-              sync: true
-          example-in-0:
-            consumer:
-              tags:   #消费tag
-              broadcasting: true # 是否使用广播消费，默认为 false 使用集群消费
-          example-out-0:
-            producer:
-              sync: false #默认异步
-          test-in-0:
-            consumer:
-              tags:   #消费tag
-              broadcasting: false # 是否使用广播消费，默认为 false 使用集群消费
-          test-out-0:
-            producer:
-              sync: true
-      kafka:
-        binder:
-          brokers: 127.0.0.1:9092
-          auto-create-topics: true
-        bindings:
-          order-output:
-            producer:
-              sync: true
-              bufferSize: 16384
-          order-input:
-            consumer:
-              txCommitRecovered: true
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+          version: ${ttcVersion}
+          user.name: "admin"
+          user.password: "123456"
+        group: TAOTAO_CLOUD_GROUP
+        namespace: 82f5c2ff-c0d5-478d-9987-7f082d1a55d7
+        username: nacos
+        password: nacos
+        cluster-name: CQ
+        naming-load-cache-at-start: false
+      config:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 82f5c2ff-c0d5-478d-9987-7f082d1a55d7
+        username: nacos
+        password: nacos
+        group: TAOTAO_CLOUD_GROUP
+        file-extension: yml
+        cluster-name: CQ
+        refresh-enabled: true
+        #使用nacos配置中心配置 dynamic-tp-nacos-cloud-demo-dtp-dev.yml
+        #extension-configs:
+        #  - dataId: ${spring.application.name}-dtp-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+        #    group: DEFAULT_GROUP
+        #    refresh: true  # 必须配置，负责自动刷新不生效
+    sentinel:
+      enabled: true
+      eager: true
+      #      datasource:
+      #        #流控 名称随意
+      #        flow:
+      #          nacos:
+      #            server-addr: 127.0.0.1:8848
+      #            dataId: ${spring.application.name}-flow-rules.json
+      #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
+      #            username: nacos
+      #            password: nacos
+      #            groupId: SENTINEL_GROUP
+      #            data-type: json
+      #            # 规则类型，取值见： org.springframework.cloud.alibaba.sentinel.datasource.RuleType
+      #            rule-type: flow
+      #        #熔断降级 名称随意
+      #        degrade:
+      #          nacos:
+      #            server-addr: 127.0.0.1:8848
+      #            dataId: ${spring.application.name}-degrade-rules.json
+      #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
+      #            username: nacos
+      #            password: nacos
+      #            groupId: SENTINEL_GROUP
+      #            data-type: json
+      #            rule-type: degrade
+      #        #系统规则 名称随意
+      #        system:
+      #          nacos:
+      #            server-addr: 127.0.0.1:8848
+      #            dataId: ${spring.application.name}-goodstem-rules.json
+      #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
+      #            username: nacos
+      #            password: nacos
+      #            groupId: SENTINEL_GROUP
+      #            data-type: json
+      #            rule-type: system
+      #        #授权规则 名称随意
+      #        authority:
+      #          nacos:
+      #            server-addr: 127.0.0.1:8848
+      #            dataId: ${spring.application.name}-authority-rules.json
+      #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
+      #            username: nacos
+      #            password: nacos
+      #            groupId: SENTINEL_GROUP
+      #            data-type: json
+      #            rule-type: authority
+      #        #参数规则 名称随意
+      #        param-flow:
+      #          nacos:
+      #            server-addr: 127.0.0.1:8848
+      #            dataId: ${spring.application.name}-param-flow-rules.json
+      #            namespace: 4c21599b-c836-4f1a-a72f-1260d5474f0f
+      #            username: nacos
+      #            password: nacos
+      #            groupId: SENTINEL_GROUP
+      #            data-type: json
+      #            rule-type: param-flow
+      transport:
+        dashboard: 127.0.0.1:8858
+        port: 8712
+      metric:
+        file-single-size: 1024 * 1024 * 50
+        file-total-count: 10
+      flow:
+        cold-factor: 3
+      log:
+        dir: ${user.home}/logs/${spring.application.name}/sentinel
+        switch-pid: false
+#    function:
+#      # functionName对应服务中的Bean
+#      definition: inputKafka1;inputKafka2;demo;example;test
+#    stream:
+#      #instance-count: 2       #该参数指定了当前消费者的总实例数量；
+#      #instance-index: 0       #该参数设置当前实例的索引号，从0开始，最大值为
+#      bindings: #消费者
+#        demo-in-0:
+#          binder: rocketmq
+#          destination: dtopic #topic
+#          content-type: application/json
+#          group: demo1-group #group
+#        demo-out-0:
+#          binder: rocketmq
+#          destination: dtopic #topic
+#          group: pd-group
+#        example-in-0:
+#          binder: rocketmq
+#          destination: extopic #topic
+#          content-type: application/json
+#          group: example-group #group
+#        example-out-0:
+#          binder: rocketmq
+#          destination: extopic #topic
+#          group: px-group
+#        test-in-0:
+#          binder: rocketmq
+#          destination: ttopic #topic
+#          content-type: application/json
+#          group: t-group #group
+#        test-out-0:
+#          binder: rocketmq
+#          destination: ttopic #topic
+#          group: pt-group #group
+#        # kafka
+#        order-output:
+#          destination: order-topic
+#          content-type: application/json
+#          binder: kafka
+#        order-input:
+#          destination: order-topic
+#          group: order-group
+#          binder: kafka
+#      rocketmq:
+#        binder:
+#          name-server: 127.0.0.1:9876
+#          vip-channel-enabled: false
+#          group: demo
+#        #RocketMQSpecificPropertiesProvider
+#        bindings:
+#          demo-in-0:
+#            consumer:
+#              tags: s1||s2  #消费tag
+#              broadcasting: false # 是否使用广播消费，默认为 false 使用集群消费
+#          demo-out-0:
+#            producer:
+#              #开启同步发送
+#              sync: true
+#          example-in-0:
+#            consumer:
+#              tags:   #消费tag
+#              broadcasting: true # 是否使用广播消费，默认为 false 使用集群消费
+#          example-out-0:
+#            producer:
+#              sync: false #默认异步
+#          test-in-0:
+#            consumer:
+#              tags:   #消费tag
+#              broadcasting: false # 是否使用广播消费，默认为 false 使用集群消费
+#          test-out-0:
+#            producer:
+#              sync: true
+#      kafka:
+#        binder:
+#          brokers: 127.0.0.1:9092
+#          auto-create-topics: true
+#        bindings:
+#          order-output:
+#            producer:
+#              sync: true
+#              bufferSize: 16384
+#          order-input:
+#            consumer:
+#              txCommitRecovered: true
   messages:
     basename: "messages"               # ResourceBundle 名称，多个用，号隔开，默认是 messages
     #basename: "ballcat-*"               # ResourceBundle 名称，多个用，号隔开，默认是 messages
@@ -978,27 +940,28 @@ spring:
 
 taotao:
   cloud:
-
     alibaba:
       nacos:
         enabled: true
       seata:
-        enabled: true
-      sentinel:
         enabled: false
+      sentinel:
+        enabled: true
     stream:
       enabled: true
   boot:
     job:
       xxl:
         enabled: true
+        autoRegister: false
         admin:
-          addresses: http://127.0.0.1:58080/xxl-job-admin
+          addresses: http://127.0.0.1:48080/xxl-job-admin
           username: admin
           password: 123456
         executor:
-          access-token:
-          ip: 192.168.1.3
+          access-token: 123456
+          appname: ttc-dubbo
+          title: ttc-dubbo
     zookeeper:
       enabled: false
       connectString: 127.0.0.1:2181
@@ -1051,11 +1014,7 @@ taotao:
         enabled: true
       kafka:
         enabled: true
-      pulsar:
-        enabled: false
     cache:
-      caffeine:
-        enabled: false
       redis:
         enabled: true
         cache-manager:
@@ -1071,7 +1030,7 @@ taotao:
         dynamic:
           enabled: false
       elasticsearch:
-        enabled: true
+        enabled: false
       mybatis:
         enabled: true
         interceptor:
@@ -1119,7 +1078,9 @@ taotao:
               types: logger
       jpa:
         enabled: true
-        packages: com.taotao.cloud.order.infrastructure.persistent.persistence.*
+        packages: com.taotao.cloud.dubbo.infrastructure.persistent.persistence
+        generateDdl: false
+        showSql: false
         tenant:
           enabled: false
       p6spy:
@@ -1135,6 +1096,8 @@ taotao:
       group: ${spring.application.name}
       version: ${ttcVersion}
       title: 系统管理模块
+      packages-to-scan:
+        - com.taotao.cloud.dubbo.interfaces.controller.**
     metrics:
       enabled: true
       druid:
@@ -1172,11 +1135,19 @@ taotao:
       enabled: false
     dubbo:
       enabled: true
+      request-log: true
     core:
       enabled: true
+      async:
+        enabled: false
     captcha:
       enabled: false
     security:
+      authorization:
+        ignore-url:
+          - /sys/buyer/dict/test/{code}
+          - /sys/manager/dept/tree
+          - /docs
       oauth2:
         endpoint:
           uaa-service-name: dante-cloud-uaa
@@ -1188,7 +1159,7 @@ taotao:
           authorization-uri: http://127.0.0.1:33336/oauth2/authorize
           token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
           token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-          jwk-set-uri: http://127.0.0.1:33336/oauth2/jwks
+          jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
           issuer-uri: ${herodotus.endpoint.uaa-service-uri}
           oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
           oidc-user-info-uri: http://127.0.0.1:33336/userinfo
@@ -1203,12 +1174,10 @@ taotao:
           validate: local
           jwk:
             certificate: standard
-      ignore-url:
-        - /sys/buyer/dict/test/{code}
-        - /sys/manager/dept/tree
+
 
 mybatis-plus:
-  typeAliasesPackage: com.taotao.cloud.order.infrastructure.persistent.persistence.*  #实体扫描 多个package用户逗号或者分号分割
+  typeAliasesPackage: com.taotao.cloud.dubbo.infrastructure.persistent.persistence  #实体扫描 多个package用户逗号或者分号分割
   mapperLocations: classpath:mapper/*.xml # mapper xml 地址
   global-config:
     banner: true # 关闭mp3.0自带的banner
@@ -1223,6 +1192,7 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+    #不仅仅输出的是sql还将数据也输出了，并且这里是通过System.out进行输出的，并且还不管你是否配置的debug级别都会进行输出
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 日志打印参数class  org.apache.ibatis.logging.slf4j.Slf4jImpl com.taotao.boot.data.mybatis.logging.CustomStdOutImpl
     lazyLoadingEnabled: true  #查询时，关闭关联对象即时加载以提高性能
     aggressiveLazyLoading: false  #设置关联对象加载的形态，此处为按需加载字段(加载字段由SQL指定)，不会加载关联表的所有字段，以提高性能
@@ -1256,14 +1226,18 @@ management:
       exposure:
         include: '*'
   endpoint:
+    threaddump:
+      access: unrestricted
     metrics:
-      enabled: true
+      access: unrestricted
     prometheus:
-      enabled: true
+      access: unrestricted
     health:
       show-details: ALWAYS
     shutdown:
-      enabled: true
+      access: unrestricted
+    beans:
+      access: unrestricted
   health:
     mail:
       enabled: false
@@ -1296,9 +1270,10 @@ management:
         headers:
           version: ${ttcVersion}
   tracing:
-    enabled: true
     sampling:
       probability: 1.0
+    export:
+      enabled: true
   observations:
     http:
       client:
@@ -1331,8 +1306,18 @@ logging:
   level:
     web: TRACE
     root: INFO
+    #JdbcTemplate 输出任何SQL语句
+    '[org.springframework.jdbc.core.JdbcTemplate]': debug
+    #JdbcTemplate 输出任何SQL语句 动态参数
+    '[org.springframework.jdbc.core.StatementCreatorUtils]': trace
+    #org.hibernate.SQL：记录执行的SQL。
+    #org.hibernate.orm.jdbc.bind：记录预处理语句的参数。
+    '[org.hibernate.SQL]': debug
+    '[org.hibernate.orm.jdbc.bind]': trace
+    '[com.pack.mapper]': DEBUG
     org.apache.zookeeper.ZooKeeper: info
-    com.taotao.cloud.order.api.inner: debug
+    com.taotao.cloud.dubbo.api.inner: debug
+    #第三方开源库datasource-proxy，该组件用于拦截SQL查询并记录。
     net.ttddyy.dsproxy.listener: debug
     net.ttddyy.dsproxy.listener.logging.SLF4JQueryLoggingListener: debug
     org.springframework.core.log.LogAccessor: error
@@ -1360,7 +1345,7 @@ logging:
     #org.apache.kafka: off
     #org.I0Itec.zkclient: info
     # springframework log
-    #org.springframework.cloud.openfeign: debug
+    org.springframework.cloud.openfeign: debug
     #org.springframework.web: off
     #org.springframework.security: off
     #org.springframework.security.oauth2: off
@@ -1378,22 +1363,6 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
-
-kylin:
-  lock:
-    acquire-timeout: 3000       #获取锁超时时间 默认值3000L 单位：毫秒
-    expire: 30000               #过期时间，默认值30000L 单位：毫秒
-    retry-interval: 100         #获取锁失败时重试时间间隔，默认值100L 单位：毫秒
-    lock-key-prefix: kylin-lock #锁前缀 默认配置
-    primary-executor: com.taotao.boot.lock.kylin.executor.redisson.RedissonLockExecutor #默认执行器。默认redisson>zookeeper
-    redisson: true              #是否开启redisson 默认true
-    #zookeeper:
-    #  zk-servers: 127.0.0.1:2181 #zk的server地址，多个server之间使用英文逗号分隔开 。配置地址则开启zookeeper
-    #  session-timeout: 60000     #会话超时时间，默认值60000 单位：毫秒
-    #  connection-timeout: 15000  #连接超时时间，默认值15000 单位：毫秒
-    #  base-sleep-time-ms: 5000   #初始sleep时间，默认值5000 单位：毫秒
-    #  max-retries: 3             #最大失败重试次数
-    #  namespace: curator/kylin/lock #命名空间
 
 gobrs:
   async:
@@ -1450,14 +1419,14 @@ gobrs:
 
 springdoc:
   showActuator: false
+  show-spring-cloud-functions: false
   default-flat-param-object: true
   packages-to-exclude:
     - cn.afterturn.easypoi.wps.controller
     - com.taotao.boot.captcha.controller
-  #swagger-ui:
-  #  path: /swagger-ui.html
-  #  tags-sorter: alpha
-  #  operations-sorter: alpha
+  swagger-ui:
+    tags-sorter: alpha
+    operations-sorter: alpha
   #api-docs:
   #  path: /v3/api-docs
   #group-configs:
@@ -1472,71 +1441,34 @@ knife4j:
     enable: false
     username: admin
     password: 123456
-  cors: false
-  documents:
-    - group: 1.2.x
-      name: 测试自定义标题分组
-      locations: classpath:md/*
-    - name: 标题2
-      locations: classpath:markdown1/*
-      group: 用户模块
-  setting:
-    swagger-model-name: 实体类列表
-    enableSwaggerModels: true
-    enableDocumentManage: true
-    enableHost: false
-    enableHostText: http://127.0.0.1:18568
-    enableRequestCache: true
-    enableFilterMultipartApis: false
-    enableFilterMultipartApiMethodType: POST
-    language: zh-CN
-    enableAfterScript: false
-    enableHomeCustom: true
-    homeCustomLocation: classpath:test/home.md
-    enableFooter: false
-    enableFooterCustom: true
-    footerCustomContent: 八一菜刀研究中心
-    enableSearch: true
-    enableDebug: true
-    enableOpenApi: true
-    enableGroup: true
-
-grpc:
-  port: 6565
-  enableReflection: true
-  shutdownGrace: 30
-  enabled: true
-
-  server:
-    port: 9898 #服务端端口
-    #in-process-name: test #自己的应用程序中调用自己的 grpc服务 使用 grpc 的 InProcessServer 来节省网络间开销
-    #security: #为了允许 grpc-server 使用 TLS 您必须使用以下选项来配置它：
-    #  enabled: true
-    #  certificateChain: file:certificates/server.crt
-    #  privateKey: file:certificates/server.key
-    #  privateKeyPassword: MyStrongPassword
-    health-service-enabled: false
-  client:
-    #inProcess:
-    #  address: in-process:test #这允许客户端在同一应用程序内使用以下配置连接到服务器：
-    grpc-server:
-      address: 'static://127.0.0.1:9898'
-    # 服务名（不同服务名可对应不同配置）
-    #grpc-sb-server:
-    #  # 服务端地址
-    #  address: 'static://127.0.0.1:9898'
-    #  # 是否开启保持连接（长连接）
-    #  enableKeepAlive: true
-    #  # 保持连接时长（默认20s）
-    #  keepAliveTimeout: 20s
-    #  # 没有RPC调用时是否保持连接（默认false，可禁用避免额外消耗CPU）
-    #  keepAliveWithoutCalls: false
-    #  # 客户端负载均衡策略(round_robin（默认）, pick_first)
-    #  defaultLoadBalancingPolicy: round_robin
-    #  # 通信类型
-    #  # plaintext | plaintext_upgrade | tls
-    #  # 明文通信且http/2 | 明文通信且升级http/1.1为http/2 | 使用TLS（ALPN/NPN）通信
-    #  negotiationType: plaintext
+  cors: true
+#  documents:
+#    - group: 1.2.x
+#      name: 测试自定义标题分组
+#      locations: classpath:md/*
+#    - name: 标题2
+#      locations: classpath:markdown1/*
+#      group: 用户模块
+#  setting:
+#    swagger-model-name: 实体类列表
+#    enableSwaggerModels: true
+#    enableDocumentManage: true
+#    enableHost: false
+#    enableHostText: http://127.0.0.1:18568
+#    enableRequestCache: true
+#    enableFilterMultipartApis: false
+#    enableFilterMultipartApiMethodType: POST
+#    language: zh-CN
+#    enableAfterScript: false
+#    enableHomeCustom: true
+#    homeCustomLocation: classpath:test/home.md
+#    enableFooter: false
+#    enableFooterCustom: true
+#    footerCustomContent: 八一菜刀研究中心
+#    enableSearch: true
+#    enableDebug: true
+#    enableOpenApi: true
+#    enableGroup: true
 
 herodotus:
   endpoint:
@@ -1549,7 +1481,7 @@ herodotus:
     authorization-uri: http://127.0.0.1:33336/oauth2/authorize
     token-revocation-uri: http://127.0.0.1:33336/oauth2/revoke
     token-introspection-uri: http://127.0.0.1:33336/oauth2/introspect
-    jwk-set-uri: http://127.0.0.1:33336/oauth2/jwks
+    jwk-set-uri: http://127.0.0.1:33334/oauth2/jwks
     issuer-uri: ${herodotus.endpoint.uaa-service-uri}
     oidc-client-registration-uri: http://127.0.0.1:33336/connect/register
     oidc-user-info-uri: http://127.0.0.1:33336/userinfo
@@ -1561,3 +1493,14 @@ herodotus:
       validate: local
       jwk:
         certificate: standard
+
+scalar:
+  enabled: true
+  actuatorEnabled: true
+  url: http://127.0.0.1:33332/v3/api-docs/taotao-cloud-order
+  path: /docs
+  pageTitle: My API Documentation
+  tagSorter: ALPHA
+  operationSorter: ALPHA
+  schemaPropertyOrder: ALPHA
+  persistAuth: true

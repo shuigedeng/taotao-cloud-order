@@ -65,7 +65,7 @@ public class OrderBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderSn}/receiving")
-    // public Result<Boolean> receiving(@NotNull(message = "订单编号不能为空") @PathVariable("orderSn")
+    // public Result<Void> receiving(@NotNull(message = "订单编号不能为空") @PathVariable("orderSn")
     // String orderSn) {
     //	Order order = orderCommandService.getBySn(orderSn);
     //	if (order == null) {
@@ -83,7 +83,7 @@ public class OrderBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderSn}/cancel")
-    // public Result<Boolean> cancel(@PathVariable String orderSn, @RequestParam String reason) {
+    // public Result<Void> cancel(@PathVariable String orderSn, @RequestParam String reason) {
     //	orderCommandService.cancel(orderSn, reason);
     //	return Result.success(true);
     // }
@@ -92,7 +92,7 @@ public class OrderBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderSn}")
-    // public Result<Boolean> deleteOrder(@PathVariable String orderSn) {
+    // public Result<Void> deleteOrder(@PathVariable String orderSn) {
     //	OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
     //	orderCommandService.deleteOrder(orderSn);
     //	return Result.success(true);
@@ -112,7 +112,7 @@ public class OrderBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/receipt/{orderSn}")
-    // public Result<Boolean> invoice(@NotBlank(message = "订单编号不能为空") @PathVariable String orderSn)
+    // public Result<Void> invoice(@NotBlank(message = "订单编号不能为空") @PathVariable String orderSn)
     // {
     //	OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
     //	return Result.success(orderCommandService.invoice(orderSn));

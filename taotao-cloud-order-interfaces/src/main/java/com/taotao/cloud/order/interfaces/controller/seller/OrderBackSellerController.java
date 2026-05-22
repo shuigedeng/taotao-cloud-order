@@ -82,7 +82,7 @@ public class OrderBackSellerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderSn}/price")
-    // public Result<Boolean> updateOrderPrice(
+    // public Result<Void> updateOrderPrice(
     //	@PathVariable String orderSn,
     //	@NotNull(message = "订单价格不能为空") @RequestParam BigDecimal orderPrice) {
     //	return Result.success(orderPriceCommandService.updatePrice(orderSn, orderPrice));
@@ -149,7 +149,7 @@ public class OrderBackSellerController extends BusinessController {
     // @Operation(summary = "上传文件进行订单批量发货", description = "上传文件进行订单批量发货")
     // @RequestLogger
     // @PostMapping(value = "/batchDeliver", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    // public Result<Boolean> batchDeliver(@RequestPart("files") MultipartFile files) {
+    // public Result<Void> batchDeliver(@RequestPart("files") MultipartFile files) {
     //	return Result.success(orderCommandService.batchDeliver(files));
     // }
     //

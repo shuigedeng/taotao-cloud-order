@@ -28,15 +28,6 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
 public interface AfterSaleCommandService extends CommandService {
     //
     /// **
-    // * 分页查询售后信息
-    // *
-    // * @param afterSalePageQry 查询参数
-    // * @return {@link IPage }<{@link AfterSalePO }>
-    // * @since 2022-04-28 08:49:10
-    // */
-    // IPage<AfterSalePO> pageQuery(AfterSalePageQry afterSalePageQry);
-    //
-    /// **
     // * 查询导出售后信息
     // *
     // * @param afterSalePageQry 查询参数
@@ -45,23 +36,7 @@ public interface AfterSaleCommandService extends CommandService {
     // */
     // List<AfterSalePO> exportAfterSaleOrder(AfterSalePageQry afterSalePageQry);
     //
-    /// **
-    // * 查询售后信息
-    // *
-    // * @param sn 售后单号
-    // * @return {@link AfterSalePO }
-    // * @since 2022-04-28 08:49:10
-    // */
-    // AfterSalePO getAfterSaleBySn(String sn);
     //
-    /// **
-    // * 获取申请售后页面信息
-    // *
-    // * @param sn 订单编号
-    // * @return {@link AfterSaleApplyCO }
-    // * @since 2022-04-28 08:49:10
-    // */
-    // AfterSaleApplyCO getAfterSaleVO(String sn);
     //
     /// **
     // * 售后申请

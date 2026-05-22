@@ -16,28 +16,19 @@
 
 package com.taotao.cloud.order.infrastructure.assembler;
 
-import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleReasonUpdateCommand;
-import com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale.AfterSaleReasonPO;
-import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IAfterSaleMapStruct
- *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-07 20:55:46
+ * @version 2022.03
+ * @since 2020/11/11 14:42
  */
 @Mapper
-public interface AfterSaleReasonAssembler {
+public interface OrderComplainCommunicationInfraAssembler {
 
-    AfterSaleReasonAssembler INSTANCE = Mappers.getMapper(AfterSaleReasonAssembler.class);
+    OrderComplainCommunicationInfraAssembler INSTANCE =
+            Mappers.getMapper(OrderComplainCommunicationInfraAssembler.class);
 
-    List<AfterSaleReasonResult> convert(List<AfterSaleReasonPO> afterSaleReasonPOList);
-
-    AfterSaleReasonResult convert(AfterSaleReasonPO afterSaleReasonPO);
-
-    AfterSaleReasonPO convert(AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd);
+    // OrderComplaint convert(OrderComplaintDTO orderComplaintDTO);
 }

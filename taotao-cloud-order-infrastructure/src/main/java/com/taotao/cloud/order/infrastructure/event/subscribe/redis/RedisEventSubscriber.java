@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.event.roketmq.handler;
+package com.taotao.cloud.order.infrastructure.event.subscribe.redis;
 
-/** 会员登录消息 */
-public interface MemberLoginEventHandler {
-
-    /**
-     * 会员登录
-     *
-     * @param member 会员
-     */
-    //    void memberLogin(Member member);
-}
+/**
+ * RedisEventSubscriber
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
+ */
+public class RedisEventSubscriber {}

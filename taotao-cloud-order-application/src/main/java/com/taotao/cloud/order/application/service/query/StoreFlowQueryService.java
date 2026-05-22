@@ -50,7 +50,7 @@ public interface StoreFlowQueryService extends CommandService {
      * @return {@link IPage }<{@link StoreFlowPO }>
      * @since 2022-04-28 08:54:53
      */
-    //	IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+    //	IPage<StoreFlowPO> queryStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
 
     /**
      * 根据参数查询一条数据
@@ -68,7 +68,7 @@ public interface StoreFlowQueryService extends CommandService {
     // * @return {@link List }<{@link StoreFlowPayDownloadVO }>
     // * @since 2022-04-28 08:54:53
     // */
-    // List<StoreFlowPayDownloadVO> getStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
+    // List<StoreFlowPayDownloadVO> queryStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
     //
     /// **
     // * 获取结算单的退款流水
@@ -77,7 +77,7 @@ public interface StoreFlowQueryService extends CommandService {
     // * @return {@link List }<{@link StoreFlowRefundDownloadVO }>
     // * @since 2022-04-28 08:54:53
     // */
-    // List<StoreFlowRefundDownloadVO> getStoreFlowRefundDownloadVO(
+    // List<StoreFlowRefundDownloadVO> queryStoreFlowRefundDownloadVO(
     //	StoreFlowPageQry storeFlowQueryDTO);
 
     /**
@@ -87,7 +87,7 @@ public interface StoreFlowQueryService extends CommandService {
      * @return {@link IPage }<{@link StoreFlowPO }>
      * @since 2022-05-19 15:47:59
      */
-    //	IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry);
+    //	IPage<StoreFlowPO> queryStoreFlow(StorePageQry storePageQry);
 
     /**
      * 根据结算单ID获取商家流水
@@ -96,7 +96,7 @@ public interface StoreFlowQueryService extends CommandService {
      * @return {@link IPage }<{@link StoreFlowPO }>
      * @since 2022-05-19 15:48:02
      */
-    //	IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry);
+    //	IPage<StoreFlowPO> queryDistributionFlow(DistributionPageQry distributionPageQry);
 
     /**
      * 获取店铺流水

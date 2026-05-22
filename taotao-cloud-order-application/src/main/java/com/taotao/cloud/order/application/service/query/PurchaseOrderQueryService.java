@@ -43,7 +43,7 @@ public interface PurchaseOrderQueryService extends CommandService {
     // * @return {@link PurchaseOrderVO }
     // * @since 2022-04-28 08:55:29
     // */
-    // PurchaseOrderVO getPurchaseOrder(String id);
+    // PurchaseOrderVO queryPurchaseOrder(String id);
     //
     /// **
     // * 获取采购单分页列表

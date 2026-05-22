@@ -84,7 +84,7 @@ public class AfterSaleBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/{orderItemSn}")
-    // public Result<Boolean> saveAfterSale(
+    // public Result<Void> saveAfterSale(
     //        @NotBlank(message = "售后单号不能为空") @PathVariable String orderItemSn,
     //        @Validated @RequestBody AfterSaleAddCmd afterSaleAddCmd) {
     //    afterSaleAddCmd = AfterSaleDTOBuilder.builder(afterSaleAddCmd)
@@ -112,7 +112,7 @@ public class AfterSaleBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping(value = "/cancel/{afterSaleSn}")
-    // public Result<Boolean> cancel(
+    // public Result<Void> cancel(
     //        @NotNull(message = "售后订单编码不能为空") @PathVariable String afterSaleSn) {
     //    return Result.success(afterSaleCommandService.cancel(afterSaleSn));
     // }

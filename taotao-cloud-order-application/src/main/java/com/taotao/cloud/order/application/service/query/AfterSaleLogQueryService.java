@@ -34,5 +34,5 @@ public interface AfterSaleLogQueryService extends CommandService {
      * @return {@link List }<{@link AfterSaleLogPO }>
      * @since 2022-04-28 08:49:07
      */
-    //    List<AfterSaleLogPO> getAfterSaleLog(String sn);
+    //    List<AfterSaleLogPO> queryAfterSaleLog(String sn);
 }

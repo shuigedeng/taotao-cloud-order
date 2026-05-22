@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.event.listener;
+package com.taotao.cloud.order.application.repository;
 
-/**
- * DictCreateListener
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
- */
-public class DictCreateListener {
 
+public interface OrderQueryRepository {
+
+//    BrandResult getById(Long id);
 }

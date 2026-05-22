@@ -60,7 +60,7 @@ public class ReceiptBuyerController extends BusinessController {
     // @RequestLogger
     // @PreAuthorize("hasAuthority('dept:tree:data')")
     // @PostMapping
-    // public Result<Boolean> save(@Valid Receipt receipt) {
+    // public Result<Void> save(@Valid Receipt receipt) {
     //	return Result.success(receiptCommandService.saveReceipt(receipt));
     // }
 }
