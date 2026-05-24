@@ -54,6 +54,6 @@ public class OrderLogManagerController extends BusinessController {
     // @GetMapping(value = "/page")
     // public Result<PageResult<OrderLogCO>> queryByPage(OrderLogPageQry orderLogPageQry) {
     //	IPage<OrderLogPO> orderLogPage = orderLogService.pageQuery(orderLogPageQry);
-    //	return Result.success(MpUtils.convertMybatisPage(orderLogPage, OrderLogCO.class));
+    //	return Result.success(MpUtils.convertMpPage(orderLogPage, OrderLogCO.class));
     // }
 }

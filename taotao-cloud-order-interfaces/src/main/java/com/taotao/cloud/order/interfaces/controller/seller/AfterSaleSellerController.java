@@ -58,7 +58,7 @@ public class AfterSaleSellerController extends BusinessController {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	searchParams.setStoreId(storeId);
     //	IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);
-    //	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleCO.class));
+    //	return Result.success(MpUtils.convertMpPage(page, AfterSaleCO.class));
     // }
     //
     // @Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")

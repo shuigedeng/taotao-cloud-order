@@ -46,6 +46,6 @@ public class ReceiptManagerController extends BusinessController {
     // @GetMapping("/tree")
     // public Result<PageResult<OrderReceiptAddCmd>> getPage(ReceiptPageQry receiptPageQry) {
     //	IPage<OrderReceiptAddCmd> page = this.receiptCommandService.pageQuery(receiptPageQry);
-    //	return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCmd.class));
+    //	return Result.success(MpUtils.convertMpPage(page, OrderReceiptAddCmd.class));
     // }
 }

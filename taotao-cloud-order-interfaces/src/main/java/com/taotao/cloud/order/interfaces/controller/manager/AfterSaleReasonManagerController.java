@@ -59,7 +59,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     //	@Validated AfterSaleReasonPageQry afterSaleReasonPageQry) {
     //	IPage<AfterSaleReasonPO> page =
     // afterSaleReasonCommandService.pageQuery(afterSaleReasonPageQry);
-    //	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleReasonCO.class));
+    //	return Result.success(MpUtils.convertMpPage(page, AfterSaleReasonCO.class));
     // }
     //
     // @Operation(summary = "添加售后原因", description = "添加售后原因")

@@ -49,7 +49,7 @@ public class AfterSaleManagerController extends BusinessController {
     // @GetMapping(value = "/page")
     // public Result<PageResult<AfterSaleCO>> pageQuery(AfterSalePageQry searchParams) {
     //	IPage<AfterSalePO> page = afterSaleCommandService.pageQuery(searchParams);
-    //	return Result.success(MpUtils.convertMybatisPage(page, AfterSaleCO.class));
+    //	return Result.success(MpUtils.convertMpPage(page, AfterSaleCO.class));
     // }
     //
     // @Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")

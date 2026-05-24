@@ -67,7 +67,7 @@ public class OrderComplaintBuyerController extends BusinessController {
     //	IPage<OrderComplaintPO> orderComplainByPage = orderComplaintCommandService.pageQuery(
     //		orderComplaintPageQry);
     //	return Result.success(
-    //		MpUtils.convertMybatisPage(orderComplainByPage, OrderComplaintBaseCO.class));
+    //		MpUtils.convertMpPage(orderComplainByPage, OrderComplaintBaseCO.class));
     // }
     //
     // @Operation(summary = "添加交易投诉", description = "添加交易投诉")

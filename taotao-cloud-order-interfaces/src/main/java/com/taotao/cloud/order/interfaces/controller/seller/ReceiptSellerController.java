@@ -61,7 +61,7 @@ public class ReceiptSellerController extends BusinessController {
     public Result<PageResult<OrderReceiptAddCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
         //receiptPageQry.storeId(SecurityUtils.getCurrentUser().getStoreId());
         IPage<OrderReceiptAddCommand> page = receiptCommandService.pageQuery(receiptPageQry);
-        return Result.success(MpUtils.convertMybatisPage(page, OrderReceiptAddCommand.class));
+        return Result.success(MpUtils.convertMpPage(page, OrderReceiptAddCommand.class));
     }
 
     //	@Operation(summary = "通过id获取", description = "通过id获取")

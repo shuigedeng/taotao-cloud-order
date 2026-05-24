@@ -52,7 +52,7 @@ public class OrderManagerController extends BusinessController {
     // @GetMapping("/tree")
     // public Result<PageResult<OrderSimpleCO>> queryMineOrder(OrderPageQry orderPageQry) {
     //	IPage<OrderSimpleCO> page = orderCommandService.pageQuery(orderPageQry);
-    //	return Result.success(MpUtils.convertMybatisPage(page, OrderSimpleCO.class));
+    //	return Result.success(MpUtils.convertMpPage(page, OrderSimpleCO.class));
     // }
     //
     // @Operation(summary = "查询订单导出列表", description = "查询订单导出列表")

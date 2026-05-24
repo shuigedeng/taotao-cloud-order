@@ -66,7 +66,7 @@ public class OrderComplaintSellerController extends BusinessController {
     //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
     //	orderComplaintPageQry.setStoreId(storeId);
     //	IPage<OrderComplaintPO> page = orderComplaintCommandService.pageQuery(orderComplaintPageQry);
-    //	return Result.success(MpUtils.convertMybatisPage(page, OrderComplaintBaseCO.class));
+    //	return Result.success(MpUtils.convertMpPage(page, OrderComplaintBaseCO.class));
     // }
     //
     // @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")

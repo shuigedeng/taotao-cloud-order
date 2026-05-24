@@ -68,7 +68,7 @@ public class AfterSaleBuyerController extends BusinessController {
     // public Result<PageResult<AfterSaleCO>> pageQuery(
     //        @Validated AfterSalePageQry afterSalePageQry) {
     //    IPage<AfterSalePO> afterSalePages = afterSaleCommandService.pageQuery(afterSalePageQry);
-    //    return Result.success(MpUtils.convertMybatisPage(afterSalePages, AfterSaleCO.class));
+    //    return Result.success(MpUtils.convertMpPage(afterSalePages, AfterSaleCO.class));
     // }
     //
     // @Operation(summary = "获取申请售后页面信息", description = "获取申请售后页面信息")
