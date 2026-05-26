@@ -16,8 +16,8 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
-import static org.springframework.http.HttpStatus.CREATED;
-
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderResponse;
 import com.taotao.cloud.order.application.dto.order.command.RequestInvoiceCommand;
@@ -34,60 +34,58 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * OrderController
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
- */
 @Validated
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/orders")
-public class OrderSellerController {
+public class OrderSellerController extends BusinessController {
 
     private final OrderQueryService orderQueryService;
     private final OrderCommandService orderCommandService;
 
     @PostMapping
-    @ResponseStatus(CREATED)
-    public CreateOrderResponse createOrder(
-            @RequestBody @Valid CreateOrderCommand command, @AuthenticationPrincipal User user ) {
-        return orderCommandService.createOrder(command, user);
+    public Result<CreateOrderResponse> createOrder(
+            @RequestBody @Valid CreateOrderCommand command, @AuthenticationPrincipal User user) {
+        return Result.success(orderCommandService.createOrder(command, user));
     }
 
     @PostMapping(value = "/{orderId}/invoice-request")
-    public void requestInvoice(
+    public Result<Void> requestInvoice(
             @PathVariable("orderId") @NotBlank String orderId,
             @RequestBody @Valid RequestInvoiceCommand command,
-            @AuthenticationPrincipal User user ) {
+            @AuthenticationPrincipal User user) {
         orderCommandService.requestInvoice(orderId, command, user);
+        return Result.success();
     }
 
     @GetMapping(value = "/{orderId}/status")
-    public OrderStatus fetchOrderStatus(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
-        return orderQueryService.fetchOrderStatus(orderId, user);
+    public Result<OrderStatus> fetchOrderStatus(
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+        return Result.success(orderQueryService.fetchOrderStatus(orderId, user));
     }
 
     @GetMapping(value = "/{orderId}")
-    public QDetailedOrder fetchDetailedOrder(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
-        return orderQueryService.fetchDetailedOrder(orderId, user);
+    public Result<QDetailedOrder> fetchDetailedOrder(
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+        return Result.success(orderQueryService.fetchDetailedOrder(orderId, user));
     }
 
     @GetMapping(value = "/{orderId}/shipment")
-    public QOrderShipment fetchOrderShipment(
-            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user ) {
-        return orderQueryService.fetchOrderShipment(orderId, user);
+    public Result<QOrderShipment> fetchOrderShipment(
+            @PathVariable("orderId") @NotBlank String orderId, @AuthenticationPrincipal User user) {
+        return Result.success(orderQueryService.fetchOrderShipment(orderId, user));
     }
 
     @PostMapping(value = "/quotations")
-    public QPriceQuotation requestQuote(
-            @RequestBody @Valid QuotePriceQuery queryCommand, @AuthenticationPrincipal User user ) {
-        return orderQueryService.quoteOrderPrice(queryCommand, user);
+    public Result<QPriceQuotation> requestQuote(
+            @RequestBody @Valid QuotePriceQuery queryCommand, @AuthenticationPrincipal User user) {
+        return Result.success(orderQueryService.quoteOrderPrice(queryCommand, user));
     }
 }

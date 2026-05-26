@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
 
 /**
  * 售后原因业务层
@@ -35,6 +36,6 @@ public interface AfterSaleReasonCommandService extends CommandService {
      * @return {@link Boolean }
      * @since 2022-04-28 08:49:03
      */
-    //    Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO);
+    Boolean editAfterSaleReason(AfterSaleReasonResult afterSaleReasonResult);
 
 }

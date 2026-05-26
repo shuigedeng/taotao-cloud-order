@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.service.command;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-
 /**
  * 订单日志业务层
  *
@@ -25,16 +23,5 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface OrderLogCommandService extends CommandService {
-
-    /**
-     * 根据订单编号获取订单日志列表
-     *
-     * @param orderSn 订单编号
-     * @return {@link List }<{@link OrderLogPO }>
-     * @since 2022-04-28 08:55:50
-     */
-    //    List<OrderLogPO> getOrderLog(String orderSn);
-    //
-    //    IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry);
+public interface OrderLogCommandService {
 }

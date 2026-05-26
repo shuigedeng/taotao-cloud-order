@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 
 /**
  * 商家订单流水业务层
@@ -41,69 +42,5 @@ public interface StoreFlowCommandService extends CommandService {
      * @param afterSale 售后单
      * @since 2022-04-28 08:54:53
      */
-    //	void refundOrder(AfterSalePO afterSale);
-
-    /**
-     * 获取商家流水
-     *
-     * @param storeFlowQueryDTO 查询参数
-     * @return {@link IPage }<{@link StoreFlowPO }>
-     * @since 2022-04-28 08:54:53
-     */
-    //	IPage<StoreFlowPO> getStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
-
-    /**
-     * 根据参数查询一条数据
-     *
-     * @param storeFlowQueryDTO 查询参数
-     * @return {@link StoreFlowPO }
-     * @since 2022-04-28 08:54:53
-     */
-    //	StoreFlowPO queryOne(StoreFlowPageQry storeFlowQueryDTO);
-    //
-    /// **
-    // * 获取结算单地入账流水
-    // *
-    // * @param storeFlowQueryDTO 查询条件
-    // * @return {@link List }<{@link StoreFlowPayDownloadVO }>
-    // * @since 2022-04-28 08:54:53
-    // */
-    // List<StoreFlowPayDownloadVO> getStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
-    //
-    /// **
-    // * 获取结算单的退款流水
-    // *
-    // * @param storeFlowQueryDTO 查询条件
-    // * @return {@link List }<{@link StoreFlowRefundDownloadVO }>
-    // * @since 2022-04-28 08:54:53
-    // */
-    // List<StoreFlowRefundDownloadVO> getStoreFlowRefundDownloadVO(
-    //	StoreFlowPageQry storeFlowQueryDTO);
-
-    /**
-     * 根据结算单ID获取商家流水
-     *
-     * @param storePageQry 存储页面查询
-     * @return {@link IPage }<{@link StoreFlowPO }>
-     * @since 2022-05-19 15:47:59
-     */
-    //	IPage<StoreFlowPO> getStoreFlow(StorePageQry storePageQry);
-
-    /**
-     * 根据结算单ID获取商家流水
-     *
-     * @param distributionPageQry 分配页面查询
-     * @return {@link IPage }<{@link StoreFlowPO }>
-     * @since 2022-05-19 15:48:02
-     */
-    //	IPage<StoreFlowPO> getDistributionFlow(DistributionPageQry distributionPageQry);
-
-    /**
-     * 获取店铺流水
-     *
-     * @param storeFlowQueryDTO 店铺流水查询参数
-     * @return {@link List }<{@link StoreFlowPO }>
-     * @since 2022-04-28 08:54:53
-     */
-    //	List<StoreFlowPO> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+    void refundOrder(AfterSaleResult afterSale);
 }

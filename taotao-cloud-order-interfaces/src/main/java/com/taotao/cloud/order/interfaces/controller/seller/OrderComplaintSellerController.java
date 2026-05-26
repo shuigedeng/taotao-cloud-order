@@ -16,20 +16,34 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.security.spring.support.utils.SecurityUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintCommunicationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
+import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
+import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
+import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 店铺端,交易投诉API
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:57:35
- */
 @RequiredArgsConstructor
 @Validated
 @RestController
@@ -37,90 +51,69 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/order/order/complain")
 public class OrderComplaintSellerController extends BusinessController {
 
-    /// **
-    // * 交易投诉
-    // */
-    // private final OrderComplaintCommandService orderComplaintCommandService;
-    //
-    /// **
-    // * 投诉沟通
-    // */
-    // private final OrderComplaintCommunicationCommandService
-    // orderComplaintCommunicationCommandService;
-    //
-    // @Operation(summary = "通过id获取", description = "通过id获取")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/{id}")
-    // public Result<OrderComplaintCO> getOrderComplainById(@PathVariable Long id) {
-    //	return Result.success(
-    //		OperationalJudgment.judgment(orderComplaintCommandService.getOrderComplainById(id)));
-    // }
-    //
-    // @Operation(summary = "分页获取", description = "分页获取")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping("/page")
-    // public Result<PageResult<OrderComplaintBaseCO>> get(
-    //	OrderComplaintPageQry orderComplaintPageQry) {
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	orderComplaintPageQry.setStoreId(storeId);
-    //	IPage<OrderComplaintPO> page = orderComplaintCommandService.pageQuery(orderComplaintPageQry);
-    //	return Result.success(MpUtils.convertMpPage(page, OrderComplaintBaseCO.class));
-    // }
-    //
-    // @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping("/communication/{complainId}")
-    // public Result<Void> addCommunication(
-    //	@PathVariable("complainId") Long complainId,
-    //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
-    // {
-    //	SecurityUser user = SecurityUtils.getCurrentUser();
-    //	OrderComplaintCommunicationPO orderComplaintCommunicationPO =
-    // OrderComplaintCommunicationPO.builder()
-    //		.complainId(complainId)
-    //		.content(orderComplaintCommunicationAddCmd.content())
-    //		.owner(CommunicationOwnerEnum.STORE.name())
-    //		.ownerName(user.getUsername())
-    //		.ownerId(user.getStoreId())
-    //		.build();
-    //	return Result.success(
-    //		orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
-    // }
-    //
-    // @Operation(summary = "修改申诉信息", description = "修改申诉信息")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping("/{id}")
-    // public Result<Void> update(@PathVariable Long id,
-    //							  @Validated @RequestBody OrderComplaintAddCmd orderComplaintAddCmd) {
-    //	Long storeId = SecurityUtils.getCurrentUser().getStoreId();
-    //	OrderComplaintPO orderComplaintPO = OrderComplainAssembler.INSTANCE.convert(
-    //		orderComplaintAddCmd);
-    //	orderComplaintPO.setStoreId(storeId);
-    //	return Result.success(orderComplaintCommandService.updateOrderComplain(orderComplaintPO));
-    // }
-    //
-    // @Operation(summary = "申诉", description = "申诉")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping("/appeal")
-    // public Result<OrderComplaintCO> appeal(@Validated @RequestBody StoreAppealCmd storeAppealDTO)
-    // {
-    //	orderComplaintCommandService.appeal(storeAppealDTO);
-    //	return Result.success(
-    //		orderComplaintCommandService.getOrderComplainById(storeAppealDTO.orderComplaintId()));
-    // }
-    //
-    // @Operation(summary = "修改状态", description = "修改状态")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/status")
-    // public Result<Void> updateStatus(
-    //	@Validated @RequestBody OrderComplaintOperationAddCmd orderComplaintOperationAddCmd) {
-    //	return Result.success(
-    //		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd));
-    // }
+    private final OrderComplaintQueryService orderComplaintQueryService;
+    private final OrderComplaintCommandService orderComplaintCommandService;
+    private final OrderComplaintCommunicationCommandService orderComplaintCommunicationCommandService;
+
+    @Operation(summary = "通过id获取", description = "通过id获取")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping(value = "/{id}")
+    public Result<OrderComplaintResult> queryOrderComplainById(@PathVariable Long id) {
+        return Result.success(
+                OperationalJudgment.judgment(orderComplaintQueryService.queryOrderComplainById(id)));
+    }
+
+    @Operation(summary = "分页获取", description = "分页获取")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping("/page")
+    public Result<PageResult<OrderComplaintBaseResult>> query(
+            OrderComplaintPageQuery orderComplaintPageQry) {
+        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
+        orderComplaintPageQry.setStoreId(storeId);
+        return Result.success(orderComplaintQueryService.pageQuery(orderComplaintPageQry));
+    }
+
+    @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping("/communication/{complainId}")
+    public Result<Void> addCommunication(
+            @PathVariable("complainId") Long complainId,
+            @Validated @RequestBody OrderComplaintCommunicationAddCommand command) {
+        orderComplaintCommunicationCommandService.addCommunication(complainId, command);
+        return Result.success();
+    }
+
+    @Operation(summary = "修改申诉信息", description = "修改申诉信息")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping("/{id}")
+    public Result<Void> update(
+            @PathVariable Long id,
+            @Validated @RequestBody OrderComplaintAddCommand command) {
+        orderComplaintCommandService.updateOrderComplain(id, command);
+        return Result.success();
+    }
+
+    @Operation(summary = "申诉", description = "申诉")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping("/appeal")
+    public Result<OrderComplaintResult> appeal(@Validated @RequestBody StoreAppealCommand storeAppealDTO) {
+        orderComplaintCommandService.appeal(storeAppealDTO);
+        return Result.success(
+                orderComplaintQueryService.queryOrderComplainById(storeAppealDTO.orderComplaintId()));
+    }
+
+    @Operation(summary = "修改状态", description = "修改状态")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping(value = "/status")
+    public Result<Void> updateStatus(
+            @Validated @RequestBody OrderComplaintOperationAddCommand orderComplaintOperationAddCmd) {
+        orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
+        return Result.success();
+    }
 }

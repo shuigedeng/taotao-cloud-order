@@ -16,95 +16,95 @@
 
 package com.taotao.cloud.order.interfaces.controller.buyer;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
+import com.taotao.boot.security.spring.support.utils.SecurityUtils;
+import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintCommunicationAddCommand;
+import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
+import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
+import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
+import com.taotao.cloud.order.common.enums.order.CommunicationOwnerEnum;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 买家端,交易投诉API
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:56:57
- */
 @RequiredArgsConstructor
 @Validated
 @RestController
 @Tag(name = "买家端-交易投诉API", description = "买家端-交易投诉API")
 @RequestMapping("/buyer/order/order/complain")
 public class OrderComplaintBuyerController extends BusinessController {
-    //
-    /// **
-    // * 交易投诉
-    // */
-    // private final OrderComplaintCommandService orderComplaintCommandService;
-    //
-    /// **
-    // * 交易投诉沟通
-    // */
-    // private final OrderComplaintCommunicationCommandService
-    // orderComplaintCommunicationCommandService;
-    //
-    // @Operation(summary = "通过id获取", description = "通过id获取")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/{id}")
-    // public Result<OrderComplaintCO> get(@PathVariable Long id) {
-    //	OrderComplaintCO orderComplaintCO =
-    //		OperationalJudgment.judgment(orderComplaintCommandService.getOrderComplainById(id));
-    //	return Result.success(orderComplaintCO);
-    // }
-    //
-    // @Operation(summary = "分页获取", description = "分页获取")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping("/page")
-    // public Result<PageResult<OrderComplaintBaseCO>> get(
-    //	@Validated OrderComplaintPageQry orderComplaintPageQry) {
-    //	IPage<OrderComplaintPO> orderComplainByPage = orderComplaintCommandService.pageQuery(
-    //		orderComplaintPageQry);
-    //	return Result.success(
-    //		MpUtils.convertMpPage(orderComplainByPage, OrderComplaintBaseCO.class));
-    // }
-    //
-    // @Operation(summary = "添加交易投诉", description = "添加交易投诉")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<OrderComplaintPO> add(@Valid OrderComplaintAddCmd orderComplaintAddCmd) {
-    //	return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCmd));
-    // }
-    //
-    // @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping("/communication/{complainId}")
-    // public Result<Void> addCommunication(
-    //	@PathVariable("complainId") Long complainId,
-    //	@Validated @RequestBody OrderComplaintCommunicationAddCmd orderComplaintCommunicationAddCmd)
-    // {
-    //	SecurityUser user = SecurityUtils.getCurrentUser();
-    //	OrderComplaintCommunicationPO orderComplaintCommunicationPO =
-    // OrderComplaintCommunicationPO.builder()
-    //		.complainId(complainId)
-    //		.content(orderComplaintCommunicationAddCmd.content())
-    //		.owner(CommunicationOwnerEnum.BUYER.name())
-    //		.ownerName(user.getNickname())
-    //		.ownerId(user.getUserId())
-    //		.build();
-    //
-    //	return Result.success(
-    //		orderComplaintCommunicationCommandService.addCommunication(orderComplaintCommunicationPO));
-    // }
-    //
-    // @Operation(summary = "取消售后", description = "取消售后")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/status/{id}")
-    // public Result<Void> cancel(@PathVariable Long id) {
-    //	return Result.success(orderComplaintCommandService.cancel(id));
-    // }
+
+	private final OrderComplaintQueryService orderComplaintQueryService;
+	private final OrderComplaintCommandService orderComplaintCommandService;
+	private final OrderComplaintCommunicationCommandService orderComplaintCommunicationCommandService;
+
+	@Operation(summary = "通过id获取", description = "通过id获取")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping(value = "/{id}")
+	public Result<OrderComplaintResult> query(@PathVariable Long id) {
+		OrderComplaintResult orderComplaintResult =
+			OperationalJudgment.judgment(orderComplaintQueryService.queryOrderComplainById(id));
+		return Result.success(orderComplaintResult);
+	}
+
+	@Operation(summary = "分页获取", description = "分页获取")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@GetMapping("/page")
+	public Result<PageResult<OrderComplaintBaseResult>> query(@Validated OrderComplaintPageQuery orderComplaintPageQuery) {
+		return Result.success(
+			MpUtils.convertMpPage(orderComplaintQueryService.pageQuery(orderComplaintPageQuery), OrderComplaintBaseResult.class));
+	}
+
+	@Operation(summary = "添加交易投诉", description = "添加交易投诉")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping
+	public Result<OrderComplaintResult> add(@Valid @RequestBody OrderComplaintAddCommand orderComplaintAddCommand) {
+		return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCommand));
+	}
+
+	@Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping("/communication/{complainId}")
+	public Result<Void> addCommunication(
+			@PathVariable("complainId") Long complainId,
+			@Validated @RequestBody OrderComplaintCommunicationAddCommand orderComplaintCommunicationAddCommand) {
+		String username = SecurityUtils.queryCurrentUser().queryNickname();
+		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
+		orderComplaintCommunicationCommandService.addCommunication(complainId,
+				orderComplaintCommunicationAddCommand, CommunicationOwnerEnum.BUYER.name(),
+				username, userId);
+		return Result.success();
+	}
+
+	@Operation(summary = "取消售后", description = "取消售后")
+	@RequestLogger
+	@PreAuthorize("hasAuthority('dept:tree:data')")
+	@PostMapping(value = "/status/{id}")
+	public Result<Void> cancel(@PathVariable Long id) {
+		orderComplaintCommandService.cancel(id);
+		return Result.success();
+	}
 }

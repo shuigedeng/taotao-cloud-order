@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
 import com.taotao.cloud.order.application.service.command.AfterSaleReasonCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -32,45 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleReasonCommandServiceImpl implements AfterSaleReasonCommandService {
-    //	@Override
-    //	public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
-    //		return List.of();
-    //	}
-    //
-    //	@Override
-    //	public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
-    //		return null;
-    //	}
-    //
-    //	@Override
-    //	public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQry afterSaleReasonPageQry) {
-    //		return null;
-    //	}
-
-    // @Override
-    // public List<AfterSaleReasonPO> afterSaleReasonList(String serviceType) {
-    //	LambdaQueryWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-    //	lambdaQueryWrapper.eq(AfterSaleReasonPO::getServiceType, serviceType);
-    //	return this.list(lambdaQueryWrapper);
-    // }
-    //
-    // @Override
-    // public Boolean editAfterSaleReason(AfterSaleReasonPO afterSaleReasonPO) {
-    //	LambdaUpdateWrapper<AfterSaleReasonPO> lambdaQueryWrapper = Wrappers.lambdaUpdate();
-    //	lambdaQueryWrapper.eq(AfterSaleReasonPO::getId, afterSaleReasonPO.getId());
-    //	lambdaQueryWrapper.set(AfterSaleReasonPO::getReason, afterSaleReasonPO.getReason());
-    //	lambdaQueryWrapper.set(AfterSaleReasonPO::getServiceType,
-    // afterSaleReasonPO.getServiceType());
-    //	this.update(lambdaQueryWrapper);
-    //	return true;
-    // }
-    //
-    // @Override
-    // public IPage<AfterSaleReasonPO> pageQuery(AfterSaleReasonPageQuery afterSaleReasonPageQuery)
-    // {
-    //	LambdaQueryWrapper<AfterSaleReasonPO> queryWrapper = Wrappers.lambdaQuery();
-    //	queryWrapper.eq(AfterSaleReasonPO::getServiceType,
-    // afterSaleReasonPageQuery.getServiceType());
-    //	return this.page(afterSaleReasonPageQuery.buildMpPage(), queryWrapper);
-    // }
+    @Override
+    public Boolean editAfterSaleReason(AfterSaleReasonResult afterSaleReasonResult) {
+        return null;
+    }
 }

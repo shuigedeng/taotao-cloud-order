@@ -16,20 +16,27 @@
 
 package com.taotao.cloud.order.interfaces.controller.manager;
 
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleReasonUpdateCommand;
+import com.taotao.cloud.order.application.dto.aftersale.query.AfterSaleReasonPageQuery;
+import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
+import com.taotao.cloud.order.application.service.command.AfterSaleReasonCommandService;
+import com.taotao.cloud.order.application.service.query.AfterSaleReasonQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 管理端,售后原因API
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:57:11
- */
 @RequiredArgsConstructor
 @Validated
 @RestController
@@ -37,59 +44,54 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/manager/order/aftersale/reason")
 public class AfterSaleReasonManagerController extends BusinessController {
 
-    /// **
-    // * 售后原因
-    // */
-    // private final AfterSaleReasonCommandService afterSaleReasonCommandService;
-    //
-    // @Operation(summary = "查看售后原因", description = "查看售后原因")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/{id}")
-    // public Result<AfterSaleReasonCO> getById(@PathVariable String id) {
-    //	AfterSaleReasonPO afterSaleReasonPO = afterSaleReasonCommandService.getById(id);
-    //	return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonPO));
-    // }
-    //
-    // @Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @GetMapping(value = "/page")
-    // public Result<PageResult<AfterSaleReasonCO>> queryByPage(
-    //	@Validated AfterSaleReasonPageQry afterSaleReasonPageQry) {
-    //	IPage<AfterSaleReasonPO> page =
-    // afterSaleReasonCommandService.pageQuery(afterSaleReasonPageQry);
-    //	return Result.success(MpUtils.convertMpPage(page, AfterSaleReasonCO.class));
-    // }
-    //
-    // @Operation(summary = "添加售后原因", description = "添加售后原因")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping
-    // public Result<Void> save(@Validated @RequestBody AfterSaleReasonUpdateCmd
-    // afterSaleReasonUpdateCmd) {
-    //	return Result.success(afterSaleReasonCommandService.save(
-    //		AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonUpdateCmd)));
-    // }
-    //
-    // @Operation(summary = "修改售后原因", description = "修改售后原因")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping("/{id}")
-    // public Result<Void> update(
-    //	@Validated @RequestBody AfterSaleReasonUpdateCmd afterSaleReasonUpdateCmd,
-    //	@PathVariable("id") Long id) {
-    //	AfterSaleReasonPO afterSaleReasonPO = AfterSaleReasonAssembler.INSTANCE.convert(
-    //		afterSaleReasonUpdateCmd);
-    //	afterSaleReasonPO.setId(id);
-    //	return Result.success(afterSaleReasonCommandService.editAfterSaleReason(afterSaleReasonPO));
-    // }
-    //
-    // @Operation(summary = "删除售后原因", description = "删除售后原因")
-    // @RequestLogger
-    // @PreAuthorize("hasAuthority('dept:tree:data')")
-    // @PostMapping(value = "/{id}")
-    // public Result<Void> delAllByIds(@PathVariable String id) {
-    //	return Result.success(afterSaleReasonCommandService.removeById(id));
-    // }
+    private final AfterSaleReasonQueryService afterSaleReasonQueryService;
+    private final AfterSaleReasonCommandService afterSaleReasonCommandService;
+
+    @Operation(summary = "查看售后原因", description = "查看售后原因")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping(value = "/{id}")
+    public Result<AfterSaleReasonResult> queryById(@PathVariable String id) {
+        AfterSaleReasonResult afterSaleReasonResult = afterSaleReasonQueryService.queryById(id);
+        return Result.success(afterSaleReasonResult);
+    }
+
+    @Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping(value = "/page")
+    public Result<PageResult<AfterSaleReasonResult>> queryByPage(
+            @Validated AfterSaleReasonPageQuery afterSaleReasonPageQry) {
+        PageResult<AfterSaleReasonResult> page = afterSaleReasonQueryService.pageQuery(afterSaleReasonPageQry);
+        return Result.success(page);
+    }
+
+    @Operation(summary = "添加售后原因", description = "添加售后原因")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping
+	public Result<Void> save(@Validated @RequestBody AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd) {
+		afterSaleReasonCommandService.save(afterSaleReasonUpdateCmd);
+		return Result.success();
+    }
+
+    @Operation(summary = "修改售后原因", description = "修改售后原因")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping("/{id}")
+	public Result<Void> update(
+			@Validated @RequestBody AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd,
+			@PathVariable("id") Long id) {
+		afterSaleReasonCommandService.editAfterSaleReason(id, afterSaleReasonUpdateCmd);
+		return Result.success();
+    }
+
+    @Operation(summary = "删除售后原因", description = "删除售后原因")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @PostMapping(value = "/{id}")
+	public Result<Void> delAllByIds(@PathVariable String id) {
+		afterSaleReasonCommandService.removeById(id);
+		return Result.success();
+    }
 }

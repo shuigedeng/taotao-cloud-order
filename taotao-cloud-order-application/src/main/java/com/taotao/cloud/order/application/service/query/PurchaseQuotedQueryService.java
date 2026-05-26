@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.purchase.result.PurchaseQuotedResult;
+
+import java.util.List;
 
 /**
  * 采购单报价业务层
@@ -25,31 +27,9 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:34
  */
-public interface PurchaseQuotedQueryService extends CommandService {
-    /// **
-    // * 添加报价单
-    // *
-    // * @param purchaseQuotedVO 报价单
-    // * @return {@link PurchaseQuotedVO }
-    // * @since 2022-04-28 08:55:34
-    // */
-    // PurchaseQuotedVO addPurchaseQuoted(PurchaseQuotedVO purchaseQuotedVO);
-    //
-    /// **
-    // * 根据采购单获取报价单列表
-    // *
-    // * @param purchaseOrderId 采购单ID
-    // * @return {@link List }<{@link PurchaseQuotedPO }>
-    // * @since 2022-04-28 08:55:34
-    // */
-    // List<PurchaseQuotedPO> queryByPurchaseOrderId(String purchaseOrderId);
-    //
-    /// **
-    // * 获取采购单VO
-    // *
-    // * @param id 采购单ID
-    // * @return {@link PurchaseQuotedVO }
-    // * @since 2022-04-28 08:55:34
-    // */
-    // PurchaseQuotedVO queryById(String id);
+public interface PurchaseQuotedQueryService {
+
+    List<PurchaseQuotedResult> queryByPurchaseOrderId(String purchaseOrderId);
+
+    PurchaseQuotedResult queryById(String id);
 }

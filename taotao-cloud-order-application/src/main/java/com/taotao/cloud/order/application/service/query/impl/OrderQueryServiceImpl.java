@@ -20,28 +20,29 @@ import static com.taotao.cloud.order.domain.valobj.OrderStatus.PAID;
 import static com.taotao.cloud.order.domain.valobj.OrderStatus.REFUNDED;
 import static lombok.AccessLevel.PRIVATE;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.boot.common.model.result.PageResult;
+import com.taotao.cloud.order.application.dto.cart.result.OrderExportResult;
 import com.taotao.cloud.order.application.dto.order.query.*;
+import com.taotao.cloud.order.application.dto.order.result.*;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
-import java.util.List;
-import java.util.Objects;
-
 import com.taotao.cloud.order.domain.aggregate.OrderAgg;
+import com.taotao.cloud.order.domain.entity.Order;
 import com.taotao.cloud.order.domain.repository.OrderRepository;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
+import com.taotao.cloud.order.domain.valobj.Traces;
 import com.taotao.cloud.order.domain.valobj.User;
-import lombok.RequiredArgsConstructor;
+import com.taotao.cloud.order.application.dto.order.result.OrderResult;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Objects;
 import lombok.Builder;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * 子订单业务层
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:54:47
- */
 @RequiredArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -49,102 +50,33 @@ public class OrderQueryServiceImpl implements OrderQueryService {
 
     private static final List<OrderStatus> VIEWABLE_ORDER_STATUSES = List.of(PAID, REFUNDED);
     private static final String SHIPMENT_BASE_URL = "https://wuliu.market.alicloudapi.com/kdi";
-    //	private final TenantRepository tenantRepository;
-    //	private final MryRateLimiter mryRateLimiter;
     private final OrderRepository orderRepository;
-
-    //	private final MongoTemplate mongoTemplate;
-    //	private final RestTemplate restTemplate;
-    //	private final AliyunProperties aliyunProperties;
-    //	private final MryObjectMapper objectMapper;
 
     public QPriceQuotation quoteOrderPrice( QuotePriceQuery queryCommand, User user ) {
         user.checkIsTenantAdmin();
-        //		mryRateLimiter.applyFor(user.getTenantId(), "Order:Quote", 5);
-
-        // Tenant tenant = tenantRepository.byId(user.getTenantId());
-        // OrderPrice price = queryCommand.getDetail().calculatePrice(tenant);
 
         return QPriceQuotation.builder()
-                // .price(price)
                 .build();
     }
 
     public OrderStatus fetchOrderStatus( String orderId, User user ) {
         user.checkIsTenantAdmin();
-        // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchStatus", 5);
 
         OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
         return order.getStatus();
     }
 
-    // public PagedList<QListOrder> listOrders(ListOrdersQuery queryCommand, User user) {
-    //	user.checkIsTenantAdmin();
-    //	mryRateLimiter.applyFor(user.getTenantId(), "Order:List", 5);
-    //
-    //	Pagination pagination = pagination(queryCommand.getPageIndex(), queryCommand.getPageSize());
-    //	Criteria criteria =
-    // where("tenantId").is(user.getTenantId()).and("status").in(VIEWABLE_ORDER_STATUSES);
-    //
-    //	String search = queryCommand.getSearch();
-    //	if (isNotBlank(search)) {
-    //		if (isOrderId(search)) {
-    //			criteria.and("_id").is(search);
-    //		} else {
-    //			criteria.orOperator(where("wxTxnId").is(search),
-    //				where("bankTransferCode").is(search),
-    //				where("bankTransferAccountId").is(search));
-    //		}
-    //	}
-    //
-    //	Query query = query(criteria);
-    //	long count = mongoTemplate.count(query, Order.class);
-    //	if (count == 0) {
-    //		return pagedList(pagination, 0, List.of());
-    //	}
-    //
-    //	query.skip(pagination.skip()).limit(pagination.getPageSize()).with(Sort.by(DESC,
-    // "createdAt"));
-    //
-    //	List<Order> orders = mongoTemplate.find(query, Order.class);
-    //	List<QListOrder> listOrders = orders.stream()
-    //		.map(order -> QListOrder.builder()
-    //			.id(order.getId())
-    //			.orderDetailTypeEnum(order.getDetail().getType())
-    //			.orderDetailType(order.getDetail().getType().getName())
-    //			.status(order.getStatus().getName())
-    //			.statusEnum(order.getStatus())
-    //			.description(order.description())
-    //			.paidPrice(order.getPrice().getDiscountedTotalPrice())
-    //			.paymentType(order.getPaymentType().getName())
-    //			.paidAt(order.getPaidAt())
-    //			.createdAt(order.getCreatedAt())
-    //			.invoiceRequested(order.isInvoiceRequested())
-    //			.invoiceIssued(order.isInvoiceIssued())
-    //			.build())
-    //		.collect(toImmutableList());
-    //
-    //	return pagedList(pagination, (int) count, listOrders);
-    // }
-    //
-    // private PagedList<QListOrder> pagedList(Pagination pagination, int count, List<QListOrder>
-    // apps) {
-    //	return PagedList.<QListOrder>builder()
-    //		.totalNumber(count)
-    //		.pageIndex(pagination.getPageIndex())
-    //		.pageSize(pagination.getPageSize())
-    //		.data(apps)
-    //		.build();
-    // }
+    public List<QListOrder> listOrders(ListOrdersQuery queryCommand, User user) {
+        user.checkIsTenantAdmin();
+        return List.of();
+    }
 
     public QDetailedOrder fetchDetailedOrder( String orderId, User user ) {
         user.checkIsTenantAdmin();
-        // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchDetailedOrder", 5);
 
         OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
 
         return QDetailedOrder.builder()
-                // .id(order.getId())
                 .description(order.description())
                 .orderDetailType(order.getDetail().getType().getName())
                 .orderDetail(order.getDetail())
@@ -173,55 +105,17 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                         order.getDelivery() != null
                                 ? order.getDelivery().deliveryOrderId()
                                 : null)
-                // .createdAt(order.getCreatedAt())
-                // .createdBy(order.getCreatedBy())
-                // .creator(order.getCreator())
                 .build();
     }
 
     public QOrderShipment fetchOrderShipment( String orderId, User user ) {
         user.checkIsTenantAdmin();
-        // mryRateLimiter.applyFor(user.getTenantId(), "Order:FetchOrderShipment", 5);
 
         OrderAgg order = orderRepository.byIdAndCheckTenantShip(orderId, user);
-        // if (order.getDelivery() == null ||
-        //	!order.atPaid() ||
-        //	order.getCreatedAt().isBefore(now().minus(90, DAYS))) {
-        //	return QOrderShipment.builder()
-        //		.orderId(order.getId())
-        //		.nodes(List.of())
-        //		.build();
-        // }
-        //
-        // Delivery delivery = order.getDelivery();
-        // HttpHeaders headers = new HttpHeaders();
-        // headers.set("Authorization", "APPCODE " + aliyunProperties.getDeliveryQueryAppCode());
-        // String url = UriComponentsBuilder.fromUriString(SHIPMENT_BASE_URL)
-        //	.queryParam("no", delivery.getDeliveryOrderId())
-        //	.queryParam("type", delivery.getCarrier().getType())
-        //	.toUriString();
-        //
-        // ResponseEntity<String> response = restTemplate.exchange(url, GET, new
-        // HttpEntity<>(headers), String.class);
-        // String responseBody = response.getBody();
-        // RawShipment rawShipment = objectMapper.readValue(responseBody, RawShipment.class);
-        //
-        // if (rawShipment == null || rawShipment.getResult() == null ||
-        // isEmpty(rawShipment.getResult().getList())) {
-        //	return QOrderShipment.builder()
-        //		.orderId(order.getId())
-        //		.carrier(delivery.getCarrier())
-        //		.deliveryOrderId(delivery.getDeliveryOrderId())
-        //		.nodes(List.of())
-        //		.build();
-        // }
 
-        // RawShipmentResult result = rawShipment.getResult();
         RawShipmentResult result = null;
         return QOrderShipment.builder()
                 .orderId(orderId)
-                // .carrier(delivery.getCarrier())
-                // .deliveryOrderId(delivery.getDeliveryOrderId())
                 .nodes(
                         result.getList().stream()
                                 .map(
@@ -239,13 +133,71 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .build();
     }
 
-    /**
-     * RawShipment
-     *
-     * @author shuigedeng
-     * @version 2026.04
-     * @since 2025-12-19 09:30:45
-     */
+    @Override
+    public Order queryBySn(String orderSn) {
+        return null;
+    }
+
+    @Override
+    public PageResult<OrderSimpleResult> pageQuery(OrderPageQuery orderPageQuery) {
+        return null;
+    }
+
+    @Override
+    public List<OrderResult> queryListByParams(OrderPageQuery orderPageQuery) {
+        return List.of();
+    }
+
+    @Override
+    public List<OrderResult> queryListByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
+        return List.of();
+    }
+
+    @Override
+    public long queryCountByPromotion(String orderPromotionType, String payStatus, String parentOrderSn, String orderSn) {
+        return 0;
+    }
+
+    @Override
+    public List<OrderResult> queryListByPromotion(Long pintuanId) {
+        return List.of();
+    }
+
+    @Override
+    public List<OrderExportResult> queryExportOrder(OrderPageQuery orderPageQuery) {
+        return List.of();
+    }
+
+    @Override
+    public OrderDetailResult queryDetail(String orderSn) {
+        return null;
+    }
+
+    @Override
+    public Traces queryTraces(String orderSn) {
+        return null;
+    }
+
+    @Override
+    public void queryOrderByVerificationCode(String verificationCode) {
+
+    }
+
+    @Override
+    public List<OrderResult> queryByTradeSn(String tradeSn) {
+        return List.of();
+    }
+
+    @Override
+    public BigDecimal queryPaymentTotal(String orderSn) {
+        return null;
+    }
+
+    @Override
+    public IPage<PaymentLogResult> queryPaymentLogs(IPage<PaymentLogResult> page, QueryWrapper<PaymentLogResult> queryWrapper) {
+        return null;
+    }
+
     @Value
     @Builder
     @RequiredArgsConstructor(access = PRIVATE)
@@ -256,13 +208,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         private final RawShipmentResult result;
     }
 
-    /**
-     * RawShipmentResult
-     *
-     * @author shuigedeng
-     * @version 2026.04
-     * @since 2025-12-19 09:30:45
-     */
     @Value
     @Builder
     @RequiredArgsConstructor(access = PRIVATE)
@@ -278,13 +223,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         private final String updateTime;
     }
 
-    /**
-     * RawShipmentNode
-     *
-     * @author shuigedeng
-     * @version 2026.04
-     * @since 2025-12-19 09:30:45
-     */
     @Value
     @Builder
     @RequiredArgsConstructor(access = PRIVATE)

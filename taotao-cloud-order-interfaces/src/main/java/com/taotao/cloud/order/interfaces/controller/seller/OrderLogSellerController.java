@@ -16,22 +16,24 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
+import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.service.command.OrderCommandService;
-import com.taotao.cloud.order.application.service.command.OrderLogCommandService;
+import com.taotao.cloud.order.application.dto.order.result.OrderLogResult;
+import com.taotao.cloud.order.application.service.query.OrderLogQueryService;
+import com.taotao.cloud.order.application.service.query.OrderQueryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 店铺端,订单日志API
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-28 08:57:40
- */
 @RequiredArgsConstructor
 @Validated
 @RestController
@@ -39,16 +41,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/seller/order/order/log")
 public class OrderLogSellerController extends BusinessController {
 
-    private final OrderLogCommandService orderLogService;
+    private final OrderQueryService orderQueryService;
+    private final OrderLogQueryService orderLogQueryService;
 
-    private final OrderCommandService orderCommandService;
-
-    //	@Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
-    //	@RequestLogger
-    //	@PreAuthorize("hasAuthority('dept:tree:data')")
-    //	@GetMapping(value = "/{orderSn}")
-    //	public Result<List<OrderLogPO>> get(@PathVariable String orderSn) {
-    //		OperationalJudgment.judgment(orderCommandService.getBySn(orderSn));
-    //		return Result.success(orderLogService.getOrderLog(orderSn));
-    //	}
+    @Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping(value = "/{orderSn}")
+    public Result<List<OrderLogResult>> query(@PathVariable String orderSn) {
+        OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
+        return Result.success(orderLogQueryService.queryOrderLog(orderSn));
+    }
 }

@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.cloud.order.application.dto.purchase.PurchaseOrderSearchParams;
+import com.taotao.cloud.order.application.dto.purchase.result.PurchaseOrderResult;
 
 /**
  * 采购单业务层
@@ -25,41 +27,9 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:29
  */
-public interface PurchaseOrderQueryService extends CommandService {
-    //
-    /// **
-    // * 添加采购单
-    // *
-    // * @param purchaseOrderVO 采购单
-    // * @return {@link PurchaseOrderVO }
-    // * @since 2022-04-28 08:55:29
-    // */
-    // PurchaseOrderVO addPurchaseOrder(PurchaseOrderVO purchaseOrderVO);
-    //
-    /// **
-    // * 根据ID获取采购单
-    // *
-    // * @param id 采购单ID
-    // * @return {@link PurchaseOrderVO }
-    // * @since 2022-04-28 08:55:29
-    // */
-    // PurchaseOrderVO queryPurchaseOrder(String id);
-    //
-    /// **
-    // * 获取采购单分页列表
-    // *
-    // * @param purchaseOrderSearchParams 查询参数
-    // * @return {@link IPage }<{@link PurchaseOrderPO }>
-    // * @since 2022-04-28 08:55:29
-    // */
-    // IPage<PurchaseOrderPO> page(PurchaseOrderSearchParams purchaseOrderSearchParams);
+public interface PurchaseOrderQueryService {
 
-    /**
-     * 关闭供求单
-     *
-     * @param id 供求单ID
-     * @return boolean
-     * @since 2022-04-28 08:55:29
-     */
-    boolean close(String id);
+    PurchaseOrderResult queryPurchaseOrder(String id);
+
+    IPage<PurchaseOrderResult> page(PurchaseOrderSearchParams purchaseOrderSearchParams);
 }

@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import java.math.BigDecimal;
-
 /**
  * 订单价格
  *
@@ -26,23 +24,4 @@ import java.math.BigDecimal;
  * @since 2022-04-28 08:54:44
  */
 public interface OrderPriceQueryService {
-
-    /**
-     * 价格修改 日志功能内部实现
-     *
-     * @param orderSn 订单编号
-     * @param orderPrice 订单价格
-     * @return {@link Boolean }
-     * @since 2022-04-28 08:54:44
-     */
-    Boolean updatePrice(String orderSn, BigDecimal orderPrice);
-
-    /**
-     * 管理员订单付款
-     *
-     * @param orderSn 订单编号
-     * @return {@link Boolean }
-     * @since 2022-05-16 16:58:31
-     */
-    Boolean adminPayOrder(String orderSn);
 }

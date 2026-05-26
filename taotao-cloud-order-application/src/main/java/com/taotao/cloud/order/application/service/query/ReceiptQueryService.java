@@ -17,9 +17,9 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
+import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 
 /**
  * 发票业务层
@@ -28,50 +28,11 @@ import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
  * @version 2022.04
  * @since 2022-04-28 08:54:50
  */
-public interface ReceiptQueryService extends CommandService {
+public interface ReceiptQueryService {
 
-    /**
-     * 根据条件获取发票信息列表
-     *
-     * @param receiptPageQry 发票查询参数
-     * @return {@link IPage }<{@link OrderReceiptAddCommand }>
-     * @since 2022-04-28 08:54:50
-     */
     IPage<OrderReceiptAddCommand> pageQuery(ReceiptPageQuery receiptPageQry);
 
-    /**
-     * 根据订单编号获取发票信息
-     *
-     * @param orderSn 订单编号
-     * @return {@link ReceiptPO }
-     * @since 2022-04-28 08:54:50
-     */
-    //    ReceiptPO queryByOrderSn(String orderSn);
+    ReceiptResult queryByOrderSn(String orderSn);
 
-    /**
-     * 获取发票详情
-     *
-     * @param id 发票id
-     * @return {@link ReceiptPO }
-     * @since 2022-04-28 08:54:50
-     */
-    //    ReceiptPO queryDetail(String id);
-
-    /**
-     * 保存发票
-     *
-     * @param receiptPO 发票信息
-     * @return {@link Boolean }
-     * @since 2022-04-28 08:54:50
-     */
-    //    Boolean saveReceipt(ReceiptPO receiptPO);
-
-    /**
-     * 开具发票
-     *
-     * @param receiptId 发票id
-     * @return {@link ReceiptPO }
-     * @since 2022-04-28 08:54:50
-     */
-    //    ReceiptPO invoicing(Long receiptId);
+    ReceiptResult queryDetail(String id);
 }

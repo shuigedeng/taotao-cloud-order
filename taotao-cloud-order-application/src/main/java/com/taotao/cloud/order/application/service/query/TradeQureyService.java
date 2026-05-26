@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-
 /**
  * 订单日志业务层
  *
@@ -25,4 +23,4 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.04
  * @since 2022-04-28 08:55:50
  */
-public interface TradeQureyService extends CommandService {}
+public interface TradeQureyService {}

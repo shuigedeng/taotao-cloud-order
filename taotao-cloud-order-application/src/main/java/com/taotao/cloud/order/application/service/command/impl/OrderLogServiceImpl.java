@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.service.command.OrderLogCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,25 +28,7 @@ import org.springframework.stereotype.Service;
  * @since 2022-04-28 08:55:53
  */
 @Service
+@RequiredArgsConstructor
 public class OrderLogServiceImpl implements OrderLogCommandService {
 
-    //    @Override
-    //    public List<OrderLogPO> getOrderLog(String orderSn) {
-    //        LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-    //        lambdaQueryWrapper.eq(OrderLogPO::orderSn, orderSn);
-    //        return this.list(lambdaQueryWrapper);
-    //    }
-    //
-    //	@Override
-    //	public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
-    //		return null;
-    //	}
-
-    // @Override
-    // public IPage<OrderLogPO> pageQuery(OrderLogPageQry orderLogPageQry) {
-    //    LambdaQueryWrapper<OrderLogPO> lambdaQueryWrapper = Wrappers.lambdaQuery();
-    //    // todo 需要设置条件
-    //
-    //    return this.page(orderLogPageQry.buildMpPage(), lambdaQueryWrapper);
-    // }
 }

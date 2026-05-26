@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintCommunicationResult;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,41 +31,10 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class OrderComplaintCommunicationCommandServiceImpl
-        implements OrderComplaintCommunicationCommandService {
+	implements OrderComplaintCommunicationCommandService {
 
-    //    @Override
-    //    public Boolean addCommunication(OrderComplaintCommunicationPO
-    // orderComplaintCommunicationPO) {
-    //        return this.save(orderComplaintCommunicationPO);
-    //    }
-    //
-    //	@Override
-    //	public IPage<OrderComplaintCommunicationPO>
-    // getCommunication(OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
-    //		return null;
-    //	}
-
-    // @Override
-    // public IPage<OrderComplaintCommunicationPO> getCommunication(
-    //	OrderComplaintCommunicationPageQry pageQuery) {
-    //    LambdaQueryWrapper<OrderComplaintCommunicationPO> queryWrapper = new
-    // LambdaQueryWrapper<>();
-    //    queryWrapper.eq(
-    //            StrUtil.isNotEmpty(pageQuery.getComplainId()),
-    //            OrderComplaintCommunicationPO::getComplainId,
-    //            pageQuery.getComplainId());
-    //    queryWrapper.eq(
-    //            StrUtil.isNotEmpty(pageQuery.getOwner()), OrderComplaintCommunicationPO::getOwner,
-    // pageQuery.getOwner());
-    //    queryWrapper.eq(
-    //            StrUtil.isNotEmpty(pageQuery.getOwnerName()),
-    //            OrderComplaintCommunicationPO::getOwnerName,
-    //            pageQuery.getOwnerName());
-    //    queryWrapper.eq(
-    //            StrUtil.isNotEmpty(pageQuery.getOwnerId()),
-    //            OrderComplaintCommunicationPO::getOwnerId,
-    //            pageQuery.getOwnerId());
-    //
-    //    return this.page(pageQuery.buildMpPage(), queryWrapper);
-    // }
+	@Override
+	public Boolean addCommunication(OrderComplaintCommunicationResult orderComplaintCommunicationResult) {
+		return null;
+	}
 }

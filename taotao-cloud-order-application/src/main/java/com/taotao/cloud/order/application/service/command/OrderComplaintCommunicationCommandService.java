@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintCommunicationResult;
 
 /**
  * 订单投诉通信业务层
@@ -34,15 +35,5 @@ public interface OrderComplaintCommunicationCommandService extends CommandServic
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:33
      */
-    //	Boolean addCommunication(OrderComplaintCommunicationPO orderComplaintCommunicationPO);
-
-    /**
-     * 获取通信记录
-     *
-     * @param orderComplaintCommunicationPageQry 参数
-     * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
-     * @since 2022-04-28 08:54:33
-     */
-    //	IPage<OrderComplaintCommunicationPO> getCommunication(
-    //		OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
+    Boolean addCommunication(OrderComplaintCommunicationResult orderComplaintCommunicationResult);
 }

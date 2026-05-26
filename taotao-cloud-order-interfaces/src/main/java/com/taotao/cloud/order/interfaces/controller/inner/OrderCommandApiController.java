@@ -17,12 +17,15 @@
 package com.taotao.cloud.order.interfaces.controller.inner;
 
 import com.taotao.boot.common.model.request.Request;
-import com.taotao.boot.common.model.response.Response;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.order.api.inner.command.OrderCommandApi;
 import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
 import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
+import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,60 +34,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sys/dict")
 public class OrderCommandApiController extends InnerController implements OrderCommandApi {
 
-	@Override
-	public Response<OrderApiResponse> findByCode( Request<OrderApiQuery> dictQueryApiRequest ) {
-		return null;
-	}
+    private final OrderCommandService orderCommandService;
 
-//	@Override
-//	@NotAuth
-//	@Idempotent(perFix = "findByCode")
-//	@Limit(key = "limitTest", period = 10, count = 3)
-//	@SentinelResource("findByCode")
-//	public DictApiResponse findByCode( @RequestParam(value = "code") String code ) {
-//		//		if ("sd".equals(code)) {
-//		//			throw new BusinessException("我出错了");
-//		//			// try {
-//		//			//	Thread.sleep(100000000000L);
-//		//			// } catch (InterruptedException e) {
-//		//			//	throw new RuntimeException(e);
-//		//			// }
-//		//		}
-//		//		Dict dict = service().findByCode(code);
-//		//		return DictConvert.INSTANCE.convert(dict);
-//		return null;
-//	}
-//
-//	@Override
-//	@Operation(summary = "test", description = "test")
-//	@RequestLogger
-//	@NotAuth
-//	@Idempotent(perFix = "test")
-//	@TLogAspect(
-//		value = {"code"},
-//		pattern = "{{}}",
-//		joint = ",",
-//		str = "nihao")
-//	@Limit(key = "limitTest", period = 10, count = 3)
-//	@GuavaLimit
-//	@SentinelResource("test")
-//	@GetMapping("/test")
-//	public DictApiResponse test( @RequestParam(value = "id") String id ) {
-//		LogUtils.info("sldfkslfdjalsdfkjalsfdjl");
-//		//		Dict dict = service().findByCode(id);
-//		//
-//		//		Future<Dict> asyncByCode = service().findAsyncByCode(id);
-//		//
-//		//		Dict dict1;
-//		//		try {
-//		//			dict1 = asyncByCode.get();
-//		//		} catch (InterruptedException | ExecutionException e) {
-//		//			throw new RuntimeException(e);
-//		//		}
-//		//
-//		//		LogUtils.info("我在等待你");
-//
-//		return null;
-//		// return IDictMapStruct.INSTANCE.dictToFeignDictRes(dict);
-//	}
+    public OrderCommandApiController(OrderCommandService orderCommandService) {
+        this.orderCommandService = orderCommandService;
+    }
+
+    @Override
+    @PostMapping("/code")
+    public Result<OrderApiResponse> findByCode(@Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest) {
+        OrderApiQuery query = dictQueryApiRequest.getData();
+        OrderApiResponse response = orderCommandService.findByCode(query);
+        return Result.success(response);
+    }
 }

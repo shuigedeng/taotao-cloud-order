@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.taotao.cloud.order.application.dto.purchase.result.PurchaseOrderItemResult;
 import com.taotao.cloud.order.application.service.command.PurchaseOrderItemCommandService;
 import org.springframework.stereotype.Service;
 
@@ -28,21 +29,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PurchaseOrderItemCommandServiceImpl implements PurchaseOrderItemCommandService {
-    //	@Override
-    //	public boolean addPurchaseOrderItem(String purchaseOrderId, List<PurchaseOrderItemPO>
-    // purchaseOrderItemList) {
-    //		return false;
-    //	}
 
-    // @Override
-    // @Transactional(rollbackFor = Exception.class)
-    // public boolean addPurchaseOrderItem(String purchaseOrderId,
-    //									List<PurchaseOrderItemPO> purchaseOrderItemPOList) {
-    //	// 添加采购单子内容
-    //	for (PurchaseOrderItemPO purchaseOrderItemPO : purchaseOrderItemPOList) {
-    //		purchaseOrderItemPO.setPurchaseOrderId(purchaseOrderId);
-    //		this.save(purchaseOrderItemPO);
-    //	}
-    //	return true;
-    // }
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean addPurchaseOrderItem(String purchaseOrderId,
+                                        List<PurchaseOrderItemResult> purchaseOrderItemResultList) {
+        for (PurchaseOrderItemResult purchaseOrderItemResult : purchaseOrderItemResultList) {
+            purchaseOrderItemResult.setPurchaseOrderId(purchaseOrderId);
+            this.save(purchaseOrderItemResult);
+        }
+        return true;
+    }
 }

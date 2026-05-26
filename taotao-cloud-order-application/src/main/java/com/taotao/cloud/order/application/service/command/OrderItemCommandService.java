@@ -66,32 +66,4 @@ public interface OrderItemCommandService extends CommandService {
             Long skuId,
             Long complainId,
             OrderComplaintStatusEnum complainStatusEnum);
-
-    //	/**
-    //	 * 根据子订单编号获取子订单信息
-    //	 *
-    //	 * @param sn 子订单编号
-    //	 * @return {@link OrderItemPO }
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	OrderItemPO getBySn(String sn);
-    //
-    //	/**
-    //	 * 根据订单编号获取子订单列表
-    //	 *
-    //	 * @param orderSn 订单编号
-    //	 * @return {@link List }<{@link OrderItemPO }>
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	List<OrderItemPO> getByOrderSn(String orderSn);
-    //
-    //	/**
-    //	 * 子订单查询
-    //	 *
-    //	 * @param orderSn 订单编号
-    //	 * @param skuId   skuid
-    //	 * @return {@link OrderItemPO }
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	OrderItemPO getByOrderSnAndSkuId(String orderSn, Long skuId);
 }

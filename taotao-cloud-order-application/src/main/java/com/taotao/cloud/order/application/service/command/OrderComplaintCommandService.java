@@ -17,9 +17,10 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
+import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCmd;
 import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
 import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
+import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 
 /**
  * 交易投诉业务层
@@ -31,49 +32,22 @@ import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 public interface OrderComplaintCommandService extends CommandService {
 
     /**
-     * 分页获取交易投诉信息
-     *
-     * @param orderComplaintPageQry 订单投诉页面查询
-     * @return {@link IPage }<{@link OrderComplaintPO }>
-     * @since 2022-04-28 08:54:36
-     */
-    //    IPage<OrderComplaintPO> pageQuery(OrderComplaintPageQry orderComplaintPageQry);
-
-    /**
-     * 获取交易投诉详情
-     *
-     * @param id 交易投诉ID
-     * @return {@link OrderComplaintResult }
-     * @since 2022-04-28 08:54:36
-     */
-    OrderComplaintResult getOrderComplainById(Long id);
-
-    /**
-     * 获取交易投诉详情
-     *
-     * @param storeId 店铺id
-     * @return {@link OrderComplaintPO }
-     * @since 2022-04-28 08:54:36
-     */
-    //    OrderComplaintPO getOrderComplainByStoreId(Long storeId);
-
-    /**
      * 添加交易投诉
      *
      * @param orderComplaintAddCmd 交易投诉信息
      * @return {@link OrderComplaintPO }
      * @since 2022-04-28 08:54:36
      */
-    //    OrderComplaintPO addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
+    OrderComplaintResult addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
 
     /**
      * 更新交易投诉
      *
-     * @param orderComplaintPO 交易投诉信息
+     * @param orderComplaintResult 交易投诉信息
      * @return {@link Boolean }
      * @since 2022-04-28 08:54:36
      */
-    //    Boolean updateOrderComplain(OrderComplaintPO orderComplaintPO);
+    Boolean updateOrderComplain(OrderComplaintResult orderComplaintResult);
 
     /**
      * 修改交易投诉状态
@@ -84,14 +58,6 @@ public interface OrderComplaintCommandService extends CommandService {
      */
     Boolean updateOrderComplainByStatus(
             OrderComplaintOperationAddCommand orderComplaintOperationAddCmd);
-
-    /**
-     * 待处理投诉数量
-     *
-     * @return long
-     * @since 2022-04-28 08:54:37
-     */
-    long waitComplainNum();
 
     /**
      * 取消交易投诉

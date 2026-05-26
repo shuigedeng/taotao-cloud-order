@@ -16,10 +16,8 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
+import com.taotao.cloud.order.application.dto.order.result.OrderItemResult;
+import java.util.List;
 
 /**
  * 子订单业务层
@@ -28,71 +26,11 @@ import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
  * @version 2022.04
  * @since 2022-04-28 08:54:41
  */
-public interface OrderItemQueryService extends CommandService {
+public interface OrderItemQueryService {
 
-    /**
-     * 更新评论状态
-     *
-     * @param orderItemSn       子订单编号
-     * @param commentStatusEnum 评论状态枚举
-     * @return {@link Boolean }
-     * @since 2022-05-16 17:23:40
-     */
-    Boolean updateCommentStatus(String orderItemSn, CommentStatusEnum commentStatusEnum);
+    OrderItemResult queryBySn(String sn);
 
-    /**
-     * 更新可申请售后状态
-     *
-     * @param orderItemSn                  子订单编号
-     * @param orderItemAfterSaleStatusEnum 售后状态枚举
-     * @return {@link Boolean }
-     * @since 2022-05-16 17:23:39
-     */
-    Boolean updateAfterSaleStatus(
-            String orderItemSn, OrderItemAfterSaleStatusEnum orderItemAfterSaleStatusEnum);
+    List<OrderItemResult> queryByOrderSn(String orderSn);
 
-    /**
-     * 更新订单可投诉状态
-     *
-     * @param orderSn            订单sn
-     * @param skuId              商品skuId
-     * @param complainId         订单交易投诉ID
-     * @param complainStatusEnum 修改状态
-     * @return {@link Boolean }
-     * @since 2022-05-16 17:23:36
-     */
-    Boolean updateOrderItemsComplainStatus(
-            String orderSn,
-            Long skuId,
-            Long complainId,
-            OrderComplaintStatusEnum complainStatusEnum);
-
-    //	/**
-    //	 * 根据子订单编号获取子订单信息
-    //	 *
-    //	 * @param sn 子订单编号
-    //	 * @return {@link OrderItemPO }
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	OrderItemPO queryBySn(String sn);
-    //
-    //	/**
-    //	 * 根据订单编号获取子订单列表
-    //	 *
-    //	 * @param orderSn 订单编号
-    //	 * @return {@link List }<{@link OrderItemPO }>
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	List<OrderItemPO> queryByOrderSn(String orderSn);
-    //
-    //	/**
-    //	 * 子订单查询
-    //	 *
-    //	 * @param orderSn 订单编号
-    //	 * @param skuId   skuid
-    //	 * @return {@link OrderItemPO }
-    //	 * @since 2022-04-28 08:54:41
-    //	 */
-    //	OrderItemPO queryByOrderSnAndSkuId(String orderSn, Long skuId);
-    // }
+    OrderItemResult queryByOrderSnAndSkuId(String orderSn, Long skuId);
 }

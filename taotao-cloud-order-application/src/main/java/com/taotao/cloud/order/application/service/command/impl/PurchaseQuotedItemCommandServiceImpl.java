@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.taotao.cloud.order.application.dto.purchase.result.PurchaseQuotedItemResult;
 import com.taotao.cloud.order.application.service.command.PurchaseQuotedItemCommandService;
 import org.springframework.stereotype.Service;
 
@@ -28,31 +29,14 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PurchaseQuotedItemCommandServiceImpl implements PurchaseQuotedItemCommandService {
-    //	@Override
-    //	public boolean addPurchaseQuotedItem(String PurchaseQuotedId, List<PurchaseQuotedItemPO>
-    // purchaseQuotedItemPOList) {
-    //		return false;
-    //	}
-    //
-    //	@Override
-    //	public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
-    //		return List.of();
-    //	}
 
-    // @Override
-    // @Transactional(rollbackFor = Exception.class)
-    // public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemPO>
-    // purchaseQuotedItemPOList) {
-    //    for (PurchaseQuotedItemPO purchaseQuotedItemPO : purchaseQuotedItemPOList) {
-    //        purchaseQuotedItemPO.setPurchaseQuotedId(purchaseQuotedId);
-    //    }
-    //
-    //    return this.saveBatch(purchaseQuotedItemPOList);
-    // }
-    //
-    // @Override
-    // public List<PurchaseQuotedItemPO> purchaseQuotedItemList(String purchaseQuotedId) {
-    //    return this.list(new LambdaQueryWrapper<PurchaseQuotedItemPO>()
-    //            .eq(PurchaseQuotedItemPO::getPurchaseQuotedId, purchaseQuotedId));
-    // }
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public boolean addPurchaseQuotedItem(String purchaseQuotedId, List<PurchaseQuotedItemResult>
+        purchaseQuotedItemResultList) {
+        for (PurchaseQuotedItemResult purchaseQuotedItemResult : purchaseQuotedItemResultList) {
+            purchaseQuotedItemResult.setPurchaseQuotedId(purchaseQuotedId);
+        }
+        return this.saveBatch(purchaseQuotedItemResultList);
+    }
 }
