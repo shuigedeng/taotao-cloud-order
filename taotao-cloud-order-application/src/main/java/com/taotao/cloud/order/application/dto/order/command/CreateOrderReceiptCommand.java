@@ -21,20 +21,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 
-/**
- * 订单批量发货DTO
- *
- * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-21 16:59:38
- */
+/** 订单发票 */
 @RecordBuilder
-@Schema(description = "订单批量发货DTO")
-public record OrderBatchDeliverAddCommand(
-        @Schema(description = "订单SN") String orderSn,
-        @Schema(description = "物流公司ID") Long logisticsId,
-        @Schema(description = "物流公司名称") String logisticsName,
-        @Schema(description = "发货单号") String logisticsNo)
+@Schema(description = "订单发票")
+public record CreateOrderReceiptCommand(
+        @Schema(description = "订单状态") String orderStatus,
+        @Schema(description = "发票子内容") ReceiptAddCommand receipt)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

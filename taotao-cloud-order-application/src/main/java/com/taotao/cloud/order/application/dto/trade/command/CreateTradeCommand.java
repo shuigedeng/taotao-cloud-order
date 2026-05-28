@@ -23,7 +23,6 @@ import java.io.Serializable;
 import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /** 交易参数 */
 @Setter
@@ -33,7 +32,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "交易参数")
-public class TradeAddCommand implements Serializable {
+public class CreateTradeCommand implements Serializable {
 
     @Serial private static final long serialVersionUID = -8383072817737513063L;
 

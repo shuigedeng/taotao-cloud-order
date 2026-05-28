@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.query.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.query.ReceiptQueryService;
@@ -31,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ReceiptQueryServiceImpl implements ReceiptQueryService {
 
     @Override
-    public IPage<OrderReceiptAddCommand> pageQuery(ReceiptPageQuery receiptPageQry) {
+    public IPage<CreateOrderReceiptCommand> pageQuery(ReceiptPageQuery receiptPageQry) {
         return null;
     }
 

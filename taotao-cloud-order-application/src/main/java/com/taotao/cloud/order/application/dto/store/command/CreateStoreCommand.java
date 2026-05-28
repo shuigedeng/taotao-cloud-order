@@ -24,7 +24,6 @@ import java.io.Serializable;
 import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 /**
  * 会员地址DTO
@@ -40,7 +39,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "租户id")
-public class StoreAddCommand implements Serializable {
+public class CreateStoreCommand implements Serializable {
 
     @Serial private static final long serialVersionUID = -7605952923416404638L;
 

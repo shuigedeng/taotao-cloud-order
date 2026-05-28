@@ -24,7 +24,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /** 预存款充值记录查询条件 */
 @Setter
@@ -33,7 +32,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "预存款充值记录查询条件")
-public class RechargeAddCommand extends PageQuery implements Serializable {
+public class CreateRechargeCommand extends PageQuery implements Serializable {
     @Serial private static final long serialVersionUID = 318396158590640917L;
 
     @Schema(description = "充值订单编号")

@@ -20,7 +20,7 @@ import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleReasonUpdateCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.UpdateCAfterSaleReasonCommand;
 import com.taotao.cloud.order.application.dto.aftersale.query.AfterSaleReasonPageQuery;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
 import com.taotao.cloud.order.application.service.command.AfterSaleReasonCommandService;
@@ -70,7 +70,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-	public Result<Void> save(@Validated @RequestBody AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd) {
+	public Result<Void> save(@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd) {
 		afterSaleReasonCommandService.save(afterSaleReasonUpdateCmd);
 		return Result.success();
     }
@@ -80,7 +80,7 @@ public class AfterSaleReasonManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping("/{id}")
 	public Result<Void> update(
-			@Validated @RequestBody AfterSaleReasonUpdateCommand afterSaleReasonUpdateCmd,
+			@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd,
 			@PathVariable("id") Long id) {
 		afterSaleReasonCommandService.editAfterSaleReason(id, afterSaleReasonUpdateCmd);
 		return Result.success();

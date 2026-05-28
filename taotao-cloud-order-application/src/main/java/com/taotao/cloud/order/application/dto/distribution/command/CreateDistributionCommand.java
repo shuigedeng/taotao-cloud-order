@@ -25,7 +25,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 /**
  * DistributionAddCommand
@@ -40,7 +39,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "售后搜索参数")
-public class DistributionAddCommand extends PageQuery {
+public class CreateDistributionCommand extends PageQuery {
 
     @Serial
     private static final long serialVersionUID = 8808470688518188146L;

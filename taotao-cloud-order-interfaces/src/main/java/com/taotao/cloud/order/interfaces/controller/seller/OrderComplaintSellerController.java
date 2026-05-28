@@ -22,10 +22,7 @@ import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintCommunicationAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
+import com.taotao.cloud.order.application.dto.order.command.*;
 import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
@@ -81,7 +78,7 @@ public class OrderComplaintSellerController extends BusinessController {
     @PostMapping("/communication/{complainId}")
     public Result<Void> addCommunication(
             @PathVariable("complainId") Long complainId,
-            @Validated @RequestBody OrderComplaintCommunicationAddCommand command) {
+            @Validated @RequestBody CreateOrderComplaintCommunicationCommand command) {
         orderComplaintCommunicationCommandService.addCommunication(complainId, command);
         return Result.success();
     }
@@ -92,7 +89,7 @@ public class OrderComplaintSellerController extends BusinessController {
     @PostMapping("/{id}")
     public Result<Void> update(
             @PathVariable Long id,
-            @Validated @RequestBody OrderComplaintAddCommand command) {
+            @Validated @RequestBody CreateOrderComplaintCommand command) {
         orderComplaintCommandService.updateOrderComplain(id, command);
         return Result.success();
     }
@@ -112,7 +109,7 @@ public class OrderComplaintSellerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/status")
     public Result<Void> updateStatus(
-            @Validated @RequestBody OrderComplaintOperationAddCommand orderComplaintOperationAddCmd) {
+            @Validated @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
         orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
         return Result.success();
     }

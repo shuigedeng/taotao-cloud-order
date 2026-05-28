@@ -22,7 +22,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.service.query.ReceiptQueryService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -47,8 +47,8 @@ public class ReceiptManagerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/tree")
-    public Result<PageResult<OrderReceiptAddCommand>> queryPage(ReceiptPageQuery receiptPageQry) {
-        IPage<OrderReceiptAddCommand> page = receiptQueryService.pageQuery(receiptPageQry);
-        return Result.success(MpUtils.convertMpPage(page, OrderReceiptAddCommand.class));
+    public Result<PageResult<CreateOrderReceiptCommand>> queryPage(ReceiptPageQuery receiptPageQry) {
+        IPage<CreateOrderReceiptCommand> page = receiptQueryService.pageQuery(receiptPageQry);
+        return Result.success(MpUtils.convertMpPage(page, CreateOrderReceiptCommand.class));
     }
 }

@@ -17,8 +17,8 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintOperationCommand;
 import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCmd;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
 import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 
@@ -57,7 +57,7 @@ public interface OrderComplaintCommandService extends CommandService {
      * @since 2022-04-28 08:54:36
      */
     Boolean updateOrderComplainByStatus(
-            OrderComplaintOperationAddCommand orderComplaintOperationAddCmd);
+            CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd);
 
     /**
      * 取消交易投诉

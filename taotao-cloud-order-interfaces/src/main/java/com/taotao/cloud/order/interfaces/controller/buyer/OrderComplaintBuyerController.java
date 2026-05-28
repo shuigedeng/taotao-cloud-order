@@ -23,8 +23,8 @@ import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintCommunicationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommunicationCommand;
 import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
@@ -35,7 +35,6 @@ import com.taotao.cloud.order.common.enums.order.CommunicationOwnerEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -80,7 +79,7 @@ public class OrderComplaintBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@PostMapping
-	public Result<OrderComplaintResult> add(@Valid @RequestBody OrderComplaintAddCommand orderComplaintAddCommand) {
+	public Result<OrderComplaintResult> add(@Valid @RequestBody CreateOrderComplaintCommand orderComplaintAddCommand) {
 		return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCommand));
 	}
 
@@ -90,7 +89,7 @@ public class OrderComplaintBuyerController extends BusinessController {
 	@PostMapping("/communication/{complainId}")
 	public Result<Void> addCommunication(
 			@PathVariable("complainId") Long complainId,
-			@Validated @RequestBody OrderComplaintCommunicationAddCommand orderComplaintCommunicationAddCommand) {
+			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCommand) {
 		String username = SecurityUtils.queryCurrentUser().queryNickname();
 		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
 		orderComplaintCommunicationCommandService.addCommunication(complainId,

@@ -22,7 +22,7 @@ import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
@@ -52,7 +52,7 @@ public class ReceiptSellerController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @GetMapping("/page")
-    public Result<PageResult<OrderReceiptAddCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
+    public Result<PageResult<CreateOrderReceiptCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
         receiptPageQry.setStoreId(SecurityUtils.queryCurrentUser().queryStoreId());
         return Result.success(receiptQueryService.pageQuery(receiptPageQry));
     }

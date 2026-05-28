@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleAddCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.CreateAfterSaleCommand;
 import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleAddCommandBuilder;
 import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQuery;
 import com.taotao.cloud.order.application.dto.aftersale.query.SnQuery;
@@ -106,8 +106,8 @@ public class AfterSaleBuyerController extends BusinessController {
 	@PostMapping(value = "/{orderItemSn}")
 	public Result<Void> saveAfterSale(
 			@NotBlank(message = "售后单号不能为空") @PathVariable String orderItemSn,
-			@Validated @RequestBody AfterSaleAddCommand afterSaleAddCmd) {
-		AfterSaleAddCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
+			@Validated @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
+		CreateAfterSaleCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
 				.orderItemSn(orderItemSn)
 				.build();
 		afterSaleCommandService.saveAfterSale(cmd);

@@ -21,9 +21,9 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintCommunicationAddCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintOperationAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommunicationCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintOperationCommand;
 import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
@@ -78,7 +78,7 @@ public class OrderComplaintManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping("/{id}")
 	public Result<Void> update(@PathVariable Long id,
-			                          @Validated @RequestBody OrderComplaintAddCommand orderComplaintAddCmd) {
+			                          @Validated @RequestBody CreateOrderComplaintCommand orderComplaintAddCmd) {
 		orderComplaintCommandService.updateOrderComplain(id, orderComplaintAddCmd);
 		return Result.success();
     }
@@ -89,7 +89,7 @@ public class OrderComplaintManagerController extends BusinessController {
     @PostMapping("/communication/{complainId}")
 	public Result<Void> addCommunication(
 			@PathVariable("complainId") Long complainId,
-			@Validated @RequestBody OrderComplaintCommunicationAddCommand orderComplaintCommunicationAddCmd) {
+			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCmd) {
 		String username = SecurityUtils.queryCurrentUser().queryUsername();
 		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
 		orderComplaintCommunicationCommandService.addCommunication(complainId,
@@ -103,7 +103,7 @@ public class OrderComplaintManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/status")
 	public Result<Void> updateStatus(
-			@Validated @RequestBody OrderComplaintOperationAddCommand orderComplaintOperationAddCmd) {
+			@Validated @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
 		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
 		return Result.success();
     }
@@ -113,7 +113,7 @@ public class OrderComplaintManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/complete/{id}")
 	public Result<Void> complete(@PathVariable Long id, String arbitrationResult) {
-		OrderComplaintOperationAddCommand orderComplaintOperationAddCmd = OrderComplaintOperationAddCommand.builder()
+		CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd = CreateOrderComplaintOperationCommand.builder()
 				.complainId(id)
 				.arbitrationResult(arbitrationResult)
 				.complainStatus(OrderComplaintStatusEnum.COMPLETE.name())

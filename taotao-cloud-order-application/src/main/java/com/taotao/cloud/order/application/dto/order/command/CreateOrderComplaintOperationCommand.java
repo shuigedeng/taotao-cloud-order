@@ -31,7 +31,7 @@ import java.util.List;
  */
 @RecordBuilder
 @Schema(description = "交易投诉 参数")
-public record OrderComplaintOperationAddCommand(
+public record CreateOrderComplaintOperationCommand(
         @Schema(description = "要更改的状态状态") String complainStatus,
         @Schema(description = "交易投诉主键") Long complainId,
         @Schema(description = "商家申诉内容") String appealContent,

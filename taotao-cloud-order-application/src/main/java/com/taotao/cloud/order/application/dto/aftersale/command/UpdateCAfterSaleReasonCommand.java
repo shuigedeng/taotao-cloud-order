@@ -30,7 +30,7 @@ import java.io.Serializable;
  */
 @RecordBuilder
 @Schema(description = "售后原因dto")
-public record AfterSaleReasonUpdateCommand(
+public record UpdateCAfterSaleReasonCommand(
         @Schema(description = "售后原因") String reason,
 
         /**

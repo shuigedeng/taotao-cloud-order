@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 
@@ -30,7 +30,7 @@ import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
  */
 public interface ReceiptQueryService {
 
-    IPage<OrderReceiptAddCommand> pageQuery(ReceiptPageQuery receiptPageQry);
+    IPage<CreateOrderReceiptCommand> pageQuery(ReceiptPageQuery receiptPageQry);
 
     ReceiptResult queryByOrderSn(String orderSn);
 

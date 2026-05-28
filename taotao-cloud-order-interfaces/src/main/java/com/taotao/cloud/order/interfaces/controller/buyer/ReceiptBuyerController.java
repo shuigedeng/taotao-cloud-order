@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.OrderReceiptAddCommand;
+import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
 import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
@@ -60,8 +60,8 @@ public class ReceiptBuyerController extends BusinessController {
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping("/page")
-	public Result<PageResult<OrderReceiptAddCommand>> queryPage(ReceiptPageQuery receiptPageQuery) {
-		return Result.success(MpUtils.convertMpPage(receiptQueryService.pageQuery(receiptPageQuery), OrderReceiptAddCommand.class));
+	public Result<PageResult<CreateOrderReceiptCommand>> queryPage(ReceiptPageQuery receiptPageQuery) {
+		return Result.success(MpUtils.convertMpPage(receiptQueryService.pageQuery(receiptPageQuery), CreateOrderReceiptCommand.class));
 	}
 
 	@Operation(summary = "保存发票信息", description = "保存发票信息")

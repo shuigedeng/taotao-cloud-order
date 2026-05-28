@@ -26,7 +26,7 @@ import java.io.Serializable;
 /** 售后可操作类型 */
 @RecordBuilder
 @Schema(description = "售后可操作类型")
-public record AfterSaleAllowOperationCommand(
+public record AllowOperationAfterSaleCommand(
         @Schema(description = "可以确认售后") Boolean confirm,
         @Schema(description = "可以回寄物流") Boolean returnGoods,
         @Schema(description = "可以收货") Boolean rog,
@@ -38,7 +38,7 @@ public record AfterSaleAllowOperationCommand(
     @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     /** 根据各种状态构建对象 */
-    public AfterSaleAllowOperationCommand(AfterSaleResult afterSaleCO) {
+    public AllowOperationAfterSaleCommand(AfterSaleResult afterSaleCO) {
         this(
                 afterSaleCO.serviceStatus().equals(AfterSaleStatusEnum.APPLY.name()),
                 false,

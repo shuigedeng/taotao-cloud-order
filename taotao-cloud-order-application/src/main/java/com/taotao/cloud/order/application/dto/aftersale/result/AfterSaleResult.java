@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.result;
 
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleAllowOperationCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.AllowOperationAfterSaleCommand;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -94,8 +94,8 @@ public record AfterSaleResult(
     @Serial private static final long serialVersionUID = 8808470688518188146L;
 
     /** 初始化自身状态 */
-    public AfterSaleAllowOperationCommand getAfterSaleAllowOperationVO() {
+    public AllowOperationAfterSaleCommand getAfterSaleAllowOperationVO() {
         // 设置订单的可操作状态
-        return new AfterSaleAllowOperationCommand(this);
+        return new AllowOperationAfterSaleCommand(this);
     }
 }

@@ -18,20 +18,23 @@ package com.taotao.cloud.order.application.dto.order.command;
 
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
 import java.io.Serial;
 import java.io.Serializable;
 
-/** 交易投诉DTO */
+/**
+ * 订单批量发货DTO
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-21 16:59:38
+ */
 @RecordBuilder
-@Schema(description = "交易投诉DTO")
-public record OrderComplaintAddCommand(
-        @NotBlank @Schema(description = "投诉主题") String complainTopic,
-        @NotBlank @Schema(description = "投诉内容") String content,
-        @Schema(description = "投诉凭证图片") String images,
-        @NotBlank @Schema(description = "订单号") String orderSn,
-        @NotBlank @Schema(description = "商品id") String goodsId,
-        @NotBlank @Schema(description = "sku主键") String skuId)
+@Schema(description = "订单批量发货DTO")
+public record BatchDeliverOrderCommand(
+        @Schema(description = "订单SN") String orderSn,
+        @Schema(description = "物流公司ID") Long logisticsId,
+        @Schema(description = "物流公司名称") String logisticsName,
+        @Schema(description = "发货单号") String logisticsNo)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

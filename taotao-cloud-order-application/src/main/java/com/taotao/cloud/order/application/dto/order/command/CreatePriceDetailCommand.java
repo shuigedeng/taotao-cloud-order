@@ -28,7 +28,7 @@ import java.util.List;
  */
 @RecordBuilder
 @Schema(description = "商城流水，细节到orderItem")
-public record PriceDetailAddCommand(
+public record CreatePriceDetailCommand(
         @Schema(description = "订单原始总价格 用于订单价格修改金额计算使用") BigDecimal originalPrice,
         @Schema(description = "商品总金额（商品原价）") BigDecimal goodsPrice,
         @Schema(description = "配送费") BigDecimal freightPrice,

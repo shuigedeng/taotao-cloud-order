@@ -18,15 +18,20 @@ package com.taotao.cloud.order.application.dto.order.command;
 
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
 import java.io.Serial;
 import java.io.Serializable;
 
-/** 订单发票 */
+/** 交易投诉DTO */
 @RecordBuilder
-@Schema(description = "订单发票")
-public record OrderReceiptAddCommand(
-        @Schema(description = "订单状态") String orderStatus,
-        @Schema(description = "发票子内容") ReceiptAddCommand receipt)
+@Schema(description = "交易投诉DTO")
+public record CreateOrderComplaintCommand(
+        @NotBlank @Schema(description = "投诉主题") String complainTopic,
+        @NotBlank @Schema(description = "投诉内容") String content,
+        @Schema(description = "投诉凭证图片") String images,
+        @NotBlank @Schema(description = "订单号") String orderSn,
+        @NotBlank @Schema(description = "商品id") String goodsId,
+        @NotBlank @Schema(description = "sku主键") String skuId)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

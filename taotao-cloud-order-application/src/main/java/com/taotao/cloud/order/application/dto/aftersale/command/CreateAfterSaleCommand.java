@@ -31,7 +31,7 @@ import java.math.BigDecimal;
  */
 @RecordBuilder
 @Schema(description = "售后dto")
-public record AfterSaleAddCommand(
+public record CreateAfterSaleCommand(
         @Schema(description = "订单SN") String orderItemSn,
         @Schema(description = "商品ID") String goodsId,
         @Schema(description = "货品ID") String skuId,
