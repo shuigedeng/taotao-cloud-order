@@ -1,41 +1,16 @@
-
-## 3. 团队配置
-
-**`.claude/settings.json`** - 团队共享配置
-```json
 {
-"version": "1.0",
-"permissions": {
-"read": ["src/**/*.java", "src/**/*.yml", "pom.xml"],
-"write": ["src/**/*.java", "src/**/*.xml"],
-"execute": ["./mvnw", "git", "docker"],
-"network": ["localhost:8080", "localhost:3306", "api.github.com"]
-},
-"model": {
-"default": "claude-3.5-sonnet-20240620",
-"fallback": "claude-3-opus-20240229",
-"temperature": 0.3,
-"maxTokens": 4096
-},
-"git": {
-"autoCommit": false,
-"requireTests": true,
-"commitMessageTemplate": "type(scope): description\n\nCloses #{{issue}}"
-},
-"java": {
-"buildTool": "maven",
-"testCommand": "./mvnw test",
-"compileCommand": "./mvnw compile",
-"packageCommand": "./mvnw clean package -DskipTests=false"
-},
-"integrations": {
-"jira": {
-"enabled": false,
-"project": "SPRING"
-},
-"sonarqube": {
-"enabled": true,
-"url": "http://localhost:9000"
-}
-}
+  "permissions": {
+    "read": ["src/**/*.java", "src/**/*.yml", "src/**/*.yaml", "src/**/*.xml", "src/**/*.properties", "build.gradle", "settings.gradle", "gradle/**"],
+    "write": ["src/**/*.java", "src/**/*.xml", "src/**/*.yml", "src/**/*.yaml"],
+    "execute": ["./gradlew", "git", "docker", "kubectl"],
+    "network": ["localhost:8080", "localhost:3306", "localhost:6379", "localhost:8848"]
+  },
+  "hooks": {
+    "preCommit": ["echo 'Running pre-commit checks...'", "./gradlew checkstyleMain spotlessCheck"]
+  },
+  "custom": {
+    "projectType": "spring-boot-ddd",
+    "jdkVersion": "25",
+    "gradleVersion": "9.5"
+  }
 }

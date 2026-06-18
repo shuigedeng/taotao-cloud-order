@@ -1,17 +1,13 @@
-## 6. 自动化工作流
-
-**`.claude/skills/crud-generator/SKILL.md`**
-```markdown
 ---
 name: crud-generator
-description: 自动生成标准 CRUD 代码（Controller, Service, Repository, DTO, Mapper）
+description: 按 DDD 架构生成标准聚合代码（Aggregate, Entity, VO, Repository, ApplicationService, Controller）
 triggers:
   - "生成CRUD"
   - "创建增删改查"
   - "新建模块"
 ---
 
-# CRUD 代码生成器
+# DDD CRUD 代码生成器
 
 ## 触发条件
 用户输入包含 "生成CRUD" 或 "创建增删改查" 等关键词时自动触发。
@@ -20,61 +16,32 @@ triggers:
 
 ### 1. 收集信息
 询问用户：
-- 实体名称（如 User, Product）
-- 字段列表（名称 + 类型）
-- 是否需要分页
-- 是否需要软删除
+- 聚合名称（如 Order, Trade, Cart）
+- 业务属性和值对象列表
+- 需要哪些行为方法（创建、修改、删除等）
+- 是否需要领域事件
 
-### 2. 生成文件
-按照标准包结构生成：
-src/main/java/com/company/project/
-├── entity/{Entity}.java
-├── dto/{Entity}Request.java
-├── dto/{Entity}Response.java
-├── controller/{Entity}Controller.java
-├── service/{Entity}Service.java
-├── service/impl/{Entity}ServiceImpl.java
-├── repository/{Entity}Repository.java
-└── mapper/{Entity}Mapper.java
+### 2. 生成文件结构
+```bash
+# Domain layer
+domain/src/main/java/com/taotao/cloud/order/domain/aggregate/{Name}Agg.java
+domain/src/main/java/com/taotao/cloud/order/domain/entity/{Name}.java        # If needed
+domain/src/main/java/com/taotao/cloud/order/domain/valobj/{Name}Val.java      # Value objects
+domain/src/main/java/com/taotao/cloud/order/domain/event/{Name}CreatedEvent.java
+domain/src/main/java/com/taotao/cloud/order/domain/repository/{Name}DomainRepository.java
+domain/src/main/java/com/taotao/cloud/order/domain/service/{Name}DomainService.java
 
-text
+# Application layer
+application/src/main/java/com/taotao/cloud/order/application/service/command/{Name}CommandService.java
+application/src/main/java/com/taotao/cloud/order/application/service/query/{Name}QueryService.java
+application/src/main/java/com/taotao/cloud/order/application/dto/{Name}/command/Create{Name}Command.java
+application/src/main/java/com/taotao/cloud/order/application/dto/{Name}/result/{Name}Result.java
 
-### 3. 代码模板示例
+# Interfaces layer
+interfaces/src/main/java/com/taotao/cloud/order/interfaces/controller/{role}/{Name}Controller.java
+```
 
-#### Entity 模板
-```java
-@Entity
-@Table(name = "{{tableName}}")
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class {{Entity}} {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    {% for field in fields %}
-    @Column(name = "{{field.name}}", nullable = false)
-    private {{field.type}} {{field.name}};
-    {% endfor %}
-    
-    @CreatedDate
-    private LocalDateTime createdAt;
-    
-    @LastModifiedDate
-    private LocalDateTime updatedAt;
-}
-4. 生成数据库迁移
-自动创建 Flyway 迁移脚本：
-
-sql
--- V{{timestamp}}__create_{{tableName}}_table.sql
-CREATE TABLE {{tableName}} (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    {% for field in fields %}
-    {{field.name}} {{field.sqlType}} NOT NULL,
-    {% endfor %}
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+### 3. 代码模板
+See the project's existing OrderAgg implementation as reference pattern.
+Key elements: extends AggregateRoot<Long>, constructor with validation,
+behavior methods with registerEvent(), value objects with @Value/@Builder/record.

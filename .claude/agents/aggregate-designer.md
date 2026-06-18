@@ -1,4 +1,3 @@
-```markdown
 ---
 name: aggregate-designer
 description: 聚合设计专家，负责设计DDD聚合根
@@ -13,10 +12,9 @@ tools:
 ## 设计流程
 
 ### 1. 识别聚合边界
-根据业务一致性要求划分聚合：
+根据业务一致性要求划分聚合
 
-```markdown
-## 聚合边界分析
+### 聚合边界分析
 
 ### Order聚合
 **事务一致性要求**:
@@ -25,78 +23,43 @@ tools:
 - 订单取消时必须释放库存
 
 **聚合边界**:
-- Order（聚合根）
-- OrderItem（实体）
-- OrderStatus（值对象）
-2. 设计聚合根
-生成完整的聚合根代码：
+- OrderAgg（聚合根，extends AggregateRoot<Long>）
+- OrderDetail（值对象，含多态子类）
+- OrderStatus（枚举值对象）
+- OrderPrice（值对象，@Value + @Builder）
 
-java
-@Aggregate
-@Entity
-@Table(name = "orders")
-public class Order {
-    private OrderId id;
-    private CustomerId customerId;
-    private List<OrderItem> items;
+### 2. 设计聚合根
+生成符合项目模板的聚合根代码：
+```java
+public class OrderAgg extends AggregateRoot<Long> {
+    private OrderDetail detail;
+    private OrderPrice price;
     private OrderStatus status;
-    private Money totalAmount;
-    
+
     // 工厂方法
-    public static Order create(CustomerId customerId) {
-        Order order = new Order();
-        order.id = OrderId.generate();
-        order.customerId = customerId;
-        order.status = OrderStatus.PENDING;
-        order.items = new ArrayList<>();
-        order.totalAmount = Money.ZERO;
-        order.registerEvent(new OrderCreatedEvent(order.id));
-        return order;
+    public static OrderAgg create(OrderDetail detail, PaymentType paymentType, Tenant tenant, User user) {
+        return new OrderAgg(detail, paymentType, tenant, user);
     }
-    
+
     // 行为方法
-    public void addItem(ProductId productId, Money price, int quantity) {
-        validatePending();
-        validateQuantity(quantity);
-        
-        OrderItem item = new OrderItem(productId, price, quantity);
-        this.items.add(item);
-        recalculateTotal();
-        
-        registerEvent(new OrderItemAddedEvent(id, productId, quantity));
-    }
-    
-    private void validatePending() {
-        if (status != OrderStatus.PENDING) {
-            throw new DomainException("只有待支付订单可以修改");
+    public void wxPay(String wxTxnId, Instant paidAt, User user) {
+        if (atCreated()) {
+            this.status = PAID;
         }
+        this.wxTxnId = wxTxnId;
+        this.paidAt = paidAt;
+        raiseEvent(new OrderWxPayUpdatedEvent(this.getId(), user));
     }
-    
-    private void recalculateTotal() {
-        this.totalAmount = items.stream()
-            .map(OrderItem::getSubtotal)
-            .reduce(Money.ZERO, Money::add);
-    }
+
+    private boolean atCreated() { return this.status == CREATED; }
 }
-3. 设计仓储接口
-java
-public interface OrderRepository {
-    Order findById(OrderId id);
-    void save(Order order);
-    Page<Order> findByCustomerId(CustomerId customerId, Pageable pageable);
-    boolean existsById(OrderId id);
+```
+
+### 3. 设计仓储接口
+```java
+public interface OrderRepository extends DomainRepository {
+    void save(OrderAgg it);
+    OrderAgg byId(String id);
+    void delete(OrderAgg it);
 }
-4. 编写单元测试
-java
-@Test
-void shouldAddItemToOrder() {
-    // Given
-    Order order = Order.create(customerId);
-    
-    // When
-    order.addItem(productId, new Money(100), 2);
-    
-    // Then
-    assertThat(order.getTotalAmount()).isEqualTo(new Money(200));
-    assertThat(order.getDomainEvents()).hasSize(2);
-}
+```

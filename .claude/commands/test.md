@@ -1,73 +1,50 @@
-**`.claude/commands/test.md`**
-```markdown
 ---
-description: 运行测试并生成报告
+description: 运行 DDD 分层测试
 parameters:
   - name: module
     type: string
-    description: 测试模块（controller/service/repository）
+    description: 测试模块（domain/application/infrastructure/interfaces）
     required: false
   - name: coverage
     type: boolean
     default: true
-  - name: parallel
-    type: boolean
-    default: true
 ---
 
-# 测试执行
+# Test Execution
 
-## 执行步骤
+## Commands
 
-### 1. 清理并编译
+### All tests
 ```bash
-./mvnw clean compile
-2. 运行测试
-{% if module %}
+./gradlew test
+```
 
-bash
-./mvnw test -Dtest=*{{module}}*Test
-{% else %}
+### Specific module
+```bash
+./gradlew :taotao-cloud-order-domain:test
+./gradlew :taotao-cloud-order-application:test
+```
 
-bash
-./mvnw test -DforkCount={{ parallel ? '1C' : '1' }}
-{% endif %}
+### Filter by test name
+```bash
+./gradlew test --tests "*Order*"
+./gradlew test --tests "*OrderAggTest"
+```
 
-3. 生成覆盖率报告（如果需要）
-{% if coverage %}
+### Coverage report
+```bash
+./gradlew jacocoTestReport
+# Report at: build/reports/jacoco/test/html/index.html
+```
 
-bash
-./mvnw jacoco:report
-# 报告位置: target/site/jacoco/index.html
-{% endif %}
+### Skip tests
+```bash
+./gradlew build -x test
+```
 
-4. 输出测试结果
-测试统计
-总测试数: {{total}}
-
-通过: {{passed}}
-
-失败: {{failed}}
-
-跳过: {{skipped}}
-
-耗时: {{duration}}ms
-
-覆盖率报告
-指令覆盖率: {{instructionCoverage}}%
-
-分支覆盖率: {{branchCoverage}}%
-
-行覆盖率: {{lineCoverage}}%
-
-方法覆盖率: {{methodCoverage}}%
-
-失败测试详情
-{% for failure in failures %}
-
-{{failure.className}}.{{failure.methodName}}
-
-错误: {{failure.message}}
-
-堆栈: {{failure.stackTrace | truncate(200)}}
-{% endfor %}
+## Test Results
+- Total: {{total}}
+- Passed: {{passed}}
+- Failed: {{failed}}
+- Skipped: {{skipped}}
+- Coverage: {{coverage}}%

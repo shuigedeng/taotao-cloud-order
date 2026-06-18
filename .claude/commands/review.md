@@ -1,57 +1,47 @@
 ---
-description: 代码审查 - 检查 SpringBoot 代码质量
+description: DDD 代码审查 — 检查领域模型、架构合规、代码质量
 parameters:
   - name: scope
     type: string
-    enum: [controller, service, repository, all]
+    enum: [domain, application, infrastructure, interfaces, all]
     default: all
-  - name: strict
-    type: boolean
-    default: true
 ---
 
-# 代码审查命令
+# DDD Code Review Command
 
-执行代码审查，检查范围：`{{scope}}`
+Execute code review with scope: `{{scope}}`
 
-## 检查清单
+## Review Checklist
 
-### 架构规范
-- [ ] Controller 层是否只处理 HTTP 转换
-- [ ] Service 层是否有事务注解
-- [ ] Repository 是否使用了正确的查询方法
-- [ ] Entity 和 DTO 是否分离
+### Domain Layer
+- [ ] Aggregate invariants maintained inside aggregate methods
+- [ ] Value objects are immutable (final class, no setters, self-validating)
+- [ ] Repository interfaces defined in domain (not infrastructure)
+- [ ] Cross-aggregate references via ID (not object references)
+- [ ] Domain events registered via registerEvent() in aggregate
+- [ ] Domain service is stateless, operates across aggregates
 
-### 代码质量
-- [ ] 是否有重复代码
-- [ ] 方法长度是否超过 50 行
-- [ ] 循环复杂度是否过高（>10）
-- [ ] 是否正确处理了空值
+### Application Layer
+- [ ] CQRS separation: CommandService for writes, QueryService for reads
+- [ ] @Transactional only in application layer
+- [ ] No business logic in application services (only orchestration)
+- [ ] DTOs are separate from domain objects
 
-### 性能问题
-- [ ] 是否存在 N+1 查询
-- [ ] 批量操作是否使用了批处理方法
-- [ ] 是否避免了 SELECT *
-- [ ] 缓存策略是否合理
+### Architecture
+- [ ] Dependency direction: interfaces → application → domain ← infrastructure
+- [ ] Domain has zero external framework dependencies
+- [ ] Controller contains no business logic
+- [ ] Tests follow the layer-appropriate pattern
 
-### 安全问题
-- [ ] 输入参数是否校验
-- [ ] SQL 注入防护
-- [ ] 权限控制是否完整
-- [ ] 敏感数据是否脱敏
+## Running the Review
+```bash
+# Full review of all layers with quality checks
+./gradlew checkstyleMain spotlessCheck
+```
+Also run `./gradlew test` to verify all tests pass before review.
 
-## 输出格式
-```markdown
-## 代码审查报告
-
-### 🔴 严重问题（必须修复）
-- [文件:行号] 问题描述 + 修复建议
-
-### 🟡 警告（建议修复）
-- [文件:行号] 问题描述 + 优化方案
-
-### 🟢 优化建议
-- 建议内容
-
-### ✅ 通过项
-- 列举做得好的地方
+## Output Format
+📊 DDD Code Review Report
+✅ Through items
+❌ Violations with file:line references
+💡 Improvement suggestions
