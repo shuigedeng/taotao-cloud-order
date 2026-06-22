@@ -2,7 +2,7 @@
 
 ## Tech Stack
 - **JDK**: 25 (--enable-preview)
-- **Build**: Gradle 9.5.0
+- **Build**: Gradle 9.6.0
 - **Framework**: Spring Boot 4.1.0 (via taotao-boot-starter-web)
 - **DDD Base**: taotao-boot-starter-ddd (AggregateRoot, DomainService, DomainRepository, Entity, DomainEvent)
 - **Main Class**: `@TaoTaoBootApplication` annotation (aliased from `@SpringBootApplication`)
