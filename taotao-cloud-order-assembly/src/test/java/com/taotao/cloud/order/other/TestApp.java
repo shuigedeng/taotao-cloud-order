@@ -14,27 +14,22 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.biz;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+package com.taotao.cloud.order.other;
 
 import com.taotao.boot.test.junitperf.core.annotation.TtcTest;
 import com.taotao.boot.test.junitperf.core.report.impl.HtmlReporter;
 import com.taotao.cloud.order.TaoTaoCloudOrderApplicationTestBase;
 import com.taotao.cloud.order.application.service.DeptsService;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.mockito.Mockito.*;
 
 /**
  * TestApp

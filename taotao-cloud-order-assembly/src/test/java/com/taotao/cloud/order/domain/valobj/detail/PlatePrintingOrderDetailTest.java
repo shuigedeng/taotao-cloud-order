@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.domain.valobj.detail;
 
 import com.taotao.cloud.order.domain.valobj.OrderPrice;
+import com.taotao.cloud.order.domain.valobj.delivery.Address;
 import com.taotao.cloud.order.domain.valobj.delivery.Consignee;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
 import org.junit.jupiter.api.DisplayName;
@@ -38,6 +39,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class PlatePrintingOrderDetailTest {
 
+    private static final Consignee DEFAULT_CONSIGNEE = new Consignee(
+            "c001",
+            "测试用户",
+            "13800138000",
+            new Address("广东省", "深圳市", "南山区", "科技园南区A栋")
+    );
+
     private Tenant createDefaultTenant() {
         return new Tenant();
     }
@@ -47,7 +55,7 @@ class PlatePrintingOrderDetailTest {
                 .plateType(plateType)
                 .amount(amount)
                 .files(List.of(new UploadedFile()))
-                .consignee(new Consignee())
+                .consignee(DEFAULT_CONSIGNEE)
                 .type(OrderDetailType.PLATE_PRINTING)
                 .build();
     }
@@ -66,7 +74,6 @@ class PlatePrintingOrderDetailTest {
 
             String desc = detail.description();
 
-            // "印刷码牌50个（透明亚克力 60*60mm）"
             assertThat(desc).contains("50").contains("透明亚克力").contains("60*60mm");
         }
 
@@ -105,9 +112,6 @@ class PlatePrintingOrderDetailTest {
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // originalTotalPrice = 100 * 3.0 = 300.00
-            // deliveryFee = 0
-            // discountedTotalPrice = 300.00 + 0 = 300.00
             assertThat(price.getOriginalTotalPrice()).isEqualTo("300.00");
             assertThat(price.getDeliveryFee()).isEqualTo("0.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("300.00");
@@ -124,7 +128,6 @@ class PlatePrintingOrderDetailTest {
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // originalTotalPrice = 500 * 3.0 = 1500.00
             assertThat(price.getOriginalTotalPrice()).isEqualTo("1500.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("1500.00");
         }
@@ -132,19 +135,18 @@ class PlatePrintingOrderDetailTest {
         @ParameterizedTest
         @DisplayName("数量与单价的乘法计算")
         @CsvSource({
-                "TRANSPARENT_ACRYLIC_60x40, 10, 3.0, 30.00",
-                "TRANSPARENT_ACRYLIC_100x70, 50, 5.0, 250.00",
-                "PVC_CARD_100x70, 1000, 5.0, 5000.00",
-                "PP_ADHESIVE_50x40, 10000, 0.7, 7000.00"
+                "TRANSPARENT_ACRYLIC_60x40, 10, 30.00",
+                "TRANSPARENT_ACRYLIC_100x70, 50, 250.00",
+                "PVC_CARD_100x70, 1000, 5000.00",
+                "PP_ADHESIVE_50x40, 10000, 7000.00"
         })
         void shouldMultiplyAmountByUnitPrice(
-                PlatePrintingType plateType, int amount, double unitPrice, String expectedTotal) {
+                PlatePrintingType plateType, int amount, String expectedTotal) {
             Tenant tenant = createDefaultTenant();
             PlatePrintingOrderDetail detail = createDetail(plateType, amount);
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // The formula: amount * unitPrice (since deliveryFee is 0 for all types)
             assertThat(price.getOriginalTotalPrice()).isEqualTo(expectedTotal);
         }
 

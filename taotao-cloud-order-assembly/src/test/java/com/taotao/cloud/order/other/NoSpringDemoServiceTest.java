@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.biz;
+package com.taotao.cloud.order.other;
 
 import com.taotao.boot.test.TtcBootTestBase;
 import org.junit.jupiter.api.Assertions;

@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.biz;
+package com.taotao.cloud.order.other;
 
 import com.taotao.boot.test.TtcBootTestBase;
 import com.taotao.cloud.order.application.service.DeptsService;
 import com.taotao.cloud.order.application.service.DictsService;
-
-import java.nio.charset.StandardCharsets;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -35,6 +32,8 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * SpringTest

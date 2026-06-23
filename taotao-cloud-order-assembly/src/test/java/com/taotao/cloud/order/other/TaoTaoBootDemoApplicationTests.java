@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.biz;
+package com.taotao.cloud.order.other;
 
+import cn.hutool.core.io.FileUtil;
 import com.taotao.boot.oss.common.model.OssInfo;
 import com.taotao.boot.oss.common.service.StandardOssClient;
 import com.taotao.cloud.order.TaoTaoCloudOrderApplication;
-
-import java.time.LocalDateTime;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
+
+import java.time.LocalDateTime;
 
 /**
  * TaoTaoBootDemoApplicationTests

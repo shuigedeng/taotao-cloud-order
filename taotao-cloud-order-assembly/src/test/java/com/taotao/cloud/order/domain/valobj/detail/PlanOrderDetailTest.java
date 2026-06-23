@@ -97,18 +97,13 @@ class PlanOrderDetailTest {
     class RenewalOnlyPriceTests {
 
         @Test
-        @DisplayName("基础版1年 - 无折扣,原价680,不打折")
+        @DisplayName("基础版1年 - 95折,原价680,折后646")
         void shouldCalculateRenewalPrice_whenOneYearBasic() {
             Tenant tenant = createDefaultTenant();
             PlanOrderDetail detail = createDetail(PlanType.BASIC, 1);
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // Tenant.effectivePlanType() returns FREE, so currentEffectivePlanType == FREE
-            // -> renewal only path
-            // originalRenewalPrice = 680 * 1 = 680
-            // discountFor(1) = 95
-            // discounted = 680 * 0.95 = 646.00
             assertThat(price.getOriginalTotalPrice()).isEqualTo("680.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("646.00");
             assertThat(price.getDiscount()).isEqualTo("9.5");
@@ -123,9 +118,6 @@ class PlanOrderDetailTest {
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // originalRenewalPrice = 1380 * 2 = 2760
-            // discountFor(2) = 90
-            // discounted = 2760 * 0.9 = 2484.00
             assertThat(price.getOriginalTotalPrice()).isEqualTo("2760.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("2484.00");
             assertThat(price.getDiscount()).isEqualTo("9.0");
@@ -140,9 +132,6 @@ class PlanOrderDetailTest {
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // originalRenewalPrice = 6980 * 3 = 20940
-            // discountFor(3) = 85
-            // discounted = 20940 * 0.85 = 17799.00
             assertThat(price.getOriginalTotalPrice()).isEqualTo("20940.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("17799.00");
             assertThat(price.getDiscount()).isEqualTo("8.5");
@@ -156,8 +145,6 @@ class PlanOrderDetailTest {
 
             OrderPrice price = detail.doCalculatePrice(tenant);
 
-            // originalRenewalPrice = 12800 * 4 = 51200
-            // discountFor(4) = 100 (no discount)
             assertThat(price.getOriginalTotalPrice()).isEqualTo("51200.00");
             assertThat(price.getDiscountedTotalPrice()).isEqualTo("51200.00");
             assertThat(price.getDiscount()).isNull();
@@ -193,7 +180,6 @@ class PlanOrderDetailTest {
                 "10, 100"
         })
         void shouldReturnCorrectDiscount_forYearDuration(int yearDuration, int expectedDiscount) {
-            // discountFor() is private, but we can observe its effect through the produced price
             Tenant tenant = createDefaultTenant();
             PlanOrderDetail detail = createDetail(PlanType.BASIC, yearDuration);
 

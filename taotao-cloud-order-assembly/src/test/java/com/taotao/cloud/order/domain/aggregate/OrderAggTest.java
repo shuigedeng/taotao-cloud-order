@@ -16,9 +16,6 @@
 
 package com.taotao.cloud.order.domain.aggregate;
 
-import com.taotao.cloud.order.domain.valobj.OrderPrice;
-import com.taotao.cloud.order.domain.valobj.OrderStatus;
-import com.taotao.cloud.order.domain.valobj.PaymentType;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.domain.valobj.detail.OrderDetailType;
 import com.taotao.cloud.order.domain.valobj.detail.PlanOrderDetail;
@@ -33,12 +30,9 @@ import org.junit.jupiter.api.Test;
 import java.time.Instant;
 import java.util.List;
 
-import static com.taotao.cloud.order.domain.valobj.OrderStatus.CREATED;
-import static com.taotao.cloud.order.domain.valobj.OrderStatus.PAID;
-import static com.taotao.cloud.order.domain.valobj.OrderStatus.REFUNDED;
+import static com.taotao.cloud.order.domain.valobj.OrderStatus.*;
 import static com.taotao.cloud.order.domain.valobj.PaymentType.BANK_TRANSFER;
 import static com.taotao.cloud.order.domain.valobj.PaymentType.WX_NATIVE;
-import static com.taotao.cloud.order.domain.valobj.PaymentType.WX_TRANSFER;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -178,7 +172,6 @@ class OrderAggTest {
         void shouldTransitionToPaid_whenFirstWxTransferPay() {
             Tenant tenant = createDefaultTenant();
             User user = createDefaultUser();
-            // WX_TRANSFER payment type
             PlanOrderDetail detail = createPlanDetail(PlanType.FLAGSHIP, 1);
 
             // Note: OrderAgg constructor doesn't validate payment type vs detail type
@@ -370,7 +363,6 @@ class OrderAggTest {
         void shouldSkip_whenNotPlatePrintingType() {
             Tenant tenant = createDefaultTenant();
             User user = createDefaultUser();
-            // Plan order, not PLATE_PRINTING
             OrderAgg order = new OrderAgg(createPlanDetail(PlanType.PROFESSIONAL, 1), WX_NATIVE, tenant, user);
             order.wxPay("txn1", Instant.now(), user);
 

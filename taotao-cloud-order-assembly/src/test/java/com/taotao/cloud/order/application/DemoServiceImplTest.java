@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.biz.service; // package com.taotao.cloud.order.service;//
+package com.taotao.cloud.order.application; // package com.taotao.cloud.order.service;//
                                             // 导入JUnit和Mockito相关的包
 //
 // import com.taotao.boot.demo.TaoTaoCloudDemoApplication;
