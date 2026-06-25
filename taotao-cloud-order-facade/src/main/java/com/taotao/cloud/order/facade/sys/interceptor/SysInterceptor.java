@@ -1,8 +1,8 @@
 package com.taotao.cloud.order.facade.sys.interceptor;
 
-import com.taotao.boot.ddd.gateway.interceptor.GatewayPostInterceptor;
-import com.taotao.boot.ddd.gateway.model.GatewayContext;
-import com.taotao.boot.ddd.gateway.model.GatewayResponse;
+import com.taotao.boot.client.gateway.interceptor.GatewayPostInterceptor;
+import com.taotao.boot.client.gateway.model.GatewayContext;
+import com.taotao.boot.client.gateway.model.GatewayResponse;
 
 /**
  * SysInterceptor
@@ -14,7 +14,7 @@ import com.taotao.boot.ddd.gateway.model.GatewayResponse;
 public class SysInterceptor<T> implements GatewayPostInterceptor<T> {
 
     @Override
-    public void intercept( GatewayResponse<T> response, GatewayContext context ) {
+    public void postIntercept( GatewayResponse<T> response, GatewayContext context ) {
 
     }
 
