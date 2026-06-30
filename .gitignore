@@ -70,3 +70,5 @@ help.md
 # Claude Code local settings & instructions (personal overrides, not shared)
 .claude/settings.local.json
 .claude/CLAUDE.local.md
+.omo
+.codegraph
