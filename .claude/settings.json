@@ -1,16 +1,86 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
-    "read": ["src/**/*.java", "src/**/*.yml", "src/**/*.yaml", "src/**/*.xml", "src/**/*.properties", "build.gradle", "settings.gradle", "gradle/**"],
-    "write": ["src/**/*.java", "src/**/*.xml", "src/**/*.yml", "src/**/*.yaml"],
-    "execute": ["./gradlew", "git", "docker", "kubectl"],
-    "network": ["localhost:8080", "localhost:3306", "localhost:6379", "localhost:8848"]
+    "allow": [
+      "Read(**/*.java)",
+      "Read(**/*.yml)",
+      "Read(**/*.yaml)",
+      "Read(**/*.xml)",
+      "Read(**/*.properties)",
+      "Read(**/build.gradle)",
+      "Read(**/settings.gradle)",
+      "Read(**/gradle.properties)",
+      "Read(gradle/**)",
+      "Read(.claude/**)",
+      "Read(.opencode/**)",
+      "Read(.codegraph/**)",
+      "Read(.github/**)",
+      "Read(Dockerfile)",
+      "Read(**/*.md)",
+      "Bash(./gradlew *)",
+      "Bash(git *)",
+      "Bash(docker *)",
+      "Bash(kubectl *)",
+      "Bash(cat *)",
+      "Bash(echo *)",
+      "Bash(Test-Path *)",
+      "Bash(Get-ChildItem *)",
+      "Bash(Get-Content *)",
+      "Bash(Select-String *)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(**/*.cert)",
+      "Read(**/*.p12)",
+      "Read(**/*.jks)",
+      "Read(**/gradle/wrapper/gradle-wrapper.jar)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(ssh *)",
+      "Bash(scp *)"
+    ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(Remove-Item *)",
+      "Bash(del *)",
+      "Bash(./gradlew clean *)",
+      "Bash(git push --force *)",
+      "Bash(git reset --hard *)",
+      "Bash(docker system prune *)",
+      "Bash(Write-Output *) > *",
+      "Bash(* | Set-Content *)"
+    ]
+  },
+  "env": {
+    "SPRING_PROFILES_ACTIVE": "dev"
   },
   "hooks": {
-    "preCommit": ["echo 'Running pre-commit checks...'", "./gradlew checkstyleMain spotlessCheck"]
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "prompt",
+            "prompt": "Run lsp_diagnostics on changed files; verify no errors were introduced by the edit"
+          }
+        ]
+      }
+    ]
   },
   "custom": {
     "projectType": "spring-boot-ddd",
     "jdkVersion": "25",
-    "gradleVersion": "9.5"
+    "gradleVersion": "9.6",
+    "framework": "Spring Boot 4.1.0",
+    "architecture": "DDD (Domain-Driven Design)"
   }
 }
