@@ -25,6 +25,13 @@ package com.taotao.cloud.order.domain.valobj.invoice;
  */
 public class InvoiceTitle {
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTitle() {
         return null;
     }

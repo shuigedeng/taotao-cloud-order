@@ -59,6 +59,20 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
         "'，价格修改为：'+#orderPrice")
     @OrderLogPoint(description = "'订单['+#orderSn+']修改价格，修改后价格为['+#orderPrice+']'", orderSn =
         "#orderSn")
+
+
+
+
+
+    /**
+     * 更新价格
+     *
+     * @param orderSn 订单Sn
+     * @param orderPrice 订单价格
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean updatePrice(String orderSn, BigDecimal orderPrice) {
         Order order = updateOrderPrice(orderSn, orderPrice);
 

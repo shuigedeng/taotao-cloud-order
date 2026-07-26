@@ -96,6 +96,21 @@ public class PlanOrderDetail extends OrderDetail {
                 tenant, currentEffectivePlanType, this.planType, this.yearDuration);
     }
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param currentEffectivePlanType currentEffectivePlanType
+     * @param requestedPlanType 请求的PlanType
+     * @param yearDuration yearDuration
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     private void validate(
             PlanType currentEffectivePlanType, PlanType requestedPlanType, int yearDuration ) {
         //		if (requestedPlanType == FREE) {
@@ -118,6 +133,20 @@ public class PlanOrderDetail extends OrderDetail {
         //				"购买套餐级别不能低于当前套餐级别。", mapOf("planType", requestedPlanType));
         //		}
     }
+
+
+
+
+
+
+    /**
+     * calculateRenewalOnlyPrice 方法
+     *
+     * @param requestedPlanType 请求的PlanType
+     * @param yearDuration yearDuration
+     * @return 订单价格
+     * @since 2022.03
+     */
 
     private OrderPrice calculateRenewalOnlyPrice( PlanType requestedPlanType, int yearDuration ) {
         BigDecimal originalTotalPrice = originalRenewalPrice(requestedPlanType, yearDuration);
@@ -147,6 +176,21 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
+
+
+
+
+
+    /**
+     * calculateUpgradeOnlyPrice 方法
+     *
+     * @param tenant 租户
+     * @param currentEffectivePlanType currentEffectivePlanType
+     * @param requestedPlanType 请求的PlanType
+     * @return 订单价格
+     * @since 2022.03
+     */
+
     private OrderPrice calculateUpgradeOnlyPrice(
             Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {
         BigDecimal originalUpgradePrice =
@@ -173,6 +217,22 @@ public class PlanOrderDetail extends OrderDetail {
                 .discountedTotalPrice(originalTotalPriceString)
                 .build();
     }
+
+
+
+
+
+
+    /**
+     * calculateUpdateAndRenewalPrice 方法
+     *
+     * @param tenant 租户
+     * @param currentEffectivePlanType currentEffectivePlanType
+     * @param requestedPlanType 请求的PlanType
+     * @param yearDuration yearDuration
+     * @return 订单价格
+     * @since 2022.03
+     */
 
     private OrderPrice calculateUpdateAndRenewalPrice(
             Tenant tenant,
@@ -210,6 +270,19 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
+
+
+
+
+
+    /**
+     * discountFor 方法
+     *
+     * @param yearDuration yearDuration
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     private int discountFor( int yearDuration ) {
         if (yearDuration == 1) {
             return 95;
@@ -226,9 +299,38 @@ public class PlanOrderDetail extends OrderDetail {
         return 100;
     }
 
+
+
+
+
+
+    /**
+     * originalRenewalPrice 方法
+     *
+     * @param requestedPlanType 请求的PlanType
+     * @param yearDuration yearDuration
+     * @return BigDecimal
+     * @since 2022.03
+     */
+
     private BigDecimal originalRenewalPrice( PlanType requestedPlanType, int yearDuration ) {
         return valueOf(requestedPlanType.getPrice()).multiply(valueOf(yearDuration));
     }
+
+
+
+
+
+
+    /**
+     * originalUpgradePrice 方法
+     *
+     * @param tenant 租户
+     * @param currentEffectivePlanType currentEffectivePlanType
+     * @param requestedPlanType 请求的PlanType
+     * @return BigDecimal
+     * @since 2022.03
+     */
 
     private BigDecimal originalUpgradePrice(
             Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {

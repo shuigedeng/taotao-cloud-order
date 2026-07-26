@@ -23,7 +23,7 @@ import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
 import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
 
 /**
- * 后台部门表服务接口
+ * 订单命令 RPC 服务接口
  *
  * @author shuigedeng
  * @version 2022.03

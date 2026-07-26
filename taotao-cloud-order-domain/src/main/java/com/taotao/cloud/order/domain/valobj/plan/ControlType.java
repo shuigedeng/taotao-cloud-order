@@ -83,49 +83,133 @@ public enum ControlType {
         this.qrImportable = qrImportable;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isFillable() {
         return fillable;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isAutoFillEligible() {
         return autoFillEligible;
     }
 
+    /**
+     * 获取
+     *
+     * @return ValueType
+     * @since 2022.03
+     */
+
     public ValueType getAnswerValueType() {
         return answerValueType;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isAnswerSortable() {
         return answerValueType != null && answerValueType.isSortable();
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isAnswerTextable() {
         return answerValueType != null && answerValueType.isTextable();
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isAnswerIndexable() {
         return answerValueType != null && answerValueType.isIndexable();
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isAnswerSearchable() {
         return answerValueType != null && answerValueType.isSearchable();
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isAnswerExportable() {
         return answerValueType != null && answerValueType.isExportable();
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isAnswerNumerical() {
         return answerValueType != null && answerValueType.isNumerical();
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isAnswerNumbered() {
         return answerValueType != null && answerValueType.isNumbered();
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isAnswerCategorized() {
         return answerValueType != null && answerValueType.isCategorized();
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isQrImportable() {
         return qrImportable;

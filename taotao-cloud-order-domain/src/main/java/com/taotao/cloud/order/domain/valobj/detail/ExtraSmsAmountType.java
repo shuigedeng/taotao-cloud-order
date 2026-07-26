@@ -32,9 +32,23 @@ public enum ExtraSmsAmountType {
         this.price = price;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public int getAmount() {
         return amount;
     }
+
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public int getPrice() {
         return price;

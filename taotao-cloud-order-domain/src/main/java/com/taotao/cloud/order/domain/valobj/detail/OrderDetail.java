@@ -60,9 +60,47 @@ public abstract class OrderDetail {
     @NotNull
     private OrderDetailType type;
 
+
+
+
+
+
+    /**
+     * 描述
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public abstract String description();
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param tenant 租户
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public abstract void validate( Tenant tenant );
+
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param tenant 租户
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     protected void validateRequireNonFreePlan( Tenant tenant ) {
         if (tenant.isEffectiveFreePlan()) {
@@ -72,7 +110,33 @@ public abstract class OrderDetail {
         }
     }
 
+
+
+
+
+
+    /**
+     * doCalculatePrice 方法
+     *
+     * @param tenant 租户
+     * @return 订单价格
+     * @since 2022.03
+     */
+
     protected abstract OrderPrice doCalculatePrice( Tenant tenant );
+
+
+
+
+
+
+    /**
+     * calculatePrice 方法
+     *
+     * @param tenant 租户
+     * @return 订单价格
+     * @since 2022.03
+     */
 
     public OrderPrice calculatePrice( Tenant tenant ) {
         OrderPrice price = doCalculatePrice(tenant);

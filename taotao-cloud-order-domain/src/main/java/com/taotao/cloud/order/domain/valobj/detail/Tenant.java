@@ -30,48 +30,326 @@ import java.time.Instant;
  */
 public class Tenant {
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param amount 金额
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void validateAddExtraMembers( int amount ) {
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isEffectiveFreePlan() {
 
         return false;
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isMryManageTenant() {
         return false;
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isMryTestingTenant() {
         return false;
     }
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param amount 金额
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void validateAddExtraVideoTraffic( int amount ) {
     }
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param yearDuration yearDuration
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void validateAddPlanDuration( int yearDuration ) {
     }
+
+
+
+
+
+
+    /**
+     * effectivePlanType 方法
+     *
+     * @return PlanType
+     * @since 2022.03
+     */
 
     public PlanType effectivePlanType() {
 
         return PlanType.FREE;
     }
 
+
+
+
+
+
+    /**
+     * planVersion 方法
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String planVersion() {
 
         return "";
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return Object
+     * @since 2022.03
+     */
+
     public Object getTenantId() {
         return null;
     }
 
+
+
+
+
+
+    /**
+     * 验证
+     *
+     * @param amount 金额
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void validateAddExtraStorage( int amount ) {
     }
+
+
+
+
+
+
+    /**
+     * packagesExpiredAt 方法
+     *
+     * @return Instant
+     * @since 2022.03
+     */
 
     public Instant packagesExpiredAt() {
         return null;
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return InvoiceTitle
+     * @since 2022.03
+     */
 
     public InvoiceTitle getInvoiceTitle() {
         return null;

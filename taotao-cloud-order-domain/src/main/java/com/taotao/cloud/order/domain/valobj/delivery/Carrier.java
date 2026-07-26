@@ -34,9 +34,23 @@ public enum Carrier {
         this.type = type;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getType() {
         return type;

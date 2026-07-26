@@ -38,6 +38,13 @@ public enum CartTypeEnum {
     /** 砍价商品 */
     KANJIA;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPrefix() {
         return "{" + this.name() + "}_";
     }

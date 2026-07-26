@@ -71,6 +71,13 @@ public class ExtraSmsOrderDetail extends OrderDetail {
                 .build();
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public int getSmsAmount() {
         return this.amountType.getAmount();
     }

@@ -83,105 +83,300 @@ public class OrderApiQuery implements Query {
     @Schema(description = "公司类型")
     private Integer type;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTenantId() {
         return tenantId;
     }
+
+    /**
+     * 设置
+     *
+     * @param tenantId tenantId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setTenantId(String tenantId) {
         this.tenantId = tenantId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTenantSecret() {
         return tenantSecret;
     }
+
+    /**
+     * 设置
+     *
+     * @param tenantSecret tenantSecret
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setTenantSecret(String tenantSecret) {
         this.tenantSecret = tenantSecret;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     * 设置
+     *
+     * @param name name
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getFullName() {
         return fullName;
     }
+
+    /**
+     * 设置
+     *
+     * @param fullName fullName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getCreditCode() {
         return creditCode;
     }
+
+    /**
+     * 设置
+     *
+     * @param creditCode creditCode
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCreditCode(String creditCode) {
         this.creditCode = creditCode;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getEmail() {
         return email;
     }
+
+    /**
+     * 设置
+     *
+     * @param email email
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getUsername() {
         return username;
     }
+
+    /**
+     * 设置
+     *
+     * @param username username
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getPhone() {
         return phone;
     }
+
+    /**
+     * 设置
+     *
+     * @param phone phone
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAddress() {
         return address;
     }
+
+    /**
+     * 设置
+     *
+     * @param address address
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAddress(String address) {
         this.address = address;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDomain() {
         return domain;
     }
+
+    /**
+     * 设置
+     *
+     * @param domain domain
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDomain(String domain) {
         this.domain = domain;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getWebSite() {
         return webSite;
     }
+
+    /**
+     * 设置
+     *
+     * @param webSite webSite
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setWebSite(String webSite) {
         this.webSite = webSite;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getRegionInfo() {
         return regionInfo;
     }
+
+    /**
+     * 设置
+     *
+     * @param regionInfo regionInfo
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRegionInfo(String regionInfo) {
         this.regionInfo = regionInfo;
     }
 
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
+
     public Integer getType() {
         return type;
     }
+
+    /**
+     * 设置
+     *
+     * @param type type
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setType(Integer type) {
         this.type = type;

@@ -220,6 +220,19 @@ public class Plan {
     private final boolean submissionApprovalAllowed; // 提交审批
     private final boolean assignmentAllowed; // 任务管理
 
+
+
+
+
+
+    /**
+     * planFor 方法
+     *
+     * @param type 类型
+     * @return Plan
+     * @since 2022.03
+     */
+
     public static Plan planFor( PlanType type ) {
         return ALL_PLANS.get(type);
     }
@@ -242,9 +255,33 @@ public class Plan {
                 .collect(toImmutableSet());
     }
 
+
+
+
+
+
+    /**
+     * 名称
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String name() {
         return this.type.getName();
     }
+
+
+
+
+
+
+    /**
+     * 价格
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public int price() {
         return this.type.getPrice();

@@ -75,33 +75,89 @@ public enum ValueType {
         this.categorized = categorized;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isSortable() {
         return sortable;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isTextable() {
         return textable;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isIndexable() {
         return sortable || textable;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isSearchable() {
         return searchable;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isExportable() {
         return exportable;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isNumerical() {
         return numerical;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isNumbered() {
         return numbered;
     }
+
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isCategorized() {
         return categorized;

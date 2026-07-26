@@ -36,6 +36,18 @@ public class BrandPageParam extends PageQuery {
     // 品牌名称
     private String name;
 
+
+
+
+
+
+    /**
+     * 构建
+     *
+     * @return 品牌页码参数Builder
+     * @since 2022.03
+     */
+
     public static BrandPageParamBuilder builder() {
         return new BrandPageParamBuilder();
     }
@@ -45,18 +57,68 @@ public class BrandPageParam extends PageQuery {
         private String name;
         private PageQuery pageQuery;
 
+
+
+
+
+
+        /**
+         * 品牌页码参数Builder
+         *
+         * @return 无返回值
+         * @since 2022.03
+         */
+
         private BrandPageParamBuilder() {
         }
+
+
+
+
+
+
+        /**
+         * 名称
+         *
+         * @param name 名称
+         * @return 品牌页码参数Builder
+         * @since 2022.03
+         */
 
         public BrandPageParamBuilder name( String name ) {
             this.name = name;
             return this;
         }
 
+
+
+
+
+
+        /**
+         * 分页查询
+         *
+         * @param pageQuery 页码Query
+         * @return 品牌页码参数Builder
+         * @since 2022.03
+         */
+
         public BrandPageParamBuilder pageQuery( PageQuery pageQuery ) {
             this.pageQuery = pageQuery;
             return this;
         }
+
+
+
+
+
+
+        /**
+         * 构建
+         *
+         * @return 品牌页码参数
+         * @since 2022.03
+         */
 
         public BrandPageParam build() {
             BrandPageParam brandPageParam = new BrandPageParam();

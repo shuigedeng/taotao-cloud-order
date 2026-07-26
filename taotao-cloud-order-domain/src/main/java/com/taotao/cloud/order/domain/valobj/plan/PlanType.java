@@ -33,17 +33,144 @@ public enum PlanType {
         this.level = level;
     }
 
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public int getPrice() {
         return price;
     }
 
+
+
+
+
+
+    /**
+     * covers 方法
+     *
+     * @param other other
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean covers(PlanType other) {
         return this.getPrice() >= other.getPrice();
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 获取
+     *
+     * @return 结果数量
+     * @since 2022.03
+     */
 
     public int getLevel() {
         return level;

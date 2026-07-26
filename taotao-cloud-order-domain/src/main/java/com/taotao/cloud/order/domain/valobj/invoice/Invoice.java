@@ -52,10 +52,61 @@ public class Invoice {
         this.requestedAt = now();
     }
 
+
+
+
+
+
+    /**
+     * 签发
+     *
+     * @param files 文件列表
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void issue( List<UploadedFile> files ) {
         this.files = files;
         this.issuedAt = now();
     }
+
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     public boolean isIssued() {
         return issuedAt != null;

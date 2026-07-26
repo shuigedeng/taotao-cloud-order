@@ -33,7 +33,8 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
 import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 /**
- * 远程调用后台用户模块
+ * 订单查询 API
+ * <p>提供订单相关的查询操作接口（远程调用）</p>
  *
  * @author shuigedeng
  * @since 2020/5/2 16:42

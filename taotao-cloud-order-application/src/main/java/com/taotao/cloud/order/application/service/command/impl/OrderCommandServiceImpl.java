@@ -53,6 +53,20 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	private final OrderRepository orderRepository;
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 创建订单
+	 *
+	 * @param command command
+	 * @param user 用户
+	 * @return CreateOrderResponse
+	 * @since 2022.03
+	 */
+
 	public CreateOrderResponse createOrder( CreateOrderCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -74,6 +88,21 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 请求发票
+	 *
+	 * @param orderId 订单ID
+	 * @param command command
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void requestInvoice( String orderId, RequestInvoiceCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -85,6 +114,22 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 微信支付
+	 *
+	 * @param orderId 订单ID
+	 * @param wxTxnId 微信交易ID
+	 * @param paidAt 支付时间
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void wxPay( String orderId, String wxTxnId, Instant paidAt, User user ) {
 		orderRepository
 			.byIdOptional(orderId)
@@ -106,6 +151,22 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 微信转账
+	 *
+	 * @param orderId 订单ID
+	 * @param screenShots 截图列表
+	 * @param paidAt 支付时间
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void wxTransferPay(
 		String orderId, List<UploadedFile> screenShots, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -122,6 +183,23 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 银行转账
+	 *
+	 * @param orderId 订单ID
+	 * @param accountId accountId
+	 * @param bankName 银行名称
+	 * @param paidAt 支付时间
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void bankTransferPay(
 		String orderId, String accountId, String bankName, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -138,6 +216,21 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 更新配送
+	 *
+	 * @param orderId 订单ID
+	 * @param delivery 配送
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void updateDelivery( String orderId, Delivery delivery, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.updateDelivery(delivery, user);
@@ -146,6 +239,21 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 签发发票
+	 *
+	 * @param orderId 订单ID
+	 * @param files 文件列表
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void issueInvoice( String orderId, List<UploadedFile> files, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.issueInvoice(files, user);
@@ -154,6 +262,21 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 退款
+	 *
+	 * @param orderId 订单ID
+	 * @param reason 原因
+	 * @param user 用户
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void refund( String orderId, String reason, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.refund(reason, user);
@@ -162,6 +285,19 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
+
+
+
+
+
+	/**
+	 * 删除
+	 *
+	 * @param orderId 订单ID
+	 * @return 无返回值
+	 * @since 2022.03
+	 */
+
 	public void delete( String orderId ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		orderRepository.delete(order);

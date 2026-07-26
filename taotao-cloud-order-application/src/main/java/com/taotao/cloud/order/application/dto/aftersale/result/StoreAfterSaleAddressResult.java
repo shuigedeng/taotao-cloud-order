@@ -7,6 +7,18 @@ import java.io.Serializable;
 
 @RecordBuilder
 @Schema(description = "店铺售后收件地址")
+
+
+
+
+
+/**
+ * StoreAfterSaleAddressResult 方法
+ *
+ * @return 记录
+ * @since 2022.03
+ */
+
 public record StoreAfterSaleAddressResult(
         @Schema(description = "收货人姓名") String salesConsigneeName,
         @Schema(description = "收货人手机") String salesConsigneeMobile,
