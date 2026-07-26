@@ -29,10 +29,6 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 		containerFactory = "manualKafkaContainerFactory"
 	)
 
-
-
-
-
 	/**
 	 * 列表查询
 	 *
@@ -41,7 +37,6 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void listenMsg( String msg,
 		@Header(KafkaHeaders.RECEIVED_KEY) String key,
 		Acknowledgement ack ) {
@@ -70,17 +65,12 @@ public class GoodsKafkaConsumer extends MqConsumerBase {
 
 	@Bean
 
-
-
-
-
 	/**
 	 * kafkaErrorHandler 方法
 	 *
 	 * @return ConsumerAwareListenerErrorHandler
 	 * @since 2022.03
 	 */
-
 	public ConsumerAwareListenerErrorHandler kafkaErrorHandler() {
 		return ( message, exception, consumer ) -> {
 			//可以选择重试 进入死信队列

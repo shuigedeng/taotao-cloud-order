@@ -78,18 +78,12 @@ public class OrderAgg extends AggregateRoot<Long> {
     private Delivery delivery;
     private String refundReason;
 
-
-
-
-
-
     /**
      * 生成订单ID
      *
      * @return 字符串
      * @since 2022.03
      */
-
     public static String newOrderId() {
         return "ODR" + IdUtil.getSnowflakeNextId();
     }
@@ -116,11 +110,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         this.wxPayQrUrl = url;
     }
 
-
-
-
-
-
     /**
      * 微信支付
      *
@@ -130,7 +119,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void wxPay( String wxTxnId, Instant paidAt, User user ) {
         //		if (this.paymentType != WX_NATIVE) {
         //			log.warn("Order[{}] is not created with wx pay, skip.", this.getId());
@@ -147,11 +135,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("在线微信支付", user);
     }
 
-
-
-
-
-
     /**
      * 微信转账
      *
@@ -161,7 +144,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void wxTransferPay( List<UploadedFile> screenShots, Instant paidAt, User user ) {
         //		if (this.paymentType != WX_TRANSFER) {
         //			log.warn("Order[{}] is not created with ex transfer pay, skip.", this.getId());
@@ -178,11 +160,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("线下微信转账", user);
     }
 
-
-
-
-
-
     /**
      * 银行转账
      *
@@ -193,7 +170,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void bankTransferPay(
             String bankTransferAccountId, String bankName, Instant paidAt, User user ) {
         if (this.paymentType != BANK_TRANSFER) {
@@ -212,11 +188,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("银行对公转账", user);
     }
 
-
-
-
-
-
     /**
      * 请求发票
      *
@@ -227,7 +198,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void requestInvoice( InvoiceType type, InvoiceTitle title, String email, User user ) {
         //		if (title == null) {
         //			throw new MryException(NO_INVOICE_TITLE, "申请失败，尚无发票抬头信息。", mapOf("orderId",
@@ -249,11 +219,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("申请发票", user);
     }
 
-
-
-
-
-
     /**
      * 更新配送
      *
@@ -262,7 +227,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void updateDelivery( Delivery delivery, User user ) {
         if (this.detail.getType() != PLATE_PRINTING) {
             log.warn(
@@ -285,11 +249,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("添加物流信息", user);
     }
 
-
-
-
-
-
     /**
      * 签发发票
      *
@@ -298,7 +257,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void issueInvoice( List<UploadedFile> files, User user ) {
         if (!this.isInvoiceRequested()) {
             log.warn("Order[{}] invoice not requested, skip issue invoice.", this.getId());
@@ -314,11 +272,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         addOpsLog("开具发票", user);
     }
 
-
-
-
-
-
     /**
      * 退款
      *
@@ -327,7 +280,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void refund( String reason, User user ) {
         if (atCreated()) {
             log.warn("Order[{}] is not paid, cannot be refund.", this.getId());
@@ -342,11 +294,6 @@ public class OrderAgg extends AggregateRoot<Long> {
         this.refundReason = reason;
     }
 
-
-
-
-
-
     /**
      * 添加
      *
@@ -355,14 +302,8 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     private void addOpsLog( String msg, User user ) {
     }
-
-
-
-
-
 
     /**
      * 触发事件
@@ -371,14 +312,8 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 无返回值
      * @since 2022.03
      */
-
     private void raiseEvent( DomainEvent domainEvent ) {
     }
-
-
-
-
-
 
     /**
      * 描述
@@ -386,39 +321,26 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String description() {
         return detail.description();
     }
 
-
-
-
-
-
     /**
      * 判断是否已
      *
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean atCreated() {
         return this.status == CREATED;
     }
 
-
-
-
-
-
     /**
      * 判断是否已
      *
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean atPaid() {
         return this.status == PAID;
     }
@@ -430,6 +352,7 @@ public class OrderAgg extends AggregateRoot<Long> {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -460,7 +383,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isInvoiceRequested() {
         return this.invoice != null;
     }
@@ -472,6 +394,7 @@ public class OrderAgg extends AggregateRoot<Long> {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -502,7 +425,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isInvoiceIssued() {
         return this.isInvoiceRequested() && this.invoice.isIssued();
     }

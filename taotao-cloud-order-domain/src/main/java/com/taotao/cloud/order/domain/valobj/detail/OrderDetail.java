@@ -60,25 +60,14 @@ public abstract class OrderDetail {
     @NotNull
     private OrderDetailType type;
 
-
-
-
-
-
     /**
      * 描述
      *
      * @return 字符串
      * @since 2022.03
      */
-
     public abstract String description();
 
-
-
-
-
-
     /**
      * 验证
      *
@@ -86,14 +75,8 @@ public abstract class OrderDetail {
      * @return 无返回值
      * @since 2022.03
      */
-
     public abstract void validate( Tenant tenant );
 
-
-
-
-
-
     /**
      * 验证
      *
@@ -101,7 +84,6 @@ public abstract class OrderDetail {
      * @return 无返回值
      * @since 2022.03
      */
-
     protected void validateRequireNonFreePlan( Tenant tenant ) {
         if (tenant.isEffectiveFreePlan()) {
             //            throw new MryException(ORDER_REQUIRE_NON_FREE_PLAN,
@@ -110,11 +92,6 @@ public abstract class OrderDetail {
         }
     }
 
-
-
-
-
-
     /**
      * doCalculatePrice 方法
      *
@@ -122,13 +99,7 @@ public abstract class OrderDetail {
      * @return 订单价格
      * @since 2022.03
      */
-
     protected abstract OrderPrice doCalculatePrice( Tenant tenant );
-
-
-
-
-
 
     /**
      * calculatePrice 方法
@@ -137,7 +108,6 @@ public abstract class OrderDetail {
      * @return 订单价格
      * @since 2022.03
      */
-
     public OrderPrice calculatePrice( Tenant tenant ) {
         OrderPrice price = doCalculatePrice(tenant);
         if (tenant.isMryManageTenant() || tenant.isMryTestingTenant()) {

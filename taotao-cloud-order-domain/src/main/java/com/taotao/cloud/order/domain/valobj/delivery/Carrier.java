@@ -40,7 +40,6 @@ public enum Carrier {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -51,7 +50,6 @@ public enum Carrier {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getType() {
         return type;
     }

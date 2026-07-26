@@ -81,7 +81,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isSortable() {
         return sortable;
     }
@@ -92,7 +91,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isTextable() {
         return textable;
     }
@@ -103,7 +101,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isIndexable() {
         return sortable || textable;
     }
@@ -114,7 +111,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isSearchable() {
         return searchable;
     }
@@ -125,7 +121,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isExportable() {
         return exportable;
     }
@@ -136,7 +131,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isNumerical() {
         return numerical;
     }
@@ -147,7 +141,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isNumbered() {
         return numbered;
     }
@@ -158,7 +151,6 @@ public enum ValueType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isCategorized() {
         return categorized;
     }

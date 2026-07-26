@@ -129,6 +129,7 @@ public enum PlatePrintingType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -159,7 +160,6 @@ public enum PlatePrintingType {
      * @return MaterialType
      * @since 2022.03
      */
-
     public MaterialType getMaterialType() {
         return materialType;
     }
@@ -171,6 +171,7 @@ public enum PlatePrintingType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -201,7 +202,6 @@ public enum PlatePrintingType {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSize() {
         return size;
     }
@@ -213,6 +213,7 @@ public enum PlatePrintingType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -243,7 +244,6 @@ public enum PlatePrintingType {
      * @return double
      * @since 2022.03
      */
-
     public double getUnitPrice() {
         return unitPrice;
     }
@@ -255,6 +255,7 @@ public enum PlatePrintingType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -285,15 +286,9 @@ public enum PlatePrintingType {
      * @return double
      * @since 2022.03
      */
-
     public double getDeliveryFee() {
         return deliveryFee;
     }
-
-
-
-
-
 
     /**
      * 描述
@@ -301,7 +296,6 @@ public enum PlatePrintingType {
      * @return 字符串
      * @since 2022.03
      */
-
     public String description() {
         return materialType.getName() + " " + size;
     }

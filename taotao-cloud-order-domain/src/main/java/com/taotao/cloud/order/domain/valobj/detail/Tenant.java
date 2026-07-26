@@ -30,11 +30,6 @@ import java.time.Instant;
  */
 public class Tenant {
 
-
-
-
-
-
     /**
      * 验证
      *
@@ -42,7 +37,6 @@ public class Tenant {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void validateAddExtraMembers( int amount ) {
     }
 
@@ -53,6 +47,7 @@ public class Tenant {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -83,7 +78,6 @@ public class Tenant {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEffectiveFreePlan() {
 
         return false;
@@ -96,6 +90,7 @@ public class Tenant {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -126,7 +121,6 @@ public class Tenant {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isMryManageTenant() {
         return false;
     }
@@ -138,6 +132,7 @@ public class Tenant {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -168,15 +163,9 @@ public class Tenant {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isMryTestingTenant() {
         return false;
     }
-
-
-
-
-
 
     /**
      * 验证
@@ -185,14 +174,8 @@ public class Tenant {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void validateAddExtraVideoTraffic( int amount ) {
     }
-
-
-
-
-
 
     /**
      * 验证
@@ -201,14 +184,8 @@ public class Tenant {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void validateAddPlanDuration( int yearDuration ) {
     }
-
-
-
-
-
 
     /**
      * effectivePlanType 方法
@@ -216,16 +193,10 @@ public class Tenant {
      * @return PlanType
      * @since 2022.03
      */
-
     public PlanType effectivePlanType() {
 
         return PlanType.FREE;
     }
-
-
-
-
-
 
     /**
      * planVersion 方法
@@ -233,7 +204,6 @@ public class Tenant {
      * @return 字符串
      * @since 2022.03
      */
-
     public String planVersion() {
 
         return "";
@@ -246,6 +216,7 @@ public class Tenant {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -276,15 +247,9 @@ public class Tenant {
      * @return Object
      * @since 2022.03
      */
-
     public Object getTenantId() {
         return null;
     }
-
-
-
-
-
 
     /**
      * 验证
@@ -293,14 +258,8 @@ public class Tenant {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void validateAddExtraStorage( int amount ) {
     }
-
-
-
-
-
 
     /**
      * packagesExpiredAt 方法
@@ -308,7 +267,6 @@ public class Tenant {
      * @return Instant
      * @since 2022.03
      */
-
     public Instant packagesExpiredAt() {
         return null;
     }
@@ -320,6 +278,7 @@ public class Tenant {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -350,7 +309,6 @@ public class Tenant {
      * @return InvoiceTitle
      * @since 2022.03
      */
-
     public InvoiceTitle getInvoiceTitle() {
         return null;
     }

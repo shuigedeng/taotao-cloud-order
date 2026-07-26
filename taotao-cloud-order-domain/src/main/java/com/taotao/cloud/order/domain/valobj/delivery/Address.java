@@ -41,11 +41,6 @@ public record Address(@Size(max = 20) String province,
 
 	private static final String ADDRESS_JOINNER = "/";
 
-
-
-
-
-
 	/**
 	 * joinAddress 方法
 	 *
@@ -53,7 +48,6 @@ public record Address(@Size(max = 20) String province,
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public static String joinAddress( String... addressPart ) {
 		return String.join(ADDRESS_JOINNER, addressPart);
 	}
@@ -65,6 +59,7 @@ public record Address(@Size(max = 20) String province,
 	/**
 	/**
 	/**
+
 	/**
 	/**
 	/**
@@ -95,7 +90,6 @@ public record Address(@Size(max = 20) String province,
 	 * @return 是否成功
 	 * @since 2022.03
 	 */
-
 	public boolean isFilled() {
 		return isNotBlank(province)
 			|| isNotBlank(city)
@@ -120,18 +114,12 @@ public record Address(@Size(max = 20) String province,
 		return Set.copyOf(results);
 	}
 
-
-
-
-
-
 	/**
 	 * 转换为
 	 *
 	 * @return 字符串
 	 * @since 2022.03
 	 */
-
 	public String toText() {
 		return Stream.of(province, city, district, address)
 			.filter(StringUtils::isNotBlank)

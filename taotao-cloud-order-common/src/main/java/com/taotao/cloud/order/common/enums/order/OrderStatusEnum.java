@@ -48,6 +48,7 @@ public enum OrderStatusEnum {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -78,15 +79,9 @@ public enum OrderStatusEnum {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDescription() {
         return description;
     }
-
-
-
-
-
 
     /**
      * 描述
@@ -94,7 +89,6 @@ public enum OrderStatusEnum {
      * @return 字符串
      * @since 2022.03
      */
-
     public String description() {
         return this.description;
     }

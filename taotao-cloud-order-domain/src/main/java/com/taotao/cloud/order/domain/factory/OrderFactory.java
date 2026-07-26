@@ -36,11 +36,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class OrderFactory implements MarkerFactory {
 
-
-
-
-
-
     /**
      * 创建订单
      *
@@ -51,7 +46,6 @@ public class OrderFactory implements MarkerFactory {
      * @return 订单Agg
      * @since 2022.03
      */
-
     public OrderAgg createOrder(
             OrderDetail detail, PaymentType paymentType, Tenant tenant, User user ) {
         return null;

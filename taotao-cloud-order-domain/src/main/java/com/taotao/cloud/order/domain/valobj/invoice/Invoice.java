@@ -52,11 +52,6 @@ public class Invoice {
         this.requestedAt = now();
     }
 
-
-
-
-
-
     /**
      * 签发
      *
@@ -64,7 +59,6 @@ public class Invoice {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void issue( List<UploadedFile> files ) {
         this.files = files;
         this.issuedAt = now();
@@ -77,6 +71,7 @@ public class Invoice {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -107,7 +102,6 @@ public class Invoice {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isIssued() {
         return issuedAt != null;
     }

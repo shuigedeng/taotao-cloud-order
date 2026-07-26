@@ -54,10 +54,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 创建订单
 	 *
@@ -66,7 +62,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return CreateOrderResponse
 	 * @since 2022.03
 	 */
-
 	public CreateOrderResponse createOrder( CreateOrderCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -89,10 +84,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 请求发票
 	 *
@@ -102,7 +93,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void requestInvoice( String orderId, RequestInvoiceCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -115,10 +105,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 微信支付
 	 *
@@ -129,7 +115,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void wxPay( String orderId, String wxTxnId, Instant paidAt, User user ) {
 		orderRepository
 			.byIdOptional(orderId)
@@ -152,10 +137,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 微信转账
 	 *
@@ -166,7 +147,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void wxTransferPay(
 		String orderId, List<UploadedFile> screenShots, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -184,10 +164,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 银行转账
 	 *
@@ -199,7 +175,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void bankTransferPay(
 		String orderId, String accountId, String bankName, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -217,10 +192,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 更新配送
 	 *
@@ -230,7 +201,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void updateDelivery( String orderId, Delivery delivery, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.updateDelivery(delivery, user);
@@ -239,10 +209,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
-
-
-
-
 
 	/**
 	 * 签发发票
@@ -253,7 +219,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void issueInvoice( String orderId, List<UploadedFile> files, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.issueInvoice(files, user);
@@ -262,10 +227,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 	@Transactional
-
-
-
-
 
 	/**
 	 * 退款
@@ -276,7 +237,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void refund( String orderId, String reason, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.refund(reason, user);
@@ -286,10 +246,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	@Transactional
 
-
-
-
-
 	/**
 	 * 删除
 	 *
@@ -297,7 +253,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void delete( String orderId ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		orderRepository.delete(order);

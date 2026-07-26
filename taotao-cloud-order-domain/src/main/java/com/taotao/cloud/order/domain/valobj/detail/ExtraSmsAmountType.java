@@ -38,7 +38,6 @@ public enum ExtraSmsAmountType {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int getAmount() {
         return amount;
     }
@@ -49,7 +48,6 @@ public enum ExtraSmsAmountType {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int getPrice() {
         return price;
     }

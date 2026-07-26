@@ -77,7 +77,6 @@ public class ExtraSmsOrderDetail extends OrderDetail {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int getSmsAmount() {
         return this.amountType.getAmount();
     }

@@ -45,7 +45,6 @@ public enum RenderStepEnum {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDistribution() {
         return distribution;
     }

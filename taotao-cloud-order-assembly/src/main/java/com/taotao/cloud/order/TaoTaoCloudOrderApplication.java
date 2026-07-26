@@ -63,11 +63,6 @@ import com.taotao.boot.web.annotation.TaoTaoBootApplication;
 @TaoTaoBootApplication
 public class TaoTaoCloudOrderApplication {
 
-
-
-
-
-
     /**
      * main 方法
      *
@@ -75,7 +70,6 @@ public class TaoTaoCloudOrderApplication {
      * @return 无返回值
      * @since 2022.03
      */
-
     public static void main(String[] args) {
 
         new StartupSpringApplication(TaoTaoCloudOrderApplication.class)

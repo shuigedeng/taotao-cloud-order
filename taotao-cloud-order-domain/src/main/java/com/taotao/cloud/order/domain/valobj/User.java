@@ -25,18 +25,12 @@ package com.taotao.cloud.order.domain.valobj;
  */
 public class User {
 
-
-
-
-
-
     /**
      * 校验
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     public void checkIsTenantAdmin() {
     }
 }

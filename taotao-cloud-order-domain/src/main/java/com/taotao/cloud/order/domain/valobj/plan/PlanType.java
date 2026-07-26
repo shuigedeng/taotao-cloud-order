@@ -40,6 +40,7 @@ public enum PlanType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -70,7 +71,6 @@ public enum PlanType {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getName() {
         return name;
     }
@@ -82,6 +82,7 @@ public enum PlanType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -112,15 +113,9 @@ public enum PlanType {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int getPrice() {
         return price;
     }
-
-
-
-
-
 
     /**
      * covers 方法
@@ -129,7 +124,6 @@ public enum PlanType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean covers(PlanType other) {
         return this.getPrice() >= other.getPrice();
     }
@@ -141,6 +135,7 @@ public enum PlanType {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -171,7 +166,6 @@ public enum PlanType {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int getLevel() {
         return level;
     }

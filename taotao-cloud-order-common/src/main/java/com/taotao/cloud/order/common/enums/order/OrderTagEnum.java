@@ -56,6 +56,7 @@ public enum OrderTagEnum {
     /**
     /**
     /**
+
     /**
     /**
     /**
@@ -86,15 +87,9 @@ public enum OrderTagEnum {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDescription() {
         return description;
     }
-
-
-
-
-
 
     /**
      * defaultType 方法
@@ -102,7 +97,6 @@ public enum OrderTagEnum {
      * @return 订单标签Enum
      * @since 2022.03
      */
-
     public static OrderTagEnum defaultType() {
         return ALL;
     }

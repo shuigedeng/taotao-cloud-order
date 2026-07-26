@@ -89,7 +89,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isFillable() {
         return fillable;
     }
@@ -100,7 +99,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAutoFillEligible() {
         return autoFillEligible;
     }
@@ -111,7 +109,6 @@ public enum ControlType {
      * @return ValueType
      * @since 2022.03
      */
-
     public ValueType getAnswerValueType() {
         return answerValueType;
     }
@@ -122,7 +119,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerSortable() {
         return answerValueType != null && answerValueType.isSortable();
     }
@@ -133,7 +129,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerTextable() {
         return answerValueType != null && answerValueType.isTextable();
     }
@@ -144,7 +139,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerIndexable() {
         return answerValueType != null && answerValueType.isIndexable();
     }
@@ -155,7 +149,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerSearchable() {
         return answerValueType != null && answerValueType.isSearchable();
     }
@@ -166,7 +159,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerExportable() {
         return answerValueType != null && answerValueType.isExportable();
     }
@@ -177,7 +169,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerNumerical() {
         return answerValueType != null && answerValueType.isNumerical();
     }
@@ -188,7 +179,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerNumbered() {
         return answerValueType != null && answerValueType.isNumbered();
     }
@@ -199,7 +189,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isAnswerCategorized() {
         return answerValueType != null && answerValueType.isCategorized();
     }
@@ -210,7 +199,6 @@ public enum ControlType {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isQrImportable() {
         return qrImportable;
     }

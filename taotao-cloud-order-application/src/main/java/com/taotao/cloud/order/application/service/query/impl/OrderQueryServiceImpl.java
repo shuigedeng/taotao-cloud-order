@@ -52,11 +52,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     private static final String SHIPMENT_BASE_URL = "https://wuliu.market.alicloudapi.com/kdi";
     private final OrderRepository orderRepository;
 
-
-
-
-
-
     /**
      * quoteOrderPrice 方法
      *
@@ -65,18 +60,12 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * @return QPriceQuotation
      * @since 2022.03
      */
-
     public QPriceQuotation quoteOrderPrice( QuotePriceQuery queryCommand, User user ) {
         user.checkIsTenantAdmin();
 
         return QPriceQuotation.builder()
                 .build();
     }
-
-
-
-
-
 
     /**
      * fetchOrderStatus 方法
@@ -86,7 +75,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * @return 订单状态
      * @since 2022.03
      */
-
     public OrderStatus fetchOrderStatus( String orderId, User user ) {
         user.checkIsTenantAdmin();
 
@@ -99,11 +87,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         return List.of();
     }
 
-
-
-
-
-
     /**
      * fetchDetailedOrder 方法
      *
@@ -112,7 +95,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * @return QDetailedOrder
      * @since 2022.03
      */
-
     public QDetailedOrder fetchDetailedOrder( String orderId, User user ) {
         user.checkIsTenantAdmin();
 
@@ -150,11 +132,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
                 .build();
     }
 
-
-
-
-
-
     /**
      * fetchOrderShipment 方法
      *
@@ -163,7 +140,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
      * @return QOrderShipment
      * @since 2022.03
      */
-
     public QOrderShipment fetchOrderShipment( String orderId, User user ) {
         user.checkIsTenantAdmin();
 

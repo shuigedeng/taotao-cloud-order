@@ -7,10 +7,6 @@ import org.greenrobot.eventbus.ThreadMode;
 public class GreenrobotEventSubscriber {
 	@org.greenrobot.eventbus.Subscribe(threadMode = ThreadMode.ASYNC)
 
-
-
-
-
 	/**
 	 * onMessage 方法
 	 *
@@ -18,7 +14,6 @@ public class GreenrobotEventSubscriber {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
-
 	public void onMessage(EventModel<?> message) {
 		LogUtils.info("收到消息：{}", message);
 	}

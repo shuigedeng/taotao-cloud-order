@@ -96,11 +96,6 @@ public class PlanOrderDetail extends OrderDetail {
                 tenant, currentEffectivePlanType, this.planType, this.yearDuration);
     }
 
-
-
-
-
-
     /**
      * 验证
      *
@@ -110,7 +105,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return 无返回值
      * @since 2022.03
      */
-
     private void validate(
             PlanType currentEffectivePlanType, PlanType requestedPlanType, int yearDuration ) {
         //		if (requestedPlanType == FREE) {
@@ -134,11 +128,6 @@ public class PlanOrderDetail extends OrderDetail {
         //		}
     }
 
-
-
-
-
-
     /**
      * calculateRenewalOnlyPrice 方法
      *
@@ -147,7 +136,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return 订单价格
      * @since 2022.03
      */
-
     private OrderPrice calculateRenewalOnlyPrice( PlanType requestedPlanType, int yearDuration ) {
         BigDecimal originalTotalPrice = originalRenewalPrice(requestedPlanType, yearDuration);
         String originalTotalPriceString = originalTotalPrice.setScale(2, HALF_UP).toString();
@@ -176,11 +164,6 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
-
-
-
-
-
     /**
      * calculateUpgradeOnlyPrice 方法
      *
@@ -190,7 +173,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return 订单价格
      * @since 2022.03
      */
-
     private OrderPrice calculateUpgradeOnlyPrice(
             Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {
         BigDecimal originalUpgradePrice =
@@ -218,11 +200,6 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
-
-
-
-
-
     /**
      * calculateUpdateAndRenewalPrice 方法
      *
@@ -233,7 +210,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return 订单价格
      * @since 2022.03
      */
-
     private OrderPrice calculateUpdateAndRenewalPrice(
             Tenant tenant,
             PlanType currentEffectivePlanType,
@@ -270,11 +246,6 @@ public class PlanOrderDetail extends OrderDetail {
                 .build();
     }
 
-
-
-
-
-
     /**
      * discountFor 方法
      *
@@ -282,7 +253,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return 结果数量
      * @since 2022.03
      */
-
     private int discountFor( int yearDuration ) {
         if (yearDuration == 1) {
             return 95;
@@ -299,11 +269,6 @@ public class PlanOrderDetail extends OrderDetail {
         return 100;
     }
 
-
-
-
-
-
     /**
      * originalRenewalPrice 方法
      *
@@ -312,15 +277,9 @@ public class PlanOrderDetail extends OrderDetail {
      * @return BigDecimal
      * @since 2022.03
      */
-
     private BigDecimal originalRenewalPrice( PlanType requestedPlanType, int yearDuration ) {
         return valueOf(requestedPlanType.getPrice()).multiply(valueOf(yearDuration));
     }
-
-
-
-
-
 
     /**
      * originalUpgradePrice 方法
@@ -331,7 +290,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @return BigDecimal
      * @since 2022.03
      */
-
     private BigDecimal originalUpgradePrice(
             Tenant tenant, PlanType currentEffectivePlanType, PlanType requestedPlanType ) {
         Instant packagesExpiredAt = tenant.packagesExpiredAt();
