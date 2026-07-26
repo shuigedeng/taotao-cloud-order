@@ -31,10 +31,14 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "预存款充值记录查询条件")
 public record DepositQueryResult(
-        @Schema(description = "会员Id") String memberId,
-        @Schema(description = "会员名称") String memberName,
-        @Schema(description = "起始日期") String startDate,
-        @Schema(description = "结束日期") String endDate)
+        @Schema(description = "会员Id")
+        String memberId,
+        @Schema(description = "会员名称")
+        String memberName,
+        @Schema(description = "起始日期")
+        String startDate,
+        @Schema(description = "结束日期")
+        String endDate)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = -6413611244037073693L;

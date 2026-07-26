@@ -26,12 +26,23 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "交易投诉DTO")
 public record CreateOrderComplaintCommand(
-        @NotBlank @Schema(description = "投诉主题") String complainTopic,
-        @NotBlank @Schema(description = "投诉内容") String content,
-        @Schema(description = "投诉凭证图片") String images,
-        @NotBlank @Schema(description = "订单号") String orderSn,
-        @NotBlank @Schema(description = "商品id") String goodsId,
-        @NotBlank @Schema(description = "sku主键") String skuId)
+        @NotBlank
+        @Schema(description = "投诉主题")
+        String complainTopic,
+        @NotBlank
+        @Schema(description = "投诉内容")
+        String content,
+        @Schema(description = "投诉凭证图片")
+        String images,
+        @NotBlank
+        @Schema(description = "订单号")
+        String orderSn,
+        @NotBlank
+        @Schema(description = "商品id")
+        String goodsId,
+        @NotBlank
+        @Schema(description = "sku主键")
+        String skuId)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

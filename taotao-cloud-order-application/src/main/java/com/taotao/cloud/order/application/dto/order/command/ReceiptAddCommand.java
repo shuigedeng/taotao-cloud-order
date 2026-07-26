@@ -32,12 +32,18 @@ import java.math.BigDecimal;
 @RecordBuilder
 @Schema(description = "发票子内容")
 public record ReceiptAddCommand(
-        @Schema(description = "发票ID") String receiptId,
-        @Schema(description = "商品名称") String goodsName,
-        @Schema(description = "规格") String specs,
-        @Schema(description = "数量") Integer num,
-        @Schema(description = "单价") BigDecimal goodPrice,
-        @Schema(description = "小计") BigDecimal subtotal)
+        @Schema(description = "发票ID")
+        String receiptId,
+        @Schema(description = "商品名称")
+        String goodsName,
+        @Schema(description = "规格")
+        String specs,
+        @Schema(description = "数量")
+        Integer num,
+        @Schema(description = "单价")
+        BigDecimal goodPrice,
+        @Schema(description = "小计")
+        BigDecimal subtotal)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

@@ -32,33 +32,43 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "订单详情VO")
 public record OrderDetailResult(
+
         /** 订单 */
         OrderBaseResult order,
+
 
         /** 子订单信息 */
         List<OrderItemResult> orderItems,
 
+
         /** 订单状态 */
         String orderStatusValue,
+
 
         /** 付款状态 */
         String payStatusValue,
 
+
         /** 物流状态 */
         String deliverStatusValue,
+
 
         /** 物流类型 */
         String deliveryMethodValue,
 
+
         /** 支付类型 */
         String paymentMethodValue,
+
 
         /** 发票 */
         ReceiptResult receipt,
 
+
         /** 获取订单日志 */
         List<OrderLogResult> orderLogs,
-        @Schema(description = "价格详情") String priceDetail)
+        @Schema(description = "价格详情")
+        String priceDetail)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = -6293102172184734928L;

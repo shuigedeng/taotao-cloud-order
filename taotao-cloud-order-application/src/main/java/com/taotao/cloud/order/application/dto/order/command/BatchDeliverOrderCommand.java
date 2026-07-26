@@ -31,10 +31,14 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "订单批量发货DTO")
 public record BatchDeliverOrderCommand(
-        @Schema(description = "订单SN") String orderSn,
-        @Schema(description = "物流公司ID") Long logisticsId,
-        @Schema(description = "物流公司名称") String logisticsName,
-        @Schema(description = "发货单号") String logisticsNo)
+        @Schema(description = "订单SN")
+        String orderSn,
+        @Schema(description = "物流公司ID")
+        Long logisticsId,
+        @Schema(description = "物流公司名称")
+        String logisticsName,
+        @Schema(description = "发货单号")
+        String logisticsNo)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

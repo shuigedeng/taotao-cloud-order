@@ -25,13 +25,15 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "售后日志VO")
 public record AfterSaleReasonResult(
-        @Schema(description = "id") Long id,
-        @Schema(description = "售后原因") String reason,
-
-        /**
+        @Schema(description = "id")
+        Long id,
+        @Schema(description = "售后原因")
+        String reason,
+/**
          * @see AfterSaleTypeEnum
          */
-        @Schema(description = "售后类型") String serviceType)
+        @Schema(description = "售后类型")
+        String serviceType)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

@@ -26,10 +26,14 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "订单交易投诉VO")
 public record OrderComplaintResult(
+
         @Schema(description = "投诉对话")
                 List<OrderComplaintCommunicationResult> orderComplaintCommunications,
-        @Schema(description = "投诉图片") String[] orderComplaintImages,
-        @Schema(description = "申诉商家上传的图片") String[] appealImagesList,
+        @Schema(description = "投诉图片")
+        String[] orderComplaintImages,
+        @Schema(description = "申诉商家上传的图片")
+        String[] appealImagesList,
+
         OrderComplaintBaseResult orderComplaintBase)
         implements Serializable {
 

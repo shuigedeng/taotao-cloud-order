@@ -32,16 +32,21 @@ import java.util.Date;
 @RecordBuilder
 @Schema(description = "商品促销VO 购物车中")
 public record GoodsPromotionResult(
-        @Schema(description = "活动开始时间") Date startTime,
-        @Schema(description = "活动结束时间") Date endTime,
-        @Schema(description = "活动id") String promotionId,
-
-        /**
+        @Schema(description = "活动开始时间")
+        Date startTime,
+        @Schema(description = "活动结束时间")
+        Date endTime,
+        @Schema(description = "活动id")
+        String promotionId,
+/**
          * @see PromotionTypeEnum
          */
-        @Schema(description = "活动工具类型") String promotionType,
-        @Schema(description = "活动名称") String title,
-        @Schema(description = "限购数量") Integer limitNum)
+        @Schema(description = "活动工具类型")
+        String promotionType,
+        @Schema(description = "活动名称")
+        String title,
+        @Schema(description = "限购数量")
+        Integer limitNum)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 1622051257060817414L;

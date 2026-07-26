@@ -28,7 +28,15 @@ import jakarta.validation.constraints.Size;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public record Consignee(@NotBlank String id, @NotBlank @Size(max = 500) String name, @NotBlank String mobile,
-						@Valid @NotNull Address address) {
+public record Consignee(	@NotBlank
+	String id,
+	@NotBlank
+	@Size(max = 500)
+	String name,
+	@NotBlank
+	String mobile,
+	@Valid
+	@NotNull
+	Address address) {
 
 }

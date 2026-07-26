@@ -27,12 +27,18 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "售后可操作类型")
 public record AllowOperationAfterSaleCommand(
-        @Schema(description = "可以确认售后") Boolean confirm,
-        @Schema(description = "可以回寄物流") Boolean returnGoods,
-        @Schema(description = "可以收货") Boolean rog,
-        @Schema(description = "可以退款") Boolean refund,
-        @Schema(description = "买家确认收货") Boolean buyerConfirm,
-        @Schema(description = "可以取消") Boolean cancel)
+        @Schema(description = "可以确认售后")
+        Boolean confirm,
+        @Schema(description = "可以回寄物流")
+        Boolean returnGoods,
+        @Schema(description = "可以收货")
+        Boolean rog,
+        @Schema(description = "可以退款")
+        Boolean refund,
+        @Schema(description = "买家确认收货")
+        Boolean buyerConfirm,
+        @Schema(description = "可以取消")
+        Boolean cancel)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

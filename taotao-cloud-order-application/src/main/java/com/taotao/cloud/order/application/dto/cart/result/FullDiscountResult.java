@@ -30,10 +30,14 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "满额活动VO")
 public record FullDiscountResult(
-        @Schema(description = "促销关联的商品") List<PromotionGoodsVO> promotionGoodsList,
-        @Schema(description = "赠品信息") GoodsSkuVO giftSku,
-        @Schema(description = "参与商品，为-1则代表所有商品参加") Integer number,
-        @Schema(description = "满额活动") FullDiscountBaseVO fullDiscount) {
+        @Schema(description = "促销关联的商品")
+        List<PromotionGoodsVO> promotionGoodsList,
+        @Schema(description = "赠品信息")
+        GoodsSkuVO giftSku,
+        @Schema(description = "参与商品，为-1则代表所有商品参加")
+        Integer number,
+        @Schema(description = "满额活动")
+        FullDiscountBaseVO fullDiscount) {
 
     private static final long serialVersionUID = -2330552735874105354L;
 

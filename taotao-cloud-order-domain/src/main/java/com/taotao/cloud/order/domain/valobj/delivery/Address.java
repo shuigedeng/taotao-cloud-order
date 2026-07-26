@@ -34,10 +34,14 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public record Address(@Size(max = 20) String province,
-					  @Size(max = 20) String city,
-					  @Size(max = 20) String district,
-					  @Size(max = 100) String address) {
+public record Address(	@Size(max = 20)
+	String province,
+	@Size(max = 20)
+	String city,
+	@Size(max = 20)
+	String district,
+	@Size(max = 100)
+	String address) {
 
 	private static final String ADDRESS_JOINNER = "/";
 

@@ -31,9 +31,12 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "订单交易投诉VO")
 public record StoreAppealCommand(
-        @Schema(description = "投诉id") Long orderComplaintId,
-        @Schema(description = "申诉商家内容") String appealContent,
-        @Schema(description = "申诉商家上传的图片") String appealImages)
+        @Schema(description = "投诉id")
+        Long orderComplaintId,
+        @Schema(description = "申诉商家内容")
+        String appealContent,
+        @Schema(description = "申诉商家上传的图片")
+        String appealImages)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;

@@ -31,11 +31,16 @@ import java.io.Serializable;
 @RecordBuilder
 @Schema(description = "订单交易投诉通信VO")
 public record OrderComplaintCommunicationBaseResult(
-        @Schema(description = "投诉id") Long complainId,
-        @Schema(description = "对话内容") String content,
-        @Schema(description = "所属，买家/卖家") String owner,
-        @Schema(description = "对话所属名称") String ownerName,
-        @Schema(description = "对话所属id,卖家id/买家id") Long ownerId)
+        @Schema(description = "投诉id")
+        Long complainId,
+        @Schema(description = "对话内容")
+        String content,
+        @Schema(description = "所属，买家/卖家")
+        String owner,
+        @Schema(description = "对话所属名称")
+        String ownerName,
+        @Schema(description = "对话所属id,卖家id/买家id")
+        Long ownerId)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = -2384351827382795547L;

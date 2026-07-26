@@ -30,44 +30,61 @@ import org.springframework.format.annotation.DateTimeFormat;
 @RecordBuilder
 @Schema(description = "订单简略信息 用于订单列表查看")
 public record OrderSimpleResult(
-        @Schema(description = "sn") String sn,
-        @Schema(description = "总价格") BigDecimal flowPrice,
+        @Schema(description = "sn")
+        String sn,
+        @Schema(description = "总价格")
+        BigDecimal flowPrice,
+
         @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
                 @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
                 @Schema(description = "创建时间")
                 LocalDateTime createTime,
-
-        /**
+/**
          * @see OrderStatusEnum
          */
-        @Schema(description = "订单状态") String orderStatus,
-
-        /**
+        @Schema(description = "订单状态")
+        String orderStatus,
+/**
          * @see PayStatusEnum
          */
-        @Schema(description = "付款状态") String payStatus,
-        @Schema(description = "支付方式") String paymentMethod,
+        @Schema(description = "付款状态")
+        String payStatus,
+        @Schema(description = "支付方式")
+        String paymentMethod,
+
         @Schema(description = "支付时间")
                 @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
                 LocalDateTime paymentTime,
-        @Schema(description = "用户名") String memberName,
-        @Schema(description = "店铺名称") String storeName,
-        @Schema(description = "店铺ID") Long storeId,
-
-        /**
+        @Schema(description = "用户名")
+        String memberName,
+        @Schema(description = "店铺名称")
+        String storeName,
+        @Schema(description = "店铺ID")
+        Long storeId,
+/**
          * @see ClientTypeEnum
          */
-        @Schema(description = "订单来源") String clientType,
+        @Schema(description = "订单来源")
+        String clientType,
+
 
         /** 子订单信息 */
         List<OrderItemResult> orderItems,
-        @Schema(hidden = true, description = "item goods_id") String groupGoodsId,
-        @Schema(hidden = true, description = "item sku id") String groupSkuId,
-        @Schema(hidden = true, description = "item 数量") String groupNum,
-        @Schema(hidden = true, description = "item 图片") String groupImages,
-        @Schema(hidden = true, description = "item 名字") String groupName,
-        @Schema(hidden = true, description = "item 编号") String groupOrderItemsSn,
-        @Schema(hidden = true, description = "item 商品价格") String groupGoodsPrice,
+        @Schema(hidden = true, description = "item goods_id")
+        String groupGoodsId,
+        @Schema(hidden = true, description = "item sku id")
+        String groupSkuId,
+        @Schema(hidden = true, description = "item 数量")
+        String groupNum,
+        @Schema(hidden = true, description = "item 图片")
+        String groupImages,
+        @Schema(hidden = true, description = "item 名字")
+        String groupName,
+        @Schema(hidden = true, description = "item 编号")
+        String groupOrderItemsSn,
+        @Schema(hidden = true, description = "item 商品价格")
+        String groupGoodsPrice,
+
 
         /**
          * @see OrderItemAfterSaleStatusEnum
@@ -78,26 +95,26 @@ public record OrderSimpleResult(
                         allowableValues =
                                 "NOT_APPLIED(未申请),ALREADY_APPLIED(已申请),EXPIRED(已失效不允许申请售后)")
                 String groupAfterSaleStatus,
-
-        /**
+/**
          * @see OrderComplaintStatusEnum
          */
-        @Schema(hidden = true, description = "item 投诉状态") String groupComplainStatus,
-
-        /**
+        @Schema(hidden = true, description = "item 投诉状态")
+        String groupComplainStatus,
+/**
          * @see CommentStatusEnum
          */
-        @Schema(hidden = true, description = "item 评价状态") String groupCommentStatus,
-
-        /**
+        @Schema(hidden = true, description = "item 评价状态")
+        String groupCommentStatus,
+/**
          * @see OrderTypeEnum
          */
-        @Schema(description = "订单类型") String orderType,
-
-        /**
+        @Schema(description = "订单类型")
+        String orderType,
+/**
          * @see DeliverStatusEnum
          */
-        @Schema(description = "货运状态") String deliverStatus)
+        @Schema(description = "货运状态")
+        String deliverStatus)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = -6293102172184734928L;

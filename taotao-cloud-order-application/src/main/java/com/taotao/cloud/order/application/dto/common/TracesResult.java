@@ -15,9 +15,12 @@ import java.io.Serializable;
  * @since 2022.03
  */
 public record TracesResult(
-        @Schema(description = "物流公司") String shipper,
-        @Schema(description = "物流单号") String logisticCode,
-        @Schema(description = "物流轨迹") Object traces)
+        @Schema(description = "物流公司")
+        String shipper,
+        @Schema(description = "物流单号")
+        String logisticCode,
+        @Schema(description = "物流轨迹")
+        Object traces)
         implements Serializable {
 
     @Serial

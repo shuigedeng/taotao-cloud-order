@@ -29,36 +29,47 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "商城流水，细节到orderItem")
 public record CreatePriceDetailCommand(
-        @Schema(description = "订单原始总价格 用于订单价格修改金额计算使用") BigDecimal originalPrice,
-        @Schema(description = "商品总金额（商品原价）") BigDecimal goodsPrice,
-        @Schema(description = "配送费") BigDecimal freightPrice,
+        @Schema(description = "订单原始总价格 用于订单价格修改金额计算使用")
+        BigDecimal originalPrice,
+        @Schema(description = "商品总金额（商品原价）")
+        BigDecimal goodsPrice,
+        @Schema(description = "配送费")
+        BigDecimal freightPrice,
+// ============discount price============
 
-        // ============discount price============
-
-        @Schema(description = "支付积分") Long payPoint,
-        @Schema(description = "优惠金额") BigDecimal discountPrice,
-        @Schema(description = "优惠券金额") BigDecimal couponPrice,
-
-        // ===========end discount price =============
+        @Schema(description = "支付积分")
+        Long payPoint,
+        @Schema(description = "优惠金额")
+        BigDecimal discountPrice,
+        @Schema(description = "优惠券金额")
+        BigDecimal couponPrice,
+// ===========end discount price =============
 
         // =========distribution==========
 
-        @Schema(description = "单品分销返现支出") BigDecimal distributionCommission,
-        @Schema(description = "平台收取交易佣金比例") BigDecimal platFormCommissionPoint,
-        @Schema(description = "平台收取交易佣金") BigDecimal platFormCommission,
-
-        // =========end distribution==========
+        @Schema(description = "单品分销返现支出")
+        BigDecimal distributionCommission,
+        @Schema(description = "平台收取交易佣金比例")
+        BigDecimal platFormCommissionPoint,
+        @Schema(description = "平台收取交易佣金")
+        BigDecimal platFormCommission,
+// =========end distribution==========
 
         // ========= platform coupon==========
 
-        @Schema(description = "平台优惠券 使用金额") BigDecimal siteCouponPrice,
-        @Schema(description = "站点优惠券佣金比例") BigDecimal siteCouponPoint,
-        @Schema(description = "站点优惠券佣金") BigDecimal siteCouponCommission,
-        // =========end platform coupon==========
+        @Schema(description = "平台优惠券 使用金额")
+        BigDecimal siteCouponPrice,
+        @Schema(description = "站点优惠券佣金比例")
+        BigDecimal siteCouponPoint,
+        @Schema(description = "站点优惠券佣金")
+        BigDecimal siteCouponCommission,
+// =========end platform coupon==========
 
         // ========= update price ==========
 
-        @Schema(description = "订单修改金额") BigDecimal updatePrice,
+        @Schema(description = "订单修改金额")
+        BigDecimal updatePrice,
+
 
         // =========end update price==========
 
@@ -67,12 +78,14 @@ public record CreatePriceDetailCommand(
                         "流水金额(入账 出帐金额) = goodsPrice + freight - discountPrice - couponPrice"
                                 + " + updatePrice")
         BigDecimal flowPrice,
-        @Schema(description = "结算价格 与 商家/供应商 结算价格（例如积分商品/砍价商品）") BigDecimal settlementPrice,
+        @Schema(description = "结算价格 与 商家/供应商 结算价格（例如积分商品/砍价商品）")
+        BigDecimal settlementPrice,
+
         @Schema(description = "最终结算金额 = flowPrice - platFormCommission - distributionCommission")
         BigDecimal billPrice,
-
-        /** 参与的促销活动 */
-        @Schema(description = "参与的促销活动") List<PromotionSkuVO> joinPromotion)
+/** 参与的促销活动 */
+        @Schema(description = "参与的促销活动")
+        List<PromotionSkuVO> joinPromotion)
         implements Serializable {
 
     @Serial

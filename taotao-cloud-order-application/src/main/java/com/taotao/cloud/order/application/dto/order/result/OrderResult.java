@@ -26,8 +26,10 @@ import java.util.List;
 @RecordBuilder
 @Schema(description = "订单vo")
 public record OrderResult(
-        @Schema(description = "订单商品项目") List<OrderItemResult> orderItems,
-        @Schema(description = "订单vo") OrderBaseResult orderBase)
+        @Schema(description = "订单商品项目")
+        List<OrderItemResult> orderItems,
+        @Schema(description = "订单vo")
+        OrderBaseResult orderBase)
         implements Serializable {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;
