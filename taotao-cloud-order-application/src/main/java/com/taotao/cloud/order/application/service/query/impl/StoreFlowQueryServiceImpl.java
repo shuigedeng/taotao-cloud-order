@@ -19,9 +19,6 @@ package com.taotao.cloud.order.application.service.query.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.taotao.cloud.order.application.dto.store.DistributionPageQry;
-import com.taotao.cloud.order.application.dto.store.StoreFlowPageQry;
-import com.taotao.cloud.order.application.dto.store.StorePageQry;
 import com.taotao.cloud.order.application.dto.store.result.StoreFlowPayDownloadResult;
 import com.taotao.cloud.order.application.dto.store.result.StoreFlowRefundDownloadResult;
 import com.taotao.cloud.order.application.dto.order.result.StoreFlowResult;
@@ -37,38 +34,38 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class StoreFlowQueryServiceImpl implements StoreFlowQueryService {
 
-    @Override
-    public IPage<StoreFlowResult> queryStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
-        return null;
-    }
-
-    @Override
-    public StoreFlowResult queryOne(StoreFlowPageQry storeFlowQueryDTO) {
-        return null;
-    }
-
-    @Override
-    public List<StoreFlowPayDownloadResult> queryStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO) {
-        return null;
-    }
-
-    @Override
-    public List<StoreFlowRefundDownloadResult> queryStoreFlowRefundDownloadVO(StoreFlowPageQry storeFlowQueryDTO) {
-        return null;
-    }
-
-    @Override
-    public IPage<StoreFlowResult> queryStoreFlow(StorePageQry storePageQry) {
-        return null;
-    }
-
-    @Override
-    public IPage<StoreFlowResult> queryDistributionFlow(DistributionPageQry distributionPageQry) {
-        return null;
-    }
-
-    @Override
-    public List<StoreFlowResult> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
-        return List.of();
-    }
+//    @Override
+//    public IPage<StoreFlowResult> queryStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public StoreFlowResult queryOne(StoreFlowPageQry storeFlowQueryDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<StoreFlowPayDownloadResult> queryStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<StoreFlowRefundDownloadResult> queryStoreFlowRefundDownloadVO(StoreFlowPageQry storeFlowQueryDTO) {
+//        return null;
+//    }
+//
+//    @Override
+//    public IPage<StoreFlowResult> queryStoreFlow(StorePageQry storePageQry) {
+//        return null;
+//    }
+//
+//    @Override
+//    public IPage<StoreFlowResult> queryDistributionFlow(DistributionPageQry distributionPageQry) {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<StoreFlowResult> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO) {
+//        return List.of();
+//    }
 }

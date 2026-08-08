@@ -18,7 +18,6 @@ package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintOperationCommand;
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCmd;
 import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 
@@ -38,7 +37,7 @@ public interface OrderComplaintCommandService extends CommandService {
      * @return {@link OrderComplaintPO }
      * @since 2022-04-28 08:54:36
      */
-    OrderComplaintResult addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
+//    OrderComplaintResult addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd);
 
     /**
      * 更新交易投诉

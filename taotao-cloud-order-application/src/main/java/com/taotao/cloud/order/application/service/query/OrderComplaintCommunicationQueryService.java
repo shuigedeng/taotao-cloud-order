@@ -27,14 +27,14 @@ import com.taotao.cloud.order.application.dto.order.result.OrderComplaintCommuni
  * @since 2022-04-28 08:54:33
  */
 public interface OrderComplaintCommunicationQueryService {
-
-    /**
-     * 获取通信记录
-     *
-     * @param orderComplaintCommunicationPageQry 参数
-     * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
-     * @since 2022-04-28 08:54:33
-     */
-    IPage<OrderComplaintCommunicationResult> queryCommunication(
-            OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
+//
+//    /**
+//     * 获取通信记录
+//     *
+//     * @param orderComplaintCommunicationPageQry 参数
+//     * @return {@link IPage }<{@link OrderComplaintCommunicationPO }>
+//     * @since 2022-04-28 08:54:33
+//     */
+//    IPage<OrderComplaintCommunicationResult> queryCommunication(
+//            OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry);
 }

@@ -19,6 +19,8 @@ package com.taotao.cloud.order.application.service.command;
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.purchase.result.PurchaseQuotedItemResult;
 
+import java.util.List;
+
 /**
  * 采购单子内容业务层
  *

@@ -61,38 +61,38 @@ public class OrderComplaintSellerController extends BusinessController {
                 OperationalJudgment.judgment(orderComplaintQueryService.queryOrderComplainById(id)));
     }
 
-    @Operation(summary = "分页获取", description = "分页获取")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/page")
-    public Result<PageResult<OrderComplaintBaseResult>> query(
-            OrderComplaintPageQuery orderComplaintPageQry) {
-        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
-        orderComplaintPageQry.setStoreId(storeId);
-        return Result.success(orderComplaintQueryService.pageQuery(orderComplaintPageQry));
-    }
+//    @Operation(summary = "分页获取", description = "分页获取")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/page")
+//    public Result<PageResult<OrderComplaintBaseResult>> query(
+//            OrderComplaintPageQuery orderComplaintPageQry) {
+//        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
+//        orderComplaintPageQry.setStoreId(storeId);
+//        return Result.success(orderComplaintQueryService.pageQuery(orderComplaintPageQry));
+//    }
 
-    @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping("/communication/{complainId}")
-    public Result<Void> addCommunication(
-            @PathVariable("complainId") Long complainId,
-            @Validated @RequestBody CreateOrderComplaintCommunicationCommand command) {
-        orderComplaintCommunicationCommandService.addCommunication(complainId, command);
-        return Result.success();
-    }
-
-    @Operation(summary = "修改申诉信息", description = "修改申诉信息")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping("/{id}")
-    public Result<Void> update(
-            @PathVariable Long id,
-            @Validated @RequestBody CreateOrderComplaintCommand command) {
-        orderComplaintCommandService.updateOrderComplain(id, command);
-        return Result.success();
-    }
+//    @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping("/communication/{complainId}")
+//    public Result<Void> addCommunication(
+//            @PathVariable("complainId") Long complainId,
+//            @Validated @RequestBody CreateOrderComplaintCommunicationCommand command) {
+//        orderComplaintCommunicationCommandService.addCommunication(complainId, command);
+//        return Result.success();
+//    }
+//
+//    @Operation(summary = "修改申诉信息", description = "修改申诉信息")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping("/{id}")
+//    public Result<Void> update(
+//            @PathVariable Long id,
+//            @Validated @RequestBody CreateOrderComplaintCommand command) {
+//        orderComplaintCommandService.updateOrderComplain(id, command);
+//        return Result.success();
+//    }
 
     @Operation(summary = "申诉", description = "申诉")
     @RequestLogger

@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.interfaces.controller.inner;
 
 import com.taotao.boot.common.model.request.Request;
+import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
@@ -40,11 +41,16 @@ public class OrderQueryApiController extends InnerController implements OrderQue
         this.orderQueryService = orderQueryService;
     }
 
-    @Override
-    @PostMapping("/code")
-    public Result<OrderApiResponse> findByCode(@Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest) {
-        OrderApiQuery query = dictQueryApiRequest.getData();
-        OrderApiResponse response = orderQueryService.findByCode(query);
-        return Result.success(response);
-    }
+	@Override
+	public Response<OrderApiResponse> findByCode( Request<OrderApiQuery> dictQueryApiRequest ) {
+		return null;
+	}
+
+//    @Override
+//    @PostMapping("/code")
+//    public Result<OrderApiResponse> findByCode(@Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest) {
+//        OrderApiQuery query = dictQueryApiRequest.getData();
+//        OrderApiResponse response = orderQueryService.findByCode(query);
+//        return Result.success(response);
+//    }
 }

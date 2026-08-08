@@ -76,15 +76,15 @@ public class OrderBackSellerController extends BusinessController {
         return Result.success(orderQueryService.queryDetail(orderSn));
     }
 
-    @Operation(summary = "修改收货人信息", description = "修改收货人信息")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/update/{orderSn}/consignee")
-    public Result<OrderResult> consignee(
-            @NotNull(message = "参数非法") @PathVariable String orderSn,
-            @Validated OrderResult.MemberAddressDTO memberAddressDTO) {
-        return Result.success(orderCommandService.updateConsignee(orderSn, memberAddressDTO));
-    }
+//    @Operation(summary = "修改收货人信息", description = "修改收货人信息")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping(value = "/update/{orderSn}/consignee")
+//    public Result<OrderResult> consignee(
+//            @NotNull(message = "参数非法") @PathVariable String orderSn,
+//            @Validated OrderResult.MemberAddressDTO memberAddressDTO) {
+//        return Result.success(orderCommandService.updateConsignee(orderSn, memberAddressDTO));
+//    }
 
     @Operation(summary = "修改订单价格", description = "修改订单价格")
     @RequestLogger
@@ -116,13 +116,13 @@ public class OrderBackSellerController extends BusinessController {
         return Result.success(orderCommandService.cancel(orderSn, reason));
     }
 
-    @Operation(summary = "根据核验码获取订单信息", description = "根据核验码获取订单信息")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/verificationCode/{verificationCode}")
-    public Result<OrderResult> queryOrderByVerificationCode(@PathVariable String verificationCode) {
-        return Result.success(orderQueryService.queryOrderByVerificationCode(verificationCode));
-    }
+//    @Operation(summary = "根据核验码获取订单信息", description = "根据核验码获取订单信息")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/verificationCode/{verificationCode}")
+//    public Result<OrderResult> queryOrderByVerificationCode(@PathVariable String verificationCode) {
+//        return Result.success(orderQueryService.queryOrderByVerificationCode(verificationCode));
+//    }
 
     @Operation(summary = "订单核验", description = "订单核验")
     @RequestLogger
@@ -132,15 +132,15 @@ public class OrderBackSellerController extends BusinessController {
         return Result.success(orderCommandService.take(orderSn, verificationCode));
     }
 
-    @Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/traces/{orderSn}")
-    public Result<?> queryTraces(
-            @NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
-        OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
-        return Result.success(orderQueryService.queryTraces(orderSn));
-    }
+//    @Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/traces/{orderSn}")
+//    public Result<?> queryTraces(
+//            @NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
+//        OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
+//        return Result.success(orderQueryService.queryTraces(orderSn));
+//    }
 
     @Operation(summary = "下载待发货的订单列表", description = "下载待发货的订单列表")
     @RequestLogger

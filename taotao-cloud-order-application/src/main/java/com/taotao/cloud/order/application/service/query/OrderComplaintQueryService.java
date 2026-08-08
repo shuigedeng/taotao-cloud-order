@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 
 /**
@@ -29,7 +28,7 @@ import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
  */
 public interface OrderComplaintQueryService {
 
-    IPage<OrderComplaintResult> pageQuery(OrderComplaintPageQry orderComplaintPageQry);
+//    IPage<OrderComplaintResult> pageQuery(OrderComplaintPageQry orderComplaintPageQry);
 
     OrderComplaintResult queryOrderComplainById(Long id);
 

@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.query.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQry;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
 import lombok.RequiredArgsConstructor;
@@ -29,10 +28,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class OrderComplaintQueryServiceImpl implements OrderComplaintQueryService {
 
-    @Override
-    public IPage<OrderComplaintResult> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {
-        return null;
-    }
+//    @Override
+//    public IPage<OrderComplaintResult> pageQuery(OrderComplaintPageQry orderComplaintPageQry) {
+//        return null;
+//    }
 
     @Override
     public OrderComplaintResult queryOrderComplainById(Long id) {

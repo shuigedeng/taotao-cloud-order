@@ -16,10 +16,19 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.taotao.boot.common.enums.ResultEnum;
 import com.taotao.cloud.order.application.service.command.TradeCommandService;
+import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.common.enums.order.PayStatusEnum;
+import com.taotao.cloud.order.domain.entity.Trade;
+import com.taotao.cloud.order.domain.valobj.CartVal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
 
 /**
  * 交易业务层实现
@@ -33,150 +42,150 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class TradeServiceImpl implements TradeCommandService {
 
-    /**
-     * 缓存
-     */
-    private final RedisRepository redisRepository;
-    /**
-     * 订单
-     */
-    private final IOrderService orderService;
-    /**
-     * 会员
-     */
-    private final IFeignMemberApi memberApi;
-    /**
-     * 优惠券
-     */
-    private final IFeignCouponApi couponApi;
-    /**
-     * 会员优惠券
-     */
-    private final IFeignMemberCouponApi memberCouponApi;
-    /**
-     * 砍价
-     */
-    private final IFeignKanjiaActivityApi kanjiaActivityApi;
-    /**
-     * RocketMQ
-     */
-    private final RocketMQTemplate rocketMQTemplate;
-    /**
-     * RocketMQ 配置
-     */
-    private final RocketmqCustomProperties rocketmqCustomProperties;
+//    /**
+//     * 缓存
+//     */
+//    private final RedisRepository redisRepository;
+//    /**
+//     * 订单
+//     */
+//    private final IOrderService orderService;
+//    /**
+//     * 会员
+//     */
+//    private final IFeignMemberApi memberApi;
+//    /**
+//     * 优惠券
+//     */
+//    private final IFeignCouponApi couponApi;
+//    /**
+//     * 会员优惠券
+//     */
+//    private final IFeignMemberCouponApi memberCouponApi;
+//    /**
+//     * 砍价
+//     */
+//    private final IFeignKanjiaActivityApi kanjiaActivityApi;
+//    /**
+//     * RocketMQ
+//     */
+//    private final RocketMQTemplate rocketMQTemplate;
+//    /**
+//     * RocketMQ 配置
+//     */
+//    private final RocketmqCustomProperties rocketmqCustomProperties;
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public Trade createTrade(TradeDTO tradeDTO) {
-        createTradeCheck(tradeDTO);
+//    @Override
+//    @Transactional(rollbackFor = Exception.class)
+//    public Trade createTrade(TradeDTO tradeDTO) {
+//        createTradeCheck(tradeDTO);
+//
+//        Trade trade = new Trade(tradeDTO);
+//        String key = CachePrefix.TRADE.getPrefix() + trade.getSn();
+//        couponPretreatment(tradeDTO);
+//        pointPretreatment(tradeDTO);
+//        this.save(trade);
+//        orderService.intoDB(tradeDTO);
+//
+//        kanjiaPretreatment(tradeDTO);
+//        redisRepository.set(key, tradeDTO);
+//        String destination = rocketmqCustomProperties.getOrderTopic() + ":" + OrderTagsEnum.ORDER_CREATE.name();
+//        rocketMQTemplate.asyncSend(destination, key, RocketmqSendCallbackBuilder.commonCallback());
+//        return trade;
+//    }
 
-        Trade trade = new Trade(tradeDTO);
-        String key = CachePrefix.TRADE.getPrefix() + trade.getSn();
-        couponPretreatment(tradeDTO);
-        pointPretreatment(tradeDTO);
-        this.save(trade);
-        orderService.intoDB(tradeDTO);
-
-        kanjiaPretreatment(tradeDTO);
-        redisRepository.set(key, tradeDTO);
-        String destination = rocketmqCustomProperties.getOrderTopic() + ":" + OrderTagsEnum.ORDER_CREATE.name();
-        rocketMQTemplate.asyncSend(destination, key, RocketmqSendCallbackBuilder.commonCallback());
-        return trade;
-    }
-
-    /**
-     * 创建订单最后一步校验
-     */
-    private void createTradeCheck(TradeDTO tradeDTO) {
-        MemberAddress memberAddress = tradeDTO.getMemberAddress();
-        if (memberAddress == null) {
-            throw new BusinessException(ResultEnum.MEMBER_ADDRESS_NOT_EXIST);
-        }
-
-        if (tradeDTO.getNotSupportFreight() != null
-            && tradeDTO.getNotSupportFreight().size() > 0) {
-            StringBuilder stringBuilder = new StringBuilder("包含商品有-");
-            tradeDTO.getNotSupportFreight().forEach(sku -> {
-                stringBuilder.append(sku.getGoodsSku().getGoodsName());
-            });
-            throw new BusinessException(ResultEnum.ORDER_NOT_SUPPORT_DISTRIBUTION.getCode(),
-                stringBuilder.toString());
-        }
-    }
-
-    @Override
-    public Trade getBySn(String sn) {
-        LambdaQueryWrapper<Trade> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Trade::getSn, sn);
-        return this.getOne(queryWrapper);
-    }
-
-    @Override
-    public void payTrade(String tradeSn, String paymentName, String receivableNo) {
-        LambdaQueryWrapper<Order> orderQueryWrapper = new LambdaQueryWrapper<>();
-        orderQueryWrapper.eq(Order::getTradeSn, tradeSn);
-        List<Order> orders = orderService.list(orderQueryWrapper);
-        for (Order order : orders) {
-            orderService.payOrder(order.getSn(), paymentName, receivableNo);
-        }
-        Trade trade = this.getBySn(tradeSn);
-        trade.setPayStatus(PayStatusEnum.PAID.name());
-        this.saveOrUpdate(trade);
-    }
-
-    /**
-     * 优惠券预处理
-     */
-    private void couponPretreatment(TradeDTO tradeDTO) {
-        List<MemberCouponDTO> memberCouponDTOList = new ArrayList<>();
-        if (null != tradeDTO.getPlatformCoupon()) {
-            memberCouponDTOList.add(tradeDTO.getPlatformCoupon());
-        }
-        Collection<MemberCouponDTO> storeCoupons = tradeDTO.getStoreCoupons().values();
-        if (!storeCoupons.isEmpty()) {
-            memberCouponDTOList.addAll(storeCoupons);
-        }
-        List<String> ids = memberCouponDTOList.stream()
-            .map(e -> e.getMemberCoupon().getId())
-            .toList();
-        memberCouponApi.used(ids);
-        memberCouponDTOList.forEach(
-            e -> couponApi.usedCoupon(e.getMemberCoupon().getCouponId(), 1));
-    }
-
-    /**
-     * 创建交易，积分处理
-     */
-    private void pointPretreatment(TradeDTO tradeDTO) {
-        if (tradeDTO.getPriceDetailDTO() != null
-            && tradeDTO.getPriceDetailDTO().getPayPoint() != null
-            && tradeDTO.getPriceDetailDTO().getPayPoint() > 0) {
-            StringBuilder orderSns = new StringBuilder();
-            for (CartVal item : tradeDTO.getCartList()) {
-                orderSns.append(item.getSn());
-            }
-            Result<Boolean> result = memberApi.updateMemberPoint(
-                tradeDTO.getPriceDetailDTO().getPayPoint(),
-                PointTypeEnum.REDUCE.name(),
-                tradeDTO.getMemberId(),
-                "订单【" + orderSns + "】创建，积分扣减");
-
-            if (!result) {
-                throw new BusinessException(ResultEnum.PAY_POINT_ENOUGH);
-            }
-        }
-    }
-
-    /**
-     * 创建交易、砍价处理
-     */
-    private void kanjiaPretreatment(TradeDTO tradeDTO) {
-        if (tradeDTO.getCartTypeEnum().equals(CartTypeEnum.KANJIA)) {
-            String kanjiaId = tradeDTO.getSkuList().get(0).getKanjiaId();
-            kanjiaActivityApi.update(new LambdaUpdateWrapper<KanjiaActivity>()
-                .eq(KanjiaActivity::getId, kanjiaId)
-                .set(KanjiaActivity::getStatus, KanJiaStatusEnum.END.name()));
-        }
-    }
+//    /**
+//     * 创建订单最后一步校验
+//     */
+//    private void createTradeCheck(TradeDTO tradeDTO) {
+//        MemberAddress memberAddress = tradeDTO.getMemberAddress();
+//        if (memberAddress == null) {
+//            throw new BusinessException(ResultEnum.MEMBER_ADDRESS_NOT_EXIST);
+//        }
+//
+//        if (tradeDTO.getNotSupportFreight() != null
+//            && tradeDTO.getNotSupportFreight().size() > 0) {
+//            StringBuilder stringBuilder = new StringBuilder("包含商品有-");
+//            tradeDTO.getNotSupportFreight().forEach(sku -> {
+//                stringBuilder.append(sku.getGoodsSku().getGoodsName());
+//            });
+//            throw new BusinessException(ResultEnum.ORDER_NOT_SUPPORT_DISTRIBUTION.getCode(),
+//                stringBuilder.toString());
+//        }
+//    }
+//
+//    @Override
+//    public Trade getBySn(String sn) {
+//        LambdaQueryWrapper<Trade> queryWrapper = new LambdaQueryWrapper<>();
+//        queryWrapper.eq(Trade::getSn, sn);
+//        return this.getOne(queryWrapper);
+//    }
+//
+//    @Override
+//    public void payTrade(String tradeSn, String paymentName, String receivableNo) {
+//        LambdaQueryWrapper<Order> orderQueryWrapper = new LambdaQueryWrapper<>();
+//        orderQueryWrapper.eq(Order::getTradeSn, tradeSn);
+//        List<Order> orders = orderService.list(orderQueryWrapper);
+//        for (Order order : orders) {
+//            orderService.payOrder(order.getSn(), paymentName, receivableNo);
+//        }
+//        Trade trade = this.getBySn(tradeSn);
+//        trade.setPayStatus(PayStatusEnum.PAID.name());
+//        this.saveOrUpdate(trade);
+//    }
+//
+//    /**
+//     * 优惠券预处理
+//     */
+//    private void couponPretreatment(TradeDTO tradeDTO) {
+//        List<MemberCouponDTO> memberCouponDTOList = new ArrayList<>();
+//        if (null != tradeDTO.getPlatformCoupon()) {
+//            memberCouponDTOList.add(tradeDTO.getPlatformCoupon());
+//        }
+//        Collection<MemberCouponDTO> storeCoupons = tradeDTO.getStoreCoupons().values();
+//        if (!storeCoupons.isEmpty()) {
+//            memberCouponDTOList.addAll(storeCoupons);
+//        }
+//        List<String> ids = memberCouponDTOList.stream()
+//            .map(e -> e.getMemberCoupon().getId())
+//            .toList();
+//        memberCouponApi.used(ids);
+//        memberCouponDTOList.forEach(
+//            e -> couponApi.usedCoupon(e.getMemberCoupon().getCouponId(), 1));
+//    }
+//
+//    /**
+//     * 创建交易，积分处理
+//     */
+//    private void pointPretreatment(TradeDTO tradeDTO) {
+//        if (tradeDTO.getPriceDetailDTO() != null
+//            && tradeDTO.getPriceDetailDTO().getPayPoint() != null
+//            && tradeDTO.getPriceDetailDTO().getPayPoint() > 0) {
+//            StringBuilder orderSns = new StringBuilder();
+//            for (CartVal item : tradeDTO.getCartList()) {
+//                orderSns.append(item.getSn());
+//            }
+//            Result<Boolean> result = memberApi.updateMemberPoint(
+//                tradeDTO.getPriceDetailDTO().getPayPoint(),
+//                PointTypeEnum.REDUCE.name(),
+//                tradeDTO.getMemberId(),
+//                "订单【" + orderSns + "】创建，积分扣减");
+//
+//            if (!result) {
+//                throw new BusinessException(ResultEnum.PAY_POINT_ENOUGH);
+//            }
+//        }
+//    }
+//
+//    /**
+//     * 创建交易、砍价处理
+//     */
+//    private void kanjiaPretreatment(TradeDTO tradeDTO) {
+//        if (tradeDTO.getCartTypeEnum().equals(CartTypeEnum.KANJIA)) {
+//            String kanjiaId = tradeDTO.getSkuList().get(0).getKanjiaId();
+//            kanjiaActivityApi.update(new LambdaUpdateWrapper<KanjiaActivity>()
+//                .eq(KanjiaActivity::getId, kanjiaId)
+//                .set(KanjiaActivity::getStatus, KanJiaStatusEnum.END.name()));
+//        }
+//    }
 }

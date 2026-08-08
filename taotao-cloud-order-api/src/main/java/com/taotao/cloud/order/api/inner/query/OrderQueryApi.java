@@ -63,7 +63,7 @@ public interface OrderQueryApi {
                         date = "2022-07-01 17:11:55")
             })
 
-    @PostExchange("/sys/dict/code")
+    @PostExchange("/sys/dict/code/query")
     Response<OrderApiResponse> findByCode(
             @Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest);
 

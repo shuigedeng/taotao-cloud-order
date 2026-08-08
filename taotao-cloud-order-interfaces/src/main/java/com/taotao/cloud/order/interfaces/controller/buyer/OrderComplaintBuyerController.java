@@ -66,37 +66,37 @@ public class OrderComplaintBuyerController extends BusinessController {
 		return Result.success(orderComplaintResult);
 	}
 
-	@Operation(summary = "分页获取", description = "分页获取")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/page")
-	public Result<PageResult<OrderComplaintBaseResult>> query(@Validated OrderComplaintPageQuery orderComplaintPageQuery) {
-		return Result.success(
-			MpUtils.convertMpPage(orderComplaintQueryService.pageQuery(orderComplaintPageQuery), OrderComplaintBaseResult.class));
-	}
+//	@Operation(summary = "分页获取", description = "分页获取")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping("/page")
+//	public Result<PageResult<OrderComplaintBaseResult>> query(@Validated OrderComplaintPageQuery orderComplaintPageQuery) {
+//		return Result.success(
+//			MpUtils.convertMpPage(orderComplaintQueryService.pageQuery(orderComplaintPageQuery), OrderComplaintBaseResult.class));
+//	}
 
-	@Operation(summary = "添加交易投诉", description = "添加交易投诉")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
-	public Result<OrderComplaintResult> add(@Valid @RequestBody CreateOrderComplaintCommand orderComplaintAddCommand) {
-		return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCommand));
-	}
-
-	@Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping("/communication/{complainId}")
-	public Result<Void> addCommunication(
-			@PathVariable("complainId") Long complainId,
-			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCommand) {
-		String username = SecurityUtils.queryCurrentUser().queryNickname();
-		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
-		orderComplaintCommunicationCommandService.addCommunication(complainId,
-				orderComplaintCommunicationAddCommand, CommunicationOwnerEnum.BUYER.name(),
-				username, userId);
-		return Result.success();
-	}
+//	@Operation(summary = "添加交易投诉", description = "添加交易投诉")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping
+//	public Result<OrderComplaintResult> add(@Valid @RequestBody CreateOrderComplaintCommand orderComplaintAddCommand) {
+//		return Result.success(orderComplaintCommandService.addOrderComplain(orderComplaintAddCommand));
+//	}
+//
+//	@Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping("/communication/{complainId}")
+//	public Result<Void> addCommunication(
+//			@PathVariable("complainId") Long complainId,
+//			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCommand) {
+//		String username = SecurityUtils.queryCurrentUser().queryNickname();
+//		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
+//		orderComplaintCommunicationCommandService.addCommunication(complainId,
+//				orderComplaintCommunicationAddCommand, CommunicationOwnerEnum.BUYER.name(),
+//				username, userId);
+//		return Result.success();
+//	}
 
 	@Operation(summary = "取消售后", description = "取消售后")
 	@RequestLogger

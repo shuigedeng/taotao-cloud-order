@@ -30,30 +30,40 @@ import org.springframework.stereotype.Service;
 @Service
 public class PurchaseOrderCommandServiceImpl implements PurchaseOrderCommandService {
 
-    @Autowired
-    private PurchaseOrderItemCommandService purchaseOrderItemCommandService;
+	@Override
+	public PurchaseOrderResult addPurchaseOrder( PurchaseOrderResult purchaseOrderResult ) {
+		return null;
+	}
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public PurchaseOrderResult addPurchaseOrder(PurchaseOrderResult purchaseOrderResult) {
-       PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
-       BeanUtil.copyProperties(purchaseOrderResult, purchaseOrderPO);
-       purchaseOrderPO.setStatus("OPEN");
-       purchaseOrderPO.setMemberId(UserContext.getCurrentUser().getId());
-       this.save(purchaseOrderPO);
-       purchaseOrderItemCommandService.addPurchaseOrderItem(purchaseOrderPO.getId(),
-            purchaseOrderResult.getPurchaseOrderItems());
-       return purchaseOrderResult;
-    }
+	@Override
+	public boolean close( String id ) {
+		return false;
+	}
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public boolean close(String id) {
-       PurchaseOrderPO purchaseOrderPO = this.getById(id);
-       purchaseOrderPO.setStatus("CLOSE");
-       UpdateWrapper<PurchaseOrderPO> updateWrapper = new UpdateWrapper<>();
-       updateWrapper.eq("id", id);
-       updateWrapper.set("status", "CLOSE");
-       return this.update(updateWrapper);
-    }
+//    @Autowired
+//    private PurchaseOrderItemCommandService purchaseOrderItemCommandService;
+//
+//    @Override
+//    @Transactional(rollbackFor = Exception.class)
+//    public PurchaseOrderResult addPurchaseOrder(PurchaseOrderResult purchaseOrderResult) {
+//       PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
+//       BeanUtil.copyProperties(purchaseOrderResult, purchaseOrderPO);
+//       purchaseOrderPO.setStatus("OPEN");
+//       purchaseOrderPO.setMemberId(UserContext.getCurrentUser().getId());
+//       this.save(purchaseOrderPO);
+//       purchaseOrderItemCommandService.addPurchaseOrderItem(purchaseOrderPO.getId(),
+//            purchaseOrderResult.getPurchaseOrderItems());
+//       return purchaseOrderResult;
+//    }
+//
+//    @Override
+//    @Transactional(rollbackFor = Exception.class)
+//    public boolean close(String id) {
+//       PurchaseOrderPO purchaseOrderPO = this.getById(id);
+//       purchaseOrderPO.setStatus("CLOSE");
+//       UpdateWrapper<PurchaseOrderPO> updateWrapper = new UpdateWrapper<>();
+//       updateWrapper.eq("id", id);
+//       updateWrapper.set("status", "CLOSE");
+//       return this.update(updateWrapper);
+//    }
 }

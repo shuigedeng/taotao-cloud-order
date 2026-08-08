@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.domain.repository;
+package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
-import com.taotao.cloud.order.domain.aggregate.OrderAgg;
-import com.taotao.cloud.order.domain.valobj.User;
+import com.taotao.cloud.order.application.service.command.OrderLogCommandService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+/**
+ * 订单日志业务层实现
+ *
+ * @author shuigedeng
+ * @version 2022.04
+ * @since 2022-04-28 08:55:53
+ */
+@Service
+@RequiredArgsConstructor
+public class OrderLogCommandServiceImpl implements OrderLogCommandService {
 
-public interface OrderRepository extends DomainRepository {
-    void save( OrderAgg it);
-
-    OrderAgg byId(String id);
-
-    Optional<OrderAgg> byIdOptional(String id);
-
-    OrderAgg byIdAndCheckTenantShip(String id, User user);
-
-    void delete( OrderAgg it);
 }

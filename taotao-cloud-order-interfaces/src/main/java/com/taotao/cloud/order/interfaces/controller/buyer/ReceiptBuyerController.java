@@ -48,13 +48,13 @@ public class ReceiptBuyerController extends BusinessController {
 	private final ReceiptQueryService receiptQueryService;
 	private final ReceiptCommandService receiptCommandService;
 
-	@Operation(summary = "获取发票详情", description = "获取发票详情")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/{id}")
-	public Result<ReceiptResult> queryDetail(@PathVariable Long id) {
-		return Result.success(receiptQueryService.queryDetail(id));
-	}
+//	@Operation(summary = "获取发票详情", description = "获取发票详情")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping("/{id}")
+//	public Result<ReceiptResult> queryDetail(@PathVariable Long id) {
+//		return Result.success(receiptQueryService.queryDetail(id));
+//	}
 
 	@Operation(summary = "获取发票分页信息", description = "获取发票分页信息")
 	@RequestLogger

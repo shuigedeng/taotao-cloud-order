@@ -29,9 +29,8 @@ import com.taotao.cloud.order.application.dto.order.result.*;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import com.taotao.cloud.order.domain.aggregate.OrderAgg;
 import com.taotao.cloud.order.domain.entity.Order;
-import com.taotao.cloud.order.domain.repository.OrderRepository;
+import com.taotao.cloud.order.domain.repository.OrderDomainRepository;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
-import com.taotao.cloud.order.domain.valobj.Traces;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.application.dto.order.result.OrderResult;
 import java.math.BigDecimal;
@@ -50,7 +49,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
 
     private static final List<OrderStatus> VIEWABLE_ORDER_STATUSES = List.of(PAID, REFUNDED);
     private static final String SHIPMENT_BASE_URL = "https://wuliu.market.alicloudapi.com/kdi";
-    private final OrderRepository orderRepository;
+    private final OrderDomainRepository orderRepository;
 
     /**
      * quoteOrderPrice 方法
@@ -205,10 +204,6 @@ public class OrderQueryServiceImpl implements OrderQueryService {
         return null;
     }
 
-    @Override
-    public Traces queryTraces(String orderSn) {
-        return null;
-    }
 
     @Override
     public void queryOrderByVerificationCode(String verificationCode) {

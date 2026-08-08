@@ -23,12 +23,11 @@ import com.taotao.cloud.order.api.rpc.dto.command.OrderRpcCommand;
 import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
 import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
 import lombok.RequiredArgsConstructor;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-@DubboService(interfaceClass = OrderCommandRpcService.class, validation = "true")
+//@DubboService(interfaceClass = OrderCommandRpcService.class, validation = "true")
 public class OrderCommandRpcServiceImpl implements OrderCommandRpcService {
 
 	@Override

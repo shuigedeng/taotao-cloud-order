@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.infrastructure.event.listener;
 
-import com.taotao.cloud.goods.application.service.command.GoodsCommandService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -33,7 +32,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthChangeSpringEventListener {
 
-	private final GoodsCommandService goodsCommandService;
+//	private final GoodsCommandService goodsCommandService;
 
 //	@EventListener(AuthChangeEvent.class)
 //	public void handleAuthChangeEvent( AuthChangeEvent authChangeEvent ){

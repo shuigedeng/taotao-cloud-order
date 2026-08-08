@@ -19,7 +19,6 @@ package com.taotao.cloud.order.interfaces.controller.buyer;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.cart.TradeDTO;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.CartCommandService;
 import com.taotao.cloud.order.application.service.query.CartQueryService;
@@ -64,13 +63,13 @@ public class CartBuyerController extends BusinessController {
 		return Result.success();
 	}
 
-	@Operation(summary = "获取购物车页面购物车详情", description = "获取购物车页面购物车详情")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/all")
-	public Result<TradeDTO> cartAll() {
-		return Result.success(this.cartQueryService.queryAllTradeDTO());
-	}
+//	@Operation(summary = "获取购物车页面购物车详情", description = "获取购物车页面购物车详情")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping("/all")
+//	public Result<TradeDTO> cartAll() {
+//		return Result.success(this.cartQueryService.queryAllTradeDTO());
+//	}
 
 	@Operation(summary = "获取购物车数量", description = "获取购物车数量")
 	@RequestLogger
@@ -144,14 +143,14 @@ public class CartBuyerController extends BusinessController {
 		cartCommandService.delete(skuIds);
 		return Result.success();
 	}
-
-	@Operation(summary = "获取结算页面购物车详情", description = "获取结算页面购物车详情")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/checked")
-	public Result<TradeDTO> cartChecked(@NotNull(message = "读取选中列表") String way) {
-		return Result.success(this.cartQueryService.queryCheckedTradeDTO(CartTypeEnum.valueOf(way)));
-	}
+//
+//	@Operation(summary = "获取结算页面购物车详情", description = "获取结算页面购物车详情")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping("/checked")
+//	public Result<TradeDTO> cartChecked(@NotNull(message = "读取选中列表") String way) {
+//		return Result.success(this.cartQueryService.queryCheckedTradeDTO(CartTypeEnum.valueOf(way)));
+//	}
 
 	@Operation(summary = "选择收货地址", description = "选择收货地址")
 	@RequestLogger
@@ -194,11 +193,11 @@ public class CartBuyerController extends BusinessController {
 		return Result.success();
 	}
 
-	@Operation(summary = "创建交易", description = "创建交易")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/trade")
-	public Result<TradeResult> crateTrade(@RequestBody TradeDTO tradeDTO) {
-		return Result.success(this.cartCommandService.createTrade(tradeDTO));
-	}
+//	@Operation(summary = "创建交易", description = "创建交易")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping(value = "/trade")
+//	public Result<TradeResult> crateTrade(@RequestBody TradeDTO tradeDTO) {
+//		return Result.success(this.cartCommandService.createTrade(tradeDTO));
+//	}
 }

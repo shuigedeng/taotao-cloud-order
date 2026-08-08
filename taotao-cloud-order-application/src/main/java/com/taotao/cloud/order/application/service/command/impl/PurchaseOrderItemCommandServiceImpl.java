@@ -20,6 +20,8 @@ import com.taotao.cloud.order.application.dto.purchase.result.PurchaseOrderItemR
 import com.taotao.cloud.order.application.service.command.PurchaseOrderItemCommandService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 采购单子内容业务层实现
  *
@@ -30,14 +32,19 @@ import org.springframework.stereotype.Service;
 @Service
 public class PurchaseOrderItemCommandServiceImpl implements PurchaseOrderItemCommandService {
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public boolean addPurchaseOrderItem(String purchaseOrderId,
-                                        List<PurchaseOrderItemResult> purchaseOrderItemResultList) {
-        for (PurchaseOrderItemResult purchaseOrderItemResult : purchaseOrderItemResultList) {
-            purchaseOrderItemResult.setPurchaseOrderId(purchaseOrderId);
-            this.save(purchaseOrderItemResult);
-        }
-        return true;
-    }
+	@Override
+	public boolean addPurchaseOrderItem( String purchaseOrderId, List<PurchaseOrderItemResult> purchaseOrderItemList ) {
+		return false;
+	}
+
+//    @Override
+//    @Transactional(rollbackFor = Exception.class)
+//    public boolean addPurchaseOrderItem(String purchaseOrderId,
+//                                        List<PurchaseOrderItemResult> purchaseOrderItemResultList) {
+//        for (PurchaseOrderItemResult purchaseOrderItemResult : purchaseOrderItemResultList) {
+//            purchaseOrderItemResult.setPurchaseOrderId(purchaseOrderId);
+//            this.save(purchaseOrderItemResult);
+//        }
+//        return true;
+//    }
 }

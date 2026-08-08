@@ -47,31 +47,31 @@ public class AfterSaleReasonManagerController extends BusinessController {
     private final AfterSaleReasonQueryService afterSaleReasonQueryService;
     private final AfterSaleReasonCommandService afterSaleReasonCommandService;
 
-    @Operation(summary = "查看售后原因", description = "查看售后原因")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{id}")
-    public Result<AfterSaleReasonResult> queryById(@PathVariable String id) {
-        AfterSaleReasonResult afterSaleReasonResult = afterSaleReasonQueryService.queryById(id);
-        return Result.success(afterSaleReasonResult);
-    }
+//    @Operation(summary = "查看售后原因", description = "查看售后原因")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/{id}")
+//    public Result<AfterSaleReasonResult> queryById(@PathVariable String id) {
+//        AfterSaleReasonResult afterSaleReasonResult = afterSaleReasonQueryService.queryById(id);
+//        return Result.success(afterSaleReasonResult);
+//    }
 
-    @Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/page")
-    public Result<PageResult<AfterSaleReasonResult>> queryByPage(
-            @Validated AfterSaleReasonPageQuery afterSaleReasonPageQry) {
-        PageResult<AfterSaleReasonResult> page = afterSaleReasonQueryService.pageQuery(afterSaleReasonPageQry);
-        return Result.success(page);
-    }
+//    @Operation(summary = "分页获取售后原因", description = "分页获取售后原因")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/page")
+//    public Result<PageResult<AfterSaleReasonResult>> queryByPage(
+//            @Validated AfterSaleReasonPageQuery afterSaleReasonPageQry) {
+//        PageResult<AfterSaleReasonResult> page = afterSaleReasonQueryService.pageQuery(afterSaleReasonPageQry);
+//        return Result.success(page);
+//    }
 
     @Operation(summary = "添加售后原因", description = "添加售后原因")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
 	public Result<Void> save(@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd) {
-		afterSaleReasonCommandService.save(afterSaleReasonUpdateCmd);
+//		afterSaleReasonCommandService.save(afterSaleReasonUpdateCmd);
 		return Result.success();
     }
 
@@ -82,16 +82,16 @@ public class AfterSaleReasonManagerController extends BusinessController {
 	public Result<Void> update(
 			@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd,
 			@PathVariable("id") Long id) {
-		afterSaleReasonCommandService.editAfterSaleReason(id, afterSaleReasonUpdateCmd);
+//		afterSaleReasonCommandService.editAfterSaleReason(id, afterSaleReasonUpdateCmd);
 		return Result.success();
     }
 
     @Operation(summary = "删除售后原因", description = "删除售后原因")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/{id}")
+    @PostMapping(value = "/delAllByIds/{id}")
 	public Result<Void> delAllByIds(@PathVariable String id) {
-		afterSaleReasonCommandService.removeById(id);
+//		afterSaleReasonCommandService.removeById(id);
 		return Result.success();
     }
 }

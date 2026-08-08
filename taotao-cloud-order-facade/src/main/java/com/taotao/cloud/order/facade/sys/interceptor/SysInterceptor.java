@@ -19,7 +19,7 @@ public class SysInterceptor<T> implements GatewayPostInterceptor<T> {
     }
 
     @Override
-    public boolean shouldFilter( GatewayContext context ) {
+    public boolean postShouldFilter( GatewayContext context ) {
         return context.getCatchedException() != null;
     }
 }

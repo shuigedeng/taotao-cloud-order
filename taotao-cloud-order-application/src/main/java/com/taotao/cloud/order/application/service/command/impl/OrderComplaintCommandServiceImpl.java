@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.application.dto.order.command.OrderComplaintAddCmd;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintOperationCommand;
 import com.taotao.cloud.order.application.dto.order.command.StoreAppealCommand;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
@@ -50,10 +49,6 @@ public class OrderComplaintCommandServiceImpl implements OrderComplaintCommandSe
         return null;
     }
 
-    @Override
-    public OrderComplaintResult addOrderComplain(OrderComplaintAddCmd orderComplaintAddCmd) {
-        return null;
-    }
 
     @Override
     public Boolean updateOrderComplain(OrderComplaintResult orderComplaintResult) {

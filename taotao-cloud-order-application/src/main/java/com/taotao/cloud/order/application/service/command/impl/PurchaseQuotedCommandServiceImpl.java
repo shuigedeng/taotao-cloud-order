@@ -34,14 +34,19 @@ public class PurchaseQuotedCommandServiceImpl implements PurchaseQuotedCommandSe
 
     @Autowired private PurchaseQuotedItemCommandService purchaseQuotedItemService;
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public PurchaseQuotedResult addPurchaseQuoted(PurchaseQuotedResult purchaseQuotedResult) {
-        PurchaseQuotedPO purchaseQuotedPO = new PurchaseQuotedPO();
-        BeanUtils.copyProperties(purchaseQuotedResult, purchaseQuotedPO);
-        this.save(purchaseQuotedPO);
-        purchaseQuotedItemService.addPurchaseQuotedItem(
-            purchaseQuotedPO.getId(), purchaseQuotedResult.getPurchaseQuotedItems());
-        return purchaseQuotedResult;
-    }
+	@Override
+	public PurchaseQuotedResult addPurchaseQuoted( PurchaseQuotedResult purchaseQuotedResult ) {
+		return null;
+	}
+
+//    @Override
+//    @Transactional(rollbackFor = Exception.class)
+//    public PurchaseQuotedResult addPurchaseQuoted(PurchaseQuotedResult purchaseQuotedResult) {
+//        PurchaseQuotedPO purchaseQuotedPO = new PurchaseQuotedPO();
+//        BeanUtils.copyProperties(purchaseQuotedResult, purchaseQuotedPO);
+//        this.save(purchaseQuotedPO);
+//        purchaseQuotedItemService.addPurchaseQuotedItem(
+//            purchaseQuotedPO.getId(), purchaseQuotedResult.getPurchaseQuotedItems());
+//        return purchaseQuotedResult;
+//    }
 }

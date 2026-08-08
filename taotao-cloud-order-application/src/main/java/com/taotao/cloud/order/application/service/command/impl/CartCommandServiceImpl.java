@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.application.dto.cart.TradeDTO;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.CartCommandService;
 import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
@@ -56,8 +55,6 @@ public class CartCommandServiceImpl implements CartCommandService {
 	@Override
 	public void cleanChecked(CartTypeEnum way) {}
 
-	@Override
-	public void resetTradeDTO(TradeDTO tradeDTO) {}
 
 	@Override
 	public void shippingAddress(String shippingAddressId, String way) {}
@@ -71,8 +68,4 @@ public class CartCommandServiceImpl implements CartCommandService {
 	@Override
 	public void selectCoupon(String couponId, String way, boolean use) {}
 
-	@Override
-	public TradeResult createTrade(TradeDTO tradeDTO) {
-		return null;
-	}
 }

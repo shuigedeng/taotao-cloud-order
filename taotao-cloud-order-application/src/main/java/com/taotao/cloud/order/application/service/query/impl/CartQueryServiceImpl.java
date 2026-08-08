@@ -16,7 +16,9 @@
 
 package com.taotao.cloud.order.application.service.query.impl;
 
+import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
 import com.taotao.cloud.order.application.service.query.CartQueryService;
+import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,28 +28,53 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class CartQueryServiceImpl implements CartQueryService {
 
-    @Override
-    public TradeDTO readDTO(CartTypeEnum checkedWay) {
-        return null;
-    }
+	@Override
+	public TradeResult readDTO( CartTypeEnum checkedWay ) {
+		return null;
+	}
 
-    @Override
-    public TradeDTO queryCheckedTradeDTO(CartTypeEnum way) {
-        return null;
-    }
+	@Override
+	public TradeResult queryCheckedTradeDTO( CartTypeEnum way ) {
+		return null;
+	}
 
-    @Override
-    public Long queryCanUseCoupon(CartTypeEnum checkedWay) {
-        return null;
-    }
+	@Override
+	public Long queryCanUseCoupon( CartTypeEnum checkedWay ) {
+		return 0L;
+	}
 
-    @Override
-    public TradeDTO queryAllTradeDTO() {
-        return null;
-    }
+	@Override
+	public TradeResult queryAllTradeDTO() {
+		return null;
+	}
 
-    @Override
-    public Long queryCartNum(Boolean checked) {
-        return null;
-    }
+	@Override
+	public Long queryCartNum( Boolean checked ) {
+		return 0L;
+	}
+
+//    @Override
+//    public TradeDTO readDTO(CartTypeEnum checkedWay) {
+//        return null;
+//    }
+//
+//    @Override
+//    public TradeDTO queryCheckedTradeDTO(CartTypeEnum way) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Long queryCanUseCoupon(CartTypeEnum checkedWay) {
+//        return null;
+//    }
+//
+//    @Override
+//    public TradeDTO queryAllTradeDTO() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Long queryCartNum(Boolean checked) {
+//        return null;
+//    }
 }

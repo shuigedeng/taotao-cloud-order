@@ -24,7 +24,6 @@ import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.dto.order.result.*;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.entity.Order;
-import com.taotao.cloud.order.domain.valobj.Traces;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.application.dto.order.result.OrderResult;
 import java.math.BigDecimal;
@@ -58,7 +57,7 @@ public interface OrderQueryService {
 
     OrderDetailResult queryDetail(String orderSn);
 
-    Traces queryTraces(String orderSn);
+//    Traces queryTraces(String orderSn);
 
     void queryOrderByVerificationCode(String verificationCode);
 

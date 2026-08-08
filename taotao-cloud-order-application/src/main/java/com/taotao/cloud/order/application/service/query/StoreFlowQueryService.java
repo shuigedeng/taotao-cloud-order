@@ -17,9 +17,6 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.store.StoreFlowPageQry;
-import com.taotao.cloud.order.application.dto.store.StorePageQry;
-import com.taotao.cloud.order.application.dto.store.DistributionPageQry;
 import com.taotao.cloud.order.application.dto.store.result.StoreFlowPayDownloadResult;
 import com.taotao.cloud.order.application.dto.store.result.StoreFlowRefundDownloadResult;
 import com.taotao.cloud.order.application.dto.order.result.StoreFlowResult;
@@ -34,18 +31,18 @@ import java.util.List;
  * @since 2022-04-28 08:54:53
  */
 public interface StoreFlowQueryService {
-
-    IPage<StoreFlowResult> queryStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
-
-    StoreFlowResult queryOne(StoreFlowPageQry storeFlowQueryDTO);
-
-    List<StoreFlowPayDownloadResult> queryStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
-
-    List<StoreFlowRefundDownloadResult> queryStoreFlowRefundDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
-
-    IPage<StoreFlowResult> queryStoreFlow(StorePageQry storePageQry);
-
-    IPage<StoreFlowResult> queryDistributionFlow(DistributionPageQry distributionPageQry);
-
-    List<StoreFlowResult> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+//
+//    IPage<StoreFlowResult> queryStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
+//
+//    StoreFlowResult queryOne(StoreFlowPageQry storeFlowQueryDTO);
+//
+//    List<StoreFlowPayDownloadResult> queryStoreFlowPayDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
+//
+//    List<StoreFlowRefundDownloadResult> queryStoreFlowRefundDownloadVO(StoreFlowPageQry storeFlowQueryDTO);
+//
+//    IPage<StoreFlowResult> queryStoreFlow(StorePageQry storePageQry);
+//
+//    IPage<StoreFlowResult> queryDistributionFlow(DistributionPageQry distributionPageQry);
+//
+//    List<StoreFlowResult> listStoreFlow(StoreFlowPageQry storeFlowQueryDTO);
 }

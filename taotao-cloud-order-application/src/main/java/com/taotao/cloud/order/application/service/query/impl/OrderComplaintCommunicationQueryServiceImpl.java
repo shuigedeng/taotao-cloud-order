@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.query.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintCommunicationPageQry;
 import com.taotao.cloud.order.application.service.query.OrderComplaintCommunicationQueryService;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintCommunicationResult;
 import lombok.RequiredArgsConstructor;
@@ -29,9 +28,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class OrderComplaintCommunicationQueryServiceImpl implements OrderComplaintCommunicationQueryService {
 
-    @Override
-    public IPage<OrderComplaintCommunicationResult> queryCommunication(
-            OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
-        return null;
-    }
+//    @Override
+//    public IPage<OrderComplaintCommunicationResult> queryCommunication(
+//            OrderComplaintCommunicationPageQry orderComplaintCommunicationPageQry) {
+//        return null;
+//    }
 }

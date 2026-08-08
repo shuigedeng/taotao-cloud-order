@@ -1,7 +1,6 @@
 package com.taotao.cloud.order.facade.sys.invoker;
 
 import lombok.RequiredArgsConstructor;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Component;
 
 /**

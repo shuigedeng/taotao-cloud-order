@@ -17,5 +17,19 @@
 package com.taotao.cloud.order.domain.repository;
 
 import com.taotao.boot.ddd.model.domain.repository.DomainRepository;
+import com.taotao.cloud.order.domain.aggregate.OrderAgg;
+import com.taotao.cloud.order.domain.valobj.User;
 
-public interface OrderDomainRepository extends DomainRepository {}
+import java.util.Optional;
+
+public interface OrderDomainRepository extends DomainRepository {
+	  void save( OrderAgg it);
+
+    OrderAgg byId(String id);
+
+    Optional<OrderAgg> byIdOptional(String id);
+
+    OrderAgg byIdAndCheckTenantShip(String id, User user);
+
+    void delete( OrderAgg it);
+}

@@ -50,11 +50,11 @@ public class OrderLogManagerController extends BusinessController {
         return Result.success(orderLogQueryService.queryById(id));
     }
 
-    @Operation(summary = "分页获取", description = "分页获取")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/page")
-    public Result<PageResult<OrderLogResult>> queryByPage(OrderLogPageQuery orderLogPageQry) {
-        return Result.success(orderLogQueryService.pageQuery(orderLogPageQry));
-    }
+//    @Operation(summary = "分页获取", description = "分页获取")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/page")
+//    public Result<PageResult<OrderLogResult>> queryByPage(OrderLogPageQuery orderLogPageQry) {
+//        return Result.success(orderLogQueryService.pageQuery(orderLogPageQry));
+//    }
 }

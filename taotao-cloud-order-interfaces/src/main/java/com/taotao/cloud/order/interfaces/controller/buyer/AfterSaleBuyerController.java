@@ -22,7 +22,6 @@ import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.aftersale.command.CreateAfterSaleCommand;
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleAddCommandBuilder;
 import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQuery;
 import com.taotao.cloud.order.application.dto.aftersale.query.SnQuery;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleApplyResult;
@@ -107,10 +106,10 @@ public class AfterSaleBuyerController extends BusinessController {
 	public Result<Void> saveAfterSale(
 			@NotBlank(message = "售后单号不能为空") @PathVariable String orderItemSn,
 			@Validated @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
-		CreateAfterSaleCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
-				.orderItemSn(orderItemSn)
-				.build();
-		afterSaleCommandService.saveAfterSale(cmd);
+//		CreateAfterSaleCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
+//				.orderItemSn(orderItemSn)
+//				.build();
+//		afterSaleCommandService.saveAfterSale(cmd);
 		return Result.success();
 	}
 
@@ -124,9 +123,10 @@ public class AfterSaleBuyerController extends BusinessController {
 			@NotNull(message = "请选择物流公司") @RequestParam String logisticsId,
 			@NotNull(message = "请选择发货时间") @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd")
 			LocalDateTime mDeliverTime) {
-		return Result.success(
-				afterSaleCommandService.buyerDelivery(afterSaleSn, logisticsNo, logisticsId,
-						mDeliverTime));
+//		return Result.success(
+//				afterSaleCommandService.buyerDelivery(afterSaleSn, logisticsNo, logisticsId,
+//						mDeliverTime));
+		return null;
 	}
 
 	@Operation(summary = "售后，取消售后", description = "售后，取消售后")
@@ -156,7 +156,8 @@ public class AfterSaleBuyerController extends BusinessController {
 			@NotBlank(message = "售后类型不能为空") @PathVariable String serviceType) {
 		List<AfterSaleReasonResult> afterSaleReasonResults =
 				afterSaleReasonQueryService.afterSaleReasonList(serviceType);
-		return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonResults));
+//		return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonResults));
+		return null;
 	}
 
 	@Operation(summary = "获取售后日志", description = "获取售后日志")
@@ -166,6 +167,7 @@ public class AfterSaleBuyerController extends BusinessController {
 	public Result<List<AfterSaleLogResult>> queryAfterSaleLog(
 			@NotBlank(message = "售后单号不能为空") @PathVariable String sn) {
 		List<AfterSaleLogResult> afterSaleLogResultList = afterSaleLogQueryService.queryAfterSaleLog(sn);
-		return Result.success(AfterSaleLogAssembler.INSTANCE.convert(afterSaleLogResultList));
+//		return Result.success(AfterSaleLogAssembler.INSTANCE.convert(afterSaleLogResultList));
+		return null;
 	}
 }

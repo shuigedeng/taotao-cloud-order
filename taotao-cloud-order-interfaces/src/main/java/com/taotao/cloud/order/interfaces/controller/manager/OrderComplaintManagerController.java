@@ -63,40 +63,40 @@ public class OrderComplaintManagerController extends BusinessController {
 		return Result.success(orderComplaintQueryService.queryOrderComplainById(id));
     }
 
-    @Operation(summary = "分页获取", description = "分页获取")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/page")
-    public Result<PageResult<OrderComplaintBaseResult>> pageQuery(
-            @Validated OrderComplaintPageQuery orderComplaintPageQry) {
-        PageResult<OrderComplaintBaseResult> page = orderComplaintQueryService.pageQuery(orderComplaintPageQry);
-        return Result.success(page);
-    }
+//    @Operation(summary = "分页获取", description = "分页获取")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/page")
+//    public Result<PageResult<OrderComplaintBaseResult>> pageQuery(
+//            @Validated OrderComplaintPageQuery orderComplaintPageQry) {
+//        PageResult<OrderComplaintBaseResult> page = orderComplaintQueryService.pageQuery(orderComplaintPageQry);
+//        return Result.success(page);
+//    }
 
-    @Operation(summary = "更新数据", description = "更新数据")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping("/{id}")
-	public Result<Void> update(@PathVariable Long id,
-			                          @Validated @RequestBody CreateOrderComplaintCommand orderComplaintAddCmd) {
-		orderComplaintCommandService.updateOrderComplain(id, orderComplaintAddCmd);
-		return Result.success();
-    }
+//    @Operation(summary = "更新数据", description = "更新数据")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping("/{id}")
+//	public Result<Void> update(@PathVariable Long id,
+//			                          @Validated @RequestBody CreateOrderComplaintCommand orderComplaintAddCmd) {
+//		orderComplaintCommandService.updateOrderComplain(id, orderComplaintAddCmd);
+//		return Result.success();
+//    }
 
-    @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping("/communication/{complainId}")
-	public Result<Void> addCommunication(
-			@PathVariable("complainId") Long complainId,
-			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCmd) {
-		String username = SecurityUtils.queryCurrentUser().queryUsername();
-		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
-		orderComplaintCommunicationCommandService.addCommunication(complainId,
-				orderComplaintCommunicationAddCmd, CommunicationOwnerEnum.PLATFORM.name(),
-				username, userId);
-		return Result.success();
-    }
+//    @Operation(summary = "添加交易投诉对话", description = "添加交易投诉对话")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping("/communication/{complainId}")
+//	public Result<Void> addCommunication(
+//			@PathVariable("complainId") Long complainId,
+//			@Validated @RequestBody CreateOrderComplaintCommunicationCommand orderComplaintCommunicationAddCmd) {
+//		String username = SecurityUtils.queryCurrentUser().queryUsername();
+//		Long userId = SecurityUtils.queryCurrentUser().queryUserId();
+//		orderComplaintCommunicationCommandService.addCommunication(complainId,
+//				orderComplaintCommunicationAddCmd, CommunicationOwnerEnum.PLATFORM.name(),
+//				username, userId);
+//		return Result.success();
+//    }
 
     @Operation(summary = "修改状态", description = "修改状态")
     @RequestLogger
@@ -113,12 +113,12 @@ public class OrderComplaintManagerController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/complete/{id}")
 	public Result<Void> complete(@PathVariable Long id, String arbitrationResult) {
-		CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd = CreateOrderComplaintOperationCommand.builder()
-				.complainId(id)
-				.arbitrationResult(arbitrationResult)
-				.complainStatus(OrderComplaintStatusEnum.COMPLETE.name())
-				.build();
-		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
+//		CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd = CreateOrderComplaintOperationCommand.builder()
+//				.complainId(id)
+//				.arbitrationResult(arbitrationResult)
+//				.complainStatus(OrderComplaintStatusEnum.COMPLETE.name())
+//				.build();
+//		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
 		return Result.success();
     }
 }

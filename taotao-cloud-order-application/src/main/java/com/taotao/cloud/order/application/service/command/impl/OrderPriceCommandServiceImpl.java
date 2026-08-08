@@ -16,6 +16,11 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import cn.hutool.json.JSONUtil;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.taotao.boot.common.enums.ResultEnum;
+import com.taotao.boot.common.utils.number.CurrencyUtils;
+import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.cloud.order.application.service.command.OrderPriceCommandService;
 import com.taotao.cloud.order.domain.entity.Order;
 import com.taotao.cloud.order.common.enums.order.PayStatusEnum;
@@ -37,28 +42,28 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
 
-    /**
-     * 线下收款
-     */
-    private final BankTransferPlugin bankTransferPlugin;
-    /**
-     * 订单货物
-     */
-    private final IOrderItemService orderItemService;
-    /**
-     * 交易数据层
-     */
-    private final ITradeService tradeService;
-    /**
-     * 订单
-     */
-    private final IOrderService orderService;
+//    /**
+//     * 线下收款
+//     */
+//    private final BankTransferPlugin bankTransferPlugin;
+//    /**
+//     * 订单货物
+//     */
+//    private final IOrderItemService orderItemService;
+//    /**
+//     * 交易数据层
+//     */
+//    private final ITradeService tradeService;
+//    /**
+//     * 订单
+//     */
+//    private final IOrderService orderService;
 
     @Override
-    @SystemLogPoint(description = "修改订单价格", customerLog = "'订单编号:'+#orderSn" +
-        "'，价格修改为：'+#orderPrice")
-    @OrderLogPoint(description = "'订单['+#orderSn+']修改价格，修改后价格为['+#orderPrice+']'", orderSn =
-        "#orderSn")
+//    @SystemLogPoint(description = "修改订单价格", customerLog = "'订单编号:'+#orderSn" +
+//        "'，价格修改为：'+#orderPrice")
+//    @OrderLogPoint(description = "'订单['+#orderSn+']修改价格，修改后价格为['+#orderPrice+']'", orderSn =
+//        "#orderSn")
 
     /**
      * 更新价格
@@ -71,19 +76,19 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
     public Boolean updatePrice(String orderSn, BigDecimal orderPrice) {
         Order order = updateOrderPrice(orderSn, orderPrice);
 
-        tradeService.updateTradePrice(order.getTradeSn());
+//        tradeService.updateTradePrice(order.getTradeSn());
         return true;
     }
 
     @Override
-    @OrderLogPoint(description = "'管理员操作订单['+#orderSn+']付款'", orderSn = "#orderSn")
+//    @OrderLogPoint(description = "'管理员操作订单['+#orderSn+']付款'", orderSn = "#orderSn")
     public Boolean adminPayOrder(String orderSn) {
-        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
-        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
-            throw new BusinessException(ResultEnum.PAY_BigDecimal_ERROR);
-        }
-
-        bankTransferPlugin.callBack(order);
+//        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
+//        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
+//            throw new BusinessException(ResultEnum.PAY_BigDecimal_ERROR);
+//        }
+//
+//        bankTransferPlugin.callBack(order);
         return true;
     }
 
@@ -91,26 +96,26 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
      * 修改订单价格 1.判定订单是否支付 2.记录订单原始价格信息 3.计算修改的订单金额 4.修改订单价格 5.保存订单信息
      */
     private Order updateOrderPrice(String orderSn, BigDecimal orderPrice) {
-        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
-        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
-            throw new BusinessException(ResultEnum.ORDER_UPDATE_PRICE_ERROR);
-        }
+//        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
+//        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
+//            throw new BusinessException(ResultEnum.ORDER_UPDATE_PRICE_ERROR);
+//        }
+//
+//        PriceDetailDTO orderPriceDetailDTO = order.getPriceDetailDTO();
+//
+//        order.setUpdatePrice(CurrencyUtils.sub(orderPrice, orderPriceDetailDTO.getOriginalPrice()));
+//
+//        orderPriceDetailDTO.setUpdatePrice(CurrencyUtils.sub(orderPrice,
+//            orderPriceDetailDTO.getOriginalPrice()));
+//        order.setFlowPrice(orderPriceDetailDTO.getFlowPrice());
+//        order.setPriceDetail(JSONUtil.toJsonStr(orderPriceDetailDTO));
+//
+//        order.setPriceDetail(JSONUtil.toJsonStr(orderPriceDetailDTO));
+//        orderService.updateById(order);
+//
+//        updateOrderItemPrice(order);
 
-        PriceDetailDTO orderPriceDetailDTO = order.getPriceDetailDTO();
-
-        order.setUpdatePrice(CurrencyUtils.sub(orderPrice, orderPriceDetailDTO.getOriginalPrice()));
-
-        orderPriceDetailDTO.setUpdatePrice(CurrencyUtils.sub(orderPrice,
-            orderPriceDetailDTO.getOriginalPrice()));
-        order.setFlowPrice(orderPriceDetailDTO.getFlowPrice());
-        order.setPriceDetail(JSONUtil.toJsonStr(orderPriceDetailDTO));
-
-        order.setPriceDetail(JSONUtil.toJsonStr(orderPriceDetailDTO));
-        orderService.updateById(order);
-
-        updateOrderItemPrice(order);
-
-        return order;
+        return null;
     }
 
     /**
@@ -118,36 +123,36 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
      * 5.订单实际金额=修改后订单金额-平台佣金-分销提佣
      */
     private void updateOrderItemPrice(Order order) {
-        List<OrderItem> orderItems = orderItemService.getByOrderSn(order.getSn());
-
-        int index = orderItems.size();
-        BigDecimal countUpdatePrice = BigDecimal.ZERO;
-        for (OrderItem orderItem : orderItems) {
-            PriceDetailDTO priceDetailDTO = orderItem.getPriceDetailDTO();
-            index--;
-
-            if (index == 0) {
-                priceDetailDTO.setUpdatePrice(CurrencyUtils.sub(order.getUpdatePrice(), countUpdatePrice));
-                orderItem.setFlowPrice(priceDetailDTO.getFlowPrice());
-                orderItem.setUnitPrice(CurrencyUtils.div(priceDetailDTO.getFlowPrice(),
-                    orderItem.getNum()));
-                orderItem.setPriceDetail(JSONUtil.toJsonStr(priceDetailDTO));
-            } else {
-                BigDecimal priceFluctuationRatio = CurrencyUtils.div(
-                    priceDetailDTO.getOriginalPrice(),
-                    order.getPriceDetailDTO().getOriginalPrice(),
-                    4);
-
-                priceDetailDTO.setUpdatePrice(CurrencyUtils.mul(order.getUpdatePrice(),
-                    priceFluctuationRatio));
-
-                orderItem.setFlowPrice(priceDetailDTO.getFlowPrice());
-                orderItem.setUnitPrice(CurrencyUtils.div(priceDetailDTO.getFlowPrice(),
-                    orderItem.getNum()));
-                orderItem.setPriceDetail(JSONUtil.toJsonStr(priceDetailDTO));
-                countUpdatePrice = CurrencyUtils.add(countUpdatePrice, priceDetailDTO.getUpdatePrice());
-            }
-        }
-        orderItemService.updateBatchById(orderItems);
+//        List<OrderItem> orderItems = orderItemService.getByOrderSn(order.getSn());
+//
+//        int index = orderItems.size();
+//        BigDecimal countUpdatePrice = BigDecimal.ZERO;
+//        for (OrderItem orderItem : orderItems) {
+//            PriceDetailDTO priceDetailDTO = orderItem.getPriceDetailDTO();
+//            index--;
+//
+//            if (index == 0) {
+//                priceDetailDTO.setUpdatePrice(CurrencyUtils.sub(order.getUpdatePrice(), countUpdatePrice));
+//                orderItem.setFlowPrice(priceDetailDTO.getFlowPrice());
+//                orderItem.setUnitPrice(CurrencyUtils.div(priceDetailDTO.getFlowPrice(),
+//                    orderItem.getNum()));
+//                orderItem.setPriceDetail(JSONUtil.toJsonStr(priceDetailDTO));
+//            } else {
+//                BigDecimal priceFluctuationRatio = CurrencyUtils.div(
+//                    priceDetailDTO.getOriginalPrice(),
+//                    order.getPriceDetailDTO().getOriginalPrice(),
+//                    4);
+//
+//                priceDetailDTO.setUpdatePrice(CurrencyUtils.mul(order.getUpdatePrice(),
+//                    priceFluctuationRatio));
+//
+//                orderItem.setFlowPrice(priceDetailDTO.getFlowPrice());
+//                orderItem.setUnitPrice(CurrencyUtils.div(priceDetailDTO.getFlowPrice(),
+//                    orderItem.getNum()));
+//                orderItem.setPriceDetail(JSONUtil.toJsonStr(priceDetailDTO));
+//                countUpdatePrice = CurrencyUtils.add(countUpdatePrice, priceDetailDTO.getUpdatePrice());
+//            }
+//        }
+//        orderItemService.updateBatchById(orderItems);
     }
 }

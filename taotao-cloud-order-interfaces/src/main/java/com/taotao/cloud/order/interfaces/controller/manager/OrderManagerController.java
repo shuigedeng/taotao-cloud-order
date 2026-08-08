@@ -21,7 +21,6 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.order.query.OrderPageQuery;
-import com.taotao.cloud.order.application.dto.order.command.TradeAddCmd;
 import com.taotao.cloud.order.application.dto.order.result.OrderDetailResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderSimpleResult;
@@ -63,14 +62,14 @@ public class OrderManagerController extends BusinessController {
         return Result.success(page);
     }
 
-    @Operation(summary = "查询订单导出列表", description = "查询订单导出列表")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/queryExportOrder")
-    public Result<List<OrderResult>> queryExportOrder(OrderPageQuery orderPageQry) {
-        List<OrderResult> list = orderQueryService.queryExportOrder(orderPageQry);
-        return Result.success(list);
-    }
+//    @Operation(summary = "查询订单导出列表", description = "查询订单导出列表")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/queryExportOrder")
+//    public Result<List<OrderResult>> queryExportOrder(OrderPageQuery orderPageQry) {
+//        List<OrderResult> list = orderQueryService.queryExportOrder(orderPageQry);
+//        return Result.success(list);
+//    }
 
     @Operation(summary = "订单明细", description = "订单明细")
     @RequestLogger
@@ -89,15 +88,15 @@ public class OrderManagerController extends BusinessController {
 		return Result.success();
     }
 
-    @Operation(summary = "修改收货人信息", description = "修改收货人信息")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/{orderSn}/consignee")
-    public Result<OrderResult> consignee(
-            @NotNull(message = "参数非法") @PathVariable String orderSn,
-            @Validated TradeAddCmd.MemberAddressDTO memberAddressDTO) {
-        return Result.success(orderCommandService.updateConsignee(orderSn, memberAddressDTO));
-    }
+//    @Operation(summary = "修改收货人信息", description = "修改收货人信息")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping(value = "/{orderSn}/consignee")
+//    public Result<OrderResult> consignee(
+//            @NotNull(message = "参数非法") @PathVariable String orderSn,
+//            @Validated TradeAddCmd.MemberAddressDTO memberAddressDTO) {
+//        return Result.success(orderCommandService.updateConsignee(orderSn, memberAddressDTO));
+//    }
 
     @Operation(summary = "修改订单价格", description = "修改订单价格")
     @RequestLogger
@@ -117,12 +116,12 @@ public class OrderManagerController extends BusinessController {
         return Result.success(orderCommandService.cancel(orderSn, reason));
     }
 
-    @Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/traces/{orderSn}")
-    public Result<?> queryTraces(
-            @jakarta.validation.constraints.NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
-		return Result.success(orderQueryService.queryTraces(orderSn));
-    }
+//    @Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @PostMapping(value = "/traces/{orderSn}")
+//    public Result<?> queryTraces(
+//            @jakarta.validation.constraints.NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
+//		return Result.success(orderQueryService.queryTraces(orderSn));
+//    }
 }

@@ -32,5 +32,5 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class TradeDomainServiceImpl implements TradeDomainService {
 
-    private TradeDomainRepository deptDomainRepository;
+//    private TradeDomainRepository deptDomainRepository;
 }

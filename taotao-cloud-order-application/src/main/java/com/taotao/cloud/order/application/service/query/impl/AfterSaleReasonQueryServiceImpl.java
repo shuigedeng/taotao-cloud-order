@@ -16,24 +16,28 @@
 
 package com.taotao.cloud.order.application.service.query.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.taotao.cloud.order.application.dto.aftersale.query.AfterSaleReasonPageQuery;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleReasonResult;
 import com.taotao.cloud.order.application.service.query.AfterSaleReasonQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleReasonQueryServiceImpl implements AfterSaleReasonQueryService {
 
-    @Override
-    public List<AfterSaleReasonResult> afterSaleReasonList(String serviceType) {
-        return List.of();
-    }
+	@Override
+	public List<AfterSaleReasonResult> afterSaleReasonList( String serviceType ) {
+		return List.of();
+	}
 
-    @Override
-    public IPage<AfterSaleReasonResult> pageQuery(AfterSaleReasonPageQuery afterSaleReasonPageQuery) {
-        return null;
-    }
+	@Override
+	public IPage<AfterSaleReasonResult> pageQuery( AfterSaleReasonPageQuery afterSaleReasonPageQuery ) {
+		return null;
+	}
 }

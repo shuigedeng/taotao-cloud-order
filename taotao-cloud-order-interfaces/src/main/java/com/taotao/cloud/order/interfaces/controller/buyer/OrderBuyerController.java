@@ -55,14 +55,14 @@ public class OrderBuyerController extends BusinessController {
 	private final OrderQueryService orderQueryService;
 	private final OrderCommandService orderCommandService;
 
-	@Operation(summary = "查询会员订单列表", description = "查询会员订单列表")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/page")
-	public Result<PageResult<OrderSimpleResult>> queryMineOrder(OrderPageQuery orderPageQuery) {
-		orderPageQuery.setMemberId(SecurityUtils.queryCurrentUser().queryUserId());
-		return Result.success(MpUtils.convertMpPage(orderQueryService.pageQuery(orderPageQuery), OrderSimpleResult.class));
-	}
+//	@Operation(summary = "查询会员订单列表", description = "查询会员订单列表")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@GetMapping("/page")
+//	public Result<PageResult<OrderSimpleResult>> queryMineOrder(OrderPageQuery orderPageQuery) {
+//		orderPageQuery.setMemberId(SecurityUtils.queryCurrentUser().queryUserId());
+//		return Result.success(MpUtils.convertMpPage(orderQueryService.pageQuery(orderPageQuery), OrderSimpleResult.class));
+//	}
 
 	@Operation(summary = "订单明细", description = "订单明细")
 	@RequestLogger
@@ -74,21 +74,21 @@ public class OrderBuyerController extends BusinessController {
 		return Result.success(orderDetailResult);
 	}
 
-	@Operation(summary = "确认收货", description = "确认收货")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/{orderSn}/receiving")
-	public Result<Void> receiving(@NotNull(message = "订单编号不能为空") @PathVariable("orderSn") String orderSn) {
-		Order order = orderQueryService.queryBySn(orderSn);
-		if (order == null) {
-			throw new BusinessException(ResultEnum.ORDER_NOT_EXIST);
-		}
-		if (!order.queryOrderStatus().equals(OrderStatusEnum.DELIVERED.name())) {
-			throw new BusinessException(ResultEnum.ORDER_DELIVERED_ERROR);
-		}
-		orderCommandService.complete(orderSn);
-		return Result.success();
-	}
+//	@Operation(summary = "确认收货", description = "确认收货")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping(value = "/{orderSn}/receiving")
+//	public Result<Void> receiving(@NotNull(message = "订单编号不能为空") @PathVariable("orderSn") String orderSn) {
+//		Order order = orderQueryService.queryBySn(orderSn);
+//		if (order == null) {
+//			throw new BusinessException(ResultEnum.ORDER_NOT_EXIST);
+//		}
+//		if (!order.queryOrderStatus().equals(OrderStatusEnum.DELIVERED.name())) {
+//			throw new BusinessException(ResultEnum.ORDER_DELIVERED_ERROR);
+//		}
+//		orderCommandService.complete(orderSn);
+//		return Result.success();
+//	}
 
 	@Operation(summary = "取消订单", description = "取消订单")
 	@RequestLogger
@@ -109,14 +109,14 @@ public class OrderBuyerController extends BusinessController {
 		return Result.success();
 	}
 
-	@Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/traces/{orderSn}")
-	public Result<Traces> queryTraces(@NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
-		OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
-		return Result.success(orderQueryService.queryTraces(orderSn));
-	}
+//	@Operation(summary = "查询物流踪迹", description = "查询物流踪迹")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping(value = "/traces/{orderSn}")
+//	public Result<Traces> queryTraces(@NotBlank(message = "订单编号不能为空") @PathVariable String orderSn) {
+//		OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
+//		return Result.success(orderQueryService.queryTraces(orderSn));
+//	}
 
 	@Operation(summary = "开票", description = "开票")
 	@RequestLogger

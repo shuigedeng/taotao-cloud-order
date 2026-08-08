@@ -18,10 +18,7 @@ package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderResponse;
-import com.taotao.cloud.order.application.dto.order.command.MemberAddressDTO;
 import com.taotao.cloud.order.application.dto.order.command.RequestInvoiceCommand;
-import com.taotao.cloud.order.application.dto.order.command.TradeDTO;
-import com.taotao.cloud.order.application.dto.order.command.OrderMessage;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.domain.valobj.delivery.Delivery;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
@@ -59,7 +56,7 @@ public interface OrderCommandService {
 
     OrderResult cancel(String orderSn, String reason);
 
-    OrderResult updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
+//    OrderResult updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO);
 
     OrderResult delivery(String orderSn, String invoiceNumber, Long logisticsId);
 
@@ -79,7 +76,7 @@ public interface OrderCommandService {
 
     void batchDeliver(MultipartFile files);
 
-    void sendUpdateStatusMessage(OrderMessage orderMessage);
-
-    void intoDB(TradeDTO tradeDTO);
+//    void sendUpdateStatusMessage(OrderMessage orderMessage);
+//
+//    void intoDB(TradeDTO tradeDTO);
 }

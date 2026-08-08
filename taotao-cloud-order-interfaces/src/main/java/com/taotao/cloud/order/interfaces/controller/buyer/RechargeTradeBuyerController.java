@@ -19,8 +19,6 @@ package com.taotao.cloud.order.interfaces.controller.buyer;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.member.api.inner.IFeignMemberRechargeApi;
-import com.taotao.cloud.member.api.inner.response.MemberRechargeApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Max;
@@ -40,17 +38,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/buyer/order/recharge")
 public class RechargeTradeBuyerController extends BusinessController {
 
-	private final IFeignMemberRechargeApi memberRechargeApi;
+//	private final IFeignMemberRechargeApi memberRechargeApi;
 
-	@Operation(summary = "创建余额充值订单", description = "创建余额充值订单")
-	@RequestLogger
-	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
-	public Result<MemberRechargeApiResponse> create(
-			@Max(value = 10000, message = "充值金额单次最多允许充值10000元")
-			@Min(value = 1, message = "充值金额单次最少充值金额为1元")
-			BigDecimal price) {
-		MemberRechargeApiResponse recharge = this.memberRechargeApi.recharge(price);
-		return Result.success(recharge);
-	}
+//	@Operation(summary = "创建余额充值订单", description = "创建余额充值订单")
+//	@RequestLogger
+//	@PreAuthorize("hasAuthority('dept:tree:data')")
+//	@PostMapping
+//	public Result<MemberRechargeApiResponse> create(
+//			@Max(value = 10000, message = "充值金额单次最多允许充值10000元")
+//			@Min(value = 1, message = "充值金额单次最少充值金额为1元")
+//			BigDecimal price) {
+//		MemberRechargeApiResponse recharge = this.memberRechargeApi.recharge(price);
+//		return Result.success(recharge);
+//	}
 }

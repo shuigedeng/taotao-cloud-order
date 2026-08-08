@@ -19,7 +19,6 @@ package com.taotao.cloud.order.interfaces.controller.manager;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.service.RefundLogService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/manager/order/refund/log")
 public class RefundLogManagerController extends BusinessController {
 
-    private final RefundLogService refundLogService;
+//    private final RefundLogService refundLogService;
 
     @Operation(summary = "查看退款日志详情", description = "查看退款日志详情")
     @RequestLogger

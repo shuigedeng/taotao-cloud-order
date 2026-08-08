@@ -18,14 +18,11 @@ package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderCommand;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderResponse;
-import com.taotao.cloud.order.application.dto.order.command.MemberAddressDTO;
-import com.taotao.cloud.order.application.dto.order.command.OrderMessage;
 import com.taotao.cloud.order.application.dto.order.command.RequestInvoiceCommand;
-import com.taotao.cloud.order.application.dto.order.command.TradeDTO;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import com.taotao.cloud.order.domain.aggregate.OrderAgg;
 import com.taotao.cloud.order.domain.factory.OrderFactory;
-import com.taotao.cloud.order.domain.repository.OrderRepository;
+import com.taotao.cloud.order.domain.repository.OrderDomainRepository;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.domain.valobj.delivery.Delivery;
 import com.taotao.cloud.order.domain.valobj.detail.Tenant;
@@ -50,7 +47,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	private static final String ORDER_SN_COLUMN = "order_sn";
 
 	private final OrderFactory orderFactory;
-	private final OrderRepository orderRepository;
+	private final OrderDomainRepository orderRepository;
 
 	@Transactional
 
@@ -279,10 +276,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		return null;
 	}
 
-	@Override
-	public OrderResult updateConsignee(String orderSn, MemberAddressDTO memberAddressDTO) {
-		return null;
-	}
 
 	@Override
 	public OrderResult delivery(String orderSn, String invoiceNumber, Long logisticsId) {
@@ -329,13 +322,4 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 
 	}
 
-	@Override
-	public void sendUpdateStatusMessage(OrderMessage orderMessage) {
-
-	}
-
-	@Override
-	public void intoDB(TradeDTO tradeDTO) {
-
-	}
 }

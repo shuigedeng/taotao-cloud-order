@@ -16,7 +16,6 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.application.dto.aftersale.command.AfterSaleAddCmd;
 import com.taotao.cloud.order.application.service.command.AfterSaleCommandService;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 import java.math.BigDecimal;
@@ -37,8 +36,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class AfterSaleCommandServiceImpl implements AfterSaleCommandService {
 
-	@Override
-	public void saveAfterSale(AfterSaleAddCmd afterSaleAddCmd) {}
 
 	@Override
 	public void review(String afterSaleSn, String serviceStatus, String remark,

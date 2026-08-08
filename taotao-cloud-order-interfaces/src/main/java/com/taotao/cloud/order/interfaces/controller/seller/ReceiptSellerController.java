@@ -47,15 +47,15 @@ public class ReceiptSellerController extends BusinessController {
 
     private final ReceiptQueryService receiptQueryService;
     private final ReceiptCommandService receiptCommandService;
-
-    @Operation(summary = "分页获取", description = "分页获取")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/page")
-    public Result<PageResult<CreateOrderReceiptCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
-        receiptPageQry.setStoreId(SecurityUtils.queryCurrentUser().queryStoreId());
-        return Result.success(receiptQueryService.pageQuery(receiptPageQry));
-    }
+//
+//    @Operation(summary = "分页获取", description = "分页获取")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/page")
+//    public Result<PageResult<CreateOrderReceiptCommand>> queryByPage(ReceiptPageQuery receiptPageQry) {
+//        receiptPageQry.setStoreId(SecurityUtils.queryCurrentUser().queryStoreId());
+//        return Result.success(receiptQueryService.pageQuery(receiptPageQry));
+//    }
 
     @Operation(summary = "通过id获取", description = "通过id获取")
     @RequestLogger

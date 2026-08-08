@@ -61,25 +61,25 @@ public class AfterSaleSellerController extends BusinessController {
         return Result.success(afterSale);
     }
 
-    @Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/page")
-    public Result<PageResult<AfterSaleResult>> queryByPage(AfterSalePageQuery searchParams) {
-        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
-        searchParams.setStoreId(storeId);
-        return Result.success(afterSaleQueryService.pageQuery(searchParams));
-    }
+//    @Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/page")
+//    public Result<PageResult<AfterSaleResult>> queryByPage(AfterSalePageQuery searchParams) {
+//        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
+//        searchParams.setStoreId(storeId);
+//        return Result.success(afterSaleQueryService.pageQuery(searchParams));
+//    }
 
-    @Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/exportAfterSaleOrder")
-    public Result<List<AfterSaleResult>> exportAfterSaleOrder(AfterSalePageQuery searchParams) {
-        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
-        searchParams.setStoreId(storeId);
-        return Result.success(afterSaleQueryService.exportAfterSaleOrder(searchParams));
-    }
+//    @Operation(summary = "获取导出售后服务列表列表", description = "获取导出售后服务列表列表")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping(value = "/exportAfterSaleOrder")
+//    public Result<List<AfterSaleResult>> exportAfterSaleOrder(AfterSalePageQuery searchParams) {
+//        Long storeId = SecurityUtils.queryCurrentUser().queryStoreId();
+//        searchParams.setStoreId(storeId);
+//        return Result.success(afterSaleQueryService.exportAfterSaleOrder(searchParams));
+//    }
 
     @Operation(summary = "审核售后申请", description = "审核售后申请")
     @RequestLogger

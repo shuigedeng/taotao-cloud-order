@@ -17,7 +17,6 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
-import com.taotao.cloud.order.application.dto.cart.TradeDTO;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
 import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
@@ -45,7 +44,7 @@ public interface CartCommandService extends CommandService {
 
     void cleanChecked(CartTypeEnum way);
 
-    void resetTradeDTO(TradeDTO tradeDTO);
+//    void resetTradeDTO(TradeDTO tradeDTO);
 
     void shippingAddress(String shippingAddressId, String way);
 
@@ -55,5 +54,5 @@ public interface CartCommandService extends CommandService {
 
     void selectCoupon(String couponId, String way, boolean use);
 
-    TradeResult createTrade(TradeDTO tradeDTO);
+//    TradeResult createTrade(TradeDTO tradeDTO);
 }

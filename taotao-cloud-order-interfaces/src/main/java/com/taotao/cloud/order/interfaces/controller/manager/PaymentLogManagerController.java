@@ -39,12 +39,12 @@ public class PaymentLogManagerController extends BusinessController {
 
     private final OrderCommandService orderCommandService;
 
-    @Operation(summary = "分页获取支付日志", description = "分页获取支付日志")
-    @RequestLogger
-    @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping("/tree")
-    public Result<PaymentLogResult> queryByPage() {
-        // TODO: implement with proper query service
-        return Result.success(null);
-    }
+//    @Operation(summary = "分页获取支付日志", description = "分页获取支付日志")
+//    @RequestLogger
+//    @PreAuthorize("hasAuthority('dept:tree:data')")
+//    @GetMapping("/tree")
+//    public Result<PaymentLogResult> queryByPage() {
+//        // TODO: implement with proper query service
+//        return Result.success(null);
+//    }
 }

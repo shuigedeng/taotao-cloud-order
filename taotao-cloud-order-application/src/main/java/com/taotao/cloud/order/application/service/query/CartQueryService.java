@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.order.application.service.query;
 
-import com.taotao.cloud.order.application.dto.cart.TradeDTO;
+import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
 import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
 
 /**
@@ -28,13 +28,13 @@ import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
  */
 public interface CartQueryService {
 
-    TradeDTO readDTO(CartTypeEnum checkedWay);
+    TradeResult readDTO(CartTypeEnum checkedWay);
 
-    TradeDTO queryCheckedTradeDTO(CartTypeEnum way);
+	TradeResult queryCheckedTradeDTO(CartTypeEnum way);
 
     Long queryCanUseCoupon(CartTypeEnum checkedWay);
 
-    TradeDTO queryAllTradeDTO();
+	TradeResult queryAllTradeDTO();
 
     Long queryCartNum(Boolean checked);
 }
