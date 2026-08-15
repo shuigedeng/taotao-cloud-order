@@ -5,15 +5,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 
-@RecordBuilder
-@Schema(description = "店铺售后收件地址")
-
 /**
  * StoreAfterSaleAddressResult 方法
  *
  * @return 记录
  * @since 2022.03
  */
+@RecordBuilder
+@Schema(description = "店铺售后收件地址")
 public record StoreAfterSaleAddressResult(
         @Schema(description = "收货人姓名")
         String salesConsigneeName,
@@ -30,3 +29,4 @@ public record StoreAfterSaleAddressResult(
     @Serial
     private static final long serialVersionUID = 8808470688518188146L;
 }
+

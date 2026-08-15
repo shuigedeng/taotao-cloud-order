@@ -52,9 +52,6 @@ public class AlipayNotifyController extends BusinessController {
 	}
 
 
-	@Operation(summary = "支付宝退款状态通知", description = "支付宝退款异步通知")
-	@PostMapping("/refund")
-
 	/**
 	 * 退款
 	 *
@@ -62,8 +59,11 @@ public class AlipayNotifyController extends BusinessController {
 	 * @return 字符串
 	 * @since 2022.03
 	 */
+	@Operation(summary = "支付宝退款状态通知", description = "支付宝退款异步通知")
+	@PostMapping("/refund")
 	public String refundNotify(@Validated @RequestBody CreateAfterSaleCommand brand) {
 		// 处理退款通知
 		return "success";
 	}
 }
+

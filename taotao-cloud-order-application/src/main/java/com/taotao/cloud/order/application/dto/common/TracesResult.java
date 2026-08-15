@@ -5,15 +5,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
 
-@RecordBuilder
-@Schema(description = "物流踪迹结果")
-
 /**
  * TracesResult 方法
  *
  * @return 记录
  * @since 2022.03
  */
+@RecordBuilder
+@Schema(description = "物流踪迹结果")
 public record TracesResult(
         @Schema(description = "物流公司")
         String shipper,
@@ -26,3 +25,4 @@ public record TracesResult(
     @Serial
     private static final long serialVersionUID = 8808470688518188146L;
 }
+

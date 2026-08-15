@@ -49,8 +49,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	private final OrderFactory orderFactory;
 	private final OrderDomainRepository orderRepository;
 
-	@Transactional
-
 	/**
 	 * 创建订单
 	 *
@@ -59,6 +57,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return CreateOrderResponse
 	 * @since 2022.03
 	 */
+	@Transactional
 	public CreateOrderResponse createOrder( CreateOrderCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -79,8 +78,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 			.build();
 	}
 
-	@Transactional
-
 	/**
 	 * 请求发票
 	 *
@@ -90,6 +87,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void requestInvoice( String orderId, RequestInvoiceCommand command, User user ) {
 		user.checkIsTenantAdmin();
 
@@ -99,8 +97,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		orderRepository.save(order);
 		log.info("Requested invoice for order[{}].", orderId);
 	}
-
-	@Transactional
 
 	/**
 	 * 微信支付
@@ -112,6 +108,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void wxPay( String orderId, String wxTxnId, Instant paidAt, User user ) {
 		orderRepository
 			.byIdOptional(orderId)
@@ -132,8 +129,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 				});
 	}
 
-	@Transactional
-
 	/**
 	 * 微信转账
 	 *
@@ -144,6 +139,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void wxTransferPay(
 		String orderId, List<UploadedFile> screenShots, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -159,8 +155,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		log.info("Order[{}] WxTransfer info updated.", orderId);
 	}
 
-	@Transactional
-
 	/**
 	 * 银行转账
 	 *
@@ -172,6 +166,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void bankTransferPay(
 		String orderId, String accountId, String bankName, Instant paidAt, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
@@ -187,8 +182,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 		log.info("Order[{}] Bank transfer updated with account[{}].", orderId, accountId);
 	}
 
-	@Transactional
-
 	/**
 	 * 更新配送
 	 *
@@ -198,14 +191,13 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void updateDelivery( String orderId, Delivery delivery, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.updateDelivery(delivery, user);
 		orderRepository.save(order);
 		log.info("Order[{}] delivery info updated.", orderId);
 	}
-
-	@Transactional
 
 	/**
 	 * 签发发票
@@ -216,14 +208,13 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void issueInvoice( String orderId, List<UploadedFile> files, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.issueInvoice(files, user);
 		orderRepository.save(order);
 		log.info("Order[{}] invoice issued.", orderId);
 	}
-
-	@Transactional
 
 	/**
 	 * 退款
@@ -234,14 +225,13 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void refund( String orderId, String reason, User user ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		order.refund(reason, user);
 		orderRepository.save(order);
 		log.info("Order[{}] refunded.", orderId);
 	}
-
-	@Transactional
 
 	/**
 	 * 删除
@@ -250,6 +240,7 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @return 无返回值
 	 * @since 2022.03
 	 */
+	@Transactional
 	public void delete( String orderId ) {
 		OrderAgg order = orderRepository.byId(orderId);
 		orderRepository.delete(order);
@@ -323,3 +314,4 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	}
 
 }
+

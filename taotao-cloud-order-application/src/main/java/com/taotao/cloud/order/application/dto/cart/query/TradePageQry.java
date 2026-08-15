@@ -46,8 +46,8 @@
 // * @since 2022-04-28 09:17:07
 // */
 //@Setter
-@Getter
-@ToString
+//@Getter
+//@ToString
 //
 //@AllArgsConstructor
 //@Schema(description = "购物车视图")

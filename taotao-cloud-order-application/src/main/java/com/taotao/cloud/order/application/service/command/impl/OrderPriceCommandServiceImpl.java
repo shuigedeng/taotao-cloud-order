@@ -63,7 +63,6 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
 //        "'，价格修改为：'+#orderPrice")
 //    @OrderLogPoint(description = "'订单['+#orderSn+']修改价格，修改后价格为['+#orderPrice+']'", orderSn =
 //        "#orderSn")
-    @Override
 
     /**
      * 更新价格
@@ -73,6 +72,7 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
      * @return 是否成功
      * @since 2022.03
      */
+    @Override
     public Boolean updatePrice(String orderSn, BigDecimal orderPrice) {
         Order order = updateOrderPrice(orderSn, orderPrice);
 
@@ -156,3 +156,4 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
 //        orderItemService.updateBatchById(orderItems);
     }
 }
+
