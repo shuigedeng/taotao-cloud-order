@@ -16,21 +16,13 @@
 
 package com.taotao.cloud.order.interfaces.controller.buyer;
 
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.data.mybatis.mybatisplus.MpUtils;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.query.OrderPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.OrderDetailResult;
-import com.taotao.cloud.order.application.dto.order.result.OrderSimpleResult;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
-import com.taotao.cloud.order.common.enums.order.OrderStatusEnum;
-import com.taotao.cloud.order.domain.entity.Order;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotBlank;
@@ -50,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "买家端-订单API", description = "买家端-订单API")
 @RequestMapping("/buyer/order/order")
-public class OrderBuyerController extends BusinessController {
+public class BuyerOrderController extends BusinessController {
 
 	private final OrderQueryService orderQueryService;
 	private final OrderCommandService orderCommandService;

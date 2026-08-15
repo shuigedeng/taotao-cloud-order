@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.manager;
+package com.taotao.cloud.order.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
@@ -44,8 +44,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-售后管理API", description = "管理端-售后管理API")
-@RequestMapping("/manager/order/aftersale")
-public class AfterSaleManagerController extends BusinessController {
+@RequestMapping("/admin/order/aftersale")
+public class AdminAfterSaleController extends BusinessController {
 
     private final AfterSaleCommandService afterSaleCommandService;
     private final AfterSaleQueryService afterSaleQueryService;

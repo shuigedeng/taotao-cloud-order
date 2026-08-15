@@ -24,7 +24,7 @@ import com.taotao.cloud.order.application.dto.order.result.OrderSimpleResult;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import com.taotao.cloud.order.domain.entity.Order;
-import com.taotao.cloud.order.interfaces.controller.buyer.OrderBuyerController;
+import com.taotao.cloud.order.interfaces.controller.buyer.BuyerOrderController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -55,7 +55,7 @@ class OrderBuyerControllerTest {
     private OrderCommandService orderCommandService;
 
     @InjectMocks
-    private OrderBuyerController orderBuyerController;
+    private BuyerOrderController orderBuyerController;
 
     @Mock
     private Order order;

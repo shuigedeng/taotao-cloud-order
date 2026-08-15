@@ -45,7 +45,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/orders")
-public class OrderSellerController extends BusinessController {
+public class SellerOrderController extends BusinessController {
 
     private final OrderQueryService orderQueryService;
     private final OrderCommandService orderCommandService;

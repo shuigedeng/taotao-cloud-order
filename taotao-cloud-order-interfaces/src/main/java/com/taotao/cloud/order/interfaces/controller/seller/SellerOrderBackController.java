@@ -31,7 +31,6 @@ import com.taotao.cloud.order.application.service.command.OrderPriceCommandServi
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
@@ -53,7 +52,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @Tag(name = "店铺端-订单API", description = "店铺端-订单API")
 @RequestMapping("/seller/order/order")
-public class OrderBackSellerController extends BusinessController {
+public class SellerOrderBackController extends BusinessController {
 
     private final OrderQueryService orderQueryService;
     private final OrderCommandService orderCommandService;

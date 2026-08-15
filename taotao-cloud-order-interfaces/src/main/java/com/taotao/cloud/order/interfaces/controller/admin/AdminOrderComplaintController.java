@@ -14,24 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.manager;
+package com.taotao.cloud.order.interfaces.controller.admin;
 
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommand;
-import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintCommunicationCommand;
 import com.taotao.cloud.order.application.dto.order.command.CreateOrderComplaintOperationCommand;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
-import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
 import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
-import com.taotao.cloud.order.common.enums.order.CommunicationOwnerEnum;
-import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -48,8 +40,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-交易投诉管理API", description = "管理端-交易投诉管理API")
-@RequestMapping("/manager/order/order/complain")
-public class OrderComplaintManagerController extends BusinessController {
+@RequestMapping("/admin/order/order/complain")
+public class AdminOrderComplaintController extends BusinessController {
 
     private final OrderComplaintQueryService orderComplaintQueryService;
     private final OrderComplaintCommandService orderComplaintCommandService;

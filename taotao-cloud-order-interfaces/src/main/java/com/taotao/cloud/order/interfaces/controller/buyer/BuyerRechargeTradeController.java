@@ -16,18 +16,10 @@
 
 package com.taotao.cloud.order.interfaces.controller.buyer;
 
-import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.webagg.controller.BusinessController;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import java.math.BigDecimal;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "买家端-预存款充值记录API", description = "买家端-预存款充值记录API")
 @RequestMapping("/buyer/order/recharge")
-public class RechargeTradeBuyerController extends BusinessController {
+public class BuyerRechargeTradeController extends BusinessController {
 
 //	private final IFeignMemberRechargeApi memberRechargeApi;
 

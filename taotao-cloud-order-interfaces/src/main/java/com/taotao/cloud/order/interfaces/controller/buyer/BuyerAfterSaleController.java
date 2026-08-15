@@ -64,7 +64,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "买家端-售后API", description = "买家端-售后API")
 @RequestMapping("/buyer/order/aftersale")
-public class AfterSaleBuyerController extends BusinessController {
+public class BuyerAfterSaleController extends BusinessController {
 
 	private final AfterSaleCommandService afterSaleCommandService;
 	private final AfterSaleQueryService afterSaleQueryService;

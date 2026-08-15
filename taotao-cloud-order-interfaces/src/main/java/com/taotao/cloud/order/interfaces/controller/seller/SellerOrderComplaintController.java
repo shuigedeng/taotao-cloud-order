@@ -16,15 +16,11 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.order.command.*;
-import com.taotao.cloud.order.application.dto.order.query.OrderComplaintPageQuery;
-import com.taotao.cloud.order.application.dto.order.result.OrderComplaintBaseResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderComplaintResult;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommandService;
 import com.taotao.cloud.order.application.service.command.OrderComplaintCommunicationCommandService;
@@ -46,7 +42,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-交易投诉API", description = "店铺端-交易投诉API")
 @RequestMapping("/seller/order/order/complain")
-public class OrderComplaintSellerController extends BusinessController {
+public class SellerOrderComplaintController extends BusinessController {
 
     private final OrderComplaintQueryService orderComplaintQueryService;
     private final OrderComplaintCommandService orderComplaintCommandService;

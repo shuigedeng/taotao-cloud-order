@@ -16,13 +16,10 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.aftersale.query.AfterSalePageQuery;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 import com.taotao.cloud.order.application.dto.aftersale.result.StoreAfterSaleAddressResult;
 import com.taotao.cloud.order.application.service.command.AfterSaleCommandService;
@@ -31,7 +28,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -46,7 +43,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-售后API", description = "店铺端-售后API")
 @RequestMapping("/seller/order/aftersale")
-public class AfterSaleSellerController extends BusinessController {
+public class SellerAfterSaleController extends BusinessController {
 
     private final AfterSaleQueryService afterSaleQueryService;
     private final AfterSaleCommandService afterSaleCommandService;

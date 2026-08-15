@@ -14,17 +14,18 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.manager;
+package com.taotao.cloud.order.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
+import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.query.OrderLogPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.OrderLogResult;
 import com.taotao.cloud.order.application.service.query.OrderLogQueryService;
+import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -36,25 +37,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "管理端-订单日志管理API", description = "管理端-订单日志管理API")
-@RequestMapping("/manager/order/order/log")
-public class OrderLogManagerController extends BusinessController {
+@Tag(name = "店铺端-订单日志API", description = "店铺端-订单日志API")
+@RequestMapping("/seller/order/order/log")
+public class SellerOrderLogController extends BusinessController {
 
+    private final OrderQueryService orderQueryService;
     private final OrderLogQueryService orderLogQueryService;
 
-    @Operation(summary = "通过id获取", description = "通过id获取")
+    @Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{id}")
-    public Result<OrderLogResult> query(@PathVariable String id) {
-        return Result.success(orderLogQueryService.queryById(id));
+    @GetMapping(value = "/{orderSn}")
+    public Result<List<OrderLogResult>> query(@PathVariable String orderSn) {
+        OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
+        return Result.success(orderLogQueryService.queryOrderLog(orderSn));
     }
-
-//    @Operation(summary = "分页获取", description = "分页获取")
-//    @RequestLogger
-//    @PreAuthorize("hasAuthority('dept:tree:data')")
-//    @GetMapping(value = "/page")
-//    public Result<PageResult<OrderLogResult>> queryByPage(OrderLogPageQuery orderLogPageQry) {
-//        return Result.success(orderLogQueryService.pageQuery(orderLogPageQry));
-//    }
 }

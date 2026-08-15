@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.manager;
+package com.taotao.cloud.order.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
@@ -31,7 +31,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -46,8 +46,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @Tag(name = "管理端-订单管理API", description = "管理端-订单管理API")
-@RequestMapping("/manager/order/order")
-public class OrderManagerController extends BusinessController {
+@RequestMapping("/admin/order/order")
+public class AdminOrderController extends BusinessController {
 
     private final OrderQueryService orderQueryService;
     private final OrderCommandService orderCommandService;

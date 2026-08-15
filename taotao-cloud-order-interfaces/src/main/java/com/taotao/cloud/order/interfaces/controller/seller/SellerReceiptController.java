@@ -16,14 +16,10 @@
 
 package com.taotao.cloud.order.interfaces.controller.seller;
 
-import com.taotao.boot.common.model.result.PageResult;
 import com.taotao.boot.common.model.result.Result;
-import com.taotao.boot.security.spring.support.utils.SecurityUtils;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.command.CreateOrderReceiptCommand;
-import com.taotao.cloud.order.application.dto.order.query.ReceiptPageQuery;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.ReceiptCommandService;
 import com.taotao.cloud.order.application.service.query.ReceiptQueryService;
@@ -43,7 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Tag(name = "店铺端-发票API", description = "店铺端-发票API")
 @RequestMapping("/seller/order/receipt")
-public class ReceiptSellerController extends BusinessController {
+public class SellerReceiptController extends BusinessController {
 
     private final ReceiptQueryService receiptQueryService;
     private final ReceiptCommandService receiptCommandService;

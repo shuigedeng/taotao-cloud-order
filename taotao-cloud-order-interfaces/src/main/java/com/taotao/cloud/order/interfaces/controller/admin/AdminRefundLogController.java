@@ -14,18 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.seller;
+package com.taotao.cloud.order.interfaces.controller.admin;
 
 import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.order.result.OrderLogResult;
-import com.taotao.cloud.order.application.service.query.OrderLogQueryService;
-import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -37,19 +32,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @Validated
 @RestController
-@Tag(name = "店铺端-订单日志API", description = "店铺端-订单日志API")
-@RequestMapping("/seller/order/order/log")
-public class OrderLogSellerController extends BusinessController {
+@Tag(name = "管理端-退款日志管理API", description = "管理端-退款日志管理API")
+@RequestMapping("/admin/order/refund/log")
+public class AdminRefundLogController extends BusinessController {
 
-    private final OrderQueryService orderQueryService;
-    private final OrderLogQueryService orderLogQueryService;
+//    private final RefundLogService refundLogService;
 
-    @Operation(summary = "通过订单编号获取订单日志", description = "通过订单编号获取订单日志")
+    @Operation(summary = "查看退款日志详情", description = "查看退款日志详情")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{orderSn}")
-    public Result<List<OrderLogResult>> query(@PathVariable String orderSn) {
-        OperationalJudgment.judgment(orderQueryService.queryBySn(orderSn));
-        return Result.success(orderLogQueryService.queryOrderLog(orderSn));
+    @GetMapping("/{id}")
+    public Result<?> query(@PathVariable String id) {
+        // TODO: implement with proper query service
+        return Result.success(null);
+    }
+
+    @Operation(summary = "分页获取退款日志", description = "分页获取退款日志")
+    @RequestLogger
+    @PreAuthorize("hasAuthority('dept:tree:data')")
+    @GetMapping("/tree")
+    public Result<?> queryByPage() {
+        // TODO: implement with proper query service
+        return Result.success(null);
     }
 }
