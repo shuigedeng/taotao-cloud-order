@@ -16,11 +16,16 @@
 
 package com.taotao.cloud.order.facade.sys.acl;
 
+import com.taotao.boot.client.gateway.model.GatewayResponse;
+import com.taotao.boot.client.gateway.service.GatewayRemoteCallBaseService;
 import com.taotao.boot.ddd.acl.AclBaseService;
+import com.taotao.cloud.order.application.acl.dto.sys.req.DictReq;
+import com.taotao.cloud.order.application.acl.dto.sys.res.DictRes;
 import com.taotao.cloud.order.application.acl.service.SysAclService;
 import com.taotao.cloud.order.facade.assembler.SysFacadeAssembler;
 import com.taotao.cloud.order.facade.sys.invoker.SysInvoker;
-import lombok.AllArgsConstructor;
+import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,21 +35,20 @@ import org.springframework.stereotype.Service;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Service
-public class SysAclServiceImpl extends AclBaseService implements SysAclService {
+public class SysAclServiceImpl extends AclBaseService implements SysAclService, GatewayRemoteCallBaseService {
 
     private final SysFacadeAssembler facadeAssembler;
     private final SysInvoker sysInvoker;
 
-//    @Override
-//    public DictRes findByCode( DictReq dictReq ) {
-//        GatewayResponse<DictApiResponse> gatewayResponse = sysInvoker.findByCode(
-//                makeRequest(facadeAssembler.toReq(dictReq)));
-//        DictApiResponse result = this.getResult(gatewayResponse);
-//
-////		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
-////		return facadeAssembler.toRes(dictApiResponse);
-//        return null;
-//    }
+    @Override
+    public DictRes findByCode( DictReq dictReq ) {
+        GatewayResponse<DictQueryApiResponse> gatewayResponse = sysInvoker.findByCode(
+                makeRequest(facadeAssembler.toQuery(dictReq)));
+		DictQueryApiResponse result = this.getResult(gatewayResponse);
+
+//		DictApiResponse dictApiResponse = dictClientProxy.findByCode();
+		return facadeAssembler.toRes(result);
+    }
 }

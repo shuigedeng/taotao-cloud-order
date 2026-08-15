@@ -16,4 +16,12 @@
 
 package com.taotao.cloud.order.application.acl.service;
 
-public interface SysAclService {}
+
+import com.taotao.cloud.order.application.acl.dto.sys.req.DictReq;
+import com.taotao.cloud.order.application.acl.dto.sys.res.DictRes;
+
+public interface SysAclService {
+
+	DictRes findByCode( DictReq dictReq);
+
+}

@@ -14,27 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.facade.assembler;
+package com.taotao.cloud.order.facade.order.acl;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.factory.Mappers;
+import com.taotao.boot.ddd.acl.AclBaseService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 /**
- * 积分门面装配器
- * <p>
- * 负责积分模块 DTO 与应用层对象之间的转换
- * </p>
+ * OrderAclServiceImpl
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 16:58:27
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface CreditFacadeAssembler {
-
-    /** 实例 */
-    CreditFacadeAssembler INSTANCE = Mappers.getMapper(CreditFacadeAssembler.class);
-
+@RequiredArgsConstructor
+@Service
+public class OrderAclServiceImpl extends AclBaseService {
 
 }

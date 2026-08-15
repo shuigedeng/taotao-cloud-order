@@ -14,21 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.repository.domain;
+package com.taotao.cloud.order.application.adapter.repository;
 
-import com.taotao.cloud.order.domain.repository.CartDomainRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
 
-/**
- * CartDomainRepositoryImpl
- *
- * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
- */
-@Service
-@AllArgsConstructor
-public class CartDomainRepositoryImpl implements CartDomainRepository {
+public interface OrderQueryRepository {
 
+//    BrandResult getById(Long id);
 }

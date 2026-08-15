@@ -16,12 +16,19 @@
 
 package com.taotao.cloud.order.facade.assembler;
 
+import com.taotao.cloud.order.application.acl.dto.sys.req.DictReq;
+import com.taotao.cloud.order.application.acl.dto.sys.res.DictRes;
+import com.taotao.cloud.sys.api.inner.dto.query.DictApiQuery;
+import com.taotao.cloud.sys.api.inner.dto.response.DictQueryApiResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * 系统门面装配器
+ * <p>
+ * 负责系统模块 DTO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04
@@ -33,8 +40,7 @@ public interface SysFacadeAssembler {
     /** 实例 */
     SysFacadeAssembler INSTANCE = Mappers.getMapper(SysFacadeAssembler.class);
 
-//	DictRes toRes(DictApiResponse dictApiResponse);
-//
-//	DictQueryApiRequest toReq(DictReq dictReq);
+	DictRes toRes( DictQueryApiResponse dictApiResponse);
 
+	DictApiQuery toQuery( DictReq dictReq);
 }

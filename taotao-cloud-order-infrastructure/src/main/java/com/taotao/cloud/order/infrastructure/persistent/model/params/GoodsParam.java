@@ -14,21 +14,24 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.repository.domain;
+package com.taotao.cloud.order.infrastructure.persistent.model.params;
 
-import com.taotao.cloud.order.domain.repository.PurchaseDomainRepository;
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * PurchaseDomainRepositoryImpl
+ * GoodsParam
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Service
-@AllArgsConstructor
-public class PurchaseDomainRepositoryImpl implements PurchaseDomainRepository {
+@Setter
+@Getter
+@ToString
+public class GoodsParam {
 
+    private String name;
+    private String id;
 }

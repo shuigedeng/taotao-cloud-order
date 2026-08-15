@@ -14,18 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.infrastructure.repository.domain;
+package com.taotao.cloud.order.infrastructure.repository;
 
-import com.taotao.cloud.order.domain.aggregate.OrderAgg;
-import com.taotao.cloud.order.domain.repository.OrderDomainRepository;
-import com.taotao.cloud.order.domain.valobj.User;
+import com.taotao.cloud.order.domain.repository.CartDomainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 /**
- * OrderDomainRepositoryImpl
+ * CartDomainRepositoryImpl
  *
  * @author shuigedeng
  * @version 2026.04
@@ -33,30 +29,6 @@ import java.util.Optional;
  */
 @Service
 @AllArgsConstructor
-public class OrderDomainRepositoryImpl implements OrderDomainRepository {
+public class CartDomainRepositoryImpl implements CartDomainRepository {
 
-	@Override
-	public void save( OrderAgg it ) {
-
-	}
-
-	@Override
-	public OrderAgg byId( String id ) {
-		return null;
-	}
-
-	@Override
-	public Optional<OrderAgg> byIdOptional( String id ) {
-		return Optional.empty();
-	}
-
-	@Override
-	public OrderAgg byIdAndCheckTenantShip( String id, User user ) {
-		return null;
-	}
-
-	@Override
-	public void delete( OrderAgg it ) {
-
-	}
 }

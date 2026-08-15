@@ -21,7 +21,10 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.factory.Mappers;
 
 /**
- * IParametersMapStruct
+ * 连接门面装配器
+ * <p>
+ * 负责连接模块 DTO 与应用层对象之间的转换
+ * </p>
  *
  * @author shuigedeng
  * @version 2022.04
@@ -33,6 +36,5 @@ public interface ConnectFacadeAssembler {
     /** 实例 */
     ConnectFacadeAssembler INSTANCE = Mappers.getMapper(ConnectFacadeAssembler.class);
 
-//	DictRes toRes(DictApiResponse dictApiResponse);
 
 }

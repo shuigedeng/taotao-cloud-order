@@ -1,0 +1,17 @@
+package com.taotao.cloud.order.facade.connect.invoker;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
+
+/**
+ * ConnectInvoker
+ *
+ * @author shuigedeng
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
+ */
+@Component
+@RequiredArgsConstructor
+public class ConnectInvoker {
+
+}

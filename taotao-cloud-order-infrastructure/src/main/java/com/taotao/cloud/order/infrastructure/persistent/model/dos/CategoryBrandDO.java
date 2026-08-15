@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.facade.assembler;
+package com.taotao.cloud.order.infrastructure.persistent.model.dos;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.mapstruct.factory.Mappers;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * 积分门面装配器
- * <p>
- * 负责积分模块 DTO 与应用层对象之间的转换
- * </p>
+ * CategoryBrandDO
  *
  * @author shuigedeng
- * @version 2022.04
- * @since 2022-04-27 16:58:27
+ * @version 2026.04
+ * @since 2025-12-19 09:30:45
  */
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface CreditFacadeAssembler {
+@Setter
+@Getter
+@ToString
+public class CategoryBrandDO {
 
-    /** 实例 */
-    CreditFacadeAssembler INSTANCE = Mappers.getMapper(CreditFacadeAssembler.class);
-
-
+    private Long id;
+    private String name;
+    private String logo;
 }
