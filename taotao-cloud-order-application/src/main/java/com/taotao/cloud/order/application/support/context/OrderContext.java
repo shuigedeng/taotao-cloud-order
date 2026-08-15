@@ -14,19 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.factory;
-
-import com.taotao.boot.common.model.ddd.types.MarkerFactory;
-import org.springframework.stereotype.Component;
+package com.taotao.cloud.order.application.support.context;
 
 /**
- * GoodsFactory
+ * OrderContext
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-@Component
-public class GoodsFactory implements MarkerFactory {
+public class OrderContext {
 
 }

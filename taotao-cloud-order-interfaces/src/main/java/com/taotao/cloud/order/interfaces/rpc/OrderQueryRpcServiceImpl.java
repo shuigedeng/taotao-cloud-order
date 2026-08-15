@@ -25,9 +25,9 @@ import lombok.RequiredArgsConstructor;
 //import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
+//@DubboService(interfaceClass = OrderQueryRpcService.class, validation = "true")
 @Service
 @RequiredArgsConstructor
-//@DubboService(interfaceClass = OrderQueryRpcService.class, validation = "true")
 public class OrderQueryRpcServiceImpl implements OrderQueryRpcService {
 
 	@Override

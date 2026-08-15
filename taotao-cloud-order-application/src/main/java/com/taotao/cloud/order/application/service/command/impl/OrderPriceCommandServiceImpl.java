@@ -59,11 +59,11 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
 //     */
 //    private final IOrderService orderService;
 
-    @Override
 //    @SystemLogPoint(description = "修改订单价格", customerLog = "'订单编号:'+#orderSn" +
 //        "'，价格修改为：'+#orderPrice")
 //    @OrderLogPoint(description = "'订单['+#orderSn+']修改价格，修改后价格为['+#orderPrice+']'", orderSn =
 //        "#orderSn")
+    @Override
 
     /**
      * 更新价格
@@ -80,8 +80,8 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
         return true;
     }
 
-    @Override
 //    @OrderLogPoint(description = "'管理员操作订单['+#orderSn+']付款'", orderSn = "#orderSn")
+    @Override
     public Boolean adminPayOrder(String orderSn) {
 //        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
 //        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
