@@ -4,7 +4,7 @@
 
 - **JDK**: 25 (--enable-preview)
 - **Build**: Gradle 9.7.0
-- **Framework**: Spring Boot 4.1.0 (via taotao-boot-starter-web)
+- **Framework**: Spring Boot 4.1.1 (via taotao-boot-starter-web)
 - **DDD Base**: taotao-boot-starter-ddd — `AggregateRoot<Long>`, `DomainService`, `DomainRepository`, `Entity`, `DomainEvent`
 - **Main Class**: `@TaoTaoBootApplication` (aliased from `@SpringBootApplication`)
 - **DTO Mapping**: MapStruct 1.6.3 + Record Builder 52 + Lombok 1.18.46

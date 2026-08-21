@@ -80,7 +80,7 @@
     "projectType": "spring-boot-ddd",
     "jdkVersion": "25",
     "gradleVersion": "9.6",
-    "framework": "Spring Boot 4.1.0",
+    "framework": "Spring Boot 4.1.1",
     "architecture": "DDD (Domain-Driven Design)"
   }
 }

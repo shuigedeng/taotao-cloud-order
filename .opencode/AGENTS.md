@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-订单领域 DDD 单体服务，基于 Spring Boot 4.1.0 / JDK 25 / Gradle 9.5。严格遵循六边形架构 + 领域驱动设计。
+订单领域 DDD 单体服务，基于 Spring Boot 4.1.1 / JDK 25 / Gradle 9.5。严格遵循六边形架构 + 领域驱动设计。
 
 ## STRUCTURE
 
