@@ -32,7 +32,6 @@
 //	 *
 //	 * @param msg 消息
 //	 * @param RECEIVED_KEY received_key
-//	 * @return 无返回值
 //	 * @since 2022.03
 //	 */
 //	public void listenMsg( String msg,

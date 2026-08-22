@@ -56,7 +56,6 @@ public class Invoice {
      * 签发
      *
      * @param files 文件列表
-     * @return 无返回值
      * @since 2022.03
      */
     public void issue( List<UploadedFile> files ) {

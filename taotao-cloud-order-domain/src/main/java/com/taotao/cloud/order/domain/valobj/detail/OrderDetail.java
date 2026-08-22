@@ -72,7 +72,6 @@ public abstract class OrderDetail {
      * 验证
      *
      * @param tenant 租户
-     * @return 无返回值
      * @since 2022.03
      */
     public abstract void validate( Tenant tenant );
@@ -81,7 +80,6 @@ public abstract class OrderDetail {
      * 验证
      *
      * @param tenant 租户
-     * @return 无返回值
      * @since 2022.03
      */
     protected void validateRequireNonFreePlan( Tenant tenant ) {
