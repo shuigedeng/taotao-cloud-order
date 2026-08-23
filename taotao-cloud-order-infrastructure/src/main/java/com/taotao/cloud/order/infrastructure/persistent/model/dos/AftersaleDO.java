@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.common.data.dataobj;
+package com.taotao.cloud.order.infrastructure.persistent.model.dos;
 
 /**
- * GoodsDO
+ * AftersaleDO
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class GoodsDO {
+public class AftersaleDO {
 
 }

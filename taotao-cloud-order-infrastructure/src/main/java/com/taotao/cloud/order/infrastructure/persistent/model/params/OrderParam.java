@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.common.data.dataobj;
+package com.taotao.cloud.order.infrastructure.persistent.model.params;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * OrderDO
+ * OrderParam
  *
  * @author shuigedeng
  * @version 2026.04
@@ -30,7 +30,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class OrderDO {
+public class OrderParam {
 
     private String name;
     private String id;
