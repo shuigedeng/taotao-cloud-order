@@ -102,7 +102,6 @@ public class PlanOrderDetail extends OrderDetail {
      * @param currentEffectivePlanType currentEffectivePlanType
      * @param requestedPlanType 请求的PlanType
      * @param yearDuration yearDuration
-     * @return 无返回值
      * @since 2022.03
      */
     private void validate(

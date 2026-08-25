@@ -84,7 +84,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param orderId 订单ID
 	 * @param command command
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -105,7 +104,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param wxTxnId 微信交易ID
 	 * @param paidAt 支付时间
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -136,7 +134,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param screenShots 截图列表
 	 * @param paidAt 支付时间
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -163,7 +160,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param bankName 银行名称
 	 * @param paidAt 支付时间
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -188,7 +184,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param orderId 订单ID
 	 * @param delivery 配送
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -205,7 +200,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param orderId 订单ID
 	 * @param files 文件列表
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -222,7 +216,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * @param orderId 订单ID
 	 * @param reason 原因
 	 * @param user 用户
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional
@@ -237,7 +230,6 @@ public class OrderCommandServiceImpl implements OrderCommandService {
 	 * 删除
 	 *
 	 * @param orderId 订单ID
-	 * @return 无返回值
 	 * @since 2022.03
 	 */
 	@Transactional

@@ -38,6 +38,12 @@ public class BrandPageParam extends PageQuery {
     // 品牌名称
     private String name;
 
+    /**
+     * 构建
+     *
+     * @return 品牌页码参数Builder
+     * @since 2022.03
+     */
 
     public static final class BrandPageParamBuilder {
 
@@ -47,7 +53,6 @@ public class BrandPageParam extends PageQuery {
         /**
          * 品牌页码参数Builder
          *
-         * @return 无返回值
          * @since 2022.03
          */
         private BrandPageParamBuilder() {

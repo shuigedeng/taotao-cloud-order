@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.common.data.dataobj;
+package com.taotao.cloud.order.infrastructure.persistent.model.dos;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
- * CategoryDO
+ * OrderDO
  *
  * @author shuigedeng
  * @version 2026.04
@@ -28,7 +30,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class CategoryDO {
+public class OrderDO {
 
     private String name;
     private String id;

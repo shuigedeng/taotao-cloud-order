@@ -116,7 +116,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @param wxTxnId 微信交易ID
      * @param paidAt 支付时间
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void wxPay( String wxTxnId, Instant paidAt, User user ) {
@@ -141,7 +140,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @param screenShots 截图列表
      * @param paidAt 支付时间
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void wxTransferPay( List<UploadedFile> screenShots, Instant paidAt, User user ) {
@@ -167,7 +165,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @param bankName 银行名称
      * @param paidAt 支付时间
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void bankTransferPay(
@@ -195,7 +192,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * @param title 标题
      * @param email 邮箱
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void requestInvoice( InvoiceType type, InvoiceTitle title, String email, User user ) {
@@ -224,7 +220,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      *
      * @param delivery 配送
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void updateDelivery( Delivery delivery, User user ) {
@@ -254,7 +249,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      *
      * @param files 文件列表
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void issueInvoice( List<UploadedFile> files, User user ) {
@@ -277,7 +271,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      *
      * @param reason 原因
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     public void refund( String reason, User user ) {
@@ -299,7 +292,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      *
      * @param msg 消息
      * @param user 用户
-     * @return 无返回值
      * @since 2022.03
      */
     private void addOpsLog( String msg, User user ) {
@@ -309,7 +301,6 @@ public class OrderAgg extends AggregateRoot<Long> {
      * 触发事件
      *
      * @param domainEvent 领域事件
-     * @return 无返回值
      * @since 2022.03
      */
     private void raiseEvent( DomainEvent domainEvent ) {

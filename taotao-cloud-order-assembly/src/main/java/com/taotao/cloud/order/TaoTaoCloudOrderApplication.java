@@ -67,7 +67,6 @@ public class TaoTaoCloudOrderApplication {
      * main 方法
      *
      * @param args args
-     * @return 无返回值
      * @since 2022.03
      */
     public static void main(String[] args) {

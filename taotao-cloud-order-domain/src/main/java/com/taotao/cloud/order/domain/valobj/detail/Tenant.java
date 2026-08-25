@@ -34,7 +34,6 @@ public class Tenant {
      * 验证
      *
      * @param amount 金额
-     * @return 无返回值
      * @since 2022.03
      */
     public void validateAddExtraMembers( int amount ) {
@@ -171,7 +170,6 @@ public class Tenant {
      * 验证
      *
      * @param amount 金额
-     * @return 无返回值
      * @since 2022.03
      */
     public void validateAddExtraVideoTraffic( int amount ) {
@@ -181,7 +179,6 @@ public class Tenant {
      * 验证
      *
      * @param yearDuration yearDuration
-     * @return 无返回值
      * @since 2022.03
      */
     public void validateAddPlanDuration( int yearDuration ) {
@@ -255,7 +252,6 @@ public class Tenant {
      * 验证
      *
      * @param amount 金额
-     * @return 无返回值
      * @since 2022.03
      */
     public void validateAddExtraStorage( int amount ) {
