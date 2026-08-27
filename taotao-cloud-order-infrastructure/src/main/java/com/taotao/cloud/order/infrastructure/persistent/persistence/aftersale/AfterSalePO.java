@@ -18,9 +18,9 @@ package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BasePO;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleRefundWayEnum;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleStatusEnum;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleTypeEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleRefundWayEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleStatusEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

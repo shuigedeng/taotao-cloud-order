@@ -16,16 +16,11 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import cn.hutool.json.JSONUtil;
-import com.baomidou.mybatisplus.core.metadata.OrderItem;
-import com.taotao.boot.common.enums.ResultEnum;
-import com.taotao.boot.common.utils.number.CurrencyUtils;
-import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.cloud.order.application.service.command.OrderPriceCommandService;
-import com.taotao.cloud.order.domain.entity.Order;
-import com.taotao.cloud.order.common.enums.order.PayStatusEnum;
+import com.taotao.cloud.order.domain.entity.OrderItem;
+
 import java.math.BigDecimal;
-import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -74,7 +69,7 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
      */
     @Override
     public Boolean updatePrice(String orderSn, BigDecimal orderPrice) {
-        Order order = updateOrderPrice(orderSn, orderPrice);
+        OrderItem orderItem = updateOrderPrice(orderSn, orderPrice);
 
 //        tradeService.updateTradePrice(order.getTradeSn());
         return true;
@@ -95,7 +90,7 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
     /**
      * 修改订单价格 1.判定订单是否支付 2.记录订单原始价格信息 3.计算修改的订单金额 4.修改订单价格 5.保存订单信息
      */
-    private Order updateOrderPrice(String orderSn, BigDecimal orderPrice) {
+    private OrderItem updateOrderPrice(String orderSn, BigDecimal orderPrice) {
 //        Order order = OperationalJudgment.judgment(orderService.getBySn(orderSn));
 //        if (order.getPayStatus().equals(PayStatusEnum.PAID.name())) {
 //            throw new BusinessException(ResultEnum.ORDER_UPDATE_PRICE_ERROR);
@@ -122,7 +117,7 @@ public class OrderPriceCommandServiceImpl implements OrderPriceCommandService {
      * 修改订单货物金额 1.计算订单货物金额在订单金额中的百分比 2.订单货物金额=订单修改后金额*订单货物百分比 3.订单货物修改价格=订单货物原始价格-订单货物修改后金额 4.修改平台佣金
      * 5.订单实际金额=修改后订单金额-平台佣金-分销提佣
      */
-    private void updateOrderItemPrice(Order order) {
+    private void updateOrderItemPrice(OrderItem orderItem) {
 //        List<OrderItem> orderItems = orderItemService.getByOrderSn(order.getSn());
 //
 //        int index = orderItems.size();

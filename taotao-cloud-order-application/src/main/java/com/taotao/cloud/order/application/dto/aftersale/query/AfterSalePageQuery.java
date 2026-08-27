@@ -17,8 +17,8 @@
 package com.taotao.cloud.order.application.dto.aftersale.query;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleStatusEnum;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleTypeEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleStatusEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleTypeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

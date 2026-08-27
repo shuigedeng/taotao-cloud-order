@@ -89,7 +89,6 @@ public class OrderAgg extends AggregateRoot<Long> {
     }
 
     public OrderAgg( OrderDetail detail, PaymentType paymentType, Tenant tenant, User user ) {
-        //		super(newOrderId(), tenant.getTenantId(), user);
         detail.validate(tenant);
         this.detail = detail;
         this.price = detail.calculatePrice(tenant);
@@ -348,27 +347,6 @@ public class OrderAgg extends AggregateRoot<Long> {
     /**
     /**
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
      * 判断
      *
      * @return 是否成功
@@ -386,27 +364,6 @@ public class OrderAgg extends AggregateRoot<Long> {
     /**
     /**
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
     /**
     /**
     /**

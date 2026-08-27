@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
-import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.domain.valobj.cart.CartTypeEnum;
 import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
 
 /**

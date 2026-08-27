@@ -17,7 +17,7 @@
 package com.taotao.cloud.order.application.service.query;
 
 import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
-import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.domain.valobj.cart.CartTypeEnum;
 
 /**
  * 购物车业务层

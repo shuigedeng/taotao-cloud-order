@@ -122,7 +122,7 @@
 			<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>
 		</table>
 
-		<!--<table tableName="order" delimitIdentifiers="true" domainObjectName="OrderEntity">-->
+		<!--<table tableName="orderItem" delimitIdentifiers="true" domainObjectName="OrderEntity">-->
 		<!--	<generatedKey column="id" sqlStatement="JDBC" identity="true" type="post"/>-->
 		<!--	<columnOverride column="status"-->
 		<!--					javaType="cc.cc1234.core.domain.enums.OrderStatus"-->

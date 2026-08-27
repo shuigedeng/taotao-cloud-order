@@ -16,10 +16,10 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
-import com.taotao.cloud.order.common.enums.order.CommentStatusEnum;
-import com.taotao.cloud.order.common.enums.order.OrderComplaintStatusEnum;
-import com.taotao.cloud.order.common.enums.order.OrderItemAfterSaleStatusEnum;
+import com.taotao.cloud.order.domain.valobj.order.OrderComplaintStatusEnum;
+import com.taotao.cloud.order.domain.valobj.order.OrderItemAfterSaleStatusEnum;
 import com.taotao.cloud.order.application.service.command.OrderItemCommandService;
+import com.taotao.cloud.order.domain.valobj.order.CommentStatusEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

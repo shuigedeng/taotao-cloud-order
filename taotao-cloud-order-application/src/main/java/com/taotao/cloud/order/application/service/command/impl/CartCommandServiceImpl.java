@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.CartCommandService;
-import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.domain.valobj.cart.CartTypeEnum;
 import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -9,6 +9,6 @@ import com.taotao.boot.common.enums.ResultEnum;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class BusinessResultEnum {
+public enum BusinessResultEnum {
 
 }

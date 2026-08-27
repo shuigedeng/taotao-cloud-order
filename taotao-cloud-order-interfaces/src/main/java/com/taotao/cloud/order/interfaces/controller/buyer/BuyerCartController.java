@@ -22,7 +22,7 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.order.result.ReceiptResult;
 import com.taotao.cloud.order.application.service.command.CartCommandService;
 import com.taotao.cloud.order.application.service.query.CartQueryService;
-import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.domain.valobj.cart.CartTypeEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.constraints.Min;

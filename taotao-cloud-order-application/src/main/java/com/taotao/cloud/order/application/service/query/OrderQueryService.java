@@ -23,7 +23,7 @@ import com.taotao.cloud.order.application.dto.cart.result.OrderExportResult;
 import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.dto.order.result.*;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
-import com.taotao.cloud.order.domain.entity.Order;
+import com.taotao.cloud.order.domain.entity.OrderItem;
 import com.taotao.cloud.order.domain.valobj.User;
 import com.taotao.cloud.order.application.dto.order.result.OrderResult;
 import java.math.BigDecimal;
@@ -53,7 +53,7 @@ public interface OrderQueryService {
 
     List<OrderExportResult> queryExportOrder(OrderPageQuery orderPageQuery);
 
-    Order queryBySn(String orderSn);
+    OrderItem queryBySn(String orderSn);
 
     OrderDetailResult queryDetail(String orderSn);
 

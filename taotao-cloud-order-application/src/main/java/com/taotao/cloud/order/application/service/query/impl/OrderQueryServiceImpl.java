@@ -28,7 +28,7 @@ import com.taotao.cloud.order.application.dto.order.query.*;
 import com.taotao.cloud.order.application.dto.order.result.*;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import com.taotao.cloud.order.domain.aggregate.OrderAgg;
-import com.taotao.cloud.order.domain.entity.Order;
+import com.taotao.cloud.order.domain.entity.OrderItem;
 import com.taotao.cloud.order.domain.repository.OrderDomainRepository;
 import com.taotao.cloud.order.domain.valobj.OrderStatus;
 import com.taotao.cloud.order.domain.valobj.User;
@@ -165,7 +165,7 @@ public class OrderQueryServiceImpl implements OrderQueryService {
     }
 
     @Override
-    public Order queryBySn(String orderSn) {
+    public OrderItem queryBySn(String orderSn) {
         return null;
     }
 

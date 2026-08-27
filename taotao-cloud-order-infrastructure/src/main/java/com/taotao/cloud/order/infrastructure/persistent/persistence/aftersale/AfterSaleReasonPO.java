@@ -18,7 +18,7 @@ package com.taotao.cloud.order.infrastructure.persistent.persistence.aftersale;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.taotao.boot.webagg.entity.BasePO;
-import com.taotao.cloud.order.common.enums.trade.AfterSaleTypeEnum;
+import com.taotao.cloud.order.domain.valobj.trade.AfterSaleTypeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

@@ -23,7 +23,7 @@ import com.taotao.cloud.order.application.dto.order.result.OrderDetailResult;
 import com.taotao.cloud.order.application.dto.order.result.OrderSimpleResult;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
-import com.taotao.cloud.order.domain.entity.Order;
+import com.taotao.cloud.order.domain.entity.OrderItem;
 import com.taotao.cloud.order.interfaces.controller.buyer.BuyerOrderController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -58,7 +58,7 @@ class OrderBuyerControllerTest {
     private BuyerOrderController orderBuyerController;
 
     @Mock
-    private Order order;
+    private OrderItem orderItem;
 
     @Mock
     private OrderDetailResult orderDetailResult;
@@ -72,7 +72,7 @@ class OrderBuyerControllerTest {
 
     @Nested
     @DisplayName("查询会员订单列表")
-    class QueryMineOrderTests {
+    class QueryMineOrderItemTests {
 
         @Test
         @DisplayName("分页查询 - 返回PageResult")
@@ -137,12 +137,12 @@ class OrderBuyerControllerTest {
 
     @Nested
     @DisplayName("删除订单")
-    class DeleteOrderTests {
+    class DeleteOrderItemTests {
 
         @Test
         @DisplayName("删除订单 - 调用deleteOrder服务")
         void shouldDeleteOrder_whenDeleteOrder() {
-            when(orderQueryService.queryBySn(ORDER_SN)).thenReturn(order);
+            when(orderQueryService.queryBySn(ORDER_SN)).thenReturn(orderItem);
 
             Result<Void> result = orderBuyerController.deleteOrder(ORDER_SN);
 
@@ -167,7 +167,7 @@ class OrderBuyerControllerTest {
         @Test
         @DisplayName("开票 - 调用invoice服务")
         void shouldInvoice_whenInvoice() {
-            when(orderQueryService.queryBySn(ORDER_SN)).thenReturn(order);
+            when(orderQueryService.queryBySn(ORDER_SN)).thenReturn(orderItem);
 
             Result<Void> result = orderBuyerController.invoice(ORDER_SN);
 

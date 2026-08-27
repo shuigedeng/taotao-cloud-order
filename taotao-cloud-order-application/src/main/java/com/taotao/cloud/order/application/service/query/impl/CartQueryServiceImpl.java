@@ -18,7 +18,7 @@ package com.taotao.cloud.order.application.service.query.impl;
 
 import com.taotao.cloud.order.application.dto.trade.result.TradeResult;
 import com.taotao.cloud.order.application.service.query.CartQueryService;
-import com.taotao.cloud.order.common.enums.cart.CartTypeEnum;
+import com.taotao.cloud.order.domain.valobj.cart.CartTypeEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
