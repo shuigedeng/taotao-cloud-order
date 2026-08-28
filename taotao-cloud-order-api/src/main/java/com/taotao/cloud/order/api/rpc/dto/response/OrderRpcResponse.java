@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.rpc.dto.command;
+package com.taotao.cloud.order.api.rpc.dto.response;
 
-import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.boot.common.model.ddd.types.MarkerRequest;
-import lombok.*;
-import lombok.experimental.Accessors;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 菜单查询对象
@@ -36,7 +38,7 @@ import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderRpcCommand implements Command {
+public class OrderRpcResponse implements MarkerResponse  {
 
     private static final long serialVersionUID = 5126530068827085130L;
 

@@ -19,7 +19,7 @@ package com.taotao.cloud.order.api.rpc.query;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
-import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
+import com.taotao.cloud.order.api.rpc.dto.response.OrderRpcResponse;
 
 /**
  * 订单查询 RPC 服务接口
@@ -30,5 +30,5 @@ import com.taotao.cloud.order.api.rpc.dto.response.OrderQueryRpcResponse;
  */
 public interface OrderQueryRpcService {
 
-	Response<OrderQueryRpcResponse> query(Request<OrderRpcQuery> orderQueryRpcRequest);
+	Response<OrderRpcResponse> query(Request<OrderRpcQuery> orderQueryRpcRequest);
 }

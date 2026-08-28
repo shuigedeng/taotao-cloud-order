@@ -65,6 +65,6 @@ public interface OrderCommandApi {
 
     @PostExchange("/sys/dict/code/command")
     Response<OrderApiResponse> findByCodeCommand(
-            @Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest);
+            @Validated @RequestBody Request<OrderApiQuery> request);
 
 }
