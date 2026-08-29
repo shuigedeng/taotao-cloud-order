@@ -3,7 +3,7 @@
 ## Tech Stack
 
 - **JDK**: 25 (--enable-preview)
-- **Build**: Gradle 9.7.0
+- **Build**: Gradle 9.7.1
 - **Framework**: Spring Boot 4.1.1 (via taotao-boot-starter-web)
 - **DDD Base**: taotao-boot-starter-ddd — `AggregateRoot<Long>`, `DomainService`, `DomainRepository`, `Entity`, `DomainEvent`
 - **Main Class**: `@TaoTaoBootApplication` (aliased from `@SpringBootApplication`)
@@ -12,7 +12,7 @@
 - **RPC**: gRPC (Protobuf 4.35.0), Dubbo, HttpExchange
 - **Messaging**: Apache RocketMQ, Apache Kafka
 - **Cache**: Redis (Redisson 4.3.1), Caffeine
-- **Database**: MySQL 9.7.0
+- **Database**: MySQL 9.7.1
 
 ## Layer Dependencies
 
