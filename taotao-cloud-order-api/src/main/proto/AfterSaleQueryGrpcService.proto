@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package com.taotao.cloud.order.api.grpc;
 
+import "dto.proto";
+
 option java_multiple_files = true;
 option java_package = "com.taotao.cloud.order.api.grpc";
 option java_outer_classname = "AfterSaleQueryGrpcServiceProto";
@@ -11,10 +13,4 @@ service AfterSaleQueryGrpcService {
   rpc queryAfterSale (AfterSaleGrpcQuery) returns (AfterSaleGrpcResponse){}
 }
 
-message AfterSaleGrpcQuery {
-  string id = 1;
-}
 
-message AfterSaleGrpcResponse {
-  bool reply = 1;
-}
