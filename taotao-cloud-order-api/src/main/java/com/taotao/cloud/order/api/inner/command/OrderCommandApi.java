@@ -39,30 +39,16 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@HttpExchange(
-        value = ServiceNameConstants.TAOTAO_CLOUD_SYS)
+@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_SYS)
 public interface OrderCommandApi {
 
     /**
      * 字典列表code查询
      *
-     * @param code 代码
-     * @return {@link DictApiResponse }
+     * @param request 请求参数
+     * @return 响应对象
      * @since 2022-06-29 21:40:21
      */
-    @ApiInfo(
-            create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
-            update = {
-                @Update(
-                        version = V2022_07,
-                        content = "主要修改了配置信息的接口查询",
-                        date = "2022-07-01 17:11:55"),
-                @Update(
-                        version = V2022_08,
-                        content = "主要修改了配置信息的接口查询08",
-                        date = "2022-07-01 17:11:55")
-            })
-
     @PostExchange("/sys/dict/code/command")
     Response<OrderApiResponse> findByCodeCommand(
             @Validated @RequestBody Request<OrderApiQuery> request);

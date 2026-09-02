@@ -19,6 +19,9 @@ package com.taotao.cloud.order.interfaces.controller.inner;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.common.support.info.ApiInfo;
+import com.taotao.boot.common.support.info.Create;
+import com.taotao.boot.common.support.info.Update;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.order.api.inner.command.OrderCommandApi;
 import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
@@ -29,6 +32,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
+import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 @Validated
 @RestController
@@ -41,6 +47,18 @@ public class OrderCommandApiController extends InnerController implements OrderC
         this.orderCommandService = orderCommandService;
     }
 
+	@ApiInfo(
+		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
+		update = {
+			@Update(
+				version = V2022_07,
+				content = "主要修改了配置信息的接口查询",
+				date = "2022-07-01 17:11:55"),
+			@Update(
+				version = V2022_08,
+				content = "主要修改了配置信息的接口查询08",
+				date = "2022-07-01 17:11:55")
+		})
 	@Override
 	public Response<OrderApiResponse> findByCodeCommand( Request<OrderApiQuery> dictQueryApiRequest ) {
 		return null;
