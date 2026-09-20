@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
 import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
-@Validated
+
 @RestController
 @RequestMapping("/sys/dict")
 public class OrderCommandApiController extends InnerController implements OrderCommandApi {

@@ -36,7 +36,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "买家端-交易投诉API", description = "买家端-交易投诉API")
 @RequestMapping("/buyer/order/order/complain")

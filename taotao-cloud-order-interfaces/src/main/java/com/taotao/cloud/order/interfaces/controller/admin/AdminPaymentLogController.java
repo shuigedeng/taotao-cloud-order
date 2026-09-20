@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "管理端-支付日志管理API", description = "管理端-支付日志管理API")
 @RequestMapping("/admin/order/payment/log")

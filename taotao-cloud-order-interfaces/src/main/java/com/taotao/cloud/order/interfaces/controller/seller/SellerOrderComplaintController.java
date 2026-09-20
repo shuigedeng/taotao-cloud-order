@@ -27,6 +27,7 @@ import com.taotao.cloud.order.application.service.command.OrderComplaintCommunic
 import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -38,7 +39,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "店铺端-交易投诉API", description = "店铺端-交易投诉API")
 @RequestMapping("/seller/order/order/complain")
@@ -94,7 +94,7 @@ public class SellerOrderComplaintController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping("/appeal")
-    public Result<OrderComplaintResult> appeal(@Validated @RequestBody StoreAppealCommand storeAppealDTO) {
+    public Result<OrderComplaintResult> appeal(@Valid @RequestBody StoreAppealCommand storeAppealDTO) {
         orderComplaintCommandService.appeal(storeAppealDTO);
         return Result.success(
                 orderComplaintQueryService.queryOrderComplainById(storeAppealDTO.orderComplaintId()));
@@ -105,7 +105,7 @@ public class SellerOrderComplaintController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/status")
     public Result<Void> updateStatus(
-            @Validated @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
+            @Valid @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
         orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
         return Result.success();
     }

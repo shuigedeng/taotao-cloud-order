@@ -36,6 +36,7 @@ import com.taotao.cloud.order.application.service.query.AfterSaleReasonQueryServ
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -60,7 +61,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-04-07 20:31:22
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "买家端-售后API", description = "买家端-售后API")
 @RequestMapping("/buyer/order/aftersale")
@@ -86,7 +86,7 @@ public class BuyerAfterSaleController extends BusinessController {
 	@PreAuthorize("hasAuthority('dept:tree:data')")
 	@GetMapping(value = "/page")
 	public Result<PageResult<AfterSaleResult>> pageQuery(
-			@Validated AfterSalePageQuery afterSalePageQry) {
+			@Valid AfterSalePageQuery afterSalePageQry) {
 		return Result.success(afterSaleQueryService.pageQuery(afterSalePageQry));
 	}
 
@@ -105,7 +105,7 @@ public class BuyerAfterSaleController extends BusinessController {
 	@PostMapping(value = "/{orderItemSn}")
 	public Result<Void> saveAfterSale(
 			@NotBlank(message = "售后单号不能为空") @PathVariable String orderItemSn,
-			@Validated @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
+			@Valid @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
 //		CreateAfterSaleCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
 //				.orderItemSn(orderItemSn)
 //				.build();

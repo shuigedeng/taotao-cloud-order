@@ -39,7 +39,7 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@HttpExchange(value = ServiceNameConstants.TAOTAO_CLOUD_SYS)
+@HttpExchange
 public interface OrderCommandApi {
 
     /**
@@ -51,6 +51,6 @@ public interface OrderCommandApi {
      */
     @PostExchange("/sys/dict/code/command")
     Response<OrderApiResponse> findByCodeCommand(
-            @Validated @RequestBody Request<OrderApiQuery> request);
+             @RequestBody Request<OrderApiQuery> request);
 
 }

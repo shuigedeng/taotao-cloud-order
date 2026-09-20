@@ -48,7 +48,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "店铺端-订单API", description = "店铺端-订单API")
 @RequestMapping("/seller/order/order")

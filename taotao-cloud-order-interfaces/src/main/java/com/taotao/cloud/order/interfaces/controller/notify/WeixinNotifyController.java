@@ -23,6 +23,7 @@ import com.taotao.boot.webagg.controller.BusinessController;
 import com.taotao.cloud.order.application.dto.aftersale.command.CreateAfterSaleCommand;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +39,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-04-25 16:16:20
  */
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "回调通知-微信回调通知API", description = "回调通知-微信回调通知API")
 @RequestMapping("/callback/order/weixin")
@@ -51,7 +51,7 @@ public class WeixinNotifyController extends BusinessController {
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/pay")
-	public Result<Void> payNotify(@Validated @RequestBody CreateAfterSaleCommand brand) {
+	public Result<Void> payNotify(@Valid @RequestBody CreateAfterSaleCommand brand) {
 		return Result.success();
 	}
 }

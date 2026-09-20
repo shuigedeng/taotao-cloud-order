@@ -24,6 +24,7 @@ import com.taotao.cloud.order.application.service.command.AfterSaleReasonCommand
 import com.taotao.cloud.order.application.service.query.AfterSaleReasonQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -34,7 +35,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "管理端-售后原因管理API", description = "管理端-售后原因管理API")
 @RequestMapping("/admin/order/aftersale/reason")
@@ -66,7 +66,7 @@ public class AdminAfterSaleReasonController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping
-	public Result<Void> save(@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd) {
+	public Result<Void> save(@Valid @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd) {
 //		afterSaleReasonCommandService.save(afterSaleReasonUpdateCmd);
 		return Result.success();
     }
@@ -76,7 +76,7 @@ public class AdminAfterSaleReasonController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping("/{id}")
 	public Result<Void> update(
-			@Validated @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd,
+			@Valid @RequestBody UpdateCAfterSaleReasonCommand afterSaleReasonUpdateCmd,
 			@PathVariable("id") Long id) {
 //		afterSaleReasonCommandService.editAfterSaleReason(id, afterSaleReasonUpdateCmd);
 		return Result.success();

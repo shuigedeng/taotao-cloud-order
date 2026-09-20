@@ -26,6 +26,7 @@ import com.taotao.cloud.order.application.service.command.OrderComplaintCommunic
 import com.taotao.cloud.order.application.service.query.OrderComplaintQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -37,7 +38,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@Validated
 @RestController
 @Tag(name = "管理端-交易投诉管理API", description = "管理端-交易投诉管理API")
 @RequestMapping("/admin/order/order/complain")
@@ -95,7 +95,7 @@ public class AdminOrderComplaintController extends BusinessController {
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/status")
 	public Result<Void> updateStatus(
-			@Validated @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
+			@Valid @RequestBody CreateOrderComplaintOperationCommand orderComplaintOperationAddCmd) {
 		orderComplaintCommandService.updateOrderComplainByStatus(orderComplaintOperationAddCmd);
 		return Result.success();
     }
