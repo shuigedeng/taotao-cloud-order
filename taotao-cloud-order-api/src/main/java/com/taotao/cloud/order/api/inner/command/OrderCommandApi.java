@@ -16,21 +16,14 @@
 
 package com.taotao.cloud.order.api.inner.command;
 
-import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.boot.common.support.info.ApiInfo;
-import com.taotao.boot.common.support.info.Create;
-import com.taotao.boot.common.support.info.Update;
+import com.taotao.cloud.order.api.inner.dto.command.OrderApiCommand;
 import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
 import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
-
-import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
-import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 /**
  * 订单命令 API
@@ -50,7 +43,6 @@ public interface OrderCommandApi {
      * @since 2022-06-29 21:40:21
      */
     @PostExchange("/sys/dict/code/command")
-    Response<OrderApiResponse> findByCodeCommand(
-             @RequestBody Request<OrderApiQuery> request);
+    Response<OrderApiResponse> createOrder(@RequestBody Request<OrderApiCommand> request);
 
 }

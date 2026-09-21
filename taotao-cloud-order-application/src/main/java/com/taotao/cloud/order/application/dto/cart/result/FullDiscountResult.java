@@ -28,7 +28,7 @@ import java.util.List;
  * @since 2022-04-21 16:59:38
  */
 @RecordBuilder
-@Schema(description = "满额活动VO")
+@Schema(description = "满额活动响应对象")
 public record FullDiscountResult(
         @Schema(description = "促销关联的商品")
         List<PromotionGoodsVO> promotionGoodsList,

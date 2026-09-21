@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 /** 售后日志 */
 @RecordBuilder
-@Schema(description = "售后日志VO")
+@Schema(description = "售后日志响应对象")
 public record AfterSaleLogResult(
         @Schema(description = "id")
         Long id,

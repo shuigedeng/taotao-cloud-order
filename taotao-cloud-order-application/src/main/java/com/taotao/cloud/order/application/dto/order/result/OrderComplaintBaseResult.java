@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
  * @since 2022-04-21 16:59:38
  */
 @RecordBuilder
-@Schema(description = "订单交易投诉基础VO")
+@Schema(description = "订单交易投诉基础响应对象")
 public record OrderComplaintBaseResult(
         @Schema(description = "id")
         Long id,

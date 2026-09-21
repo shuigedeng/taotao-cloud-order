@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 
 /** 售后 */
 @RecordBuilder
-@Schema(description = "售后VO")
+@Schema(description = "售后响应对象")
 public record AfterSaleResult(
         @Schema(description = "id")
         Long id,

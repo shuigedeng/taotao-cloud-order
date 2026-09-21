@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 
 /** 售后申请VO */
 @RecordBuilder
-@Schema(description = "售后申请VO")
+@Schema(description = "售后申请响应对象")
 public record AfterSaleApplyResult(
         @Schema(description = "申请退款金额单价")
         BigDecimal applyRefundPrice,

@@ -24,7 +24,7 @@ import java.math.BigDecimal;
 
 /** 子订单VO */
 @RecordBuilder
-@Schema(description = "子订单VO")
+@Schema(description = "子订单响应对象")
 public record OrderItemResult(
 
         /** 订单编号 */

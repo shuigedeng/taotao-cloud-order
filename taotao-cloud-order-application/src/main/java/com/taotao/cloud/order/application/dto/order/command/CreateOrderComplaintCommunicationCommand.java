@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @since 2022-04-21 16:59:38
  */
 @RecordBuilder
-@Schema(description = "投诉通信VO")
+@Schema(description = "投诉通信响应对象")
 public record CreateOrderComplaintCommunicationCommand(	@Schema(description = "内容")
 	String content)
         implements Serializable {

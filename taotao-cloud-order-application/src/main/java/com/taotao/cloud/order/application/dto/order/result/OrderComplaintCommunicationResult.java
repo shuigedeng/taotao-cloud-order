@@ -23,7 +23,7 @@ import java.io.Serializable;
 
 /** 投诉通信VO */
 @RecordBuilder
-@Schema(description = "投诉通信VO")
+@Schema(description = "投诉通信响应对象")
 public record OrderComplaintCommunicationResult(
         @Schema(description = "投诉通信")
 		OrderComplaintCommunicationBaseResult orderComplaintCommunicationBase)

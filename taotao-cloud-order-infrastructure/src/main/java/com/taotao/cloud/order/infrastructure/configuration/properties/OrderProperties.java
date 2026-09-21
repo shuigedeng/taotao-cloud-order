@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "taotao.cloud.goods")
-public class GoodsProperties {
+@ConfigurationProperties(prefix = "taotao.cloud.order")
+public class OrderProperties {
 
 }

@@ -24,11 +24,11 @@ import java.util.List;
 
 /** 订单vo */
 @RecordBuilder
-@Schema(description = "订单vo")
+@Schema(description = "订单响应对象")
 public record OrderResult(
         @Schema(description = "订单商品项目")
         List<OrderItemResult> orderItems,
-        @Schema(description = "订单vo")
+        @Schema(description = "订单响应对象")
         OrderBaseResult orderBase)
         implements Serializable {
 

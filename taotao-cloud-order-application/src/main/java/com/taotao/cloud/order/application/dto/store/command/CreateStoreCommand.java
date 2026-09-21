@@ -35,7 +35,6 @@ import lombok.NoArgsConstructor;
 @Setter
 @Getter
 @ToString
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "租户id")

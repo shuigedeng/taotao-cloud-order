@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.application.adapter.repository;
+package com.taotao.cloud.order.application.adapter;
 
 
-public interface OrderQueryRepository {
+public interface OrderQueryPort {
 
 //    BrandResult getById(Long id);
 }

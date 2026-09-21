@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @Setter
 @Getter
 @ToString
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "交易参数")

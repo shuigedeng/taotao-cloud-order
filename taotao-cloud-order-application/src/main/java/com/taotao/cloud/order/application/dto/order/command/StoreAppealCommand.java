@@ -29,7 +29,7 @@ import java.io.Serializable;
  * @since 2022-04-28 09:19:47
  */
 @RecordBuilder
-@Schema(description = "订单交易投诉VO")
+@Schema(description = "订单交易投诉响应对象")
 public record StoreAppealCommand(
         @Schema(description = "投诉id")
         Long orderComplaintId,

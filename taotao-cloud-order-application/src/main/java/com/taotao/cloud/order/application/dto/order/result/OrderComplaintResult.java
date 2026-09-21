@@ -24,7 +24,7 @@ import java.util.List;
 
 /** 订单交易投诉VO */
 @RecordBuilder
-@Schema(description = "订单交易投诉VO")
+@Schema(description = "订单交易投诉响应对象")
 public record OrderComplaintResult(
 
         @Schema(description = "投诉对话")

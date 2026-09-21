@@ -35,7 +35,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRpcResponse implements MarkerResponse  {

@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 
 /** 订单支付日志：实际为订单部分字段提取过来的一个vo */
 @RecordBuilder
-@Schema(description = "订单支付日志：实际为订单部分字段提取过来的一个vo")
+@Schema(description = "订单支付日志：实际为订单部分字段提取过来的一个响应对象")
 public record PaymentLogResult(
         @Schema(description = "订单编号")
         String sn,

@@ -31,7 +31,7 @@
 // * @since 2022-04-21 16:59:38
 // */
 // @RecordBuilder
-// @Schema(description = "购物车展示VO")
+// @Schema(description = "购物车展示响应对象")
 // public record CartCO(
 //        @Schema(description = "购物车中的产品列表") List<CartSkuCO> skuList,
 //        @Schema(description = "sn") String sn,

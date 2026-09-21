@@ -24,9 +24,12 @@ import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.Update;
 import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.order.api.inner.command.OrderCommandApi;
+import com.taotao.cloud.order.api.inner.dto.command.OrderApiCommand;
 import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
 import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
 import com.taotao.cloud.order.application.service.command.OrderCommandService;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,15 +40,12 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_07;
 import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/sys/dict")
 public class OrderCommandApiController extends InnerController implements OrderCommandApi {
 
     private final OrderCommandService orderCommandService;
-
-    public OrderCommandApiController(OrderCommandService orderCommandService) {
-        this.orderCommandService = orderCommandService;
-    }
 
 	@ApiInfo(
 		create = @Create(version = V2022_07, date = "2022-07-01 17:11:55"),
@@ -60,15 +60,8 @@ public class OrderCommandApiController extends InnerController implements OrderC
 				date = "2022-07-01 17:11:55")
 		})
 	@Override
-	public Response<OrderApiResponse> findByCodeCommand( Request<OrderApiQuery> dictQueryApiRequest ) {
+	public Response<OrderApiResponse> createOrder(@Valid @RequestBody  Request<OrderApiCommand> request ) {
 		return null;
 	}
 
-//    @Override
-//    @PostMapping("/code")
-//    public Result<OrderApiResponse> findByCode(@Validated @RequestBody Request<OrderApiQuery> dictQueryApiRequest) {
-//        OrderApiQuery query = dictQueryApiRequest.getData();
-//        OrderApiResponse response = orderCommandService.findByCode(query);
-//        return Result.success(response);
-//    }
 }

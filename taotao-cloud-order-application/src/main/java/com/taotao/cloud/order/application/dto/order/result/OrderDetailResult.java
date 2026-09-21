@@ -30,7 +30,7 @@ import java.util.List;
  * @since 2022-04-21 16:59:38
  */
 @RecordBuilder
-@Schema(description = "订单详情VO")
+@Schema(description = "订单详情响应对象")
 public record OrderDetailResult(
 
         /** 订单 */
