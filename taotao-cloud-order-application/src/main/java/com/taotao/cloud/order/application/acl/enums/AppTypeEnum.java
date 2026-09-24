@@ -36,17 +36,8 @@ public enum AppTypeEnum {
         this.description = description;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *

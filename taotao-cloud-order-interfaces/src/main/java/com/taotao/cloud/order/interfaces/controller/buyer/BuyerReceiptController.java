@@ -65,7 +65,7 @@ public class BuyerReceiptController extends BusinessController {
 	@Operation(summary = "保存发票信息", description = "保存发票信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
+	@PostMapping("/create")
 	public Result<Void> save(@Valid ReceiptResult receipt) {
 		receiptCommandService.saveReceipt(receipt);
 		return Result.success();

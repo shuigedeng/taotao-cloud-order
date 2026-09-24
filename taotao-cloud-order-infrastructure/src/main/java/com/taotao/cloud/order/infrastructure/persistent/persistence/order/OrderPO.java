@@ -44,7 +44,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString(callSuper = true)
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

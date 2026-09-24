@@ -44,7 +44,6 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,8 +73,8 @@ public class BuyerAfterSaleController extends BusinessController {
 	@Operation(summary = "查看售后服务详情", description = "查看售后服务详情")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/sn")
-	public Result<AfterSaleResult> queryAfterSaleBySn( SnQuery snQuery ) {
+	@GetMapping(value = "/query/sn")
+	public Result<AfterSaleResult> queryAfterSaleBySn(@Valid SnQuery snQuery ) {
 		AfterSaleResult afterSale =
 			OperationalJudgment.judgment(afterSaleQueryService.queryAfterSaleBySn(snQuery.getSn()));
 		return Result.success(afterSale);
@@ -84,31 +83,26 @@ public class BuyerAfterSaleController extends BusinessController {
 	@Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/page")
-	public Result<PageResult<AfterSaleResult>> pageQuery(
-			@Valid AfterSalePageQuery afterSalePageQry) {
-		return Result.success(afterSaleQueryService.pageQuery(afterSalePageQry));
+	@GetMapping(value = "/query/page")
+	public Result<PageResult<AfterSaleResult>> queryPage(@Valid AfterSalePageQuery afterSalePageQry) {
+		PageResult<AfterSaleResult> result = afterSaleQueryService.queryPage(afterSalePageQry);
+		return success(result);
 	}
 
 	@Operation(summary = "获取申请售后页面信息", description = "获取申请售后页面信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/apply-aftersale-info/{sn}")
-	public Result<AfterSaleApplyResult> applyAfterSaleInfo(
-			@NotBlank(message = "售后单号不能为空") @PathVariable String sn) {
-		return Result.success(afterSaleQueryService.queryAfterSaleApply(sn));
+	@GetMapping(value = "/query/apply-info")
+	public Result<AfterSaleApplyResult> applyAfterSaleInfo(@Valid SnQuery snQuery) {
+		AfterSaleApplyResult result = afterSaleQueryService.queryAfterSaleApply(snQuery.getSn());
+		return Result.success(result);
 	}
 
 	@Operation(summary = "申请售后", description = "申请售后")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/{orderItemSn}")
-	public Result<Void> saveAfterSale(
-			@NotBlank(message = "售后单号不能为空") @PathVariable String orderItemSn,
-			@Valid @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
-//		CreateAfterSaleCommand cmd = AfterSaleAddCommandBuilder.builder(afterSaleAddCmd)
-//				.orderItemSn(orderItemSn)
-//				.build();
+	@PostMapping(value = "/command/apply")
+	public Result<Void> saveAfterSale(@Valid @RequestBody CreateAfterSaleCommand afterSaleAddCmd) {
 //		afterSaleCommandService.saveAfterSale(cmd);
 		return Result.success();
 	}
@@ -116,7 +110,7 @@ public class BuyerAfterSaleController extends BusinessController {
 	@Operation(summary = "买家 退回 物流信息", description = "买家 退回 物流信息")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/delivery/{afterSaleSn}")
+	@PostMapping(value = "/command/delivery/{afterSaleSn}")
 	public Result<AfterSaleResult> delivery(
 			@NotNull(message = "售后编号不能为空") @PathVariable("afterSaleSn") String afterSaleSn,
 			@NotNull(message = "发货单号不能为空") @RequestParam String logisticsNo,
@@ -132,9 +126,9 @@ public class BuyerAfterSaleController extends BusinessController {
 	@Operation(summary = "售后，取消售后", description = "售后，取消售后")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/cancel/{afterSaleSn}")
+	@PostMapping(value = "/command/cancel")
 	public Result<Void> cancel(
-			@NotNull(message = "售后订单编码不能为空") @PathVariable String afterSaleSn) {
+			@NotNull(message = "售后订单编码不能为空") String afterSaleSn) {
 		afterSaleCommandService.cancel(afterSaleSn);
 		return Result.success();
 	}
@@ -142,32 +136,28 @@ public class BuyerAfterSaleController extends BusinessController {
 	@Operation(summary = "获取商家售后收件地址", description = "获取商家售后收件地址")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/queryStoreAfterSaleAddress/{sn}")
-	public Result<StoreAfterSaleAddressResult> queryStoreAfterSaleAddress(
-			@NotNull(message = "售后单号") @PathVariable("sn") String sn) {
-		return Result.success(afterSaleQueryService.queryStoreAfterSaleAddress(sn));
+	@GetMapping(value = "/query/address")
+	public Result<StoreAfterSaleAddressResult> queryStoreAfterSaleAddress(@Valid SnQuery snQuery) {
+		return Result.success(afterSaleQueryService.queryStoreAfterSaleAddress(snQuery.getSn()));
 	}
 
 	@Operation(summary = "获取售后原因", description = "获取售后原因")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/afterSaleReason/{serviceType}")
+	@GetMapping(value = "/query/reason")
 	public Result<List<AfterSaleReasonResult>> queryAfterSaleReason(
-			@NotBlank(message = "售后类型不能为空") @PathVariable String serviceType) {
-		List<AfterSaleReasonResult> afterSaleReasonResults =
+			@NotBlank(message = "售后类型不能为空") String serviceType) {
+		List<AfterSaleReasonResult> results =
 				afterSaleReasonQueryService.afterSaleReasonList(serviceType);
-//		return Result.success(AfterSaleReasonAssembler.INSTANCE.convert(afterSaleReasonResults));
-		return null;
+		return Result.success(results);
 	}
 
 	@Operation(summary = "获取售后日志", description = "获取售后日志")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping(value = "/afterSaleLog/{sn}")
-	public Result<List<AfterSaleLogResult>> queryAfterSaleLog(
-			@NotBlank(message = "售后单号不能为空") @PathVariable String sn) {
-		List<AfterSaleLogResult> afterSaleLogResultList = afterSaleLogQueryService.queryAfterSaleLog(sn);
-//		return Result.success(AfterSaleLogAssembler.INSTANCE.convert(afterSaleLogResultList));
-		return null;
+	@GetMapping(value = "/query/log")
+	public Result<List<AfterSaleLogResult>> queryAfterSaleLog(@Valid SnQuery snQuery) {
+		List<AfterSaleLogResult> results = afterSaleLogQueryService.queryAfterSaleLog(snQuery.getSn());
+		return Result.success(results);
 	}
 }

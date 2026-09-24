@@ -33,6 +33,7 @@ import com.taotao.cloud.order.domain.valobj.invoice.InvoiceType;
 import com.taotao.cloud.order.domain.valobj.invoice.UploadedFile;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.Instant;
@@ -55,6 +56,7 @@ import static org.apache.commons.lang3.RandomUtils.nextInt;
  */
 @Slf4j
 @Getter
+@Setter
 @NoArgsConstructor(access = PRIVATE)
 public class OrderAgg extends AggregateRoot<Long> {
 
@@ -336,17 +338,6 @@ public class OrderAgg extends AggregateRoot<Long> {
     }
 
     /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-
-    /**
-    /**
-    /**
-    /**
      * 判断
      *
      * @return 是否成功
@@ -356,17 +347,7 @@ public class OrderAgg extends AggregateRoot<Long> {
         return this.invoice != null;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
     /**
      * 判断
      *

@@ -42,7 +42,6 @@ import org.hibernate.Hibernate;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity
 @Table(name = PurchaseQuotedPO.TABLE_NAME)
 @TableName(PurchaseQuotedPO.TABLE_NAME)

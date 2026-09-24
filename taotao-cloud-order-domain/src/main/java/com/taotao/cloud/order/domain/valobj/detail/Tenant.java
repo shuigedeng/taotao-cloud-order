@@ -39,17 +39,8 @@ public class Tenant {
     public void validateAddExtraMembers( int amount ) {
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 判断
      *
@@ -61,17 +52,8 @@ public class Tenant {
         return false;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 判断
      *
@@ -82,17 +64,8 @@ public class Tenant {
         return false;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 判断
      *
@@ -143,17 +116,8 @@ public class Tenant {
         return "";
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -183,17 +147,8 @@ public class Tenant {
         return null;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *

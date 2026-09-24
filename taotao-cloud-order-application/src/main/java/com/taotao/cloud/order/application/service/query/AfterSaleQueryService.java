@@ -33,7 +33,7 @@ import java.util.List;
  */
 public interface AfterSaleQueryService {
 
-    PageResult<AfterSaleResult> pageQuery(AfterSalePageQuery afterSalePageQry);
+    PageResult<AfterSaleResult> queryPage(AfterSalePageQuery afterSalePageQry);
 
     List<AfterSaleResult> exportAfterSaleOrder(AfterSalePageQuery afterSalePageQry);
 

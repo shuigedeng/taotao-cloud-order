@@ -51,7 +51,7 @@ public class BuyerCartController extends BusinessController {
 	@Operation(summary = "向购物车中添加一个产品", description = "向购物车中添加一个产品")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping
+	@PostMapping("/command/add")
 	public Result<Void> add(
 			@NotNull(message = "产品id不能为空") String skuId,
 			@NotNull(message = "购买数量不能为空") @Min(value = 1, message = "加入购物车数量必须大于0") Integer num,
@@ -71,7 +71,7 @@ public class BuyerCartController extends BusinessController {
 	@Operation(summary = "获取购物车数量", description = "获取购物车数量")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/count")
+	@GetMapping("/query/count")
 	public Result<Long> cartCount(@RequestParam(required = false) Boolean checked) {
 		return Result.success(this.cartQueryService.queryCartNum(checked));
 	}
@@ -79,7 +79,7 @@ public class BuyerCartController extends BusinessController {
 	@Operation(summary = "获取购物车可用优惠券数量", description = "获取购物车可用优惠券数量")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@GetMapping("/coupon/num")
+	@GetMapping("/query/coupon-num")
 	public Result<Long> cartCouponNum(@RequestParam String way) {
 		return Result.success(this.cartQueryService.queryCanUseCoupon(CartTypeEnum.valueOf(way)));
 	}
@@ -87,7 +87,7 @@ public class BuyerCartController extends BusinessController {
 	@Operation(summary = "更新购物车中的多个产品的数量或选中状态", description = "更新购物车中的多个产品的数量或选中状态")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/sku/num/{skuId}")
+	@PostMapping(value = "/command/update/sku-num")
 	public Result<Void> update(
 			@NotNull(message = "产品id不能为空") @PathVariable(name = "skuId") String skuId, Integer num) {
 		cartCommandService.add(skuId, num, CartTypeEnum.CART.name(), true);
@@ -97,7 +97,7 @@ public class BuyerCartController extends BusinessController {
 	@Operation(summary = "更新购物车中单个产品 更新购物车中的多个产品的数量或选中状态", description = "更新购物车中的多个产品的数量或选中状态")
 	@RequestLogger
 	@PreAuthorize("hasAuthority('dept:tree:data')")
-	@PostMapping(value = "/sku/checked/{skuId}")
+	@PostMapping(value = "/command/update/sku-checked")
 	public Result<Void> updateChecked(
 			@NotNull(message = "产品id不能为空") @PathVariable(name = "skuId") String skuId, boolean checked) {
 		cartCommandService.checked(skuId, checked);

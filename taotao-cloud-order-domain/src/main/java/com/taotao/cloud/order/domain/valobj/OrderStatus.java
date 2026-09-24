@@ -16,24 +16,18 @@
 
 package com.taotao.cloud.order.domain.valobj;
 
+import lombok.Getter;
+
+@Getter
 public enum OrderStatus {
     CREATED("新建"),
     PAID("已支付"),
     REFUNDED("已退款");
 
-    private final String name;
+	private final String name;
 
     OrderStatus(String name) {
         this.name = name;
     }
 
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getName() {
-        return name;
-    }
 }

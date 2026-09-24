@@ -41,14 +41,12 @@ import org.hibernate.Hibernate;
 @Getter
 @Setter
 @ToString(callSuper = true)
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = OrderComplaintCommunicationPO.TABLE_NAME)
 @TableName(OrderComplaintCommunicationPO.TABLE_NAME)
-@org.springframework.data.relational.core.mapping.Table(
-        name = OrderComplaintCommunicationPO.TABLE_NAME)
+@org.springframework.data.relational.core.mapping.Table(name = OrderComplaintCommunicationPO.TABLE_NAME)
 public class OrderComplaintCommunicationPO
         extends BasePO<OrderComplaintCommunicationPO> {
 

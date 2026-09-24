@@ -41,17 +41,8 @@ public enum OrderStatusEnum {
         this.description = description;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *

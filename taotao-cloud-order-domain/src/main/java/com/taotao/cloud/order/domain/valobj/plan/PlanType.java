@@ -33,17 +33,8 @@ public enum PlanType {
         this.level = level;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -54,17 +45,8 @@ public enum PlanType {
         return name;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -86,17 +68,8 @@ public enum PlanType {
         return this.getPrice() >= other.getPrice();
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *

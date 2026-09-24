@@ -122,17 +122,8 @@ public enum PlatePrintingType {
         this.deliveryFee = 0;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -143,17 +134,8 @@ public enum PlatePrintingType {
         return materialType;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -164,17 +146,8 @@ public enum PlatePrintingType {
         return size;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *
@@ -185,17 +158,8 @@ public enum PlatePrintingType {
         return unitPrice;
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 获取
      *

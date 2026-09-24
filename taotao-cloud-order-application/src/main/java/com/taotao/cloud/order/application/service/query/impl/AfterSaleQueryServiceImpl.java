@@ -33,7 +33,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AfterSaleQueryServiceImpl implements AfterSaleQueryService {
 
     @Override
-    public PageResult<AfterSaleResult> pageQuery(AfterSalePageQuery afterSalePageQry) {
+    public PageResult<AfterSaleResult> queryPage(AfterSalePageQuery afterSalePageQry) {
         return null;
     }
 

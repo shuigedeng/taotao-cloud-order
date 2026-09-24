@@ -53,13 +53,6 @@ import com.taotao.boot.web.annotation.TaoTaoBootApplication;
  * @version 2022.03
  * @since 2020/11/30 下午3:33
  */
-// @MapperScan(basePackages = {"com.taotao.cloud.order.infrastructure.persistent.*.mapper"})
-// @EnableJpaRepositories(
-//	basePackages = {"com.taotao.cloud.order.infrastructure.persistent.*.repository.inf"},
-//	repositoryFactoryBeanClass = JpaExtendRepositoryFactoryBean.class)
-// @ComponentScan(basePackages = {
-//	"com.taotao.cloud.order.biz.repository.cls"
-// } )
 @TaoTaoBootApplication
 public class TaoTaoCloudOrderApplication {
 

@@ -16,24 +16,19 @@
 
 package com.taotao.cloud.order.domain.valobj;
 
+import lombok.Getter;
+
+@Getter
 public enum PaymentType {
     WX_NATIVE("在线微信支付"),
     WX_TRANSFER("线下微信转账"),
     BANK_TRANSFER("银行对公转账");
 
-    private final String name;
+
+	private final String name;
 
     PaymentType(String name) {
         this.name = name;
     }
 
-    /**
-     * 获取
-     *
-     * @return 字符串
-     * @since 2022.03
-     */
-    public String getName() {
-        return name;
-    }
 }

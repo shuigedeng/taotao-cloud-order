@@ -63,17 +63,8 @@ public class Invoice {
         this.issuedAt = now();
     }
 
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
-    /**
 
-    /**
-    /**
-    /**
+
     /**
      * 判断
      *

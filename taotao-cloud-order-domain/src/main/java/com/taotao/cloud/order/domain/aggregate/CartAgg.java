@@ -19,6 +19,8 @@ package com.taotao.cloud.order.domain.aggregate;
 import com.taotao.boot.common.exception.BusinessException;
 import com.taotao.boot.ddd.model.domain.AggregateRoot;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * CartAgg
@@ -27,6 +29,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
+@Getter
+@Setter
 public class CartAgg extends AggregateRoot<Long> {
 
     @Schema(name = "name", description = "部门名称")

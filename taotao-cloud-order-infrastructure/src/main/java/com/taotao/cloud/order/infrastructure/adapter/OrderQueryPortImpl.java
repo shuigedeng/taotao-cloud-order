@@ -9,6 +9,6 @@ import com.taotao.cloud.order.application.adapter.OrderQueryPort;
  * @version 2022.05
  * @since 2026/8/15
  */
-public class OrderQueryPortAdapter implements OrderQueryPort {
+public class OrderQueryPortImpl implements OrderQueryPort {
 
 }

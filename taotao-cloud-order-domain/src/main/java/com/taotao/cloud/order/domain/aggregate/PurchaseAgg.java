@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.order.domain.aggregate;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * PurchaseAgg
  *
@@ -23,6 +26,8 @@ package com.taotao.cloud.order.domain.aggregate;
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
+@Getter
+@Setter
 public class PurchaseAgg {
 
 }
