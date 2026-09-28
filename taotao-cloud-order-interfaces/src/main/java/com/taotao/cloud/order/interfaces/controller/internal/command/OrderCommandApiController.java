@@ -21,7 +21,7 @@ import com.taotao.boot.common.model.response.Response;
 import com.taotao.boot.common.support.info.ApiInfo;
 import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.Update;
-import com.taotao.boot.webagg.controller.InnerController;
+import com.taotao.boot.webagg.controller.InternalController;
 import com.taotao.cloud.order.api.internal.command.OrderCommandApi;
 import com.taotao.cloud.order.api.internal.dto.command.OrderApiCommand;
 import com.taotao.cloud.order.api.internal.dto.response.OrderApiResponse;
@@ -38,7 +38,7 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 @AllArgsConstructor
 @RestController
-public class OrderCommandApiController extends InnerController implements OrderCommandApi {
+public class OrderCommandApiController extends InternalController implements OrderCommandApi {
 
     private final OrderCommandService orderCommandService;
 

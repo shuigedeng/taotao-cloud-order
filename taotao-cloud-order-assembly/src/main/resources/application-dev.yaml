@@ -1117,7 +1117,7 @@ taotao:
       packages-to-scan:
         - com.taotao.cloud.order.interfaces.controller.admin
         - com.taotao.cloud.order.interfaces.controller.buyer
-        - com.taotao.cloud.order.interfaces.controller.inner
+        - com.taotao.cloud.order.interfaces.controller.internal
         - com.taotao.cloud.order.interfaces.controller.notify
         - com.taotao.cloud.order.interfaces.controller.seller
     metrics:
