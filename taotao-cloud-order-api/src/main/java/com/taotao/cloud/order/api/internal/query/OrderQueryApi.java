@@ -14,35 +14,35 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.inner.command;
+package com.taotao.cloud.order.api.internal.query;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.order.api.inner.dto.command.OrderApiCommand;
-import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
-import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
+import com.taotao.cloud.order.api.internal.dto.query.OrderApiQuery;
+import com.taotao.cloud.order.api.internal.dto.response.OrderApiResponse;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.service.annotation.HttpExchange;
 import org.springframework.web.service.annotation.PostExchange;
 
 /**
- * 订单命令 API
- * <p>提供订单相关的命令操作接口（远程调用）</p>
+ * 订单查询 API
+ * <p>提供订单相关的查询操作接口（远程调用）</p>
  *
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
 @HttpExchange
-public interface OrderCommandApi {
+public interface OrderQueryApi {
 
     /**
      * 字典列表code查询
      *
-     * @param request 请求参数
-     * @return 响应对象
+     * @param request 代码
+     * @return {@link Response<OrderApiResponse> }
      * @since 2022-06-29 21:40:21
      */
-    @PostExchange("/sys/dict/code/command")
-    Response<OrderApiResponse> createOrder(@RequestBody Request<OrderApiCommand> request);
+    @PostExchange("/internal/sys/dict/code/query")
+    Response<OrderApiResponse> findByCode(@RequestBody Request<OrderApiQuery> request);
+
 
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.api.inner.dto.command;
+package com.taotao.cloud.order.api.internal.dto.command;
 
 import com.taotao.boot.common.model.ddd.types.Command;
 import com.taotao.boot.common.model.ddd.types.MarkerRequest;

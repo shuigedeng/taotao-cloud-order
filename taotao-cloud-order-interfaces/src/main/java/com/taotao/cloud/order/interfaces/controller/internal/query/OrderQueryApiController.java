@@ -14,23 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.controller.inner;
+package com.taotao.cloud.order.interfaces.controller.internal.query;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.common.support.info.ApiInfo;
 import com.taotao.boot.common.support.info.Create;
 import com.taotao.boot.common.support.info.Update;
 import com.taotao.boot.webagg.controller.InnerController;
-import com.taotao.cloud.order.api.inner.dto.query.OrderApiQuery;
-import com.taotao.cloud.order.api.inner.dto.response.OrderApiResponse;
-import com.taotao.cloud.order.api.inner.query.OrderQueryApi;
+import com.taotao.cloud.order.api.internal.dto.query.OrderApiQuery;
+import com.taotao.cloud.order.api.internal.dto.response.OrderApiResponse;
+import com.taotao.cloud.order.api.internal.query.OrderQueryApi;
 import com.taotao.cloud.order.application.service.query.OrderQueryService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,7 +38,6 @@ import static com.taotao.boot.common.support.info.ApiVersionEnum.V2022_08;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/sys/dict")
 public class OrderQueryApiController extends InnerController implements OrderQueryApi {
 
     private final OrderQueryService orderQueryService;
