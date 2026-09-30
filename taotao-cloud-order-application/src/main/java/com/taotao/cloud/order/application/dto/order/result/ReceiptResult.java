@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.order.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -31,7 +32,7 @@ public record ReceiptResult(
         String taxpayerId,
         @Schema(description = "发票内容")
         String receiptContent)
-        implements Serializable {
+        implements MarkerResult {
 
     @Serial private static final long serialVersionUID = -6293102172184734928L;
 }

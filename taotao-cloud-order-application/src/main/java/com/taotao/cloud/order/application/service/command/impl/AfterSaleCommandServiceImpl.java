@@ -16,6 +16,9 @@
 
 package com.taotao.cloud.order.application.service.command.impl;
 
+import com.taotao.cloud.order.application.dto.aftersale.command.ConfirmCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.RefundCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.ReviewCommand;
 import com.taotao.cloud.order.application.service.command.AfterSaleCommandService;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 import java.math.BigDecimal;
@@ -33,13 +36,10 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @RequiredArgsConstructor
-@Transactional(rollbackFor = Exception.class)
 public class AfterSaleCommandServiceImpl implements AfterSaleCommandService {
 
-
 	@Override
-	public void review(String afterSaleSn, String serviceStatus, String remark,
-		BigDecimal actualRefundPrice) {}
+	public void review(ReviewCommand command) {}
 
 	@Override
 	public AfterSaleResult buyerDelivery(String afterSaleSn, String logisticsNo, Long logisticsId,
@@ -48,10 +48,10 @@ public class AfterSaleCommandServiceImpl implements AfterSaleCommandService {
 	}
 
 	@Override
-	public void storeConfirm(String afterSaleSn, String serviceStatus, String remark) {}
+	public void storeConfirm(ConfirmCommand command) {}
 
 	@Override
-	public void refund(String afterSaleSn, String remark) {}
+	public void refund(RefundCommand command) {}
 
 	@Override
 	public AfterSaleResult complete(String afterSaleSn) {

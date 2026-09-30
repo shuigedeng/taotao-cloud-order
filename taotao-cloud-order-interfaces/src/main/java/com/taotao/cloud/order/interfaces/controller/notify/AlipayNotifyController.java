@@ -47,21 +47,13 @@ public class AlipayNotifyController extends BusinessController {
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/pay")
-	public Result<Void> payNotify(@Valid @RequestBody CreateAfterSaleCommand brand) {
+	public Result<Void> payNotify(@Valid @RequestBody CreateAfterSaleCommand command) {
 		return Result.success();
 	}
 
-
-	/**
-	 * 退款
-	 *
-	 * @param brand 品牌
-	 * @return 字符串
-	 * @since 2022.03
-	 */
 	@Operation(summary = "支付宝退款状态通知", description = "支付宝退款异步通知")
 	@PostMapping("/refund")
-	public String refundNotify(@Valid @RequestBody CreateAfterSaleCommand brand) {
+	public String refundNotify(@Valid @RequestBody CreateAfterSaleCommand command) {
 		// 处理退款通知
 		return "success";
 	}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package com.taotao.cloud.order.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.order.api.grpc.dto.command";
+option java_outer_classname = "OrderCommandProto";
+//option objc_class_prefix = "HLW";
+
+message CreateOrderGrpcCommand {
+  string id = 1;
+}

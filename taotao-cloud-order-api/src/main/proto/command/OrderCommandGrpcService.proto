@@ -2,19 +2,18 @@ syntax = "proto3";
 
 package com.taotao.cloud.order.api.grpc;
 
-import "dto.proto";
-
 option java_multiple_files = true;
 option java_package = "com.taotao.cloud.order.api.grpc";
 option java_outer_classname = "OrderCommandGrpcServiceProto";
 //option objc_class_prefix = "HLW";
 
+import "dto/command/OrderCommand.proto";
+import "dto/response/OrderResponse.proto";
+
 service OrderCommandGrpcService {
   rpc createOrder (CreateOrderGrpcCommand) returns (OrderGrpcResponse){}
 }
 
-message CreateOrderGrpcCommand {
-  string id = 1;
-}
+
 
 

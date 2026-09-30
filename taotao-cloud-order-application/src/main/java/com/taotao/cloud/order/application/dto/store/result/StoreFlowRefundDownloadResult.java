@@ -17,13 +17,15 @@
 package com.taotao.cloud.order.application.dto.store.result;
 
 import java.io.Serializable;
+
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import lombok.*;
 
 @Data
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreFlowRefundDownloadResult implements Serializable {
+public class StoreFlowRefundDownloadResult implements MarkerResult {
 
     private String id;
     private String orderSn;

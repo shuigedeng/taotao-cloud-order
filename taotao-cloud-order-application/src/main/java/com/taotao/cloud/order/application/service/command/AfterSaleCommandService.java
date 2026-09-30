@@ -17,6 +17,9 @@
 package com.taotao.cloud.order.application.service.command;
 
 import com.taotao.boot.ddd.model.application.service.CommandService;
+import com.taotao.cloud.order.application.dto.aftersale.command.ConfirmCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.RefundCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.ReviewCommand;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 
 import java.math.BigDecimal;
@@ -33,14 +36,14 @@ public interface AfterSaleCommandService extends CommandService {
 
 //    void saveAfterSale(AfterSaleAddCmd afterSaleAddCmd);
 
-    void review(String afterSaleSn, String serviceStatus, String remark, BigDecimal actualRefundPrice);
+    void review(ReviewCommand command);
 
     AfterSaleResult buyerDelivery(String afterSaleSn, String logisticsNo, Long logisticsId,
                               LocalDateTime mDeliverTime);
 
-    void storeConfirm(String afterSaleSn, String serviceStatus, String remark);
+    void storeConfirm(ConfirmCommand command);
 
-    void refund(String afterSaleSn, String remark);
+    void refund(RefundCommand command);
 
     AfterSaleResult complete(String afterSaleSn);
 

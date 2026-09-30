@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -34,7 +35,7 @@ public record AfterSaleReasonResult(
          */
         @Schema(description = "售后类型")
         String serviceType)
-        implements Serializable {
+        implements MarkerResult {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

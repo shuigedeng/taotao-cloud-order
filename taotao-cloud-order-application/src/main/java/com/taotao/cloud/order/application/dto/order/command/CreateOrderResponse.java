@@ -21,6 +21,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 import java.time.Instant;
 
+import com.taotao.boot.common.model.ddd.types.Command;
 import com.taotao.cloud.order.domain.valobj.OrderPrice;
 import com.taotao.cloud.order.domain.valobj.PaymentType;
 import lombok.AccessLevel;
@@ -38,7 +39,7 @@ import lombok.Value;
 @Value
 @Builder
 @AllArgsConstructor(access = PRIVATE)
-public class CreateOrderResponse {
+public class CreateOrderResponse implements Command {
 
     private final Long id;
     private final PaymentType paymentType;

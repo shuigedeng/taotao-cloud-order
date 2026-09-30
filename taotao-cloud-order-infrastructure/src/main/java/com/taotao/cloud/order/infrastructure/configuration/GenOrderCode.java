@@ -24,6 +24,7 @@ import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
+import static org.apache.commons.lang3.RandomStringUtils.secure;
 
 /**
  * GenOrderCode
@@ -92,7 +93,7 @@ public class GenOrderCode {
 
             // 生成随机码
             int randomLength = length - incrLength;
-            String randomAlphabetic = randomAlphabetic(randomLength);
+            String randomAlphabetic = secure().nextAlphabetic(randomLength);
             // 格式化订单号
             String orderCode = prefix + randomAlphabetic + counterValue;
             log.info("根据规则生成的订单号:{}", orderCode);

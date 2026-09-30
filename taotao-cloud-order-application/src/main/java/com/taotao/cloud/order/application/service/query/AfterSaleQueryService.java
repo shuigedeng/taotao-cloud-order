@@ -33,9 +33,9 @@ import java.util.List;
  */
 public interface AfterSaleQueryService {
 
-    PageResult<AfterSaleResult> queryPage(AfterSalePageQuery afterSalePageQry);
+    PageResult<AfterSaleResult> queryPage(AfterSalePageQuery query);
 
-    List<AfterSaleResult> exportAfterSaleOrder(AfterSalePageQuery afterSalePageQry);
+    List<AfterSaleResult> exportAfterSaleOrder(AfterSalePageQuery query);
 
     AfterSaleResult queryAfterSaleBySn(String sn);
 

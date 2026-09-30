@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.order.command;
 
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -30,9 +31,10 @@ import java.io.Serializable;
  */
 @RecordBuilder
 @Schema(description = "投诉通信响应对象")
-public record CreateOrderComplaintCommunicationCommand(	@Schema(description = "内容")
+public record CreateOrderComplaintCommunicationCommand(
+	@Schema(description = "内容")
 	String content)
-        implements Serializable {
+        implements Command {
 
     @Serial private static final long serialVersionUID = -8460949951683122695L;
 }

@@ -19,13 +19,15 @@ package com.taotao.cloud.order.application.dto.trade.result;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import lombok.*;
 
 @Data
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class TradeResult implements Serializable {
+public class TradeResult implements MarkerResult {
 
     private Long id;
     private String tradeSn;

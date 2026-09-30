@@ -14,23 +14,24 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.rpc;
+package com.taotao.cloud.order.interfaces.rpc.query;
 
 import com.taotao.boot.common.model.request.Request;
 import com.taotao.boot.common.model.response.Response;
-import com.taotao.cloud.order.api.rpc.command.OrderCommandRpcService;
-import com.taotao.cloud.order.api.rpc.dto.command.CreateOrderRpcCommand;
+import com.taotao.cloud.order.api.rpc.dto.query.OrderRpcQuery;
 import com.taotao.cloud.order.api.rpc.dto.response.OrderRpcResponse;
+import com.taotao.cloud.order.api.rpc.query.OrderQueryRpcService;
 import lombok.RequiredArgsConstructor;
+//import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
-//@DubboService(interfaceClass = OrderCommandRpcService.class, validation = "true")
+//@DubboService(interfaceClass = OrderQueryRpcService.class, validation = "true")
 @Service
 @RequiredArgsConstructor
-public class OrderCommandRpcServiceImpl implements OrderCommandRpcService {
+public class OrderQueryRpcServiceImpl implements OrderQueryRpcService {
 
 	@Override
-	public Response<OrderRpcResponse> createOrder( Request<CreateOrderRpcCommand> orderQueryRpcRequest ) {
+	public Response<OrderRpcResponse> query( Request<OrderRpcQuery> request ) {
 		return null;
 	}
 }

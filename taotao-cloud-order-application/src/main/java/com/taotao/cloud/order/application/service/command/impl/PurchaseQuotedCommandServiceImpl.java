@@ -19,6 +19,7 @@ package com.taotao.cloud.order.application.service.command.impl;
 import com.taotao.cloud.order.application.dto.purchase.result.PurchaseQuotedResult;
 import com.taotao.cloud.order.application.service.command.PurchaseQuotedCommandService;
 import com.taotao.cloud.order.application.service.command.PurchaseQuotedItemCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +30,11 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-28 08:55:44
  */
+@RequiredArgsConstructor
 @Service
 public class PurchaseQuotedCommandServiceImpl implements PurchaseQuotedCommandService {
 
-    @Autowired private PurchaseQuotedItemCommandService purchaseQuotedItemService;
+     private final PurchaseQuotedItemCommandService purchaseQuotedItemService;
 
 	@Override
 	public PurchaseQuotedResult addPurchaseQuoted( PurchaseQuotedResult purchaseQuotedResult ) {
@@ -40,7 +42,7 @@ public class PurchaseQuotedCommandServiceImpl implements PurchaseQuotedCommandSe
 	}
 
 //    @Override
-//    @Transactional(rollbackFor = Exception.class)
+
 //    public PurchaseQuotedResult addPurchaseQuoted(PurchaseQuotedResult purchaseQuotedResult) {
 //        PurchaseQuotedPO purchaseQuotedPO = new PurchaseQuotedPO();
 //        BeanUtils.copyProperties(purchaseQuotedResult, purchaseQuotedPO);

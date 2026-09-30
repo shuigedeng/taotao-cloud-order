@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.taotao.cloud.order.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.order.api.grpc.dto.response";
+option java_outer_classname = "OrderResponseProto";
+//option objc_class_prefix = "HLW";
+
+
+
+message OrderGrpcResponse {
+    bool reply = 1;
+}

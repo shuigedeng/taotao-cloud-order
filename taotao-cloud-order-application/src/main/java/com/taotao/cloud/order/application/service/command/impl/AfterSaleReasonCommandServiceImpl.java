@@ -31,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @RequiredArgsConstructor
-@Transactional(rollbackFor = Exception.class)
+
 public class AfterSaleReasonCommandServiceImpl implements AfterSaleReasonCommandService {
     @Override
     public Boolean editAfterSaleReason(AfterSaleReasonResult afterSaleReasonResult) {

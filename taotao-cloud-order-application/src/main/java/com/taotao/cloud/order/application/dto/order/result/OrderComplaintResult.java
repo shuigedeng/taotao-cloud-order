@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.order.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -35,7 +36,7 @@ public record OrderComplaintResult(
         String[] appealImagesList,
 
         OrderComplaintBaseResult orderComplaintBase)
-        implements Serializable {
+        implements MarkerResult {
 
     @Serial private static final long serialVersionUID = -7013465343480854816L;
 }

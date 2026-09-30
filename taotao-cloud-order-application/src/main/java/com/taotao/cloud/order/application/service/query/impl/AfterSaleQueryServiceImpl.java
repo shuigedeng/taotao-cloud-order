@@ -29,7 +29,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class AfterSaleQueryServiceImpl implements AfterSaleQueryService {
 
     @Override

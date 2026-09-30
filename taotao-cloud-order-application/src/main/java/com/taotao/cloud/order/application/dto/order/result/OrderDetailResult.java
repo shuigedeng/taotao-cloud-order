@@ -16,8 +16,10 @@
 
 package com.taotao.cloud.order.application.dto.order.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
@@ -33,102 +35,104 @@ import java.util.List;
 @Schema(description = "订单详情响应对象")
 public record OrderDetailResult(
 
-        /** 订单 */
-        OrderBaseResult order,
+	/** 订单 */
+	OrderBaseResult order,
 
 
-        /** 子订单信息 */
-        List<OrderItemResult> orderItems,
+	/** 子订单信息 */
+	List<OrderItemResult> orderItems,
 
 
-        /** 订单状态 */
-        String orderStatusValue,
+	/** 订单状态 */
+	String orderStatusValue,
 
 
-        /** 付款状态 */
-        String payStatusValue,
+	/** 付款状态 */
+	String payStatusValue,
 
 
-        /** 物流状态 */
-        String deliverStatusValue,
+	/** 物流状态 */
+	String deliverStatusValue,
 
 
-        /** 物流类型 */
-        String deliveryMethodValue,
+	/** 物流类型 */
+	String deliveryMethodValue,
 
 
-        /** 支付类型 */
-        String paymentMethodValue,
+	/** 支付类型 */
+	String paymentMethodValue,
 
 
-        /** 发票 */
-        ReceiptResult receipt,
+	/** 发票 */
+	ReceiptResult receipt,
 
 
-        /** 获取订单日志 */
-        List<OrderLogResult> orderLogs,
-        @Schema(description = "价格详情")
-        String priceDetail)
-        implements Serializable {
+	/** 获取订单日志 */
+	List<OrderLogResult> orderLogs,
 
-    @Serial private static final long serialVersionUID = -6293102172184734928L;
+	@Schema(description = "价格详情")
+	String priceDetail)
+	implements MarkerResult {
 
-    //
-    // public OrderDetailVO(OrderBaseVO order, List<OrderItemVO> orderItems,
-    // 	List<OrderLogVO> orderLogs,
-    // 	ReceiptVO receipt) {
-    // 	this.order = order;
-    // 	this.orderItems = orderItems;
-    // 	this.orderLogs = orderLogs;
-    // 	this.receipt = receipt;
-    // }
-    //
-    // /**
-    //  * 可操作类型
-    //  */
-    // public AllowOperation getAllowOperationVO() {
-    // 	return new AllowOperation(this.order);
-    // }
-    //
-    // public String getOrderStatusValue() {
-    // 	try {
-    // 		return OrderStatusEnum.valueOf(order.getOrderStatus()).description();
-    // 	} catch (Exception e) {
-    // 		return "";
-    // 	}
-    // }
-    //
-    // public String getPayStatusValue() {
-    // 	try {
-    // 		return PayStatusEnum.valueOf(order.getPayStatus()).description();
-    // 	} catch (Exception e) {
-    // 		return "";
-    // 	}
-    //
-    // }
-    //
-    // public String getDeliverStatusValue() {
-    // 	try {
-    // 		return DeliverStatusEnum.valueOf(order.getDeliverStatus()).getDescription();
-    // 	} catch (Exception e) {
-    // 		return "";
-    // 	}
-    // }
-    //
-    // public String getDeliveryMethodValue() {
-    // 	try {
-    // 		return DeliveryMethodEnum.valueOf(order.getDeliveryMethod()).getDescription();
-    // 	} catch (Exception e) {
-    // 		return "";
-    // 	}
-    // }
-    //
-    // public String getPaymentMethodValue() {
-    // 	try {
-    // 		return PaymentMethodEnum.valueOf(order.getPaymentMethod()).paymentName();
-    // 	} catch (Exception e) {
-    // 		return "";
-    // 	}
-    // }
+	@Serial
+	private static final long serialVersionUID = -6293102172184734928L;
+
+	//
+	// public OrderDetailVO(OrderBaseVO order, List<OrderItemVO> orderItems,
+	// 	List<OrderLogVO> orderLogs,
+	// 	ReceiptVO receipt) {
+	// 	this.order = order;
+	// 	this.orderItems = orderItems;
+	// 	this.orderLogs = orderLogs;
+	// 	this.receipt = receipt;
+	// }
+	//
+	// /**
+	//  * 可操作类型
+	//  */
+	// public AllowOperation getAllowOperationVO() {
+	// 	return new AllowOperation(this.order);
+	// }
+	//
+	// public String getOrderStatusValue() {
+	// 	try {
+	// 		return OrderStatusEnum.valueOf(order.getOrderStatus()).description();
+	// 	} catch (Exception e) {
+	// 		return "";
+	// 	}
+	// }
+	//
+	// public String getPayStatusValue() {
+	// 	try {
+	// 		return PayStatusEnum.valueOf(order.getPayStatus()).description();
+	// 	} catch (Exception e) {
+	// 		return "";
+	// 	}
+	//
+	// }
+	//
+	// public String getDeliverStatusValue() {
+	// 	try {
+	// 		return DeliverStatusEnum.valueOf(order.getDeliverStatus()).getDescription();
+	// 	} catch (Exception e) {
+	// 		return "";
+	// 	}
+	// }
+	//
+	// public String getDeliveryMethodValue() {
+	// 	try {
+	// 		return DeliveryMethodEnum.valueOf(order.getDeliveryMethod()).getDescription();
+	// 	} catch (Exception e) {
+	// 		return "";
+	// 	}
+	// }
+	//
+	// public String getPaymentMethodValue() {
+	// 	try {
+	// 		return PaymentMethodEnum.valueOf(order.getPaymentMethod()).paymentName();
+	// 	} catch (Exception e) {
+	// 		return "";
+	// 	}
+	// }
 
 }

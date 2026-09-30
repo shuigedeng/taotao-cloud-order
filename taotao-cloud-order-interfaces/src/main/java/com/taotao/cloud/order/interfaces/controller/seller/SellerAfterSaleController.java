@@ -20,23 +20,23 @@ import com.taotao.boot.common.model.result.Result;
 import com.taotao.boot.web.request.annotation.RequestLogger;
 import com.taotao.boot.web.utils.OperationalJudgment;
 import com.taotao.boot.webagg.controller.BusinessController;
+import com.taotao.cloud.order.application.dto.aftersale.command.ConfirmCommand;
+import com.taotao.cloud.order.application.dto.aftersale.command.ReviewCommand;
+import com.taotao.cloud.order.application.dto.aftersale.query.SnQuery;
 import com.taotao.cloud.order.application.dto.aftersale.result.AfterSaleResult;
 import com.taotao.cloud.order.application.dto.aftersale.result.StoreAfterSaleAddressResult;
 import com.taotao.cloud.order.application.service.command.AfterSaleCommandService;
 import com.taotao.cloud.order.application.service.query.AfterSaleQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -50,11 +50,10 @@ public class SellerAfterSaleController extends BusinessController {
     @Operation(summary = "查看售后服务详情", description = "查看售后服务详情")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/{sn}")
-    public Result<AfterSaleResult> queryAfterSaleBySn(@PathVariable String sn) {
-        AfterSaleResult afterSale =
-                OperationalJudgment.judgment(afterSaleQueryService.queryAfterSaleBySn(sn));
-        return Result.success(afterSale);
+    @GetMapping(value = "/query/detail")
+    public Result<AfterSaleResult> queryAfterSaleBySn(@Valid SnQuery query) {
+		AfterSaleResult result = afterSaleQueryService.queryAfterSaleBySn(query.getSn());
+        return Result.success(OperationalJudgment.judgment(result));
     }
 
 //    @Operation(summary = "分页获取售后服务", description = "分页获取售后服务")
@@ -80,13 +79,9 @@ public class SellerAfterSaleController extends BusinessController {
     @Operation(summary = "审核售后申请", description = "审核售后申请")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @PostMapping(value = "/review/{afterSaleSn}")
-    public Result<Void> review(
-            @NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
-            @NotNull(message = "请审核") String serviceStatus,
-            String remark,
-            BigDecimal actualRefundPrice) {
-        afterSaleCommandService.review(afterSaleSn, serviceStatus, remark, actualRefundPrice);
+    @PostMapping(value = "/command/review")
+    public Result<Void> review(@Valid @RequestBody ReviewCommand command) {
+        afterSaleCommandService.review(command);
         return Result.success();
     }
 
@@ -94,28 +89,24 @@ public class SellerAfterSaleController extends BusinessController {
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
     @PostMapping(value = "/confirm/{afterSaleSn}")
-    public Result<Void> confirm(
-            @NotNull(message = "请选择售后单") @PathVariable String afterSaleSn,
-            @NotNull(message = "请审核") String serviceStatus,
-            String remark) {
-        afterSaleCommandService.storeConfirm(afterSaleSn, serviceStatus, remark);
+    public Result<Void> confirm(@Valid @RequestBody ConfirmCommand command) {
+        afterSaleCommandService.storeConfirm(command);
         return Result.success();
     }
 
     @Operation(summary = "查看买家退货物流踪迹", description = "查看买家退货物流踪迹")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/queryDeliveryTraces/{sn}")
-    public Result<?> queryDeliveryTraces(@PathVariable String sn) {
-        return Result.success(afterSaleQueryService.deliveryTraces(sn));
+    @GetMapping(value = "/query/delivery-traces")
+    public Result<?> queryDeliveryTraces(@Valid SnQuery query) {
+        return Result.success(afterSaleQueryService.deliveryTraces(query.getSn()));
     }
 
     @Operation(summary = "获取商家售后收件地址", description = "获取商家售后收件地址")
     @RequestLogger
     @PreAuthorize("hasAuthority('dept:tree:data')")
-    @GetMapping(value = "/queryStoreAfterSaleAddress/{sn}")
-    public Result<StoreAfterSaleAddressResult> queryStoreAfterSaleAddress(
-            @NotNull(message = "售后单号") @PathVariable("sn") String sn) {
-        return Result.success(afterSaleQueryService.queryStoreAfterSaleAddress(sn));
+    @GetMapping(value = "/query/store-aftersale-address")
+    public Result<StoreAfterSaleAddressResult> queryStoreAfterSaleAddress(@Valid SnQuery query) {
+        return Result.success(afterSaleQueryService.queryStoreAfterSaleAddress(query.getSn()));
     }
 }

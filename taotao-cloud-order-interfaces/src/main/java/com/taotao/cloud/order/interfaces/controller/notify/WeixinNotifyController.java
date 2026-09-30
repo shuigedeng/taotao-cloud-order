@@ -44,14 +44,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/callback/order/weixin")
 public class WeixinNotifyController extends BusinessController {
 
-    /**
-     * 品牌
-     */
-
 	@Operation(summary = "阿里支付状态通知", description = "阿里支付状态通知")
 	@RequestLogger
 	@PostMapping("/pay")
-	public Result<Void> payNotify(@Valid @RequestBody CreateAfterSaleCommand brand) {
+	public Result<Void> payNotify(@Valid @RequestBody CreateAfterSaleCommand command) {
 		return Result.success();
 	}
 }

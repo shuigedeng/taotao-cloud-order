@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.order.command;
 
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -43,7 +44,7 @@ public record CreateOrderComplaintCommand(
         @NotBlank
         @Schema(description = "sku主键")
         String skuId)
-        implements Serializable {
+        implements Command {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

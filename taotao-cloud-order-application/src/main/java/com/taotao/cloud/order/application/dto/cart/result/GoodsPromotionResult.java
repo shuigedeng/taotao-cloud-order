@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.cart.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -47,7 +48,7 @@ public record GoodsPromotionResult(
         String title,
         @Schema(description = "限购数量")
         Integer limitNum)
-        implements Serializable {
+        implements MarkerResult {
 
     @Serial private static final long serialVersionUID = 1622051257060817414L;
 

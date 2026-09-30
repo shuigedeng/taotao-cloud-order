@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.dto.distribution.result;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serial;
@@ -40,7 +41,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "售后搜索参数")
-public class DistributionPageResult extends PageQuery {
+public class DistributionPageResult implements MarkerResult {
 
     @Serial
     private static final long serialVersionUID = 8808470688518188146L;

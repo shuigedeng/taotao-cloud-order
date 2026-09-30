@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.dto.trade.query;
 
 import com.taotao.boot.common.enums.ClientTypeEnum;
+import com.taotao.boot.common.model.ddd.types.Query;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -32,7 +33,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "交易参数")
-public class TradePageQuery implements Serializable {
+public class TradePageQuery implements Query {
 
     @Serial private static final long serialVersionUID = -8383072817737513063L;
 

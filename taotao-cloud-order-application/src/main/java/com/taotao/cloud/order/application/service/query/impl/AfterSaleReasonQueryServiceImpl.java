@@ -28,7 +28,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class AfterSaleReasonQueryServiceImpl implements AfterSaleReasonQueryService {
 
 	@Override

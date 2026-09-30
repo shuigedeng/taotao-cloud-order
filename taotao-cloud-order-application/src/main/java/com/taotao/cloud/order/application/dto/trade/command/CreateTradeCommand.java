@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.dto.trade.command;
 
 import com.taotao.boot.common.enums.ClientTypeEnum;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -31,7 +32,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "交易参数")
-public class CreateTradeCommand implements Serializable {
+public class CreateTradeCommand implements Command {
 
     @Serial private static final long serialVersionUID = -8383072817737513063L;
 

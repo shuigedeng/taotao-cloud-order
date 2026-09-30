@@ -40,7 +40,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-@Transactional(rollbackFor = Exception.class)
 @Slf4j
 public class OrderCommandServiceImpl implements OrderCommandService {
 

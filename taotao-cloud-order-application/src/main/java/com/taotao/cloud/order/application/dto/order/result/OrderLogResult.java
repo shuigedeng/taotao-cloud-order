@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.dto.order.result;
 
 import com.taotao.boot.common.enums.UserEnum;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,8 +37,7 @@ import lombok.experimental.Accessors;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class OrderLogResult {
+public class OrderLogResult implements MarkerResult {
 
     /**
      * 订单编号

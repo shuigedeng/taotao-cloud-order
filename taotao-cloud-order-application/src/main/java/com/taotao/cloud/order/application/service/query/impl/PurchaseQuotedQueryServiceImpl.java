@@ -26,7 +26,6 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class PurchaseQuotedQueryServiceImpl implements PurchaseQuotedQueryService {
 
     @Override

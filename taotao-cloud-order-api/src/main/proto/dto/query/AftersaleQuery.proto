@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.taotao.cloud.order.api.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.taotao.cloud.order.api.grpc.dto.query";
+option java_outer_classname = "AftersaleQueryProto";
+//option objc_class_prefix = "HLW";
+
+
+message AfterSaleGrpcQuery {
+  string id = 1;
+}
+

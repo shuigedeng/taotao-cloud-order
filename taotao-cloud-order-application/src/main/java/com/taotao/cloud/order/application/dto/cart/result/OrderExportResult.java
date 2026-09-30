@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.cart.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
@@ -84,7 +85,7 @@ public record OrderExportResult(
         Boolean needReceipt,
         @Schema(description = "店铺名称")
         String storeName)
-        implements Serializable {
+        implements MarkerResult {
 
     @Serial private static final long serialVersionUID = 8808470688518188146L;
 }

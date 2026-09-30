@@ -17,6 +17,7 @@
 package com.taotao.cloud.order.application.dto.recharge.command;
 
 import com.taotao.boot.common.model.ddd.query.PageQuery;
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -32,7 +33,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "预存款充值记录查询条件")
-public class CreateRechargeCommand extends PageQuery implements Serializable {
+public class CreateRechargeCommand extends PageQuery implements Command {
     @Serial private static final long serialVersionUID = 318396158590640917L;
 
     @Schema(description = "充值订单编号")

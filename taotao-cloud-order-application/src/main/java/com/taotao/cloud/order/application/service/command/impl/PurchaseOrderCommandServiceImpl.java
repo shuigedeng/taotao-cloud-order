@@ -18,6 +18,7 @@ package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.dto.purchase.result.PurchaseOrderResult;
 import com.taotao.cloud.order.application.service.command.PurchaseOrderCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Service;
  * @version 2022.04
  * @since 2022-04-28 08:55:40
  */
+@RequiredArgsConstructor
 @Service
 public class PurchaseOrderCommandServiceImpl implements PurchaseOrderCommandService {
 
@@ -44,7 +46,7 @@ public class PurchaseOrderCommandServiceImpl implements PurchaseOrderCommandServ
 //    private PurchaseOrderItemCommandService purchaseOrderItemCommandService;
 //
 //    @Override
-//    @Transactional(rollbackFor = Exception.class)
+
 //    public PurchaseOrderResult addPurchaseOrder(PurchaseOrderResult purchaseOrderResult) {
 //       PurchaseOrderPO purchaseOrderPO = new PurchaseOrderPO();
 //       BeanUtil.copyProperties(purchaseOrderResult, purchaseOrderPO);
@@ -57,7 +59,7 @@ public class PurchaseOrderCommandServiceImpl implements PurchaseOrderCommandServ
 //    }
 //
 //    @Override
-//    @Transactional(rollbackFor = Exception.class)
+
 //    public boolean close(String id) {
 //       PurchaseOrderPO purchaseOrderPO = this.getById(id);
 //       purchaseOrderPO.setStatus("CLOSE");

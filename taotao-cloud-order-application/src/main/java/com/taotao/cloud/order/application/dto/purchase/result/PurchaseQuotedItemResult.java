@@ -18,13 +18,15 @@ package com.taotao.cloud.order.application.dto.purchase.result;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import lombok.*;
 
 @Data
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class PurchaseQuotedItemResult implements Serializable {
+public class PurchaseQuotedItemResult implements MarkerResult {
 
     private Long id;
     private String purchaseQuotedId;

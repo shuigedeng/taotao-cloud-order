@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.recharge.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -38,7 +39,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "会员收货地址DTO")
-public class RechargePageResult implements Serializable {
+public class RechargePageResult implements MarkerResult {
 
     @Serial private static final long serialVersionUID = -7605952923416404638L;
 

@@ -30,5 +30,5 @@ import com.taotao.cloud.order.api.rpc.dto.response.OrderRpcResponse;
  */
 public interface OrderQueryRpcService {
 
-	Response<OrderRpcResponse> query(Request<OrderRpcQuery> orderQueryRpcRequest);
+	Response<OrderRpcResponse> query(Request<OrderRpcQuery> request);
 }

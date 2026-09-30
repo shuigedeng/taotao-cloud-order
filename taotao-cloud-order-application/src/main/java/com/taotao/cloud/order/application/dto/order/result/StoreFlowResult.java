@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.order.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import com.taotao.cloud.order.domain.valobj.order.FlowTypeEnum;
 import com.taotao.cloud.order.domain.valobj.order.OrderPromotionTypeEnum;
 import java.io.Serial;
@@ -39,7 +40,7 @@ import lombok.experimental.Accessors;
 @ToString(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class StoreFlowResult {
+public class StoreFlowResult implements MarkerResult {
 
     @Serial private static final long serialVersionUID = -5998757398902747939L;
 

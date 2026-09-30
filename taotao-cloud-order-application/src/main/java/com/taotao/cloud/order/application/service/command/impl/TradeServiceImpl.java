@@ -39,7 +39,6 @@ import java.util.ArrayList;
  */
 @RequiredArgsConstructor
 @Service
-@Transactional(rollbackFor = Exception.class)
 public class TradeServiceImpl implements TradeCommandService {
 
 //    /**
@@ -53,19 +52,19 @@ public class TradeServiceImpl implements TradeCommandService {
 //    /**
 //     * 会员
 //     */
-//    private final IFeignMemberApi memberApi;
+//    private final AclServiceMemberApi memberApi;
 //    /**
 //     * 优惠券
 //     */
-//    private final IFeignCouponApi couponApi;
+//    private final AclServiceCouponApi couponApi;
 //    /**
 //     * 会员优惠券
 //     */
-//    private final IFeignMemberCouponApi memberCouponApi;
+//    private final AclServiceMemberCouponApi memberCouponApi;
 //    /**
 //     * 砍价
 //     */
-//    private final IFeignKanjiaActivityApi kanjiaActivityApi;
+//    private final AclServiceKanjiaActivityApi kanjiaActivityApi;
 //    /**
 //     * RocketMQ
 //     */
@@ -76,7 +75,7 @@ public class TradeServiceImpl implements TradeCommandService {
 //    private final RocketmqCustomProperties rocketmqCustomProperties;
 
 //    @Override
-//    @Transactional(rollbackFor = Exception.class)
+
 //    public Trade createTrade(TradeDTO tradeDTO) {
 //        createTradeCheck(tradeDTO);
 //

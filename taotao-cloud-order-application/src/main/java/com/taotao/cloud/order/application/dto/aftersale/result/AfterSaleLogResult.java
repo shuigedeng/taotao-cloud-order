@@ -16,37 +16,42 @@
 
 package com.taotao.cloud.order.application.dto.aftersale.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.io.Serial;
 import java.io.Serializable;
 
-/** 售后日志 */
+/**
+ * 售后日志
+ */
 @RecordBuilder
 @Schema(description = "售后日志响应对象")
 public record AfterSaleLogResult(
-        @Schema(description = "id")
-        Long id,
+	@Schema(description = "id")
+	Long id,
 /** 售后服务单号 */
-        @Schema(description = "售后服务单号")
-        String sn,
+	@Schema(description = "售后服务单号")
+	String sn,
 /** 操作者id(可以是卖家) */
-        @Schema(description = "操作者id(可以是卖家)")
-        String operatorId,
+	@Schema(description = "操作者id(可以是卖家)")
+	String operatorId,
 /**
-         * 操作者类型
-         *
-         * @see UserEnum
-         */
-        @Schema(description = "操作者类型")
-        String operatorType,
+	 * 操作者类型
+	 *
+	 * @see UserEnum
+	 */
+	@Schema(description = "操作者类型")
+	String operatorType,
 /** 操作者名称 */
-        @Schema(description = "操作者名称")
-        String operatorName,
+	@Schema(description = "操作者名称")
+	String operatorName,
 /** 日志信息 */
-        @Schema(description = "日志信息")
-        String message)
-        implements Serializable {
+	@Schema(description = "日志信息")
+	String message)
+	implements MarkerResult {
 
-    @Serial private static final long serialVersionUID = 8808470688518188146L;
+	@Serial
+	private static final long serialVersionUID = 8808470688518188146L;
 }

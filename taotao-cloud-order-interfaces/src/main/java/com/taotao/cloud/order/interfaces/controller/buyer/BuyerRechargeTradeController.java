@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/buyer/order/recharge")
 public class BuyerRechargeTradeController extends BusinessController {
 
-//	private final IFeignMemberRechargeApi memberRechargeApi;
+//	private final AclServiceMemberRechargeApi memberRechargeApi;
 
 //	@Operation(summary = "创建余额充值订单", description = "创建余额充值订单")
 //	@RequestLogger

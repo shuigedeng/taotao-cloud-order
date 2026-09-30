@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.store.command;
 
+import com.taotao.boot.common.model.ddd.types.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -38,7 +39,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "租户id")
-public class CreateStoreCommand implements Serializable {
+public class CreateStoreCommand implements Command {
 
     @Serial private static final long serialVersionUID = -7605952923416404638L;
 

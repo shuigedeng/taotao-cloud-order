@@ -16,6 +16,7 @@
 
 package com.taotao.cloud.order.application.dto.cart.result;
 
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 import io.soabase.recordbuilder.core.RecordBuilder;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
@@ -37,7 +38,7 @@ public record FullDiscountResult(
         @Schema(description = "参与商品，为-1则代表所有商品参加")
         Integer number,
         @Schema(description = "满额活动")
-        FullDiscountBaseVO fullDiscount) {
+        FullDiscountBaseVO fullDiscount) implements MarkerResult {
 
     private static final long serialVersionUID = -2330552735874105354L;
 

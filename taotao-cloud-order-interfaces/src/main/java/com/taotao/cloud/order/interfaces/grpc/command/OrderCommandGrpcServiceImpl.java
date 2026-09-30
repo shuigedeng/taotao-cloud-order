@@ -14,14 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.order.interfaces.grpc;
+package com.taotao.cloud.order.interfaces.grpc.command;
 
 import com.taotao.cloud.order.api.grpc.OrderCommandGrpcServiceGrpc;
+import com.taotao.cloud.order.api.grpc.dto.command.CreateOrderGrpcCommand;
+import com.taotao.cloud.order.api.grpc.dto.response.OrderGrpcResponse;
+import io.grpc.stub.StreamObserver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.grpc.server.service.GrpcService;
 
 @Slf4j
 @GrpcService
 public class OrderCommandGrpcServiceImpl extends OrderCommandGrpcServiceGrpc.OrderCommandGrpcServiceImplBase {
-
+	@Override
+	public void createOrder(CreateOrderGrpcCommand request, StreamObserver<OrderGrpcResponse> responseObserver) {
+	}
 }

@@ -18,6 +18,7 @@ package com.taotao.cloud.order.application.service.command.impl;
 
 import com.taotao.cloud.order.application.dto.purchase.result.PurchaseOrderItemResult;
 import com.taotao.cloud.order.application.service.command.PurchaseOrderItemCommandService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,6 +30,7 @@ import java.util.List;
  * @version 2022.04
  * @since 2022-04-28 08:55:37
  */
+@RequiredArgsConstructor
 @Service
 public class PurchaseOrderItemCommandServiceImpl implements PurchaseOrderItemCommandService {
 
@@ -38,7 +40,7 @@ public class PurchaseOrderItemCommandServiceImpl implements PurchaseOrderItemCom
 	}
 
 //    @Override
-//    @Transactional(rollbackFor = Exception.class)
+
 //    public boolean addPurchaseOrderItem(String purchaseOrderId,
 //                                        List<PurchaseOrderItemResult> purchaseOrderItemResultList) {
 //        for (PurchaseOrderItemResult purchaseOrderItemResult : purchaseOrderItemResultList) {
