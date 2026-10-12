@@ -31,7 +31,7 @@ public class SysInvoker {
     public GatewayResponse<DictApiResponse> findByCode(GatewayRequest<DictApiQuery> gatewayRequest ) {
         return new GatewayInvokeBuilder<DictApiQuery, DictApiResponse>()
                 .description("sys系统-字典信息查询")
-                .gatewayRouter(param -> dictQueryApi.queryByCode(Request.from(param)))
+                .gatewayRouter(param -> dictQueryApi.query(Request.from(param)))
                 .addLast(RemoteCallExceptionInterceptor.getInstance())
                 .addLast(SysInterceptor.getInstance())
                 .build()
