@@ -64,7 +64,7 @@ dependencies {
     //api "io.github.shuigedeng:taotao-cloud-starter-alibaba"
 
     //boot
-    api "io.github.shuigedeng:taotao-boot-starter-apollo"
+    //api "io.github.shuigedeng:taotao-boot-starter-apollo"
     //api "io.github.shuigedeng:taotao-boot-starter-dubbo"
     api "io.github.shuigedeng:taotao-boot-starter-eventbus"
     api "io.github.shuigedeng:taotao-boot-starter-grpc"
